@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="ja" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>zepui - Wikpelleta</title>
+<link rel="stylesheet" href="test.css"/>
+
+<meta name="generator" content="MediaWiki 1.35.4"/>
+<meta property="og:image" content="http://hoamat.starfree.jp/x/images/3/33/moon.png"/>
+<link rel="alternate" type="application/x-wiki" title="編集" href="/x/index.php?title=zepui&amp;action=edit"/>
+<link rel="edit" title="編集" href="/x/index.php?title=zepui&amp;action=edit"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/x/opensearch_desc.php" title="Wikpelleta (ja)"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-zepui rootpage-zepui skin-vector action-view skin-vector-legacy"><script type="text/javascript" src="https://ad.netowl.jp/js/star-php.js"></script>
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"></div>
+	<div class="mw-indicators mw-body-content">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" lang="ja">zepui</h1>
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">出典: フリー百科事典風創作サイト『ウィクペリッタ（Wikpelleta）』</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">ナビゲーションに移動</a>
+		<a class="mw-jump-link" href="#searchInput">検索に移動</a>
+		<div id="mw-content-text" lang="ja" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="infobox" style="width:300px; padding:0.2em;">
+<tbody><tr><th style="background-color: #6B9299; text-align: center; font-size:110%;" colspan="2">zepui<br /><small>主要な文化的<a href="/wiki/%E5%90%8C%E6%84%8F" title="同意">同意</a>：月</small></th></tr>
+<tr><td colspan="2" style="text-align: center;background-color: black;">
+<p><a href="/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:moon.png" class="image"><img alt="moon.png" src="/x/images/thumb/3/33/moon.png/250px-moon.png" decoding="async" width="250" height="250" srcset="/x/images/thumb/3/33/moon.png/375px-moon.png 1.5x, /x/images/thumb/3/33/moon.png/500px-moon.png 2x" data-file-width="600" data-file-height="600" /></a>
+</p>
+</td></tr><tr><td style="text-align: center;　font-weight:normal; width:300px; text-align: center; font-size: small; margin-left: auto; margin-right: auto;" colspan="2"><div>満月型のzepui</div></td></tr>
+
+<tr><th style="text-align: left;">分類</th><td style="text-align: left;">衛星</td></tr>
+<tr><th style="background-color: #6B9299; text-align: center;" colspan="2">軌道要素</th></tr>
+<tr><th style="text-align: left;">主星</th><td style="text-align: left;"><a href="/wiki/sedai" title="sedai">sedai</a></td></tr>
+<tr><th style="text-align: left;">主星からの距離</th><td style="text-align: left;"></td></tr>
+<tr><th style="text-align: left;">平均</th><td style="text-align: left;">623,790 km</td></tr>
+<tr><th style="text-align: left;">近点</th><td style="text-align: left;">555,053 km</td></tr>
+<tr><th style="text-align: left;">遠点</th><td style="text-align: left;">692,528 km</td></tr>
+<tr><th style="text-align: left;">衛星の数</th><td style="text-align: left;">0</td></tr>
+</tbody></table>
+<p><b>zepui</b>は天体の一つである。<a href="/wiki/sedai" title="sedai">sedai</a>の衛星。
+</p>
+<h2><span id="概要"></span><span class="mw-headline" id=".E6.A6.82.E8.A6.81">概要</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/x/index.php?title=zepui&amp;veaction=edit&amp;section=1" class="mw-editsection-visualeditor" title="節を編集: 概要">編集</a><span class="mw-editsection-divider"> | </span><a href="/x/index.php?title=zepui&amp;action=edit&amp;section=1" title="節を編集: 概要">ソースを編集</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>zepuiは見かけ上の大きさが最も大きな天体であり、地上から最も観察のしやすい天体である。またsedai
+から最も近い天体である。
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:602px;"><a href="/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:moon_rot.png" class="image"><img alt="" src="/x/images/thumb/c/c2/moon_rot.png/600px-moon_rot.png" decoding="async" width="600" height="600" class="thumbimage" srcset="/x/images/thumb/c/c2/moon_rot.png/900px-moon_rot.png 1.5x, /x/images/c/c2/moon_rot.png 2x" data-file-width="1000" data-file-height="1000" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:moon_rot.png" class="internal" title="拡大"></a></div>満ち欠け</div></div></div>
+<h2><span id="地上からの観測"></span><span class="mw-headline" id=".E5.9C.B0.E4.B8.8A.E3.81.8B.E3.82.89.E3.81.AE.E8.A6.B3.E6.B8.AC">地上からの観測</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/x/index.php?title=zepui&amp;veaction=edit&amp;section=2" class="mw-editsection-visualeditor" title="節を編集: 地上からの観測">編集</a><span class="mw-editsection-divider"> | </span><a href="/x/index.php?title=zepui&amp;action=edit&amp;section=2" title="節を編集: 地上からの観測">ソースを編集</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>自転速度と回転速度が釣り合っているため、地上からは片方からの面のみ見ることができる。ただし、微細な秤動が有るため15度ほど赤道方向の傾きを見ることができる。<br /><br />
+表面には無数のクレーターが有り、いくつかは形成時代に吹き出したマグマによって玄武岩質の黒い底ができている。これを一般に「洞穴」と呼ぶが、実際に穴が空いているわけではない。この「洞穴」は地上から見て裏側の面にはほとんど見られず、何らかの要因によって偏りが生じている。
+「洞穴」には場所ごとに名前がついており、大きな4つの範囲にはそれぞれ季節の名前を充てられている（「春の洞」等）。これは秤動によってその季節のときに最も明るく見えるためであるが、現在は暦の変化によって数ヶ月ずれている。<br /><br />
+春の洞には比較的新しいクレーターがあり、このクレーター周辺に放射状の溝が出来ている。この周囲は切立った崖であり、zepuiにある山脈としては最も高く、かつ急である。この山脈の一部は満ち欠けの際にしばらく光に当たり続けるため、地上からでも影内に光点を見ることができる。<br /><br />
+満ち欠けが18日ほどの周期で観測でき、これが暦の月として反映されている。ただし、実際には1月につき0.1日ほどずれがあるため、6月ごとに1日挿入される（19の月）。つまり、1年のうちに19日が21回ある。<br /><br />
+sedaiの公転軌道に対してzepuiの軌道面が比較的強く離れているため、上下方向に影ができる。このため最も完全な満月を見ることができるのは、月食が発生する1ヶ月前か、発生した一ヶ月後になる。
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20220514163353
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.020 seconds
+Real time usage: 0.700 seconds
+Preprocessor visited node count: 30/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key hoamat_wiki:pcache:idhash:66-0!canonical and timestamp 20220514163352 and revision id 241
+ -->
+</div></div><div class="printfooter">「<a dir="ltr" href="http://hoamat.starfree.jp/x/index.php?title=zepui&amp;oldid=241">http://hoamat.starfree.jp/x/index.php?title=zepui&amp;oldid=241</a>」から取得</div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>案内メニュー</h2>
+	<div id="mw-head">
+		<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-personal" class="vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label">
+		<span>個人用ツール</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage">ログインしていません</li><li id="pt-anontalk"><a href="/wiki/%E7%89%B9%E5%88%A5:%E3%83%88%E3%83%BC%E3%82%AF%E3%83%9A%E3%83%BC%E3%82%B8" title="このIPアドレスからなされた編集についての議論 [n]" accesskey="n">トーク</a></li><li id="pt-anoncontribs"><a href="/wiki/%E7%89%B9%E5%88%A5:%E8%87%AA%E5%88%86%E3%81%AE%E6%8A%95%E7%A8%BF%E8%A8%98%E9%8C%B2" title="このIPアドレスからなされた編集の一覧 [y]" accesskey="y">投稿記録</a></li><li id="pt-createaccount"><a href="/x/index.php?title=%E7%89%B9%E5%88%A5:%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E4%BD%9C%E6%88%90&amp;returnto=zepui" title="アカウントを作成してログインすることをお勧めしますが、必須ではありません">アカウント作成</a></li><li id="pt-login"><a href="/x/index.php?title=%E7%89%B9%E5%88%A5:%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3&amp;returnto=zepui" title="ログインすることを推奨します。ただし、必須ではありません。 [o]" accesskey="o">ログイン</a></li></ul>
+		
+	</div>
+</nav>
+
+
+		<div id="left-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-namespaces" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label">
+		<span>名前空間</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected"><a href="/wiki/zepui" title="本文を閲覧 [c]" accesskey="c">ページ</a></li><li id="ca-talk" class="new"><a href="/x/index.php?title=%E3%83%88%E3%83%BC%E3%82%AF:zepui&amp;action=edit&amp;redlink=1" rel="discussion" title="本文ページについての議論 (存在しないページ) [t]" accesskey="t">議論</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-variants" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label">
+		<span>変種</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+		</div>
+		<div id="right-navigation">
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-views" class="vector-menu vector-menu-tabs vectorTabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label">
+		<span>表示</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="ca-view" class="collapsible selected"><a href="/wiki/zepui">閲覧</a></li><li id="ca-ve-edit" class="collapsible"><a href="/x/index.php?title=zepui&amp;veaction=edit" title="このページを編集 [v]" accesskey="v">編集</a></li><li id="ca-edit" class="collapsible"><a href="/x/index.php?title=zepui&amp;action=edit" title="このページを編集 [e]" accesskey="e">ソースを編集</a></li><li id="ca-history" class="collapsible"><a href="/x/index.php?title=zepui&amp;action=history" title="このページの過去の版 [h]" accesskey="h">履歴表示</a></li></ul>
+		
+	</div>
+</nav>
+
+
+			<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-cactions" class="vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu" aria-labelledby="p-cactions-label" role="navigation" 
+	 >
+	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label">
+		<span>その他</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+
+			<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">検索</label>
+	</h3>
+	<form action="/x/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Wikpelleta内を検索" title="Wikpelleta内を検索する [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" name="title" value="特別:検索">
+			<input type="submit" name="fulltext" value="検索" title="この文字列が含まれるページを探す" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="表示" title="厳密に一致する名前のページが存在すれば、そのページへ移動する" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a  title="メインページに移動する" class="mw-wiki-logo" href="/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8"></a>
+	</div>
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-navigation" class="vector-menu vector-menu-portal portal portal-first" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label">
+		<span>案内</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description"><a href="/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8" title="メインページに移動する [z]" accesskey="z">メインページ</a></li><li id="n-.E6.9C.80.E8.BF.91.E3.81.AE.E5.87.BA.E6.9D.A5.E4.BA.8B"><a href="https://twitter.com/Xiuliu_Xiao" rel="nofollow">最近の出来事</a></li><li id="n-recentchanges"><a href="/wiki/%E7%89%B9%E5%88%A5:%E6%9C%80%E8%BF%91%E3%81%AE%E6%9B%B4%E6%96%B0" title="このウィキにおける最近の更新の一覧 [r]" accesskey="r">最近の更新</a></li><li id="n-.E6.96.B0.E3.81.97.E3.81.84.E3.83.9A.E3.83.BC.E3.82.B8"><a href="/wiki/%E7%89%B9%E5%88%A5:%E6%9C%80%E8%BF%91%E3%81%AE%E6%9B%B4%E6%96%B0">新しいページ</a></li><li id="n-randompage"><a href="/wiki/%E7%89%B9%E5%88%A5:%E3%81%8A%E3%81%BE%E3%81%8B%E3%81%9B%E8%A1%A8%E7%A4%BA" title="無作為に選択されたページを読み込む [x]" accesskey="x">おまかせ表示</a></li><li id="n-.E7.B7.B4.E7.BF.92.E7.94.A8.E3.83.9A.E3.83.BC.E3.82.B8"><a href="/wiki/MediaWiki:Test">練習用ページ</a></li><li id="n-help-mediawiki"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents">MediaWikiについてのヘルプ</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="p-tb" class="vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label">
+		<span>ツール</span>
+	</h3>
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere"><a href="/wiki/%E7%89%B9%E5%88%A5:%E3%83%AA%E3%83%B3%E3%82%AF%E5%85%83/zepui" title="ここにリンクしている全ウィキページの一覧 [j]" accesskey="j">リンク元</a></li><li id="t-recentchangeslinked"><a href="/wiki/%E7%89%B9%E5%88%A5:%E9%96%A2%E9%80%A3%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%AE%E6%9B%B4%E6%96%B0%E7%8A%B6%E6%B3%81/zepui" rel="nofollow" title="このページからリンクしているページの最近の更新 [k]" accesskey="k">関連ページの更新状況</a></li><li id="t-specialpages"><a href="/wiki/%E7%89%B9%E5%88%A5:%E7%89%B9%E5%88%A5%E3%83%9A%E3%83%BC%E3%82%B8%E4%B8%80%E8%A6%A7" title="特別ページの一覧 [q]" accesskey="q">特別ページ</a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="このページの印刷用ページ [p]" accesskey="p">印刷用バージョン</a></li><li id="t-permalink"><a href="/x/index.php?title=zepui&amp;oldid=241" title="このページのこの版への固定リンク">この版への固定リンク</a></li><li id="t-info"><a href="/x/index.php?title=zepui&amp;action=info" title="このページについての詳細情報">ページ情報</a></li><li id="t-cite"><a href="/x/index.php?title=%E7%89%B9%E5%88%A5:%E3%81%93%E3%81%AE%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E5%BC%95%E7%94%A8&amp;page=zepui&amp;id=241&amp;wpFormIdentifier=titleform" title="このページの引用方法">このページを引用</a></li></ul>
+		
+	</div>
+</nav>
+
+
+	
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info" >
+		<li id="footer-info-lastmod"> このページの最終更新日時は 2022年5月12日 (木) 18:36 です。</li>
+		<li id="footer-info-copyright">特に記載がない限り、内容は<a class="external" rel="nofollow" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">クリエイティブ・コモンズ 表示-非営利-継承</a>のライセンスで利用できます。</li>
+	</ul>
+	<ul id="footer-places" >
+		<li id="footer-places-privacy"><a href="/wiki/Hoamat:%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%BB%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC" title="Hoamat:プライバシー・ポリシー">プライバシー・ポリシー</a></li>
+		<li id="footer-places-about"><a href="/wiki/Hoamat:Wikpelleta%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" title="Hoamat:Wikpelletaについて">Wikpelletaについて</a></li>
+		<li id="footer-places-disclaimer"><a href="/wiki/Hoamat:%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85" title="Hoamat:免責事項">免責事項</a></li>
+	</ul>
+	<ul id="footer-icons" class="noprint">
+		<li id="footer-copyrightico"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="/x/resources/assets/licenses/cc-by-nc-sa.png" alt="クリエイティブ・コモンズ 表示-非営利-継承" width="88" height="31" loading="lazy"/></a></li>
+		<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/x/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/x/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /x/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+	</ul>
+	<div style="clear: both;"></div>
+</footer>
+
+
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.020","walltime":"0.700","ppvisitednodes":{"value":30,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20220514163353","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":5875});});</script></body><!-- Cached 20220514163400 -->
+</html>
