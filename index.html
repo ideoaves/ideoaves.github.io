@@ -1,8 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
   <title>🄘⒟⒠⒪⒜⒱⒠⒮</title>
+  <script src="cursor.js"></script>
 </head>
+
+
 <body>
+<div class="center">
+    <image class="title" src="title.gif">
+    <ul class="botan">
+     <a href="about.html" class="botton"><li>About</li></a>
+     <a href="contents.html" class="botton"><li>Contents</li></a>
+    </ul>
+
+    <ul class="botan">
+     <a id="button" type="button"><li>2000 Opening song</li></a>
+
+    <audio id="play">
+     <source src="2000.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        const song = document.querySelector("#play");
+        const btn  = document.querySelector("#button");
+        btn.addEventListener("click", ()=>{
+            if( ! song.paused ){
+            song.pause();
+            song.currentTime = 0;
+        }
+        else{
+            song.play();
+        }
+        });
+    </script>
+    </ul>
+
+
+    <div class="window"><h4>Hello</h4><p>
+    あなたは
+    <a class="count"><script>
+        document.write(("000000" + (Math.floor(Math.random() * 9999) + 10)).slice(-6));
+    </script></a>
+    人目の来場者です。<br>
+    中二病の懐古主義者のWebサイトへようこそ。<br>
+    <a class="memo">キリ番報告とかまで再現する気はないですが、JavaのMath.randomを色々弄っている数値なので、キリが良かったらいいことがあるかもしれません。</a>
+    </p></div>
+
+    <div class="window"><h4>更新</h4>
+    <table class="news">
+    <tr><th>2022-05-17</th><td>みかぶる氏の”ねこボタン”にあやかって”<a class="italic">2000 Opening song</a>ボタン”を追加。<br><a class="memo">一回押すと再生、もう一度押すと停止します。</a></td></tr>
+    <tr><th>2022-05-17</th><td>index.html作成</td></tr>
+    </table>
+    </div>
+
+</div>
 </body>
 </html>
