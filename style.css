@@ -7,34 +7,76 @@ body {
        linear-gradient(0deg, transparent 49px, #666 50px),
        linear-gradient(90deg, transparent 49px, #666 50px);
     color: white;
+    width: 100%;
+    height: 100%;
+    margin: 5px;
 }
   
 .center{
     display: block;
     text-align: center;
-    width: 80%;
     margin: 0 auto;
+    align-self: center;
+    width: 80%;
     background-color: black;
     padding: 50px 50px;
     border-style: outset;
     border-width: 1px;
+    overflow: auto;
+}
+
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 50px 50px;
+    align-content: stretch;
+    justify-content: center;
 }
 
 .window {
     display: block;
-    margin: 0 auto;
+    margin: 50px auto;
     width: 50%;
+    text-align: left;
+    font-family: monospace;
     border-width: 0 2px 2px 1px;
     background-color: black;
     border-style: outset;
     border-color:white;
-    display: block;
-    text-align: left;
-    font-family: monospace;
 }
- .window h4{
-    width: 98%;
-    padding-left:2%;
+.window p, table {
+    margin: -10px 10px 10px 10px;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+.prof {
+    text-align: center;
+    align-self: center;
+    margin: 25px 25px;
+    width: 20%;
+    vertical-align: top;
+    font-family: monospace;
+    border-width: 0 2px 2px 1px;
+    background-color: black;
+    border-style: outset;
+    border-color:white;
+    word-break: break-all;
+}
+.prof p, table {
+    margin: -10px 10px 10px 10px;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+h4{
+    width: 99%;
+    padding-left:1%;
+    text-align: left;
+    margin-top:0;
     border-style: outset;
     border-width: 5px 0px 1px 0px;
     background-color: black;
@@ -43,11 +85,12 @@ body {
     letter-spacing: 2px;
     color: white;
 }
-.window p, table{
-    margin: -10px 10px 10px 10px;
-    text-align: justify;
-    letter-spacing: 1px;
-    line-height: 1.5;
+
+.name {
+    text-align: left;
+    font-family: serif;
+    font-style:italic;
+    letter-spacing: 2px;
 }
 
 .title {
@@ -89,6 +132,17 @@ a{
     text-decoration:none; 
 }
 
+main a[href]:link {
+    color:rgb(61, 61, 255);
+}
+main a[href]:visited {
+    color:rgb(0, 8, 255);
+}
+main a[href]:hover {
+    color:rgb(255, 255, 255); 
+    background-color: rgb(0, 0, 255);
+}
+
 .news {
     vertical-align: "top";
 }
@@ -112,6 +166,16 @@ a{
 
 .bold {
     font-weight: bold;
+    text-shadow: 
+    0.3px 0.3px 0, 
+    0.3px -0.3px 0px,
+    -0.3px 0.3px 0,
+    -0.3px -0.3px 0px,
+    0.3px 0px 0px,
+    0px 0.3px 0px,
+    -0.3px 0px 0px,
+    0px -0.3px 0px;
+    letter-spacing: 1px;
 }
 
 .italic {
@@ -119,14 +183,47 @@ a{
     font-style:italic;
     font-weight: bold;
     letter-spacing: 2px;
-    font-size: 90%;
+    font-size: 80%;
 }
 
 .memo {
     display: block;
     font-style:italic;
     color: #666;
-    padding-top:0.6em;
     padding-top:0.7em;
     font-size: 90%;
 }
+
+.blue {
+    color: #ba0000;
+}
+
+.prof img{
+    margin: 0 5px 5px 0;
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+}
+
+.filter1 {
+    filter: drop-shadow(5px 5px 0px #b0b0b0) brightness(70%) grayscale(100%) contrast(1000%);
+}
+.nofilter {
+    filter: drop-shadow(5px 5px 0px #6f6f6f);
+}
+
+.filter1light {
+    filter: drop-shadow(5px 5px 0px #b0b0b0) brightness(130%) grayscale(100%) contrast(200%);
+}
+
+.filtermono {
+    filter: drop-shadow(5px 5px 0px #b0b0b0) grayscale(100%);
+}
+
+.mono {
+    filter: drop-shadow(5px 5px 0px #b0b0b0) grayscale(100%) contrast(150%);
+}
+
+::-webkit-scrollbar{
+    display: none;
+  }
