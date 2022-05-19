@@ -10,12 +10,15 @@
 
 <body>
 <div class="center">
-    <image class="title" src="title.gif">
+   <header>
+   <a href="index.html"><image class="title" src="title.gif"></a>
     <ul class="botan">
+     <a href="index.html" class="botton bold"><li>TOP</li></a>
      <a href="about.html" class="botton"><li>About</li></a>
      <a href="contents.html" class="botton"><li>Contents</li></a>
-    </ul>
-
+   </ul>
+   </header>
+   <main>
     <ul class="botan">
      <a id="button" type="button"><li>2000 Opening song</li></a>
 
@@ -36,6 +39,26 @@
         }
         });
     </script>
+
+     <a id="button2" type="button2"><li lang="zh-cmn-Hans" style="font-family: monospace; padding-top: 0.3em; padding-bottom: 0.3em;">星をつなげて 8bit</li></a>
+
+    <audio id="play2">
+     <source src="bitgoc.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        const song2 = document.querySelector("#play2");
+        const btn2  = document.querySelector("#button2");
+        btn2.addEventListener("click", ()=>{
+            if( ! song2.paused ){
+            song2.pause();
+            song2.currentTime = 0;
+        }
+        else{
+            song2.play();
+        }
+        });
+    </script>
     </ul>
 
 
@@ -45,17 +68,19 @@
         document.write(("000000" + (Math.floor(Math.random() * 9999) + 10)).slice(-6));
     </script></a>
     人目の来場者です。<br>
-    中二病の懐古主義者のWebサイトへようこそ。<br>
+    創作集団IdeoavesのWebサイトへようこそ。<br>
     <a class="memo">キリ番報告とかまで再現する気はないですが、JavaのMath.randomを色々弄っている数値なので、キリが良かったらいいことがあるかもしれません。</a>
     </p></div>
 
     <div class="window"><h4>更新</h4>
     <table class="news">
+    <tr><th>2022-05-19</th><td><a href="contents.html">Contents</a>を追加。最低限のポータルサイトとしては一旦完成。</td></tr>
     <tr><th>2022-05-17</th><td>みかぶる氏のミクボタンにあやかって”<a class="italic">2000 Opening song</a>ボタン”を追加。<br><a class="memo">一回押すと再生、もう一度押すと停止します。</a></td></tr>
     <tr><th>2022-05-17</th><td>index.html作成</td></tr>
     </table>
     </div>
 
 </div>
+</main>
 </body>
 </html>
