@@ -139,8 +139,8 @@ main a[href]:link {
     background-color: #FFFFFF;
 }
 main a[href]:visited {
-    color:#FFFFFF; 
-    background-color: #696969;
+    color:#0000FF; 
+    background-color: #FFFFFF;
 }
 main a[href]:hover {
     color:#FFFFFF; 
