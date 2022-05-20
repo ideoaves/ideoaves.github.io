@@ -105,6 +105,8 @@ h4{
 }
 
 .botan li{
+    color:inital; 
+    background-color: inital;
     display: inline;
     padding: 0px 20px;
     margin: 5px 10px;
