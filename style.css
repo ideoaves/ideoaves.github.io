@@ -133,10 +133,10 @@ a{
 }
 
 main a[href]:link {
-    color:rgb(61, 61, 255);
+    color:cyan;
 }
 main a[href]:visited {
-    color:rgb(0, 8, 255);
+    color:#add8e6;
 }
 main a[href]:hover {
     color:rgb(255, 255, 255); 
