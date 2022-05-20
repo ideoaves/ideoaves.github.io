@@ -133,14 +133,16 @@ a{
 }
 
 main a[href]:link {
-    color:cyan;
+    color:#0000FF; 
+    background-color: #FFFFFF;
 }
 main a[href]:visited {
-    color:#add8e6;
+    color:#FFFFFF; 
+    background-color: #696969;
 }
 main a[href]:hover {
-    color:rgb(255, 255, 255); 
-    background-color: rgb(0, 0, 255);
+    color:#FFFFFF; 
+    background-color: #0000FF;
 }
 
 .news {
