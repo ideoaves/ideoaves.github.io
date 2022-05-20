@@ -66,7 +66,7 @@ body {
     word-break: break-all;
 }
 .prof p, table {
-    margin: -10px 10px 10px 10px;
+    margin: -10px 12px 12px 10px;
     text-align: justify;
     letter-spacing: 1px;
     line-height: 1.5;
@@ -104,9 +104,9 @@ h4{
     letter-spacing: 2px;
 }
 
-.botan li{
-    color:inital; 
-    background-color: inital;
+.botan{
+    color:black; 
+    background-color: black;
     display: inline;
     padding: 0px 20px;
     margin: 5px 10px;
@@ -121,11 +121,11 @@ h4{
     color: black;
 }
 
-.botan li:hover {
+.botan:hover {
     cursor:pointer
 }
 
-.botan li:active {
+.botan:active {
     border-color: #808080 #ffffff #ffffff #808080;
 }
 
@@ -134,15 +134,15 @@ a{
     text-decoration:none; 
 }
 
-main a[href]:link {
+main a[href]:link:not(.botan){
     color:#FFFFFF; 
     background-color: #0000FF;
 }
-main a[href]:visited {
+main a[href]:visited:not(.botan) {
     color:#FFFFFF; 
     background-color: #0000FF;
 }
-main a[href]:hover {
+main a[href]:hover:not(.botan) {
     color:#FFFFFF; 
     background-color: gray;
 }
@@ -203,36 +203,43 @@ main a[href]:hover {
 }
 
 .prof img{
-    margin: 0 5px 5px 0;
-    border-style: solid;
-    border-width: 1px;
+    margin: 0 10px 10px 0;
+    outline: 1px solid;
     display: block;
+    box-shadow: 4px 4px 0 rgb(0, 0, 0), 5px 5px 0 rgb(255, 255, 255);
 }
 
 .filter1 {
-    filter: drop-shadow(5px 5px 0px #b0b0b0) brightness(70%) grayscale(100%) contrast(1000%);
+    filter: brightness(70%) grayscale(100%) contrast(1000%);
 }
 .nofilter {
-    filter: drop-shadow(5px 5px 0px #6f6f6f);
+    filter: none;
 }
 
 .filter1light {
-    filter: drop-shadow(5px 5px 0px #b0b0b0) brightness(130%) grayscale(100%) contrast(200%);
+    filter: brightness(130%) grayscale(100%) contrast(200%);
 }
 
 .filtermono {
-    filter: drop-shadow(5px 5px 0px #b0b0b0) grayscale(100%);
+    filter: grayscale(100%);
 }
 
 .mono {
-    filter: drop-shadow(5px 5px 0px #b0b0b0) grayscale(100%) contrast(150%);
+    filter: grayscale(100%) contrast(150%);
 }
 
 .prof img:hover {
-    filter: drop-shadow(5px 5px 0px #b0b0b0) brightness(100%) grayscale(0%) contrast(100%);
+    filter: brightness(100%) grayscale(0%) contrast(100%);
 }
 .mono:hover {
-    filter: drop-shadow(5px 5px 0px #b0b0b0) brightness(100%) grayscale(0%) contrast(100%);
+    filter: brightness(100%) grayscale(0%) contrast(100%);
+}
+
+.logo {
+    filter: brightness(1000%) grayscale(100%) contrast(1000%);
+}
+.prof .logo:hover {
+    filter: brightness(1000%) grayscale(100%) contrast(1000%);
 }
 
 ::-webkit-scrollbar{
