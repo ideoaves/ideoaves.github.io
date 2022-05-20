@@ -227,6 +227,9 @@ main a[href]:hover {
 .prof img:hover {
     filter: drop-shadow(5px 5px 0px #b0b0b0) brightness(100%) grayscale(0%) contrast(100%);
 }
+.mono:hover {
+    filter: drop-shadow(5px 5px 0px #b0b0b0) brightness(100%) grayscale(0%) contrast(100%);
+}
 
 ::-webkit-scrollbar{
     display: none;
