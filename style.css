@@ -135,6 +135,14 @@ h4 {
     display: block;
     box-shadow: 4px 4px 0 rgb(0, 0, 0), 5px 5px 0 rgb(255, 255, 255);
 }
+.shadowimg img{
+    display: inline-block;
+    height: 200px;
+    margin: 0 10px 10px 0;
+    outline: 1px solid;
+    box-shadow: 4px 4px 0 rgb(0, 0, 0), 5px 5px 0 rgb(255, 255, 255);
+}
+
 
 .filter1 {
     filter: brightness(70%) grayscale(100%) contrast(1000%);
@@ -197,7 +205,11 @@ h4 {
     border-color: #808080 #ffffff #ffffff #808080;
 }
 
-
+.dead{
+    color:gray; 
+    text-shadow: 1px 1px 0 #fff;
+    background-color: #DFDFDF;
+}
 
 a{
     text-decoration:none; 
