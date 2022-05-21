@@ -13,7 +13,6 @@ body {
 }
 
 ul {
-    display: inline-block;
     padding-inline: 0px;
     line-height: 40px;
 }
