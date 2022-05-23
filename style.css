@@ -13,8 +13,8 @@ body {
 }
 
 ul {
-   /* padding-inline: 0px;　*/
-    line-height: 0px;
+    padding-inline: 0px;
+    line-height: 30px;
 }
   
 .center{
