@@ -103,6 +103,17 @@ h4 {
     outline: none;
 }
 
+.window #hedicon {
+    text-align: center;
+    align-self: center;
+    margin-right: 6px;
+    margin-left: auto;
+    margin-top: -40px;
+    padding-bottom: 17px;
+    box-shadow: none;
+    outline: none;
+}
+
 .prof span, table {
     display: block;
     margin: -10px 12px 12px 10px;
