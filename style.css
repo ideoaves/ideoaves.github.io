@@ -310,4 +310,8 @@ main a[href]:hover:not(.botan) {
         margin: 0 0 40px 0;
         width: 100% !important;
     }
+      
+    .none {
+        display: none;
+    }
 }
