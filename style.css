@@ -104,8 +104,8 @@ h4 {
 }
 
 .window #hedicon {
-    text-align: right;
     display: block;
+    padding-bottom: 30px;
 }
 
 .prof span, table {
