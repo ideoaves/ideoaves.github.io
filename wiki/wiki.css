@@ -1,0 +1,155 @@
+body{
+    background-color: #f6f6f6;
+}
+
+.wiki::after {
+    content: あああ;
+}
+
+.side{
+    position :absolute;
+    margin-right: calc(100% - 13em);
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 0.75em;
+    line-height: 1.8;
+}
+.main {
+    margin-left: 11em;
+    margin-right: 0em;
+    display: block;
+}
+.header {
+    padding: 0em 0.5em 1.5em 0.5em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.headlist{
+    
+    list-style: none;
+    font-size: 0.75em;
+}
+.headlist li{
+    text-align: right;
+    float: left;
+    margin-left: 0.75em;
+}
+
+.searching{
+    text-align: right;
+    position: absolute;
+    top: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #0645ad;
+    background: none;
+}
+a[href=""] {
+    text-decoration: none;
+    color: #ba0000;
+    background: none;
+}
+
+
+.nolink{
+    color: black;
+}
+
+.page {
+    line-height: 1.6;
+    background-color: #FFFFFF;
+    padding: 0.4em 1.5em 1.5em 1.5em;
+    margin-top: 5px;
+    border: 1px solid #a7d7f9;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000;
+    margin: 0;
+    padding-top: 0.5em;
+    overflow: hidden;
+}
+
+/* タイトル */
+h1 {
+    font-size: 188%;
+    margin-bottom: 0.25em;
+    line-height: 1.3;
+    font-weight: normal;
+    margin-bottom: 0.6em;
+    border-bottom: 1px solid #a2a9b1;
+}
+
+/*出典*/
+.syut {
+    position: absolute;
+    top: 50px;
+}
+.sukima {
+    margin: 0 0 1.4em 1em;
+}
+
+/*目次*/
+.mokuzi {
+    display: table;
+    padding: 7px;
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    font-size: 95%;
+    list-style: none;
+}
+.mokuzititle {
+    text-align: center;
+    font-size: 100%;
+    font-weight: bold;
+}
+.mokuzitext{
+    padding: 0em 2em 0.5em 0.5em;
+}
+.one {
+    list-style: none;
+}
+
+
+/* 項目 */
+h2 {
+    font-size: 150%;
+    color: black;
+    font-weight: normal;
+    margin-bottom: 0.6em;
+    border-bottom: 1px solid #a2a9b1;
+}
+h3 {
+    font-size: 128%;
+}
+
+/* インフォボックス */
+.infobox {
+    padding: 0.2em;
+    margin: 0.5em 0 0.5em 1em;
+    width:300px;
+    float: right;
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    font-size: 88%;
+    color: black;
+    line-height: 1.5em;
+}
+/* [編集]ってやつ */
+.edit {
+    font-size: small;
+    margin-left: 1em;
+    text-decoration: none;
+    -webkit-user-select: none;
+}
+/* 画像の枠のやつ */
+.photo {
+    margin: 0.5em 1.4em 1.3em 0;
+    border: 1px solid #c8ccd1;
+    background-color: #f8f9fa;
+    font-size: 94%;
+    padding: 5px;
+}
