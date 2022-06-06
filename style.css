@@ -241,6 +241,12 @@ main a[href]:hover:not(.botan) {
     width: 100px;
     vertical-align: top;
 }
+.cont {
+    vertical-align: "top";
+}
+ .cont th{
+    font-style: bold;
+}
 
 
 /* フォント */
