@@ -44,7 +44,7 @@ ul {
     margin: 50px auto;
     width: 50%;
     text-align: left;
-    font-family: Courier New, monospace;
+    font-family: monospace;
     border-width: 0 2px 2px 1px;
     background-color: black;
     border-style: outset;
@@ -66,7 +66,7 @@ ul {
     margin: 25px 25px;
     width: 20%;
     vertical-align: top;
-    font-family: Courier New, monospace;
+    font-family: monospace;
     border-width: 0 2px 2px 1px;
     background-color: black;
     border-style: outset;
@@ -217,6 +217,7 @@ h4 {
 
 a{
     text-decoration:none; 
+  　font-family: Courier New;
 }
 
 main a[href]:link:not(.botan){
