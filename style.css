@@ -44,7 +44,7 @@ ul {
     margin: 50px auto;
     width: 50%;
     text-align: left;
-    font-family: "Courier New", monospace;
+    font-family: Courier New, monospace;
     border-width: 0 2px 2px 1px;
     background-color: black;
     border-style: outset;
@@ -52,9 +52,9 @@ ul {
 }
 .window p, table {
     margin: -10px 10px 10px 10px;
+    text-align: justify;
     letter-spacing: 1px;
     line-height: 1.5;
-    text-align: justify;
 }
 
 
@@ -66,13 +66,12 @@ ul {
     margin: 25px 25px;
     width: 20%;
     vertical-align: top;
-    font-family: "Courier New", monospace;
+    font-family: Courier New, monospace;
     border-width: 0 2px 2px 1px;
     background-color: black;
     border-style: outset;
     border-color:white;
     word-break: break-all;
-    text-align: justify;
 }
 
 .bar {
