@@ -52,7 +52,6 @@ ul {
 }
 .window p, table {
     margin: -10px 10px 10px 10px;
-    text-align: justify;
     letter-spacing: 1px;
     line-height: 1.5;
 }
@@ -111,7 +110,6 @@ h4 {
 .prof span, table {
     display: block;
     margin: -10px 12px 12px 10px;
-    text-align: justify;
     letter-spacing: 1px;
     line-height: 1.5;
 }
