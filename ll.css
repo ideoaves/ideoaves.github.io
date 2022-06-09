@@ -2,8 +2,3 @@
   font-family: 'll';
   src: url('leanelei.ttf') format('truetype');
 }
-
-#ll{
-  font: 1.5em "LL", sans-serif;
-  letter-spacing: 0.1em;
-}
