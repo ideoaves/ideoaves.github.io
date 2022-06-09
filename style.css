@@ -161,11 +161,16 @@ h2 {
   font-size: 150%;
   color: black;
   font-weight: normal;
-  margin-bottom: 0.6em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0.5em;
   border-bottom: 1px solid #a2a9b1;
 }
 h3 {
   font-size: 128%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0.5em;
 }
 
 .filter1 {
