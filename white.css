@@ -248,6 +248,12 @@ td img {
   font-size: 90%;
 }
 
+@import url("ll.css");
+.ll{
+  font: 1.5em "LL", sans-serif;
+  letter-spacing: 0.1em;
+}
+
 /* スマホ用 */
 @media screen and (max-width:900px){
 
