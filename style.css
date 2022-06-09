@@ -310,6 +310,12 @@ main a[href]:hover:not(.botan) {
     color: #ba0000;
 }
 
+@import url("ll.css");
+.ll{
+  font: 1.5em "LL", sans-serif;
+  letter-spacing: 0.1em;
+}
+
 ::-webkit-scrollbar{
     display: none;
   }
