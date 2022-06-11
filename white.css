@@ -115,7 +115,8 @@ table {
   border-collapse: separate;
   border-spacing: 0px 60px;
   table-layout: fixed;
-  width: 800px;
+  width: 1600px;
+  white-space: nowrap;
 }
 
 input[type="text"]{
@@ -125,26 +126,27 @@ input[type="text"]{
   border-color: black;
 }
 
-tr th:nth-of-type(1) {
-  width: 100px;
-}
-tr th:nth-of-type(2) {
-  width: 50px;
-}
-tr th:nth-of-type(3) {
-  width: 50px;
-}
-tr th:nth-of-type(4) {
+.tango{
   width: 200px;
+  white-space: nowrap;
 }
-tr th:nth-of-type(5) {
+.tagu{
+  width: 50px;
+}
+.nihongo{
   width: 600px;
+}
+.setumei{
+  width: 700px;
 }
 
 tr td:nth-of-type(1) {
     font-size: 20px;
     vertical-align: baseline;
     font-weight: bolder;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 tr td:nth-of-type(2) {
@@ -164,6 +166,7 @@ tr td:nth-of-type(3) {
 tr td:nth-of-type(4) {
   font-size: 18px;
   vertical-align: baseline;
+  text-align: left;
 }
 
 
@@ -172,7 +175,8 @@ tr td:nth-of-type(5) {
   position: relative;
   font-size: 13px;
   top: 20px;
-  left: -400px;
+  left: -900px;
+  white-space: normal;
 }
 
 
