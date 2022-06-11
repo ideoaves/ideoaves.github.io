@@ -49,6 +49,12 @@ a{
   line-height: 1.5;
 }
 
+textarea {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
+
 /* wiki */
 h1 {
   font-size: 188%;
@@ -248,12 +254,6 @@ td img {
   font-size: 90%;
 }
 
-@import url("ll.css");
-.ll{
-  font: 1.5em "LL", sans-serif;
-  letter-spacing: 0.1em;
-}
-
 /* スマホ用 */
 @media screen and (max-width:900px){
 
@@ -289,4 +289,17 @@ td img {
   .none {
       display: none;
   }
+}
+
+/* レアネレイ語説明処理 */
+#LL {
+  font-family: "LL", Courier, monospace;;
+  letter-spacing: 0.1em;
+}
+
+.reibun {
+  margin: 10px 20px 20px 20px;
+  padding: 20px 50px 20px 50px;
+  line-height: 1.4em ;
+  border-left: double 10px gray;
 }
