@@ -56,12 +56,12 @@ textarea {
 }
 
 .square {
+margin: 0 10px 10px 0;
+width: 90%;
   box-shadow: 4px 4px 0 #EEEEEE, 5px 5px 0 black;
 }
 
 .square img{
-margin: 0 10px 10px 0;
-width: 90%;
 outline: 1px solid;
 display: block;
 }
