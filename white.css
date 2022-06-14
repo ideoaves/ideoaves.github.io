@@ -58,8 +58,8 @@ textarea {
 .square {
     margin: 0 auto;
     width: 90%;
-      outline: 1px solid;
-  box-shadow: 4px 4px 0 #EEEEEE, 5px 5px 0 black;
+    outline: 1px solid;
+ 　 outline-offset: 5px;
 }
 
 .square img{
