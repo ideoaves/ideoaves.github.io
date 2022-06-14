@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>ℂ𝕠𝕟𝕥𝕖𝕟𝕥𝕤</title>
+  <script src="cursor.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<script>
+$('#image1').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#preview").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+</script>
+
+</head>
+<body>
+<div class="center">
+<input type="file" id="image1">
+<img id="preview">
+</div>
+</body>
+</html>
