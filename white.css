@@ -55,6 +55,10 @@ textarea {
   width: 80%;
 }
 
+.square {
+  box-shadow: 4px 4px 0 rgb(0, 0, 0), 5px 5px 0 rgb(255, 255, 255);
+}
+
 /* wiki */
 h1 {
   font-size: 188%;
