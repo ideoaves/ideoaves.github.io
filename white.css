@@ -61,6 +61,7 @@ textarea {
     width: 90%;
     outline: 1px solid;
     outline-offset: 5px;
+    text-align: center;
 }
 
 .square img{
