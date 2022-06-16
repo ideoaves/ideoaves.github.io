@@ -47,6 +47,7 @@ a{
   text-align: justify;
   letter-spacing: 1px;
   line-height: 1.5;
+  border-collapse: collapse;
 }
 
 textarea {
