@@ -43,11 +43,13 @@ a{
   border-color:black;
 }
 .window p, table, h1, h2, h3 {
-  margin: -10px 10px 10px 10px;
   text-align: justify;
   letter-spacing: 1px;
   line-height: 1.5;
   border-collapse: collapse;
+}
+.window p, h1, h2, h3 {
+  margin: -10px 10px 10px 10px;
 }
 
 textarea {
@@ -57,7 +59,7 @@ textarea {
 }
 
 .square {
-    margin: 0 auto;
+    margin: 20px auto;
     width: 90%;
     outline: 1px solid;
     outline-offset: 5px;
