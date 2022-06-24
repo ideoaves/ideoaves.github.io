@@ -125,7 +125,7 @@ h4 {
   outline: none;
 }
 
-.oto tbody , td, th {
+.oto tbody, .oto td, .oto th {
   width: 50%;
   border: 1px solid #595959;
   text-align: center;
