@@ -86,9 +86,6 @@ tr td:nth-of-type(5) {
 }
 
 .sa {
-  position: absolute;
-  left: 600px;
-  top: 100px;
 }
 
 td img {
