@@ -22,26 +22,7 @@
 
 </head>
 <body>
-<div class="center">
-    <div class="window none" style="position: fixed; top: 40px; right: 18%; width: 30%;"><h4>文字表示</h4>
-            <p>
-                <textarea rows="5" cols="30">ぇあ、ぉあおぇあねぇいあそへ。</textarea>
-                <h2>フォント仕様上の注意</h2>
-            </p>
-            <p>
-                日本語のように基本的に子音+母音で一文字を表します。そのためひらがなに紐付けしてフォントを作っています。<br>
-            </p>
-            <div class="reibun">lea = ぇ + あ(<a id="LL">ぇ</a> + <a id="LL">あ</a>)<br>zopom = ぞ + ぽ + ｍ(<a id="LL">ぞ</a> + <a id="LL">ぽ</a> </a>+ <a id="LL">ｍ</a>)</a></div>
-            <p>
-                ・基本的に日本語キーボードでそのまま綴りを書いて問題有りません。<br>
-                ・"ｍ" "ｈ" "ｔ"は全角のままです。半角にすると変換されません。<br>
-                ・"ｆ" は都合上「は行」で記入してください。<br>
-                ・発音上惑わされやすい文字があります。例えば "le" は　"ぇ"　で変換されます。<br>
-                ・大文字の"L" "Z"などは、接続する単語の発音位置によって文字が変わる箇所です。そのまま大文字を入力しても変換されません。
-            </p>
-        </div>
-
-
+<div class="center di">
     <section>  
        <table>
         <colgroup>
@@ -54,6 +35,24 @@
        <tr><td>単語</td><td>種類</td><td>位</td><td>日本語訳</td><td>説明が入ります。「単語」はレアネレイ語のローマ字表記、「種類」は品詞を、「タグ」は意味の傾向や細分化された文法等を、「位」は本言語特有の単語の種類（発音位置）を、「日本語訳」は主な対応する日本語を表します。<br>本言語の説明　→[工事中]<br><a class="ta">タグ</a></td></tr>
        </table>
     </section>
+
+    <div class="window none"><h4>文字表示</h4>
+        <p>
+            <textarea rows="5" cols="30">ぇあ、ぉあおぇあねぇいあそへ。</textarea>
+            <h2>フォント仕様上の注意</h2>
+        </p>
+        <p>
+            日本語のように基本的に子音+母音で一文字を表します。そのためひらがなに紐付けしてフォントを作っています。<br>
+        </p>
+        <div class="reibun">lea = ぇ + あ(<a id="LL">ぇ</a> + <a id="LL">あ</a>)<br>zopom = ぞ + ぽ + ｍ(<a id="LL">ぞ</a> + <a id="LL">ぽ</a> </a>+ <a id="LL">ｍ</a>)</a></div>
+        <p>
+            ・基本的に日本語キーボードでそのまま綴りを書いて問題有りません。<br>
+            ・"ｍ" "ｈ" "ｔ"は全角のままです。半角にすると変換されません。<br>
+            ・"ｆ" は都合上「は行」で記入してください。<br>
+            ・発音上惑わされやすい文字があります。例えば "le" は　"ぇ"　で変換されます。<br>
+            ・大文字の"L" "Z"などは、接続する単語の発音位置によって文字が変わる箇所です。そのまま大文字を入力しても変換されません。
+        </p>
+</div>
 
 <section class="container">
  <div class="sa"> <input type="text" class="light-table-filter" data-table="order-table" placeholder="?"  ></div>
@@ -271,4 +270,3 @@
 </div>
 </body>
 </html>
-

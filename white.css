@@ -232,13 +232,9 @@ h4 {
       margin: 0 0 40px 0;
       width: 100% !important;
   }
-    
-  .none {
-      display: none;
-  }
-}
-
-/* レアネレイ語説明処理 */
+}  
+  
+  /* レアネレイ語説明処理 */
 #LL {
   font-family: "LL", Courier, monospace;;
   letter-spacing: 0.1em;
