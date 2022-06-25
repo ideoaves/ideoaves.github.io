@@ -74,7 +74,7 @@ tr td:nth-of-type(5) {
 }
 .none{
   position: fixed;
-  top: 40px;
+  bottom: 10px;
   right: 18%;
   width: 30%;
 }
