@@ -5,7 +5,7 @@ let sDown;
 let mar = 20;
 
 function setup(){
-  createCanvas(1200, 600);
+  createCanvas(1000, 600);
   fill(0);
   
   sli = createSlider(0, 8000, 100);
