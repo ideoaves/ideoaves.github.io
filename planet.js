@@ -58,8 +58,8 @@ function draw(){
   line(Mx,My, Mx + cos(moon) * 100, My + sin(moon) * 100);
   line(Mx + cos(ejiten) * -15, My + sin(ejiten) * -15, Mx + cos(ejiten) * -20, My + sin(ejiten) * -20);
   line(Mx + cos(earth) * -105, My + sin(earth) * -105, Mx + cos(earth) * -110, My + sin(earth) * -110);
-    line(Ejx + cos(moon) * 105, Ejy + sin(moon) * 105, Ejx + cos(moon) * 100, Ejy + sin(moon) * 100);
-  line(Ejx + cos(earth) * -105, Ejy + sin(earth) * -105, Ejx + cos(earth) * -120, Ejy + sin(earth) * -120);
+  line(Ejx + cos(moon) * 110, Ejy + sin(moon) * 110, Ejx + cos(moon) * 100, Ejy + sin(moon) * 100);
+  line(Ejx + cos(earth) * -110, Ejy + sin(earth) * -110, Ejx + cos(earth) * -120, Ejy + sin(earth) * -120);
   line(Ex-120,Ey, Ex-110,Ey);
   line(Ex+120,Ey, Ex+110,Ey);
   line(Ex,Ey-120, Ex,Ey-110);
