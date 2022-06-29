@@ -5,13 +5,13 @@ let sDown;
 let mar = 20;
 
 function setup(){
-  createCanvas(1200, 600);
+  createCanvas(1000, 600);
   fill(0);
   
   sli = createSlider(0, 8000, 000);
   sli.position(width/2+mar+10, height/2+mar+20);
   let wid = width/2
-  sli.style('width', "500px");
+  sli.style('width', "400px");
   textFont('monospace');
 
   moon = 0;
