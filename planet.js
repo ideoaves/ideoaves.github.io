@@ -5,13 +5,13 @@ let sDown;
 let mar = 20;
 
 function setup(){
-  createCanvas(1000, 600);
+  createCanvas(1200, 600);
   fill(0);
   
-  sli = createSlider(0, 8000, 100);
+  sli = createSlider(0, 8000, 000);
   sli.position(width/2+mar+10, height/2+mar+20);
   let wid = width/2
-  sli.style('width', "400px");
+  sli.style('width', "500px");
   textFont('monospace');
 
   moon = 0;
@@ -35,9 +35,9 @@ function draw(){
   noFill();
   
   
-  var Ecol = color("#93DE53");
-  var Mcol = color("#EAD84C");
-  var Scol = color("#D8FCFF");
+  var Ecol = color("#BBBBBB");
+  var Mcol = color("#000000");
+  var Scol = color("#FFFFFF");
   var speed = sli.value();
   sDown = 50000/(speed/100);
   
@@ -58,8 +58,8 @@ function draw(){
   line(Mx,My, Mx + cos(moon) * 100, My + sin(moon) * 100);
   line(Mx + cos(ejiten) * -15, My + sin(ejiten) * -15, Mx + cos(ejiten) * -20, My + sin(ejiten) * -20);
   line(Mx + cos(earth) * -105, My + sin(earth) * -105, Mx + cos(earth) * -110, My + sin(earth) * -110);
-  line(Ejx + cos(moon) * 110, Ejy + sin(moon) * 110, Ejx + cos(moon) * 100, Ejy + sin(moon) * 100);
-  line(Ejx + cos(earth) * -110, Ejy + sin(earth) * -110, Ejx + cos(earth) * -120, Ejy + sin(earth) * -120);
+    line(Ejx + cos(moon) * 105, Ejy + sin(moon) * 105, Ejx + cos(moon) * 100, Ejy + sin(moon) * 100);
+  line(Ejx + cos(earth) * -105, Ejy + sin(earth) * -105, Ejx + cos(earth) * -120, Ejy + sin(earth) * -120);
   line(Ex-120,Ey, Ex-110,Ey);
   line(Ex+120,Ey, Ex+110,Ey);
   line(Ex,Ey-120, Ex,Ey-110);
@@ -69,7 +69,6 @@ function draw(){
   noFill();
   stroke(255);
   ellipse(Mx, My, 200, 200);
-  noStroke();
   fill(Ecol);
   ellipse(Mx, My, 20, 20);
   fill(Mcol);
@@ -82,7 +81,6 @@ function draw(){
   noFill();
   stroke(255);
   ellipse(Ex, Ey, 200, 200);
-  noStroke();
   fill(Scol);
   ellipse(Ex, Ey, 30, 30);
   fill(Ecol);
@@ -96,7 +94,7 @@ function draw(){
   rotate(ejiten+HALF_PI);
   fill(Ecol);
   ellipse(0, 0, 60, 60);
-  fill(93);
+  fill(50);
   arc(0, 0, 60, 60, PI, TWO_PI);
   
 }
