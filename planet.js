@@ -11,7 +11,7 @@ function setup(){
   sli = createSlider(0, 8000, 100);
   sli.position(width/2+mar+10, height/2+mar+20);
   let wid = width/2
-  sli.style('width', "500px");
+  sli.style('width', "400px");
   textFont('monospace');
 
   moon = 0;
