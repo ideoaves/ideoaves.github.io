@@ -153,3 +153,13 @@ h3 {
     font-size: 94%;
     padding: 5px;
 }
+
+@media screen and (max-width:900px){
+    .side{
+      display: none;
+    }
+    .main {
+      margin-left: 1em;
+      margin-right: -14em;
+    }
+}
