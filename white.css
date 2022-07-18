@@ -202,29 +202,29 @@ h4 {
 /* スマホ用 */
 @media screen and (max-width:900px){
 
-  body {
-      padding: 0;
-      margin: 10px 0;
-  } 
+    body {
+        padding: 0;
+        margin: 10px 0;
+    } 
 
-  .center{
-      padding: 0;
-      width: 80%;
-  }
+    .center{
+        padding: 0;
+        width: 97%;
+    }
 
-  .title {
-        width: 100%;
-  }
+    .title {
+          width: 100%;
+    }
 
-  .boxes {
-      margin: 10px;
-  }
+    .boxes {
+        margin: 10px;
+    }
 
-  .window {
-       display: block;
-       margin: 20px auto;
-       width: 90%;
-  }
+    .window {
+         display: block;
+         margin: 20px auto;
+         width: 97%;
+    }
 
   .prof {
       margin: 0 0 40px 0;
