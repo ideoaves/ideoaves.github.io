@@ -312,6 +312,7 @@ main a[href]:hover:not(.botan) {
 @import url("ll.css");
 .ll{
   font: 1.5em "LL", sans-serif;
+  font-size: 13px;
   letter-spacing: 0.1em;
 }
 
