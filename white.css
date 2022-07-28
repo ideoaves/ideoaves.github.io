@@ -235,6 +235,7 @@ h4 {
   /* レアネレイ語説明処理 */
 #LL {
   font-family: "LL", Courier, monospace;;
+  font-size: 13px;
   letter-spacing: 0.1em;
 }
 
