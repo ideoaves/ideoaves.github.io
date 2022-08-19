@@ -51,8 +51,8 @@ ul {
     border-style: outset;
     border-color:white;
 }
-.window p, table, h1, h2, h3 {
-    margin: 10px 10px 10px 10px;
+.window p, table, span, h1, h2, h3 {
+    margin: -10px 10px 10px 10px;
     text-align: justify;
     letter-spacing: 1px;
     line-height: 1.5;
@@ -138,8 +138,7 @@ h4 {
 }
 .shadowimg img{
     display: inline-block;
-    height: 200px;
-    margin: 0 10px 10px 0;
+    margin: 5px 10px 10px 0px;
     outline: 1px solid;
     box-shadow: 4px 4px 0 rgb(0, 0, 0), 5px 5px 0 rgb(255, 255, 255);
 }
@@ -155,7 +154,6 @@ h1 {
 }
 h2 {
   font-size: 150%;
-  color: black;
   font-weight: normal;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -238,7 +236,6 @@ h3 {
 
 a{
     text-decoration:none; 
-    font-family: Courier New;
 }
 
 main a[href]:link:not(.botan){
@@ -317,6 +314,47 @@ main a[href]:hover:not(.botan) {
     display: none;
   }
 
+  /* ヘッダー */
+* { 
+    margin: 0px; 
+    padding: 0px; 
+    }
+
+    
+    .hcenter{
+        border-style: solid;
+        background-color: #DFDFDF;
+        border-width: 2px 0px;
+        border-color: #ffffff #808080 #808080 #ffffff;
+        height: 30px;
+    display: block;
+    margin: 0 auto;
+    align-self: center;
+    overflow: hidden;
+    }
+
+    header ul {
+      height: 30px;
+    }
+
+    header .botan{
+    padding: 9px 20px;
+    margin: 0px;
+    line-height: 30px;
+    }
+
+      /* レアネレイ語説明処理 */
+#LL {
+    font-family: "LL", Courier, monospace;
+    letter-spacing: 0.1em;
+  }
+  
+  .reibun {
+    margin: 10px 20px 20px 20px;
+    padding: 20px 50px 20px 50px;
+    line-height: 1.4em ;
+    border-left: solid 10px #CCC;
+  }
 
   /* スマホ用 */
   @media screen and (max-width:900px){
@@ -353,47 +391,19 @@ main a[href]:hover:not(.botan) {
     .none {
         display: none;
     }
+
+    /* ヘッダー */
+    img[src="icon.png"] {
+        display: none;
+    }
+    a[href="404.html"] {
+        display: none;
+    }
+
+    a[href="olime_sian.html"] {
+        display: none;
+    }
+    a[href="hazuqu.html"] {
+        display: none;
+    }
 }
-
-
-/* ヘッダー */
-* { 
-    margin: 0px; 
-    padding: 0px; 
-    }
-
-    
-    .hcenter{
-        border-style: solid;
-        background-color: #DFDFDF;
-        border-width: 2px 0px;
-        border-color: #ffffff #808080 #808080 #ffffff;
-        height: 30px;
-    display: block;
-    margin: 0 auto;
-    align-self: center;
-    overflow: hidden;
-    }
-
-    header ul {
-      height: 30px;
-    }
-
-    header .botan{
-    padding: 9px 20px;
-    margin: 0px;
-    line-height: 30px;
-    }
-
-      /* レアネレイ語説明処理 */
-#LL {
-    font-family: "LL", Courier, monospace;;
-    letter-spacing: 0.1em;
-  }
-  
-  .reibun {
-    margin: 10px 20px 20px 20px;
-    padding: 20px 50px 20px 50px;
-    line-height: 1.4em ;
-    border-left: solid 10px #CCC;
-  }
