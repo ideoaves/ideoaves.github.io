@@ -1,5 +1,4 @@
 body {
-    padding: 50px 50px 50px 50px;
     background-color: black;
     background-size: 50px 50px;
     background-position: 50% 0%;
@@ -7,6 +6,9 @@ body {
        linear-gradient(0deg, transparent 49px, #666 50px),
        linear-gradient(90deg, transparent 49px, #666 50px);
     color: white;
+}
+main {
+    padding: 50px 50px 50px 50px;
     height: 100%;
     margin: 5px;
 }
@@ -236,7 +238,7 @@ h3 {
 
 a{
     text-decoration:none; 
-  　font-family: Courier New;
+    font-family: Courier New;
 }
 
 main a[href]:link:not(.botan){
@@ -352,3 +354,33 @@ main a[href]:hover:not(.botan) {
         display: none;
     }
 }
+
+
+/* ヘッダー */
+* { 
+    margin: 0px; 
+    padding: 0px; 
+    }
+
+    
+    .hcenter{
+        border-style: solid;
+        background-color: #DFDFDF;
+        border-width: 2px 0px;
+        border-color: #ffffff #808080 #808080 #ffffff;
+        height: 30px;
+    display: block;
+    margin: 0 auto;
+    align-self: center;
+    overflow: hidden;
+    }
+
+    header ul {
+      height: 30px;
+    }
+
+    header .botan{
+    padding: 9px 20px;
+    margin: 0px;
+    line-height: 30px;
+    }
