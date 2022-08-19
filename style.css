@@ -21,9 +21,9 @@ ul {
     text-align: center;
     margin: 0 auto;
     align-self: center;
-    width: 80%;
+    width: 1024px;
     background-color: black;
-    padding: 50px 50px;
+    padding: 50px 0px;
     border-style: outset;
     border-width: 1px;
     overflow: auto;
@@ -41,7 +41,7 @@ ul {
 .window {
     display: block;
     margin: 50px auto;
-    width: 50%;
+    width: 70%;
     text-align: left;
     font-family: monospace;
     border-width: 0 2px 2px 1px;
@@ -120,11 +120,6 @@ h4 {
     font-family: serif;
     font-style:italic;
     letter-spacing: 2px;
-}
-
-.title {
-    padding: 50px 0px 50px 0px;
-    width: 50%;
 }
 
 .count {

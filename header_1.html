@@ -2,18 +2,88 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
   <script src="cursor.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    * { 
+    margin: 0px; 
+    padding: 0px; 
+    }
+
+    body {
+      border-style: solid;
+    background-color: #DFDFDF;
+    border-width: 2px 0px;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    height: 30px;
+    }
+    
+    .hcenter{
+    display: block;
+    margin: 0 auto;
+    align-self: center;
+    overflow: hidden;
+    }
+
+    ul {
+      height: 30px;
+    }
+
+    a{
+    text-decoration:none; 
+    font-family: Courier New;
+}
+
+    .botan{
+    background-color: black;
+    display: inline;
+    padding: 9px 20px;
+    margin: 0px;
+    border-style: solid;
+    border-width: 0px 2px;
+    background-color: #DFDFDF;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    text-align: center;
+    font-family: serif;
+    font-style:italic;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: black;
+    line-height: 30px;
+    }
+    .botan:hover {
+    cursor:pointer
+}
+.botan:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.bold {
+    font-weight: bold;
+    text-shadow: 
+    0.3px 0.3px 0, 
+    0.3px -0.3px 0px,
+    -0.3px 0.3px 0,
+    -0.3px -0.3px 0px,
+    0.3px 0px 0px,
+    0px 0.3px 0px,
+    -0.3px 0px 0px,
+    0px -0.3px 0px;
+    letter-spacing: 1px;
+}
+  </style>
 </head>
+
 <body>
-  <div class="center">
+
+    <div class="hcenter">
    <header>
-   <a href="index.html"><image class="title" src="title.gif"></a>
-    <ul>
-     <a href="index.html"><li class="botan bold">TOP</li></a>
-     <a href="about.html"><li class="botan">About</li></a>
-     <a href="contents.html"><li class="botan">Contents</li></a>
+    <img src="icon.png" height="30px" align="left">
+    <ul style="float: left;" >
+      <a href="index.html"><li class="botan bold">IDEOAVES</li></a><a href="about.html">
+        <li class="botan">CHARACTER</li></a><a href="hazuqu.html"><li class="botan"><img src="H.png" height="30px" align="center"></li><li class="botan"><img src="LI.png" height="30px" align="center"></li></a>
+   </ul><ul style="float: right">
+    <a href="404.html"><li class="botan"> </li></a>
    </ul>
    </header>
   </div>
