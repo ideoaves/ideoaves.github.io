@@ -238,7 +238,6 @@ h3 {
 
 a{
     text-decoration:none; 
-    font-family: Courier New;
 }
 
 main a[href]:link:not(.botan){
