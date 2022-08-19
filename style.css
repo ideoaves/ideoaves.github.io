@@ -31,6 +31,13 @@ ul {
     overflow: auto;
 }
 
+
+    .title {
+    padding: 150px 0px 100px 0px;
+    width: 80%;
+    }
+ 
+
 .boxes {
     display: flex;
     flex-wrap: wrap;
