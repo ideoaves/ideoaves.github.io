@@ -101,6 +101,11 @@ td img {
   margin: 10px;
 }
 
+textarea {
+  margin: 0 auto;
+  width: 80%;
+}
+
 @media screen and (max-width:900px){
   .none {
     display: block;
@@ -116,5 +121,4 @@ td img {
   width: 200%;
   overflow-x: hidden !important;
 }
-
 }

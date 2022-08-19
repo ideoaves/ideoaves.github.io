@@ -1,202 +1,49 @@
 body {
   font-family: Courier, monospace;
   color: #555;
-  padding: 50px 50px 50px 50px;
   background-color: #EEEEEE;
-  background-size: 50px 50px;
-  background-position: 50% 0%;
   background-image:
      linear-gradient(0deg, transparent 49px, #666 50px),
      linear-gradient(90deg, transparent 49px, #666 50px);
   color: black;
-  height: 100%;
-  margin: 5px;
 }
 
-a{
-  text-decoration:none; 
-}
 
 .center{
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  align-self: center;
-  width: 80%;
   background-color: #EEEEEE;
-  padding: 50px 50px;
-  border-style: outset;
-  border-width: 1px;
-  overflow: auto;
 }
 
 .window {
-  display: block;
-  margin: 50px auto;
-  width: 50%;
-  text-align: left;
-  font-family: monospace;
-  border-width: 5px 2px 2px 1px;
   background-color: #EEEEEE;
-  border-style: outset;
   border-color:black;
-}
-.window p, table, h1, h2, h3 {
-  text-align: justify;
-  letter-spacing: 1px;
-  line-height: 1.5;
-  border-collapse: collapse;
-}
-.window p, h1, h2, h3 {
-  margin: -10px 10px 10px 10px;
-}
-
-.title {
-    padding: 50px 0px 50px 0px;
-    width: 50%;
-}
-
-textarea {
-  display: block;
-  margin: 0 auto;
-  width: 80%;
-}
-
-.square {
-    margin: 20px auto;
-    width: 90%;
-    outline: 1px solid;
-    outline-offset: 5px;
-    text-align: center;
-}
-
-.square img{
-width: 100%;
-outline: 1px solid;
-display: block;
-}
-
-.square a{
-  padding-bottom: 0.5em;
 }
 
 /* wiki */
 h1 {
-  font-size: 188%;
-  line-height: 1.3;
-  font-weight: normal;
-  margin-bottom: 1em;
   border-bottom: 1px solid #a2a9b1;
 }
 h2 {
-  font-size: 150%;
   color: black;
-  font-weight: normal;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0.5em;
   border-bottom: 1px solid #a2a9b1;
 }
-h3 {
-  font-size: 128%;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0.5em;
+h4 {
+  background-color: #EEEEEE;
+  color: black;
 }
 
-h4 {
-  width: 99%;
-  height: 25px;
-  padding-left:1%;
-  text-align: left;
-  vertical-align: middle;
-  margin-top:1px;
-  border-style: outset;
-  border-width: 5px 0px 1px 0px;
-  background-color: #EEEEEE;
-  font-family: serif;
-  font-style:italic;
-  letter-spacing: 2px;
-  color: black;
-  overflow: hidden;
-}
-#hedicon {
-  margin-right: 6px;
-  margin-left: auto;
-  margin-top: -40px;
-  padding-bottom: 17px;
-  box-shadow: none;
-  outline: none;
-}
 
 .oto tbody, .oto td, .oto th {
-  width: 50%;
   border: 1px solid #595959;
-  text-align: center;
-}
-.oto td, th {
-  width: 3em;
 }
 
-.botan{
-  color:black; 
-  background-color: black;
-  display: inline;
-  padding: 0px 20px;
-  margin: 5px 10px;
-  border-style: solid;
-  background-color: #DFDFDF;
-  border-color: #ffffff #808080 #808080 #ffffff;
-  text-align: center;
-  font-family: serif;
-  font-style:italic;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: black;
-}
-
-.botan:hover {
-  cursor:pointer
-}
-
-.botan:active {
-  border-color: #808080 #ffffff #ffffff #808080;
-}
-
-::-webkit-scrollbar{
-  display: none;
+#hedicon {
+  filter: brightness(0%);
 }
 
 /* フォント */
 
-.bold {
-  font-weight: bold;
-  text-shadow: 
-  0.3px 0.3px 0, 
-  0.3px -0.3px 0px,
-  -0.3px 0.3px 0,
-  -0.3px -0.3px 0px,
-  0.3px 0px 0px,
-  0px 0.3px 0px,
-  -0.3px 0px 0px,
-  0px -0.3px 0px;
-  letter-spacing: 1px;
-}
-
-.italic {
-  font-family: serif;
-  font-style:italic;
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 80%;
-}
-
 .memo {
-  display: block;
-  font-style:italic;
   color: #666;
-  padding-top:0.7em;
-  font-size: 90%;
 }
 
 /* スマホ用 */
@@ -232,16 +79,3 @@ h4 {
   }
 }  
   
-  /* レアネレイ語説明処理 */
-#LL {
-  font-family: "LL", Courier, monospace;;
-  font-size: 13px;
-  letter-spacing: 0.1em;
-}
-
-.reibun {
-  margin: 10px 20px 20px 20px;
-  padding: 20px 50px 20px 50px;
-  line-height: 1.4em ;
-  border-left: solid 10px #CCC;
-}

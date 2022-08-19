@@ -46,7 +46,7 @@ ul {
     width: 70%;
     text-align: left;
     font-family: monospace;
-    border-width: 0 2px 2px 1px;
+    border-width: 1px 2px 2px 1px;
     background-color: black;
     border-style: outset;
     border-color:white;
@@ -238,6 +238,7 @@ h3 {
 
 a{
     text-decoration:none; 
+    font-family: Courier New;
 }
 
 main a[href]:link:not(.botan){
@@ -383,3 +384,16 @@ main a[href]:hover:not(.botan) {
     margin: 0px;
     line-height: 30px;
     }
+
+      /* レアネレイ語説明処理 */
+#LL {
+    font-family: "LL", Courier, monospace;;
+    letter-spacing: 0.1em;
+  }
+  
+  .reibun {
+    margin: 10px 20px 20px 20px;
+    padding: 20px 50px 20px 50px;
+    line-height: 1.4em ;
+    border-left: solid 10px #CCC;
+  }
