@@ -366,7 +366,7 @@ main a[href]:hover:not(.botan) {
   /* スマホ用 */
   @media screen and (max-width:900px){
 
-    body {
+    main {
         padding: 0;
         margin: 10px 0;
     } 
