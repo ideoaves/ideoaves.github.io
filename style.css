@@ -52,7 +52,7 @@ ul {
     border-color:white;
 }
 .window p, table, h1, h2, h3 {
-    margin: -10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
     text-align: justify;
     letter-spacing: 1px;
     line-height: 1.5;
