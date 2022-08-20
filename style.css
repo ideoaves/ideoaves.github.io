@@ -400,17 +400,17 @@ main a[href]:hover:not(.botan) {
     }
 
     /* ヘッダー */
-    img[src="icon.png"] {
+    header img[src="icon.png"] {
         display: none;
     }
-    a[href="404.html"] {
+    header a[href="404.html"] {
         display: none;
     }
 
-    a[href="olime_sian.html"] {
+    header a[href="olime_sian.html"] {
         display: none;
     }
-    a[href="hazuqu.html"] {
+    header a[href="hazuqu.html"] {
         display: none;
     }
 }
