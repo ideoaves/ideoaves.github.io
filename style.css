@@ -30,7 +30,13 @@ ul {
     border-width: 1px;
     overflow: auto;
 }
-
+.center .back {
+    display: block;
+    text-align: left;
+    padding: 0px 10%;
+    font-family: monospace;
+    color: #FFF;
+}
 
     .title {
     padding: 150px 0px 100px 0px;
