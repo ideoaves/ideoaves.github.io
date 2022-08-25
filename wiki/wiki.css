@@ -154,6 +154,12 @@ h3 {
     padding: 5px;
 }
 
+      /* レアネレイ語説明処理 */
+#LL {
+    font-family: "LL", Courier, monospace;
+    letter-spacing: 0.1em;
+  }
+
 @media screen and (max-width:900px){
     .side{
       display: none;
