@@ -1,45 +1,40 @@
 body{
     background-color: #f6f6f6;
-}
-
-.wiki::after {
-    content: あああ;
-}
-
-.side{
-    position :absolute;
-    margin-right: calc(100% - 13em);
-    margin-left: 20px;
-    margin-top: 10px;
-    font-size: 0.75em;
-    line-height: 1.8;
-}
-.main {
-    margin-left: 11em;
-    margin-right: 0em;
     display: block;
-}
-.header {
-    padding: 0em 0.5em 1.5em 0.5em;
-    display: flex;
-    justify-content: flex-end;
+    margin: 0 auto;
+    width: 94.625em;
+    height: 100%;
 }
 
-.headlist{
-    
-    list-style: none;
-    font-size: 0.75em;
-}
-.headlist li{
-    text-align: right;
-    float: left;
-    margin-left: 0.75em;
+.sukima::before {
+    content: "出典: フリー百科事典風創作サイト『ウィクペリッタ（Wikpelleta）』";
+    font-size: 12.8px;
 }
 
-.searching{
-    text-align: right;
-    position: absolute;
-    top: 50px;
+.sukima {
+    margin: 0 0 1.4em 0;
+}
+
+.main::after {
+    display: block;
+    white-space: pre;
+    border-top: 1px solid #a2a9b1;
+    margin: 80px 0 0 0;
+    content: "最終更新 2022年8月26日 (金) 17:17 （日時は個人設定で未設定ならばUTC）。\A テキスト、画像はクリエイティブ・コモンズ 表示-継承ライセンスの下で利用可能です。追加の条件が適用される場合があります。";
+    padding: 1em 2em 82px 10px;
+    line-height: 2em;
+    font-size: 12.8px;
+}
+
+.main {
+    background-color: #FFFFFF;
+    display: block;
+    padding: 0 25px;
+}
+
+.page {
+    line-height: 1.6;
+    padding: 0.5em 12.5em 0.5em 12.5em;
 }
 
 a {
@@ -59,14 +54,6 @@ a[id="LL"] {
 
 .nolink{
     color: black;
-}
-
-.page {
-    line-height: 1.6;
-    background-color: #FFFFFF;
-    padding: 0.4em 1.5em 1.5em 1.5em;
-    margin-top: 5px;
-    border: 1px solid #a7d7f9;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -90,9 +77,6 @@ h1 {
 .syut {
     position: absolute;
     top: 50px;
-}
-.sukima {
-    margin: 0 0 1.4em 1em;
 }
 
 /*目次*/
@@ -122,6 +106,7 @@ h2 {
     font-size: 150%;
     color: black;
     font-weight: normal;
+    margin-top: 1em;
     margin-bottom: 0.6em;
     border-bottom: 1px solid #a2a9b1;
 }
@@ -142,7 +127,9 @@ h3 {
     line-height: 1.5em;
 }
 /* [編集]ってやつ */
-.edit {
+h2::after {
+    content: "[ 編集 ]";
+    color: #0645ad;
     font-size: small;
     margin-left: 1em;
     text-decoration: none;
