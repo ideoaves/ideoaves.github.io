@@ -52,6 +52,9 @@ a[href=""] {
     color: #ba0000;
     background: none;
 }
+a[id="LL"] {
+    color: #000;
+}
 
 
 .nolink{
