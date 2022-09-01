@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>画像一覧 - Wikpelleta</title>
+<link rel="stylesheet" href="../style.css"/>
+<link rel="stylesheet" href="../ll.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="../lightbox.js"></script>
+<link href="../lightbox.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+<style> canvas {display: block;} </style>
+<style>
+	.center {
+		width: 80%;
+		font-family: monospace;
+	}
+	.colu {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.pic {
+		position: relative;
+		margin: 10px;
+		
+	}
+	img {
+		position: relative;
+		height: 300px;
+        z-index: 10;
+		flex-grow: 1;
+		object-fit: cover;
+	}
+	img:hover {
+		position: relative;
+		z-index: 1;
+	}
+	video {
+		position: relative;
+		height: 300px;
+        z-index: 10;
+		flex-grow: 1;
+		object-fit: cover;
+	}
+	video:hover {
+		position: relative;
+		z-index: 1;
+	}
+    .cap {
+		position: absolute;
+		top:0;
+		left:0;
+		margin: 10px;
+		z-index: 5;
+		background-color: #000;
+    }
+	.cap .title {
+		font-weight: bold;
+	}
+</style>
+</head>
+
+<body>
+<div class="center">
+	<div class="colu">
+	<div class="pic">
+        <a href="images/earth.png" data-lightbox="group"><img src="images/earth.png" ></a>
+	    <span class="cap">
+            <a class="title">大陸面を正面にした惑星全体図</a><br>
+	        超大陸の分裂が最近なため、この面に大陸が集中している。この裏側は大洋が広がる。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/earth_and_moon.png" data-lightbox="group"><img src="images/earth_and_moon.png" ></a>
+	    <span class="cap">
+            <a class="title">惑星と衛星</a><br>
+	        主星の1/4.5の大きさ（直径）で比較的大きい。写真は望遠レンズで撮影したため圧縮効果によりさらに大きさの差がなくなって見える。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/starmap.png" data-lightbox="group"><img src="images/starmap.png" ></a>
+	    <span class="cap">
+            <a class="title">簡易的な星図</a><br>
+	        学術目的ではなくデザインとして制作された星図。<br>
+			赤道を基準に北半球と南半球に分かれている。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/moon_ro.png" data-lightbox="group"><img src="images/moon_ro.png" ></a>
+	    <span class="cap">
+            <a class="title">月の満ち欠け</a><br>
+	        公転周期がほぼ一致しているため、常に同じ面を向け続ける。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/moon.mp4"><video src="images/moon.mp4" height="300px" loop autoplay muted></video></a>
+	    <span class="cap">
+            <a class="title">月の満ち欠け（アニメーション）</a><br>
+	        公転軌道が比較的歪んでいて秤動が強く現れる。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/moon_size.png" data-lightbox="group"><img src="images/moon_size.png" ></a>
+	    <span class="cap">
+            <a class="title">最遠・最近の大きさの差</a><br>
+	        楕円の公転軌道を持つため夏と冬で大きさに差がある。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/moon_surface.png" data-lightbox="group"><img src="images/moon_surface.png" ></a>
+	    <span class="cap">
+            <a class="title">円筒図法で変形した月面</a><br>
+	        夜間部分は明度を上げる加工をしている。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/photomap.png" data-lightbox="group"><img src="images/photomap.png" ></a>
+	    <span class="cap">
+            <a class="title">円筒図法で変形した世界地図</a><br>
+	        雲のない航空写真を組み合わせた地図。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="https://youtu.be/EXZxWcS7-VM"><video src="images/world.mp4" height="300px" loop autoplay muted></video></a>
+	    <span class="cap">
+            <a class="title">一日の日照アニメーション</a><br>
+	        秋ごろの360度円筒図法で見る日照の動き。<br>夜間部分は明度を上げた上で陸部分を乗算合成してある。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/centermap.png" data-lightbox="group"><img src="images/centermap.png" ></a>
+	    <span class="cap">
+            <a class="title">中心部の地図</a><br>
+	        大湖周辺のこの地域が現代では最も栄えている。<br>黄色線は輸送路であり、物理的な道路で無いものも含まれる。また主要道路のみ記載されている。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/bru3.png" data-lightbox="group"><img src="images/bru3.png" ></a>
+	    <span class="cap">
+            <a class="title">一般的な近郊のタワーマンション</a><br>
+	        40年代に材料革新によってセメントに類する素材を使ったシンプルな様式が流行した。現在は当時に作られた建築物がレトロ趣味の上で再評価されている。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/bru4.png" data-lightbox="group"><img src="images/bru4.png" ></a>
+	    <span class="cap">
+            <a class="title">structure4 1245</a><br>
+	        鳥の巣や巣箱を再構築した近代建築の写真。郊外では都市部の高層化の流れに反して個人向けの建築物が多く構想された。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/bru4_1.png" data-lightbox="group"><img src="images/bru4_1.png" ></a>
+	    <span class="cap">
+            <a class="title">structure4 1245</a><br>
+	        鳥の巣や巣箱を再構築した近代建築の写真。郊外では都市部の高層化の流れに反して個人向けの建築物が多く構想された。
+	    </span>
+    </div>
+	<div class="pic">
+        <a href="images/bru5.png" data-lightbox="group"><img src="images/bru5.png" ></a>
+	    <span class="cap">
+            <a class="title">南北大橋 1249</a><br>
+	        湾内に入る世界最長の海路の海上輸送路部分の写真。
+	    </span>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
