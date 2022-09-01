@@ -285,13 +285,6 @@ main a[href]:hover:not(.botan) {
 .bold {
     font-weight: bold;
     text-shadow: 
-    0.3px 0.3px 0, 
-    0.3px -0.3px 0px,
-    -0.3px 0.3px 0,
-    -0.3px -0.3px 0px,
-    0.3px 0px 0px,
-    0px 0.3px 0px,
-    -0.3px 0px 0px,
     0px -0.3px 0px;
     letter-spacing: 1px;
 }
