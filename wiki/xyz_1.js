@@ -5,7 +5,6 @@ let c = 0;
 let fo;
 function preload() {
   fo = loadFont("DotGothic16-Regular.ttf");
-  fo2 = loadFont("../Zinaki-Regular.ttf");
 }
 
 function setup() {
