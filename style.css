@@ -67,8 +67,8 @@ ul {
 .window p, table, span, h1, h2, h3 {
     margin: -10px 10px 10px 10px;
     text-align: justify;
-    letter-spacing: 1px;
-    line-height: 1.5;
+    letter-spacing: 2px;
+    line-height: 2;
 }
 
 
@@ -125,8 +125,6 @@ h4 {
 .prof span, table {
     display: block;
     margin: -10px 12px 12px 10px;
-    letter-spacing: 1px;
-    line-height: 1.5;
     text-align: justify;
 }
 
