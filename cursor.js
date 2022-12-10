@@ -73,7 +73,7 @@ function sparkle() {
 function update_star(i) {
   if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
   if (starv[i]) {
-    stary[i]-=1+Math.random()*6;
+    stary[i]+=1+Math.random()*6;
     starx[i]+=(i%5-2)/5;
     if (stary[i]<shigh+sdown) {
       star[i].style.top=stary[i]+"px";
@@ -103,7 +103,7 @@ function update_tiny(i) {
     tiny[i].style.height="1px";
   }
   if (tinyv[i]) {
-    tinyy[i]-=1+Math.random()*6;
+    tinyy[i]+=1+Math.random()*6;
     tinyx[i]+=(i%5-2)/5;
     if (tinyy[i]<shigh+sdown) {
       tiny[i].style.top=tinyy[i]+"px";
