@@ -3,10 +3,12 @@ body {
     background-size: 50px 50px;
     background-position: 50% 0%;
     background-image:
-       linear-gradient(0deg, transparent 49px, #666 50px),
-       linear-gradient(90deg, transparent 49px, #666 50px);
+        linear-gradient(0deg, transparent 49px, #666 50px),
+        linear-gradient(90deg, transparent 49px, #666 50px);
     color: white;
+    font-family: serif;
 }
+
 main {
     padding: 50px 50px 50px 50px;
     height: 100%;
@@ -17,8 +19,8 @@ ul {
     padding-inline: 0px;
     line-height: 30px;
 }
-  
-.center{
+
+.center {
     display: block;
     text-align: center;
     margin: 0 auto;
@@ -30,19 +32,19 @@ ul {
     border-width: 1px;
     overflow: auto;
 }
+
 .center .back {
     display: block;
     text-align: left;
     padding: 0px 10%;
-    font-family: monospace;
     color: #FFF;
 }
 
-    .title {
+.title {
     padding: 150px 0px 100px 0px;
     width: 80%;
-    }
- 
+}
+
 
 .boxes {
     display: flex;
@@ -58,13 +60,19 @@ ul {
     margin: 50px auto;
     width: 70%;
     text-align: left;
-    font-family: monospace;
     border-width: 1px 2px 2px 1px;
     background-color: black;
     border-style: outset;
-    border-color:white;
+    border-color: white;
+    font-size: 0.9em;
 }
-.window p, table, span, h1, h2, h3 {
+
+.window p,
+table,
+span,
+h1,
+h2,
+h3 {
     margin: -10px 10px 10px 10px;
     text-align: justify;
     letter-spacing: 2px;
@@ -72,7 +80,7 @@ ul {
 }
 
 
-  /* ウィンドウ内コンテンツ */
+/* ウィンドウ内コンテンツ */
 
 .prof {
     text-align: center;
@@ -80,34 +88,35 @@ ul {
     margin: 25px 25px;
     width: 20%;
     vertical-align: top;
-    font-family: monospace;
     border-width: 0 2px 2px 1px;
     background-color: black;
     border-style: outset;
-    border-color:white;
+    border-color: white;
     word-break: break-all;
+    font-size: 0.9em;
 }
 
 .bar {
     display: block;
-    
+
 }
+
 h4 {
     width: 99%;
     height: 25px;
-    padding-left:1%;
+    padding-left: 1%;
     text-align: left;
     vertical-align: middle;
-    margin-top:0;
+    margin-top: 0;
     border-style: outset;
     border-width: 5px 0px 1px 0px;
     background-color: black;
-    font-family: serif;
-    font-style:italic;
+    font-style: italic;
     letter-spacing: 2px;
     color: white;
     overflow: hidden;
 }
+
 #hedicon {
     margin-right: 6px;
     margin-left: auto;
@@ -122,7 +131,8 @@ h4 {
     padding-bottom: 30px;
 }
 
-.prof span, table {
+.prof span,
+table {
     display: block;
     margin: -10px 12px 12px 10px;
     text-align: justify;
@@ -131,23 +141,24 @@ h4 {
 .name {
     text-align: left;
     font-family: serif;
-    font-style:italic;
+    font-style: italic;
     letter-spacing: 2px;
 }
 
 .count {
     font-family: serif;
-    font-style:italic;
+    font-style: italic;
     letter-spacing: 2px;
 }
 
-.prof img{
+.prof img {
     margin: 0 10px 10px 0;
     outline: 1px solid;
     display: block;
     box-shadow: 4px 4px 0 rgb(0, 0, 0), 5px 5px 0 rgb(255, 255, 255);
 }
-.shadowimg img{
+
+.shadowimg img {
     display: inline-block;
     margin: 5px 10px 10px 0px;
     outline: 1px solid;
@@ -157,30 +168,33 @@ h4 {
 
 /* wiki */
 h1 {
-  font-size: 188%;
-  line-height: 1.3;
-  font-weight: normal;
-  margin-bottom: 1em;
-  border-bottom: 1px solid #a2a9b1;
+    font-size: 188%;
+    line-height: 1.3;
+    font-weight: normal;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #a2a9b1;
 }
+
 h2 {
-  font-size: 150%;
-  font-weight: normal;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0.5em;
-  border-bottom: 1px solid #a2a9b1;
+    font-size: 150%;
+    font-weight: normal;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0.5em;
+    border-bottom: 1px solid #a2a9b1;
 }
+
 h3 {
-  font-size: 128%;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0.5em;
+    font-size: 128%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0.5em;
 }
 
 .filter1 {
     filter: brightness(70%) grayscale(100%) contrast(1000%);
 }
+
 .nofilter {
     filter: none;
 }
@@ -200,6 +214,7 @@ h3 {
 .prof img:hover {
     filter: brightness(100%) grayscale(0%) contrast(100%);
 }
+
 .mono:hover {
     filter: brightness(100%) grayscale(0%) contrast(100%);
 }
@@ -207,6 +222,7 @@ h3 {
 .logo {
     filter: brightness(1000%) grayscale(100%) contrast(1000%);
 }
+
 .prof .logo:hover {
     filter: brightness(1000%) grayscale(100%) contrast(1000%);
 }
@@ -214,8 +230,8 @@ h3 {
 
 /* ボタン */
 
-.botan{
-    color:black; 
+.botan {
+    color: black;
     background-color: black;
     display: inline;
     padding: 0px 20px;
@@ -225,55 +241,60 @@ h3 {
     border-color: #ffffff #808080 #808080 #ffffff;
     text-align: center;
     font-family: serif;
-    font-style:italic;
+    font-style: italic;
     font-weight: bold;
     letter-spacing: 2px;
     color: black;
 }
 
 .botan:hover {
-    cursor:pointer
+    cursor: pointer
 }
 
 .botan:active {
     border-color: #808080 #ffffff #ffffff #808080;
 }
 
-.dead{
-    color:gray; 
+.dead {
+    color: gray;
     text-shadow: 1px 1px 0 #fff;
     background-color: #DFDFDF;
 }
 
-a{
-    text-decoration:none; 
+a {
+    text-decoration: none;
 }
 
-main a[href]:link:not(.botan){
-    color:#FFFFFF; 
+main a[href]:link:not(.botan) {
+    color: #FFFFFF;
     background-color: #0000FF;
 }
+
 main a[href]:visited:not(.botan) {
-    color:#FFFFFF; 
+    color: #FFFFFF;
     background-color: #0000FF;
 }
+
 main a[href]:hover:not(.botan) {
-    color:#FFFFFF; 
+    color: #FFFFFF;
     background-color: gray;
 }
 
 .news {
     vertical-align: "top";
 }
- .news th{
+
+.news th {
     font-style: bold;
     width: 100px;
     vertical-align: top;
 }
+
 .cont {
     vertical-align: "top";
 }
- .cont th{
+
+.cont th {
     font-style: bold;
 }
 
@@ -282,14 +303,11 @@ main a[href]:hover:not(.botan) {
 
 .bold {
     font-weight: bold;
-    text-shadow: 
-    0.5px 0px 0px;
-    letter-spacing: 1px;
 }
 
 .italic {
     font-family: serif;
-    font-style:italic;
+    font-style: italic;
     font-weight: bold;
     letter-spacing: 2px;
     font-size: 80%;
@@ -297,9 +315,9 @@ main a[href]:hover:not(.botan) {
 
 .memo {
     display: block;
-    font-style:italic;
+    font-style: italic;
     color: #666;
-    padding-top:0.7em;
+    padding-top: 0.7em;
     font-size: 90%;
 }
 
@@ -308,73 +326,74 @@ main a[href]:hover:not(.botan) {
 }
 
 @import url("ll.css");
-.ll{
-  font: 1.5em "LL", sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.1em;
+
+.ll {
+    font: 1.5em "LL", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
-  }
+}
 
-  /* ヘッダー */
-* { 
-    margin: 0px; 
-    padding: 0px; 
-    }
+/* ヘッダー */
+* {
+    margin: 0px;
+    padding: 0px;
+}
 
-    
-    .hcenter{
-        border-style: solid;
-        background-color: #DFDFDF;
-        border-width: 2px 0px;
-        border-color: #ffffff #808080 #808080 #ffffff;
-        height: 30px;
+
+.hcenter {
+    border-style: solid;
+    background-color: #DFDFDF;
+    border-width: 2px 0px;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    height: 30px;
     display: block;
     margin: 0 auto;
     align-self: center;
     overflow: hidden;
-    }
+}
 
-    header ul {
-      height: 30px;
-    }
+header ul {
+    height: 30px;
+}
 
-    header .botan{
+header .botan {
     padding: 9px 20px;
     margin: 0px;
     line-height: 30px;
-    }
+}
 
-      /* レアネレイ語説明処理 */
+/* レアネレイ語説明処理 */
 #LL {
     font-family: "LL", Courier, monospace;
     letter-spacing: 0.1em;
-  }
-  
-  .reibun {
+}
+
+.reibun {
     margin: 10px 20px 20px 20px;
     padding: 20px 50px 20px 50px;
-    line-height: 1.4em ;
+    line-height: 1.4em;
     border-left: solid 10px #CCC;
-  }
+}
 
-  /* スマホ用 */
-  @media screen and (max-width:900px){
+/* スマホ用 */
+@media screen and (max-width:900px) {
 
     main {
         padding: 0;
         margin: 10px 0;
-    } 
+    }
 
-    .center{
+    .center {
         padding: 50px 0px;
         width: 97%;
     }
 
     .title {
-          width: 100%;
+        width: 100%;
     }
 
     .boxes {
@@ -382,16 +401,16 @@ main a[href]:hover:not(.botan) {
     }
 
     .window {
-         display: block;
-         margin: 20px auto;
-         width: 97%;
+        display: block;
+        margin: 20px auto;
+        width: 97%;
     }
 
     .prof {
         margin: 0 0 40px 0;
         width: 100% !important;
     }
-      
+
     .none {
         display: none;
     }
@@ -400,6 +419,7 @@ main a[href]:hover:not(.botan) {
     header img[src="icon.png"] {
         display: none;
     }
+
     header a[href="404.html"] {
         display: none;
     }
@@ -407,6 +427,7 @@ main a[href]:hover:not(.botan) {
     header a[href="olime_sian.html"] {
         display: none;
     }
+
     header a[href="hazuqu.html"] {
         display: none;
     }
