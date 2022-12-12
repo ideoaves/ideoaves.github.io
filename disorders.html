@@ -14,6 +14,47 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
+        body {
+            animation: 5s sea steps(10,end) infinite;
+        }
+
+        .rainbow {
+            animation: 1s rainbow steps(1,end) infinite;
+        }
+
+        @keyframes sea {
+            25% {
+                background-color: #135252
+            }
+            50% {
+                background-color: #0e124d
+            }
+            75% {
+                background-color: #000
+            }
+        }
+        .rainbow {
+            animation: 1s rainbow steps(1,end) infinite;
+        }
+
+        @keyframes rainbow {
+            10% {
+                color: #ff0000
+            }
+            30% {
+                color: #ffff00
+            }
+            50% {
+                color: #00ffff
+            }
+            70% {
+                color: #0000ff
+            }
+            90% {
+                color: #ff00ff
+            }
+        }
+
         .ini {
             width: 40px;
             vertical-align: middle;
@@ -55,14 +96,24 @@
 <body>
     <div class="hcenter">
         <header>
-     <img src="icon.png" height="30px" align="left">
-     <ul style="float: left;">
-       <a href="index.html"><li class="botan bold">IDEOAVES</li></a><a href="about.html">
-         <li class="botan">CHARACTER</li></a><a href="hazuqu.html"><li class="botan"><img src="H.png" height="30px" align="center"></li></a><a href="olime_sian.html"><li class="botan"><img src="LI.png" height="30px" align="center"></li></a>
-    </ul><ul style="float: right">
-     <a href="404.html"><li class="botan"> </li></a>
-    </ul>
-    </header>
+            <img src="icon.png" height="30px" align="left">
+            <ul style="float: left;">
+                <a href="index.html">
+                    <li class="botan bold">IDEOAVES</li>
+                </a><a href="about.html">
+                    <li class="botan">CHARACTER</li>
+                </a><a href="hazuqu.html">
+                    <li class="botan"><img src="H.png" height="30px" align="center"></li>
+                </a><a href="olime_sian.html">
+                    <li class="botan"><img src="LI.png" height="30px" align="center"></li>
+                </a>
+            </ul>
+            <ul style="float: right">
+                <a href="404.html">
+                    <li class="botan"> </li>
+                </a>
+            </ul>
+        </header>
     </div>
     <div class="center">
 
@@ -73,7 +124,7 @@
                     src="https://pbs.twimg.com/profile_images/1586745939217199105/7gNta6Yd_400x400.jpg"><br></a><a
                 style="font-family: monospace; letter-spacing: 1px; line-height: 1.5; font-style: italic;">𝚍𝚒𝚜𝚘𝚛𝚍𝚎𝚛𝚜</a><br><a
                 style="font-family: monospace;">Dis0rders__</a>
-            <div style="font-family: SimSun; font-size: 20px; margin-top: 50px;">
+            <div style="font-family: SimSun; font-size: 20px; margin-top: 50px;" class="rainbow">
                 † ようこそ　𝙸𝚗𝚝𝚎𝚛𝚗𝚎𝚝の深海へ †
             </div>
             <div class="window">
@@ -82,8 +133,7 @@
                     ♪さんくら♪　<br><a href="https://soundcloud.com/dis0rders">https://soundcloud.com/dis0rders</a><br><br>
 
                     //　SNS　//<br>
-                    <a href="https://twitter.com/Dis0rders__" class="botan">Twitter</a><br>
-                    <a class="botan">Pixiv(多分開かん)</a><br><br>
+                    <a href="https://twitter.com/Dis0rders__" class="botan">Twitter</a><br><br>
                 </p>
                 <p></p>
             </div>
@@ -91,36 +141,32 @@
             <div class="window">
                 <h4>うちについて</h4><img id="hedicon" src="x.png">
                 <p>
-                    鳥類じみていない名乗りをするのは中学生以来です<br>
-                    このサイトがideoaves(思考する鳥類の種、という意)という名前なのにこれでは世界観がゆらぎますね。メタな感じで見てください。<br>
-                    私にはたくさんの名前があり、それぞれの領域で色々と活動したり活動を休止したりしています。<a
-                        href="https://ideoaves.cf/about.html">Character</a>にまとまっています。（それぞれの作品のまとめにもつながってます、見てね！）<br>
+                    日常垢です！<br>
+                    詳しいプロフィールは文章だとつまらないので、実績バッジふうにまとめています。
                 <p style="text-align:right">
                     <a href="profile.html">実績バッジ >></a>
                 </p>
                 </p>
             </div>
-            <div class="window">
-                <h4>やれることと趣味</h4><img id="hedicon" src="x.png">
-                <p>
-                    映像制作（実写、VFX、リリックビデオ、MAD）、3DCG、写真、フィルム写真、絵（デッサン、シンプルな塗のアニメ絵、油彩水彩、漫画）、グラフィック、タイポグラフィ（ロゴ、フォント）、架空世界創作（惑星、歴史、言語、地図）、コスプレ（プレイヤー、カメコ）、Vtuber（2D）、メディアアート、p5.js、Web（html、CSS、js）、DTM、DJをやってきました。<br>
-                    あと──　なんとコーヒーを淹れることができます！<br>
-                    <br>
-                    そして一通りやってきてわかったことは、これらには一切合切なんの意味もないということでした。（コーヒーはおいしいので、意味があります）<br>
-                    <br>
-                    趣味はよい音楽や映像を視聴すること、鳥類学とか地質学とか民俗学とかの上澄みをすすること、フォロワーと遊ぶこと、国の金で水族館とか博物館に行くことです。
-            </div>
+
             <div class="window">
                 <h4><a
                         href="https://twitter.com/search?q=%23%E3%81%A7%E3%81%83%E3%81%99%E3%81%8A%E3%83%BC%E3%81%A0%E3%83%BC%E3%81%9A&src=hashtag_click">#でぃすおーだーず</a>について
                 </h4><img id="hedicon" src="x.png">
                 <p>
-                    人目も憚らずテキトーに一次創作するための場です。正直人生で創作活動しかしてこなくて、やめ方がわからないので仕方なくやってます。<br>
-                    <br>
-                    Disorders（障害、無秩序、の複数形）の名前のとおり、異常なやつらのワクワク自暴自棄コメディになると思います。いまはキャラデザが楽しいのと、どこまで落書き的にできるかの遊びをしています。<br>
-                    そのうちキャラクターがまとまったらティザーサイトとか作ります。<br>
-                <div class="shadowimg">
-                </div>
+                    人目も憚らずテキトーに一次創作するための場です。<br>
+                    何人かの海洋生物モチーフのうちのこがいます。彼らをモチーフに、漫画を書いたり作風の模索をしたり、音楽を作ったりします。<br>
+                    <img src="https://pbs.twimg.com/media/FjXQRh3VEAA6Lw9?format=png&name=small" width="300px">
+            </div>
+
+            <div class="window">
+                <h4>趣味</h4><img id="hedicon" src="x.png">
+                <p>
+                    一次創作をしています。<br>
+                    だいたい趣味です。大きいくくりで言えば、生物、地理地質、民俗、天文、近現代史、哲学、音楽、芸術、ファッション、近現代建築、インターネット史が好きです。基本話が通じます。
+                </p>
+                </p>
+            </div>
         </main>
     </div>
 </body>
