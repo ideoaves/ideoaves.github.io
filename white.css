@@ -1,38 +1,41 @@
 body {
-  font-family: Courier, monospace;
   color: #555;
   background-color: #EEEEEE;
   background-image:
-     linear-gradient(0deg, transparent 49px, #666 50px),
-     linear-gradient(90deg, transparent 49px, #666 50px);
+    linear-gradient(0deg, transparent 49px, #666 50px),
+    linear-gradient(90deg, transparent 49px, #666 50px);
   color: black;
 }
 
 
-.center{
+.center {
   background-color: #EEEEEE;
 }
 
 .window {
   background-color: #EEEEEE;
-  border-color:black;
+  border-color: black;
 }
 
 /* wiki */
 h1 {
   border-bottom: 1px solid #a2a9b1;
 }
+
 h2 {
   color: black;
   border-bottom: 1px solid #a2a9b1;
 }
+
 h4 {
   background-color: #EEEEEE;
   color: black;
 }
 
 
-.oto tbody, .oto td, .oto th {
+.oto tbody,
+.oto td,
+.oto th {
   border: 1px solid #595959;
 }
 
@@ -47,35 +50,34 @@ h4 {
 }
 
 /* スマホ用 */
-@media screen and (max-width:900px){
+@media screen and (max-width:900px) {
 
-    body {
-        padding: 0;
-        margin: 10px 0;
-    } 
+  body {
+    padding: 0;
+    margin: 10px 0;
+  }
 
-    .center{
-        padding: 0;
-        width: 97%;
-    }
+  .center {
+    padding: 0;
+    width: 97%;
+  }
 
-    .title {
-          width: 100%;
-    }
+  .title {
+    width: 100%;
+  }
 
-    .boxes {
-        margin: 10px;
-    }
+  .boxes {
+    margin: 10px;
+  }
 
-    .window {
-         display: block;
-         margin: 20px auto;
-         width: 97%;
-    }
+  .window {
+    display: block;
+    margin: 20px auto;
+    width: 97%;
+  }
 
   .prof {
-      margin: 0 0 40px 0;
-      width: 100% !important;
+    margin: 0 0 40px 0;
+    width: 100% !important;
   }
-}  
-  
+}
