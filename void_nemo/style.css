@@ -1,0 +1,202 @@
+body {
+    animation: 10s sea steps(30,end) infinite;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+
+canvas {
+    display: block;
+  }
+
+.rainbow {
+    animation: 1s rainbow steps(1,end) infinite;
+}
+
+@keyframes sea {
+    0% {
+        background-color: #8a8a8a
+    }
+    25% {
+        background-color: #135252
+    }
+    50% {
+        background-color: #0e124d
+    }
+    75% {
+        background-color: #353535
+    }
+    100% {
+        background-color: #848484
+    }
+}
+.rainbow {
+    animation: 1s rainbow steps(1,end) infinite;
+}
+
+@keyframes rainbow {
+    10% {
+        color: #ff0000
+    }
+    30% {
+        color: #ffff00
+    }
+    50% {
+        color: #00ffff
+    }
+    70% {
+        color: #0000ff
+    }
+    90% {
+        color: #ff00ff
+    }
+}
+
+header {
+    padding: 100px;
+    height: 200px;
+    line-height: 1.5em;
+    font-feature-settings: "palt";
+}
+
+header img {
+    width: 30%;
+    @media (max-width: 600px) {
+    width: 100%;
+    }
+}
+
+
+
+main {
+    padding: 0.1px;
+    margin: 0 auto;
+}
+
+
+.center {
+    text-align: center;
+}
+
+
+.bold {
+    padding: 0 0.4em;
+    color: #fff;
+    background-color: #484848;
+}
+
+.sec {
+    max-width: 800px;
+    margin: 100px auto;
+    @media (max-width: 900px) {
+        width: 80%;
+        }
+}
+
+.prof {
+    background-color: #b7b7b7;
+    margin: 20px;
+    padding: 50px;
+    display: flex;
+    font-feature-settings: "palt";
+}
+
+.prof#ceta{
+    background-color: #f3f3f3;
+    color: #484848;
+}
+#ceta p,#ceta h2 {
+    background-color: #f3f3f394;
+}
+
+.prof#miu{
+    background-color: #ea0081;
+    color: #fff;
+}
+#miu p,#miu h2 {
+    background-color: #ea008194;
+}
+
+.prof#chep{
+    background-color: #212430;
+    color: #fff;
+}
+#chep p,#chep h2 {
+    background-color: #21243094;
+}
+
+.prof#ruye{
+    background-color: #e5e2dd;
+    color: #131313;
+}
+#ruye p,#ruye h2 {
+    background-color: #e5e2dd94;
+}
+
+
+.tachie {
+    margin: 0 -40px 0 40px;
+    height: 400px;
+    @media (max-width: 600px) {
+        margin: 0 auto;
+        }
+}
+
+.p_text {
+    margin: 0 40px 0 -40px;
+    text-align : center;
+    @media (max-width: 600px) {
+        margin-left: -150%;
+        margin-top: 100px;
+        left: 0;
+    }
+}
+
+.p_tab {
+    font-size: small;
+}
+
+.logo {
+    width: 40%;
+    margin: 0 auto;
+    @media (max-width: 600px) {
+        width: 80%;
+        }
+}
+
+h1 {
+    text-align: center;
+    color: #FFF;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 5px;
+    font-size: 1.5em;
+    font-weight: 200;
+    padding: 20px 0;
+    @media (max-width: 600px) {
+        font-size: 1em;
+        white-space: nowrap;
+        }
+}
+
+h2 {
+    margin: 0;
+    
+}
+
+.intro {
+    text-align: left;
+    font-size: 15px;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    font-weight: 600;
+    font-feature-settings:"pwid", "halt";
+    line-height: 1.5em;
+}
+
+.intro p {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.intro .bold {
+    margin-right: 1em;
+}
