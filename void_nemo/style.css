@@ -1,18 +1,4 @@
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-  }
-
 html {
-    -webkit-appearance: none;
     height: 100%;
     width: 100%;
   }
@@ -99,45 +85,28 @@ header {
     line-height: 1.5em;
     font-feature-settings: "palt";
     margin-bottom: 100px;
-
-    @media (max-width: 600px) {
-        padding: 100px 100px 0 100px;
-    }
-}
-
-header span {
+  }
+  
+  header span {
     display: inline-block;
-}
-
-header img {
+  }
+  
+  header img {
     width: 30%;
-
-    @media (max-width: 600px) {
-        width: 100%;
-    }
-}
-
-.point_nemo {
+  }
+  
+  .point_nemo {
     letter-spacing: 2px;
     line-height: 3em;
     font-size: 0.9em;
     margin: 50px 0;
-
-    @media (max-width: 600px) {
-        font-size: 0.6em;
-        margin: 50px -60px;
-    }
-}
-
-.sec {
+  }
+  
+  .sec {
     padding: 0;
     margin: 100px auto;
     font-size: 1em;
-    
-    @media (max-width: 600px) {
-        margin: 10px auto;
-    }
-}
+  }
 
 .sec::after {
     padding: 0 20%;
@@ -148,14 +117,6 @@ header img {
     content: "}";
 }
 
-@media (max-width: 600px) {
-    .sec::after {
-        padding: 0 10%;
-        font-size: 1em;
-        content: "}";
-    }
-}
-
 h1 {
     padding: 0 20%;
     color: #FFF;
@@ -164,12 +125,6 @@ h1 {
     font-size: 1.3em;
     font-weight: 200;
     margin-top: 50px;
-
-    @media (max-width: 600px) {
-        padding: 0 10%;
-        font-size: 1em;
-        white-space: nowrap;
-    }
 }
 
 h1::after {
@@ -235,23 +190,11 @@ main {
     max-width: 800px;
     margin: 100px auto;
     display: flex;
-
-    @media (max-width: 600px) {
-        display: block;
-        width: 80%;
-        padding: 0px;
-        margin: 0px auto;
-    }
 }
 
 .prof {
     background-color: #b7b7b7;
     padding: 50px;
-
-    @media (max-width: 600px) {
-        padding: 0px;
-    }
-
     font-feature-settings: "palt";
 }
 
@@ -262,10 +205,6 @@ main {
 
 #ceta .p_text {
     background-image: linear-gradient(90deg, transparent 0%, #f3f3f3b0 10%);
-
-    @media (max-width: 600px) {
-        background-image: linear-gradient(0deg, #f3f3f3b0 80%, transparent 100%);
-    }
 }
 
 .prof#miu {
@@ -275,10 +214,6 @@ main {
 
 #miu .p_text {
     background-image: linear-gradient(90deg, transparent 0%, #ea0081b0 10%);
-
-    @media (max-width: 600px) {
-        background-image: linear-gradient(0deg, #ea0081b0 80%, transparent 100%);
-    }
 }
 
 .prof#chep {
@@ -288,10 +223,6 @@ main {
 
 #chep .p_text {
     background-image: linear-gradient(90deg, transparent 0%, #212430b0 10%);
-
-    @media (max-width: 600px) {
-        background-image: linear-gradient(0deg, #212430b0 80%, transparent 100%);
-    }
 }
 
 .prof#ruye {
@@ -301,23 +232,12 @@ main {
 
 #ruye .p_text {
     background-image: linear-gradient(90deg, transparent 0%, #e5e2ddb0 10%);
-
-    @media (max-width: 600px) {
-        background-image: linear-gradient(0deg, #e5e2ddb0 80%, transparent 100%);
-    }
 }
 
 
 .tachie {
     margin: 0 -40px 0 40px;
     height: 400px;
-
-    @media (max-width: 600px) {
-        margin: 10px auto;
-        height: auto;
-        width: 100%;
-        text-align: center;
-    }
 }
 
 .p_text {
@@ -326,12 +246,6 @@ main {
     text-align: center;
     position: relative;
     z-index: 3;
-
-    @media (max-width: 600px) {
-        margin: 0;
-        margin-top: -300px;
-        padding-bottom: 20px;
-    }
 }
 
 .p_tab {
@@ -342,11 +256,6 @@ main {
     width: 50%;
     min-width: 200px;
     margin: 0 auto;
-
-    @media (max-width: 600px) {
-        width: 80%;
-        min-width: 0;
-    }
 }
 
 h2 {
@@ -368,4 +277,66 @@ h2 {
 
 .intro .bold {
     margin-right: 1em;
+}
+
+@media (max-width: 600px) {
+    header {
+      padding: 100px 100px 0 100px;
+    }
+    header img {
+      width: 100%;
+    }
+    .point_nemo {
+      font-size: 0.6em;
+      margin: 50px -60px;
+    }
+    .sec {
+      margin: 10px auto;
+    }
+    .sec::after {
+        padding: 0 10%;
+        font-size: 1em;
+        content: "}";
+    }
+    h1 {
+        padding: 0 10%;
+        font-size: 1em;
+        white-space: nowrap;
+    }
+    .in-prof {
+        display: block;
+        width: 80%;
+        padding: 0px;
+        margin: 0px auto;
+    }
+    .prof {
+        padding: 0px;
+    }
+    #ceta .p_text {
+        background-image: linear-gradient(0deg, #f3f3f3b0 80%, transparent 100%);
+    }
+    #miu .p_text {
+        background-image: linear-gradient(0deg, #ea0081b0 80%, transparent 100%);
+    }
+    #chep .p_text {
+        background-image: linear-gradient(0deg, #212430b0 80%, transparent 100%);
+    }
+    #ruye .p_text {
+        background-image: linear-gradient(0deg, #e5e2ddb0 80%, transparent 100%);
+    }
+    .tachie {
+        margin: 10px auto;
+        height: auto;
+        width: 100%;
+        text-align: center;
+    }
+    .p_text {
+        margin: 0;
+        margin-top: -300px;
+        padding-bottom: 20px;
+    }
+    .logo {
+        width: 80%;
+        min-width: 0;
+    }
 }
