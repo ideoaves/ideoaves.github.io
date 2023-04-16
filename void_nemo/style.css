@@ -4,55 +4,73 @@ body {
     margin: 0 auto;
     height: 100%;
     width: 100%;
-    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    font-family: 'DotGothic16', Courier, monospace;
     color: #fff;
+}
+
+::selection {
+    background: #FFF;
+    color: #000;
 }
 
 canvas {
     display: block;
-  }
+}
 
 .rainbow {
-    animation: 1s rainbow steps(1,end) infinite;
+    animation: 1s rainbow steps(1, end) infinite;
 }
 
 @keyframes sea {
     0% {
         background-color: #8a8a8a
     }
+
     25% {
         background-color: #135252
     }
+
     50% {
         background-color: #0e124d
     }
+
     75% {
         background-color: #353535
     }
+
     100% {
         background-color: #848484
     }
 }
+
 .rainbow {
-    animation: 1s rainbow steps(1,end) infinite;
+    animation: 1s rainbow steps(1, end) infinite;
 }
 
-@keyframes rainbow {
-    10% {
-        color: #ff0000
+@keyframes cursor {
+    1% {
+        background-color: #fff
     }
-    30% {
-        color: #ffff00
+
+    49% {
+        background-color: #fff
     }
-    50% {
-        color: #00ffff
+
+    51% {
+        background-color: #0000
     }
-    70% {
-        color: #0000ff
+
+    99% {
+        background-color: #0000
     }
-    90% {
-        color: #ff00ff
-    }
+}
+
+.cursor {
+    animation: 1s cursor steps(1, end) infinite;
+    position: relative;
+    width: 1px;
+    height: 1.1em;
+    top: 2px;
 }
 
 header {
@@ -60,6 +78,10 @@ header {
     line-height: 1.5em;
     font-feature-settings: "palt";
     margin-bottom: 100px;
+
+    @media (max-width: 600px) {
+        padding: 100px 100px 0 100px;
+    }
 }
 
 header span {
@@ -68,8 +90,9 @@ header span {
 
 header img {
     width: 30%;
+
     @media (max-width: 600px) {
-    width: 100%;
+        width: 100%;
     }
 }
 
@@ -78,22 +101,68 @@ header img {
     line-height: 3em;
     font-size: 0.9em;
     margin: 50px 0;
+
     @media (max-width: 600px) {
         font-size: 0.6em;
         margin: 50px -60px;
-        }
+    }
 }
 
 .sec {
     padding: 0;
     margin: 100px auto;
+    font-size: 1em;
+    
+    @media (max-width: 600px) {
+        margin: 10px auto;
+    }
 }
 
-.text{
+.sec::after {
+    padding: 0 20%;
+    letter-spacing: 5px;
+    font-family: Courier, monospace;
+    font-size: 1.5em;
+    font-weight: 200;
+    content: "}";
+}
+
+@media (max-width: 600px) {
+    .sec::after {
+        padding: 0 10%;
+        font-size: 1em;
+        content: "}";
+    }
+}
+
+.text {
     max-width: 800px;
-    padding: 0 20px;
-    margin: 0 auto;
-    line-height: 2em;
+    padding: 0 20%;
+    margin: 50px auto;
+    line-height: 3em;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.text span {
+    display: inline-block;
+}
+
+.text a {
+    text-decoration: none;
+}
+
+.text a:link,
+a:visited {
+    background: #FFF;
+    color: #000;
+    padding: 0 5px;
+    margin: 0 5px;
+}
+
+.text a:hover {
+    background: #ffffff80;
+    color: #000;
 }
 
 main {
@@ -117,64 +186,75 @@ main {
     max-width: 800px;
     margin: 100px auto;
     display: flex;
-    @media (max-width: 900px) {
+
+    @media (max-width: 600px) {
         display: block;
         width: 80%;
         padding: 0px;
         margin: 0px auto;
-        }
+    }
 }
 
 .prof {
     background-color: #b7b7b7;
     padding: 50px;
-    @media (max-width: 900px) {
+
+    @media (max-width: 600px) {
         padding: 0px;
-        }
+    }
+
     font-feature-settings: "palt";
 }
 
-.prof#ceta{
+.prof#ceta {
     background-color: #f3f3f3;
     color: #484848;
 }
+
 #ceta .p_text {
     background-image: linear-gradient(90deg, transparent 0%, #f3f3f3b0 10%);
-    @media (max-width: 900px) {
-    background-image: linear-gradient(0deg, #f3f3f3b0 80%, transparent 100%);
+
+    @media (max-width: 600px) {
+        background-image: linear-gradient(0deg, #f3f3f3b0 80%, transparent 100%);
     }
 }
 
-.prof#miu{
+.prof#miu {
     background-color: #ea0081;
     color: #fff;
 }
+
 #miu .p_text {
     background-image: linear-gradient(90deg, transparent 0%, #ea0081b0 10%);
-@media (max-width: 900px) {
-    background-image: linear-gradient(0deg, #ea0081b0 80%, transparent 100%);
+
+    @media (max-width: 600px) {
+        background-image: linear-gradient(0deg, #ea0081b0 80%, transparent 100%);
     }
 }
 
-.prof#chep{
+.prof#chep {
     background-color: #212430;
     color: #fff;
 }
+
 #chep .p_text {
     background-image: linear-gradient(90deg, transparent 0%, #212430b0 10%);
-@media (max-width: 900px) {
-    background-image: linear-gradient(0deg, #212430b0 80%, transparent 100%);
+
+    @media (max-width: 600px) {
+        background-image: linear-gradient(0deg, #212430b0 80%, transparent 100%);
     }
 }
 
-.prof#ruye{
+.prof#ruye {
     background-color: #e5e2dd;
     color: #131313;
 }
+
 #ruye .p_text {
     background-image: linear-gradient(90deg, transparent 0%, #e5e2ddb0 10%);
-    @media (max-width: 900px) {
-    background-image: linear-gradient(0deg, #e5e2ddb0 80%, transparent 100%);
+
+    @media (max-width: 600px) {
+        background-image: linear-gradient(0deg, #e5e2ddb0 80%, transparent 100%);
     }
 }
 
@@ -182,20 +262,22 @@ main {
 .tachie {
     margin: 0 -40px 0 40px;
     height: 400px;
+
     @media (max-width: 600px) {
         margin: 10px auto;
         height: auto;
         width: 100%;
         text-align: center;
-        }
+    }
 }
 
 .p_text {
     margin: 0 40px 0 -40px;
     padding: 0 20px;
-    text-align : center;
-    position:relative;
+    text-align: center;
+    position: relative;
     z-index: 3;
+
     @media (max-width: 600px) {
         margin: 0;
         margin-top: -300px;
@@ -209,36 +291,44 @@ main {
 
 .logo {
     width: 50%;
+    min-width: 200px;
     margin: 0 auto;
+
     @media (max-width: 600px) {
         width: 80%;
-        }
+        min-width: 0;
+    }
 }
 
 h1 {
-    text-align: center;
+    padding: 0 20%;
     color: #FFF;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Courier, monospace;
     letter-spacing: 5px;
     font-size: 1.5em;
     font-weight: 200;
-    margin: 50px 0;
+    margin-top: 50px;
+
     @media (max-width: 600px) {
+        padding: 0 10%;
         font-size: 1em;
         white-space: nowrap;
-        }
+    }
+}
+
+h1::after {
+    content: "() {";
 }
 
 h2 {
     margin: 0;
-    
 }
 
 .intro {
     text-align: left;
     font-size: 15px;
     font-weight: 600;
-    font-feature-settings:"pwid", "halt";
+    font-feature-settings: "pwid", "halt";
     line-height: 1.5em;
 }
 
