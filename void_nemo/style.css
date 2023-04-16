@@ -1,8 +1,11 @@
 body {
-    animation: 10s sea steps(30,end) infinite;
+    /* animation: 10s sea steps(30,end) infinite; */
+    background-image: linear-gradient(0deg, #000, #091319);
     margin: 0 auto;
     height: 100%;
     width: 100%;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    color: #fff;
 }
 
 canvas {
@@ -54,9 +57,13 @@ canvas {
 
 header {
     padding: 100px;
-    height: 200px;
     line-height: 1.5em;
     font-feature-settings: "palt";
+    margin-bottom: 100px;
+}
+
+header span {
+    display: inline-block;
 }
 
 header img {
@@ -66,7 +73,28 @@ header img {
     }
 }
 
+.point_nemo {
+    letter-spacing: 2px;
+    line-height: 3em;
+    font-size: 0.9em;
+    margin: 50px 0;
+    @media (max-width: 600px) {
+        font-size: 0.6em;
+        margin: 50px -60px;
+        }
+}
 
+.sec {
+    padding: 0;
+    margin: 100px auto;
+}
+
+.text{
+    max-width: 800px;
+    padding: 0 20px;
+    margin: 0 auto;
+    line-height: 2em;
+}
 
 main {
     padding: 0.1px;
@@ -85,19 +113,24 @@ main {
     background-color: #484848;
 }
 
-.sec {
+.in-prof {
     max-width: 800px;
     margin: 100px auto;
+    display: flex;
     @media (max-width: 900px) {
+        display: block;
         width: 80%;
+        padding: 0px;
+        margin: 0px auto;
         }
 }
 
 .prof {
     background-color: #b7b7b7;
-    margin: 20px;
     padding: 50px;
-    display: flex;
+    @media (max-width: 900px) {
+        padding: 0px;
+        }
     font-feature-settings: "palt";
 }
 
@@ -105,32 +138,44 @@ main {
     background-color: #f3f3f3;
     color: #484848;
 }
-#ceta p,#ceta h2 {
-    background-color: #f3f3f394;
+#ceta .p_text {
+    background-image: linear-gradient(90deg, transparent 0%, #f3f3f3b0 10%);
+    @media (max-width: 900px) {
+    background-image: linear-gradient(0deg, #f3f3f3b0 80%, transparent 100%);
+    }
 }
 
 .prof#miu{
     background-color: #ea0081;
     color: #fff;
 }
-#miu p,#miu h2 {
-    background-color: #ea008194;
+#miu .p_text {
+    background-image: linear-gradient(90deg, transparent 0%, #ea0081b0 10%);
+@media (max-width: 900px) {
+    background-image: linear-gradient(0deg, #ea0081b0 80%, transparent 100%);
+    }
 }
 
 .prof#chep{
     background-color: #212430;
     color: #fff;
 }
-#chep p,#chep h2 {
-    background-color: #21243094;
+#chep .p_text {
+    background-image: linear-gradient(90deg, transparent 0%, #212430b0 10%);
+@media (max-width: 900px) {
+    background-image: linear-gradient(0deg, #212430b0 80%, transparent 100%);
+    }
 }
 
 .prof#ruye{
     background-color: #e5e2dd;
     color: #131313;
 }
-#ruye p,#ruye h2 {
-    background-color: #e5e2dd94;
+#ruye .p_text {
+    background-image: linear-gradient(90deg, transparent 0%, #e5e2ddb0 10%);
+    @media (max-width: 900px) {
+    background-image: linear-gradient(0deg, #e5e2ddb0 80%, transparent 100%);
+    }
 }
 
 
@@ -138,17 +183,23 @@ main {
     margin: 0 -40px 0 40px;
     height: 400px;
     @media (max-width: 600px) {
-        margin: 0 auto;
+        margin: 10px auto;
+        height: auto;
+        width: 100%;
+        text-align: center;
         }
 }
 
 .p_text {
     margin: 0 40px 0 -40px;
+    padding: 0 20px;
     text-align : center;
+    position:relative;
+    z-index: 3;
     @media (max-width: 600px) {
-        margin-left: -150%;
-        margin-top: 100px;
-        left: 0;
+        margin: 0;
+        margin-top: -300px;
+        padding-bottom: 20px;
     }
 }
 
@@ -157,7 +208,7 @@ main {
 }
 
 .logo {
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
     @media (max-width: 600px) {
         width: 80%;
@@ -171,7 +222,7 @@ h1 {
     letter-spacing: 5px;
     font-size: 1.5em;
     font-weight: 200;
-    padding: 20px 0;
+    margin: 50px 0;
     @media (max-width: 600px) {
         font-size: 1em;
         white-space: nowrap;
@@ -186,7 +237,6 @@ h2 {
 .intro {
     text-align: left;
     font-size: 15px;
-    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
     font-weight: 600;
     font-feature-settings:"pwid", "halt";
     line-height: 1.5em;
