@@ -338,6 +338,7 @@ h2 {
     .p_text {
         margin: 0;
         margin-top: -350px;
+        padding: 0;
         padding-bottom: 20px;
     }
     .logo {
