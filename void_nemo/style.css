@@ -287,7 +287,8 @@ h2 {
       width: 100%;
     }
     .point_nemo {
-      font-size: 0.6em;
+      font-size: 0.5em;
+      line-height: 1em;
       margin: 50px -60px;
     }
     .sec {
