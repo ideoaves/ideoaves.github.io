@@ -327,13 +327,14 @@ h2 {
     }
     .tachie {
         margin: 10px auto;
+        padding: 20px;
         height: auto;
         width: 100%;
         text-align: center;
     }
     .p_text {
         margin: 0;
-        margin-top: -300px;
+        margin-top: -350px;
         padding-bottom: 20px;
     }
     .logo {
