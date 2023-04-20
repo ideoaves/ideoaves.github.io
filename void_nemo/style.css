@@ -182,13 +182,6 @@ main {
     text-align: center;
 }
 
-
-.bold {
-    padding: 0 0.4em;
-    color: #fff;
-    background-color: #484848;
-}
-
 .in-prof {
     max-width: 800px;
     margin: 100px auto;
@@ -249,10 +242,19 @@ main {
     text-align: center;
     position: relative;
     z-index: 3;
+    letter-spacing: 2px;
 }
 
 .p_tab {
-    font-size: small;
+    font-size: 13px;
+}
+.p_tab::after {
+    padding: 0 0.4em;
+    content: ";";
+}
+
+.p_tab .bold::after {
+    content: " = ";
 }
 
 .logo {
@@ -263,6 +265,9 @@ main {
 
 h2 {
     margin: 0;
+    font-family: Courier, monospace;
+    letter-spacing: 2px;
+    font-weight: 200;
 }
 
 .intro {
@@ -273,13 +278,13 @@ h2 {
     line-height: 1.5em;
 }
 
-.intro p {
+.intro .p_main {
     margin-bottom: 10px;
     padding: 10px;
 }
 
 .intro .bold {
-    margin-right: 1em;
+    margin-left: 1em;
 }
 
 @media (max-width: 600px) {
@@ -343,6 +348,10 @@ h2 {
     }
     .intro {
         font-size: 10px;
+    }
+    .p_tab {
+        font-size: 10px;
+        line-height: 2em;
     }
     .logo {
         width: 80%;
