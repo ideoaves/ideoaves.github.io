@@ -243,6 +243,7 @@ main {
     position: relative;
     z-index: 3;
     letter-spacing: 2px;
+    font-weight: 200;
 }
 
 .p_tab {
