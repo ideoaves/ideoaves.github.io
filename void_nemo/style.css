@@ -335,7 +335,7 @@ h2 {
         background-image: linear-gradient(0deg, #e5e2ddb0 80%, transparent 100%);
     }
     .tachie {
-        margin: 10px auto;
+        margin: 10px -20px;
         padding: 20px;
         height: auto;
         width: 100%;
