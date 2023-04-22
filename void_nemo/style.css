@@ -82,9 +82,9 @@ canvas {
 
 header {
     padding: 100px;
+    padding-bottom: 0;
     line-height: 1.5em;
     font-feature-settings: "palt";
-    margin-bottom: 100px;
   }
   
   header span {
@@ -147,8 +147,8 @@ h1::after {
 }
 
 .keyword {
-    margin: 0 10px;
-    padding: 2px 5px;
+    margin: 3px 5px;
+    padding: 0 5px;
     background-image : linear-gradient(to right, #FFF 1px, transparent 0px),linear-gradient(to bottom, #FFF 1px, transparent 2px),linear-gradient(to left, #FFF 1px, transparent 2px),linear-gradient(to top, #FFF 1px, transparent 2px);
     background-size: 1px 1px,1px 1px,1px 1px,1px 1px;
     background-repeat: no-repeat;
@@ -248,6 +248,7 @@ main {
 
 .p_tab {
     font-size: 13px;
+    line-height: 1em;
 }
 .p_tab::after {
     padding: 0 0.4em;
@@ -273,7 +274,7 @@ h2 {
 
 .intro {
     text-align: left;
-    font-size: 15px;
+    font-size: small;
     font-weight: 600;
     font-feature-settings: "pwid", "halt";
     line-height: 1.5em;
@@ -281,11 +282,13 @@ h2 {
 
 .intro .p_main {
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 10px 0;
 }
 
-.intro .bold {
-    margin-left: 1em;
+footer {
+    font-size: 12px;
+    margin: 0;
+    padding: 10px 0;
 }
 
 @media (max-width: 600px) {
@@ -307,6 +310,9 @@ h2 {
         padding: 0 10%;
         font-size: 1em;
         content: "}";
+    }
+    .text {
+    font-size: 11px;
     }
     h1 {
         padding: 0 10%;
@@ -352,10 +358,12 @@ h2 {
     }
     .p_tab {
         font-size: 10px;
-        line-height: 2em;
     }
     .logo {
         width: 80%;
         min-width: 0;
+    }
+    footer {
+        font-size: 10px;
     }
 }
