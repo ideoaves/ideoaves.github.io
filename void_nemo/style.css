@@ -204,8 +204,13 @@ main {
 
 .prof {
     background-color: #b7b7b7;
-    padding: 50px;
+    padding: 0 50px;
     font-feature-settings: "palt";
+}
+
+.prof_box {
+    display: flex;
+    width: 100%;
 }
 
 .prof#ceta {
@@ -304,7 +309,15 @@ footer {
     margin: 0;
     padding: 10px 0;
 }
-
+@media (max-width: 1200px) {
+    .prof_box {
+        display: block;
+        width: 100%;
+    }
+    .prof {
+        padding: 50px;
+    }
+}
 @media (max-width: 600px) {
     header {
       padding: 100px 100px 0 100px;
