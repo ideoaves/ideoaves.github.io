@@ -316,6 +316,7 @@ footer {
         width: 100%;
     }
     .prof {
+        width: unset;
         padding: 50px;
     }
 }
@@ -360,7 +361,6 @@ footer {
     }
     .prof {
         padding: 0px;
-        width: unset;
     }
     #ceta .p_text {
         background-image: linear-gradient(0deg, #f3f3f3b0 80%, transparent 100%);
