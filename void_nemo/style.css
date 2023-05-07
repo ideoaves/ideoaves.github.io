@@ -205,6 +205,7 @@ main {
 .prof {
     background-color: #b7b7b7;
     padding: 0 50px;
+    width: 50%;
     font-feature-settings: "palt";
 }
 
@@ -359,6 +360,7 @@ footer {
     }
     .prof {
         padding: 0px;
+        width: unset;
     }
     #ceta .p_text {
         background-image: linear-gradient(0deg, #f3f3f3b0 80%, transparent 100%);
