@@ -104,12 +104,13 @@ header {
   
   .sec {
     padding: 0;
+    max-width: 1900px;
     margin: 100px auto;
     font-size: 1em;
   }
 
 .sec::after {
-    padding: 0 20%;
+    padding: 0 23%;
     letter-spacing: 5px;
     font-family: Courier, monospace;
     font-size: 1.3em;
@@ -118,7 +119,7 @@ header {
 }
 
 h1 {
-    padding: 0 20%;
+    padding: 0 23%;
     color: #FFF;
     font-family: Courier, monospace;
     letter-spacing: 5px;
@@ -204,6 +205,7 @@ main {
 
 .prof {
     background-color: #b7b7b7;
+    width: 50%;
     padding: 0 50px;
     font-feature-settings: "palt";
 }
@@ -316,6 +318,7 @@ footer {
     }
     .prof {
         padding: 50px;
+        width: 100%;
     }
 }
 @media (max-width: 600px) {
