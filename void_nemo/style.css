@@ -1,32 +1,40 @@
 html {
     height: 100%;
     width: 100%;
-  }
+}
+
+body::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(0deg, #000,#3b3b3b, #ffffff);
+}
 
 body {
     /* animation: 10s sea steps(30,end) infinite; */
     margin: 0 auto;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(0deg, #000, #ffffff);
-    background-attachment: fixed; 
-    background-size: cover;
     font-family: 'DotGothic16', Courier, monospace;
     color: #fff;
 }
-body::after{
-    
+
+body::after {
     content: "";
-  position: fixed;
-  position: fixed;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  -webkit-backdrop-filter: blur(12px) opacity(43%) saturate(50%);
-          backdrop-filter: blur(16px) opacity(43%) saturate(50%);
-  top: -5px;
-  left: -5px;
-  margin: auto;
-  z-index: 5;
+    position: fixed;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    -webkit-backdrop-filter: blur(12px) opacity(43%) saturate(50%);
+    backdrop-filter: blur(16px) opacity(43%) saturate(50%);
+    top: -5px;
+    left: -5px;
+    margin: auto;
+    z-index: 5;
 }
 
 ::selection {
@@ -100,29 +108,29 @@ header {
     line-height: 1.5em;
     font-feature-settings: "palt";
     filter: invert(1);
-  }
-  
-  header span {
+}
+
+header span {
     display: inline-block;
-  }
-  
-  header img {
+}
+
+header img {
     width: 20%;
-  }
-  
-  .point_nemo {
+}
+
+.point_nemo {
     letter-spacing: 2px;
     line-height: 2em;
     font-size: 0.7em;
     margin: 50px 0;
-  }
-  
-  .sec {
+}
+
+.sec {
     padding: 0;
     max-width: 1900px;
     margin: 100px auto;
     font-size: 1em;
-  }
+}
 
 .sec::after {
     padding: 0 23%;
@@ -165,10 +173,10 @@ h1::after {
 .keyword {
     margin: 3px 5px;
     padding: 0 5px;
-    background-image : linear-gradient(to right, #FFF 1px, transparent 0px),linear-gradient(to bottom, #FFF 1px, transparent 2px),linear-gradient(to left, #FFF 1px, transparent 2px),linear-gradient(to top, #FFF 1px, transparent 2px);
-    background-size: 1px 1px,1px 1px,1px 1px,1px 1px;
+    background-image: linear-gradient(to right, #FFF 1px, transparent 0px), linear-gradient(to bottom, #FFF 1px, transparent 2px), linear-gradient(to left, #FFF 1px, transparent 2px), linear-gradient(to top, #FFF 1px, transparent 2px);
+    background-size: 1px 1px, 1px 1px, 1px 1px, 1px 1px;
     background-repeat: no-repeat;
-    background-position:left top,right top,right bottom,left bottom;
+    background-position: left top, right top, right bottom, left bottom;
 }
 
 .text a {
@@ -198,7 +206,7 @@ main {
 }
 
 .namelogo {
-    height: 30px; 
+    height: 30px;
     margin-right: 30px;
 }
 
@@ -286,6 +294,7 @@ main {
     font-size: 13px;
     line-height: 1em;
 }
+
 .p_tab::after {
     padding: 0 0.4em;
     content: ";";
@@ -326,46 +335,55 @@ footer {
     margin: 0;
     padding: 10px 0;
 }
+
 @media (max-width: 1200px) {
     .prof_box {
         display: block;
         width: 100%;
     }
+
     .prof {
         padding: 50px;
         width: 100%;
     }
 }
+
 @media (max-width: 600px) {
     header {
-      padding: 100px 100px 0 100px;
+        padding: 100px 100px 0 100px;
     }
+
     header img {
-      width: 100%;
+        width: 100%;
     }
+
     .point_nemo {
-      font-size: 0.5em;
-      line-height: 2em;
-      margin: 20px -60px;
+        font-size: 0.5em;
+        line-height: 2em;
+        margin: 20px -60px;
     }
+
     .sec {
-      margin: 10px auto;
+        margin: 10px auto;
     }
+
     .sec::after {
         padding: 0 10%;
         font-size: 1em;
         content: "}";
     }
+
     .text {
-    font-size: 11px;
+        font-size: 11px;
     }
+
     h1 {
         padding: 0 10%;
         font-size: 1em;
         white-space: nowrap;
     }
 
-    .namelogo  {
+    .namelogo {
         margin-right: 20px;
     }
 
@@ -375,21 +393,27 @@ footer {
         padding: 0px;
         margin: 0px auto;
     }
+
     .prof {
         padding: 0px;
     }
+
     #ceta .p_text {
         background-image: linear-gradient(0deg, #f3f3f3b0 80%, transparent 100%);
     }
+
     #miu .p_text {
         background-image: linear-gradient(0deg, #ea0081b0 80%, transparent 100%);
     }
+
     #chep .p_text {
         background-image: linear-gradient(0deg, #212430b0 80%, transparent 100%);
     }
+
     #ruye .p_text {
         background-image: linear-gradient(0deg, #e5e2ddb0 80%, transparent 100%);
     }
+
     .tachie {
         margin: 10px -20px;
         padding: 20px;
@@ -397,22 +421,27 @@ footer {
         width: 100%;
         text-align: center;
     }
+
     .p_text {
         margin: 0;
         margin-top: -350px;
         padding: 0;
         padding-bottom: 20px;
     }
+
     .intro {
         font-size: 10px;
     }
+
     .p_tab {
         font-size: 10px;
     }
+
     .logo {
         width: 80%;
         min-width: 0;
     }
+
     footer {
         font-size: 10px;
     }
