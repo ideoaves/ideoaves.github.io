@@ -8,11 +8,25 @@ body {
     margin: 0 auto;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(0deg, #000, #41516b);
+    background-image: linear-gradient(0deg, #000, #ffffff);
     background-attachment: fixed; 
     background-size: cover;
     font-family: 'DotGothic16', Courier, monospace;
     color: #fff;
+}
+body::after{
+    
+    content: "";
+  position: fixed;
+  position: fixed;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  -webkit-backdrop-filter: blur(12px) opacity(43%) saturate(50%);
+          backdrop-filter: blur(16px) opacity(43%) saturate(50%);
+  top: -5px;
+  left: -5px;
+  margin: auto;
+  z-index: 5;
 }
 
 ::selection {
@@ -85,6 +99,7 @@ header {
     padding-bottom: 0;
     line-height: 1.5em;
     font-feature-settings: "palt";
+    filter: invert(1);
   }
   
   header span {
