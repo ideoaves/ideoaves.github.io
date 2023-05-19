@@ -35,6 +35,7 @@ body::after {
     left: -5px;
     margin: auto;
     z-index: 5;
+    pointer-events: none;
 }
 
 ::selection {
