@@ -222,68 +222,64 @@ main {
 }
 
 .in-prof {
-    max-width: 800px;
     margin: 100px auto;
     display: flex;
 }
 
 .prof {
-    background-color: #b7b7b7;
-    width: 50%;
     padding: 0 50px;
     font-feature-settings: "palt";
 }
 
 .prof_box {
-    display: flex;
-    width: 100%;
+    padding: 0 20%;
 }
 
 .prof#ceta {
-    background-color: #f3f3f3;
+    
     color: #484848;
 }
 
 #ceta .p_text {
-    background-image: linear-gradient(90deg, transparent 0%, #f3f3f3b0 10%);
+    background-image: linear-gradient(90deg, transparent 0%, #f3f3f3b0 40%);
 }
 
 .prof#miu {
-    background-color: #ea0081;
+    
     color: #fff;
 }
 
 #miu .p_text {
-    background-image: linear-gradient(90deg, transparent 0%, #ea0081b0 10%);
+    background-image: linear-gradient(90deg, transparent 0%, #ea0081b0 40%);
 }
 
 .prof#chep {
-    background-color: #212430;
+    
     color: #fff;
 }
 
 #chep .p_text {
-    background-image: linear-gradient(90deg, transparent 0%, #212430b0 10%);
+    background-image: linear-gradient(90deg, transparent 0%, #212430b0 40%);
 }
 
 .prof#ruye {
-    background-color: #e5e2dd;
+    
     color: #131313;
 }
 
 #ruye .p_text {
-    background-image: linear-gradient(90deg, transparent 0%, #e5e2ddb0 10%);
+    background-image: linear-gradient(90deg, transparent 0%, #e5e2ddb0 40%);
 }
 
 
 .tachie {
-    margin: 0 -40px 0 40px;
-    height: 400px;
+    margin: 30px -40px 0 40px;
+    height: 460px;
 }
 
 .p_text {
     margin: 0 40px 0 -40px;
-    padding: 0 20px;
+    padding: 10px 100px 30px 200px;
     text-align: center;
     position: relative;
     z-index: 3;
@@ -341,6 +337,7 @@ footer {
     .prof_box {
         display: block;
         width: 100%;
+        padding: 0 0;
     }
 
     .prof {
@@ -426,7 +423,7 @@ footer {
     .p_text {
         margin: 0;
         margin-top: -350px;
-        padding: 0;
+        padding: 0 5px;
         padding-bottom: 20px;
     }
 
