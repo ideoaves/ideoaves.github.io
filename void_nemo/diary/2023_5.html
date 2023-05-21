@@ -11,6 +11,7 @@
     <meta name="twitter:image" content="" />
     <title></title>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
             // 画像のsrc属性を取得
             var thumImg = document.getElementById("thum");
             var thumSrc = thumImg.getAttribute("src");
@@ -23,6 +24,7 @@
             var metaTag = document.querySelector('meta[name="twitter:title"]');
             metaTag.setAttribute("content", titleText);
             document.title = titleText + ' diary - void_nemo';
+        });
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
