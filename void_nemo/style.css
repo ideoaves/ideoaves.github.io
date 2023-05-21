@@ -111,6 +111,13 @@ header {
     filter: invert(1);
 }
 
+header a{
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+    padding: 3px 3px;
+}
+
 header span {
     display: inline-block;
 }
@@ -124,6 +131,16 @@ header img {
     line-height: 2em;
     font-size: 0.7em;
     margin: 50px 0;
+}
+
+.links {
+    margin: 10px auto;
+    line-height: 3em;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+.links a {
+    margin: 0 10px;
 }
 
 .sec {
@@ -144,7 +161,6 @@ header img {
 
 h1 {
     padding: 0 23%;
-    color: #FFF;
     font-family: Courier, monospace;
     letter-spacing: 5px;
     font-size: 1.3em;
@@ -199,6 +215,11 @@ a:visited {
 
 .text a.nobar {
     background: none;
+}
+
+.bold {
+    font-weight: bold;
+    text-shadow: #000 1px 0px;
 }
 
 main {
