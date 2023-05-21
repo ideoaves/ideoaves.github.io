@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@void_nemo" />
+    <meta name="twitter:title" content="none" />
+    <meta name="twitter:description" content="日記" />
+    <meta name="twitter:image" content="" />
+    <title></title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 画像のsrc属性を取得
+            var thumImg = document.getElementById("thum");
+            var thumSrc = thumImg.getAttribute("src");
+            var titleElement = document.getElementById("title");
+            var titleText = titleElement.textContent;
+
+            // meta要素のcontent属性にセット
+            var metaTag = document.querySelector('meta[name="twitter:image"]');
+            metaTag.setAttribute("content", thumSrc);
+            var metaTag = document.querySelector('meta[name="twitter:title"]');
+            metaTag.setAttribute("content", titleText);
+            document.title = titleText + ' diary - void_nemo';
+        });
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="diary.css">
+    <link rel="icon" type="image/x-icon" href="https://ideoaves.cf/favicon.ico">
+</head>
+
+
+<body>
+
+    <header>
+        <div class="center" style="font-family: Courier, monospace; letter-spacing: 5px;">
+            <img src="../VN.png"><br>
+            <span>void_nemo</span><br>
+            <div class="links"><a href="index.html">ホーム</a><a href="diary/index.html">日記帳</a></div><br>
+        </div>
+    </header>
+    <main>
+        <div class="sec">
+            <h1 id="title">日記</h1>
+            <div class="text">
+                日記を始めます。<br>理由は時間感覚が希薄になりすぎて危険を感じたためです。<span class="cursor"></span>
+            </div>
+            <div class="text">
+                <a href="2023_5.html">2023_5</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p class="center">
+            © 2023 void_nemo.
+    </footer>
+</body>
+
+</html>
