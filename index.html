@@ -2,43 +2,117 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@void_nemo" />
-    <meta name="twitter:title" content="void_nemo" />
-    <meta name="twitter:description" content="Ceta, Miu, Chep, Ruye による集まり。" />
-    <meta name="twitter:image" content="https://ideoaves.cf/icon.png" />
-    <title>void_nemo</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="https://ideoaves.cf/favicon.ico">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description"
+    content="視覚表現を中心に創作を続けています。このサイトは古き良きインターネットの質感を、自らの手で残しておきたいという理由から手打ちのhtml、CSSで遊んでいます。">
+  <title>Ideoaves</title>
+  <script src="cursor.js"></script>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ideoaves" />
+  <meta name="twitter:description" content="視聴覚の表現を色々創作しています。" />
+  <meta name="twitter:image" content="https://ideoaves.cf/icon.png" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 
-<body class="hcon">
-    <div class="hcenter">
-        <header>
-            <div class="center" style="font-family: Courier, monospace; letter-spacing: 5px;">
-                <img src="VN.png"><br>
-                <span>void_nemo</span><br>
+<body>
 
-                <div class="point_nemo">
-                    <span>In the sea of the Internet,&nbsp;there lies&nbsp;"Point Nemo".</span><br>
-                    They seek a place to die;<br>
-                    <span>they have some disorder&nbsp;<br class="phone">in their hearts;</span><br>
-                    they drift to this void.<span class="cursor"></span><br>
-                    <div class="links"><a href="index.html">home</a><a href="about.html">about</a><br class="phone"><a href="character.html">story & character</a><a href="diary/index.html">diary</a></div>
-                </div>
-            </div>
-        </header>
-        <footer>
-            <p class="center">
-                © 2023 void_nemo.
-        </footer>
-    </div>
+  <div class="hcenter">
+    <header>
+      <img src="icon.png" height="30px" align="left">
+      <ul style="float: left;">
+        <a href="index.html">
+          <li class="botan bold">IDEOAVES</li>
+        </a><a href="about.html">
+          <li class="botan">CHARACTER</li>
+        </a><a href="hazuqu.html">
+          <li class="botan"><img src="H.png" height="30px" align="center"></li><a href="olime_sian.html">
+            <li class="botan"><img src="LI.png" height="30px" align="center"></li>
+          </a>
+      </ul>
+      <ul style="float: right">
+        <a href="404.html">
+          <li class="botan"> </li>
+        </a>
+      </ul>
+    </header>
+  </div>
+
+  <div class="center">
+    <img class="title" src="title.gif">
+
+    <ul>
+      <a href="index.html">
+        <li class="botan bold">TOP</li>
+      </a>
+      <a href="about.html">
+        <li class="botan">CHARACTER</li>
+      </a>
+      <a href="contents.html">
+        <li class="botan">...etc</li>
+      </a>
+    </ul>
+
+    <main>
+      <div class="window">
+        <h4>Hello</h4><img id="hedicon" src="x.png">
+        <p>
+          あなたは
+          <a class="count">
+            <script>
+              document.write(("000000" + (Math.floor(Math.random() * 9999) + 10)).slice(-6));
+            </script>
+          </a>
+          人目の来場者です。<br>
+          IdeoavesのWebサイトへようこそ。<br>
+          <a class="memo">キリ番報告とかまで再現する気はないですが、JavaのMath.randomを色々弄っている数値なので、キリが良かったらいいことがあるかもしれません。</a>
+        </p>
+      </div>
+
+      <div class="window">
+        <h4>About - ideoavesについて</h4><img id="hedicon" src="x.png">
+        <p>
+          <a class="bold">Ideoaves</a>　は複数の作者と個人による集まりです。参加者は<a href="about.html">CHARACTER</a>から御覧ください。<br><br>
+          映像制作を始め、写真やイラスト等、主に視覚表現を中心にいろいろやっています。時折小説や音楽をするときもあります。<br>
+          またこのサイトは、古き良きインターネットの質感を自らの手で残しておきたいという理由から、極力手打ちのhtmlやCSSで、色々な実装を無駄に容量を食いながらして遊んでいます。（但しJSはほとんどコピペです）<br>
+          サイトについて、何か有りましたら<a href="https://twitter.com/dis0rders__">TwitterのDM</a>にご連絡下さい。
+        </p>
+      </div>
+
+      <div class="window">
+        <h4>更新</h4><img id="hedicon" src="x.png">
+        <table class="news">
+          <tr>
+            <th>2022-12-13</th>
+            <td>メンバー交代に伴い大規模改修。</td>
+          </tr>
+          <tr>
+            <th>2022-08-20</th>
+            <td>ヘッダーを変更。</td>
+          </tr>
+          <tr>
+            <th>2022-07-18</th>
+            <td>雑多すぎて個人サイト風といえどやりすぎだったので改装。<br><a href="oldindex.html">旧バージョン</a></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="window">
+        <h4>バナー</h4><img id="hedicon" src="x.png">
+        <p>
+          直リンご自由にどうぞ（content内の画像はご遠慮ください）<br>
+          <a href="https://ideoaves.cf"><img src="https://ideoaves.cf/banner.png"></a>
+        </p>
+        <p style="padding-top: 10px;">●相互リンク●<br>
+          <a href="https://mikanixonable.github.io/"><img src="https://mikanixonable.github.io/banner.png" width="200"
+              height="40" alt="人造日本人"></a>
+        </p>
+      </div>
+
+  </div>
+  </main>
 </body>
 
 </html>
