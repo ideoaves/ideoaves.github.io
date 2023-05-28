@@ -6,26 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@void_nemo" />
-    <meta name="twitter:title" content="none" />
+    <meta name="twitter:title" content="日記帳 - void_nemo" />
     <meta name="twitter:description" content="日記" />
     <meta name="twitter:image" content="" />
-    <title></title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // 画像のsrc属性を取得
-            var thumImg = document.getElementById("thum");
-            var thumSrc = thumImg.getAttribute("src");
-            var titleElement = document.getElementById("title");
-            var titleText = titleElement.textContent;
-
-            // meta要素のcontent属性にセット
-            var metaTag = document.querySelector('meta[name="twitter:image"]');
-            metaTag.setAttribute("content", thumSrc);
-            var metaTag = document.querySelector('meta[name="twitter:title"]');
-            metaTag.setAttribute("content", titleText);
-            document.title = titleText + ' diary - void_nemo';
-        });
-    </script>
+    <title>日記帳 - void_nemo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
