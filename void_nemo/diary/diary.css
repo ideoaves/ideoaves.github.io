@@ -58,6 +58,7 @@ body::before {
         max-width: 800px;
         margin: 0 auto;
         padding: 0 25px;
+        padding-top: 1.5em;
         font-family: Courier, monospace;
         letter-spacing: 5px;
         font-size: 1.1em;
@@ -73,12 +74,18 @@ body::before {
     .text img {
         width: 100%;
     }
+    img.smol {
+        width: 60%;
+    }
     
     .ceta {
         font-family: 'Yu Gothic';
     }
     .miu{
         font-family: 'DotGothic16', Courier, monospace;
+    }
+    .chep{
+        font-family:'Times New Roman', Times, serif;
     }
     
     .twitter-tweet {
@@ -123,10 +130,15 @@ body::before {
             padding: 0 20px;
             font-size: 1.6em;
         }
+
+        img.smol {
+            width: 100%;
+        }
     
     
         h2 {
             padding: 0 20px;
+            padding-top: 1.5em;
             font-size: 1.3em;
         }
     
