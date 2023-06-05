@@ -374,6 +374,40 @@ footer {
     padding: 10px 0;
 }
 
+
+/*作品カラムのCSS*/
+.works {
+    position: relative;
+    margin: 0 auto;
+    font-family: "SimSun", Courier, monospace;
+}
+.tex {
+    margin: 0 5px;
+}
+.by {
+    font-size: 0.5em;  
+}
+.tit {
+    font-size: 1.4em;
+    margin-top: -10px;
+}
+.cap {
+    font-size: 0.8em;
+    margin-top: -10px;
+}
+.works_col {
+    width: 60%;
+}
+.works img {
+    width: 100%;
+}
+.item {
+    position: absolute;
+    width: 250px;
+    padding: 10px;
+    line-height: 2;
+}
+
 @media (max-width: 1200px) {
     .prof_box {
         display: block;
@@ -488,5 +522,10 @@ footer {
 
     footer {
         font-size: 10px;
+    }
+
+    /*作品カラムのCSS*/
+    .cap{
+        display: none;
     }
 }
