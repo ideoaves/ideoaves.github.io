@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="https://ideoaves.cf/favicon.ico">
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="minimasonry.min.js"></script>
 </head>
 
 
@@ -30,10 +32,79 @@
                     They seek a place to die;<br>
                     <span>they have some disorder&nbsp;<br class="phone">in their hearts;</span><br>
                     they drift to this void.<span class="cursor"></span><br>
-                    <div class="links"><a href="index.html">home</a><a href="about.html">about</a><br class="phone"><a href="character.html">story & character</a><a href="diary/index.html">diary</a></div>
+                    <div class="links"><a href="index.html">home</a><a href="about.html">about</a><br class="phone"><a
+                            href="character.html">story & character</a><a href="diary/index.html">diary</a></div>
                 </div>
             </div>
         </header>
+        <main class="works_col">
+            <div class="works">
+                <div class="item">
+                    <img src="works/0.png">
+                    <div class="tex">
+                        <div class="by">ceta miu chep ruye</div>
+                        <div class="tit">Username Logo</div>
+                        <div class="cap">メンバー達のロゴ。</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="works/1.png">
+                    <div class="tex">
+                        <div class="by">ceta</div>
+                        <div class="tit">3DAvatar -CETA-</div>
+                        <div class="cap">ローポリの質感を使った軽量で汎用3Dアバター。</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="works/2.png">
+                </div>
+                <div class="item">
+                    <img src="works/3.png">
+                </div>
+                <div class="item">
+                    <img src="works/4.png">
+                    <div class="tex">
+                        <div class="by">chep ruye</div>
+                        <div class="tit">漫画『肖り乍ら』</div>
+                        <div class="cap">特にストーリーもなく淡々と放浪します。</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="works/5.png">
+                </div>
+                <div class="item">
+                    <img src="works/6.png">
+                </div>
+                <div class="item">
+                    <img src="works/7.png">
+                    <div class="tex">
+                        <div class="by">miu</div>
+                        <div class="tit">3DAvatar -MIU-</div>
+                        <div class="cap">ディザで調整されたローポリモデル。</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="works/8.png">
+                </div>
+                <div class="item">
+                    <img src="works/9.png">
+                    <div class="tex">
+                        <div class="by">ceta</div>
+                        <div class="tit">VRCworld rye</div>
+                        <div class="cap">ドットで構成されたライ麦畑のVRCワールド。周りは特にコリジョンもなく崖になっている。</div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                imagesLoaded('.works', function () {
+                    var masonry = new MiniMasonry({
+                        container: '.works',
+                        baseWidth: 200,
+                        gutter: 30,
+                    });
+                });
+            </script>
+        </main>
         <footer>
             <p class="center">
                 © 2023 void_nemo.
