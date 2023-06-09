@@ -1,1 +1,2 @@
-# torijo-kotaigun.github.io
+# ideoaves
+インターネットの実家みたいな扱いのURLです。ネットで様々な名義を使っているのですが、そのもっとも大本のハブです。
