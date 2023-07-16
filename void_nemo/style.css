@@ -407,7 +407,7 @@ footer {
 }
 .works_col {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 25%);
     grid-template-rows: 2;
     max-width: 1000px;
     border-color: #000;
@@ -458,6 +458,10 @@ footer {
 
     .links{
         margin: 10px;
+    }
+
+    .tit{
+        font-size: 13px;
     }
 
     .phone {
