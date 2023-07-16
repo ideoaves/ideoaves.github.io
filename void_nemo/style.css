@@ -23,7 +23,7 @@ body::before {
     z-index: -1;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(0deg, #cfcfcf, #ffffff);
+    background-image: linear-gradient(135deg, #383838, #ffffff);
 }
 
 body {
@@ -381,6 +381,17 @@ footer {
     border-width: 0px 0px 0px 1px;
     border-style: solid;
 }
+.himage {
+    grid-row: 1;
+    grid-column: 3/5;
+    border-color: #000;
+    border-width: 0px 0px 0px 1px;
+    border-style: solid;
+}
+.himage img{
+    width: 100%;
+    line-height: 0;
+}
 
 /*作品カラムのCSS*/
 .works {
@@ -413,6 +424,7 @@ footer {
     border-color: #000;
     border-width: 1px 1px 1px 0px;
     border-style: solid;
+    background-color: #FFF;
 }
 .works img {
     width: 100%;
@@ -421,6 +433,9 @@ footer {
     border-color: #000;
     border-width: 0px 0px 1px;
     border-style: solid;
+    line-height: 0;
+}
+.item div {
     line-height: 2;
 }
 
