@@ -4,110 +4,75 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
-  <meta name="description"
-    content="視覚表現を中心に創作を続けています。このサイトは古き良きインターネットの質感を、自らの手で残しておきたいという理由から手打ちのhtml、CSSで遊んでいます。">
+  <meta name="description" content="視覚表現をしています">
   <title>Ideoaves</title>
-  <script src="cursor.js"></script>
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Ideoaves" />
-  <meta name="twitter:description" content="視聴覚の表現を色々創作しています。" />
-  <meta name="twitter:image" content="https://ideoaves.cf/icon.png" />
+  <meta name="twitter:description" content="視覚表現をしています" />
+  <meta name="twitter:image" content="https://ideoaves.github.io/icon.png" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+  <script src="sketch.js"></script>
 </head>
 
 
 <body>
-
-  <div class="hcenter">
-    <header>
-      <img src="icon.png" height="30px" align="left">
-      <ul style="float: left;">
-        <a href="index.html">
-          <li class="botan bold">IDEOAVES</li>
-        </a><a href="about.html">
-          <li class="botan">CHARACTER</li>
-        </a><a href="hazuqu.html">
-          <li class="botan"><img src="H.png" height="30px" align="center"></li><a href="olime_sian.html">
-            <li class="botan"><img src="LI.png" height="30px" align="center"></li>
-          </a>
-      </ul>
-      <ul style="float: right">
-        <a href="404.html">
-          <li class="botan"> </li>
-        </a>
-      </ul>
-    </header>
-  </div>
-
-  <div class="center">
+  <header>
     <img class="title" src="title.gif">
+  </header>
 
-    <ul>
-      <a href="index.html">
-        <li class="botan bold">TOP</li>
-      </a>
-      <a href="about.html">
-        <li class="botan">CHARACTER</li>
-      </a>
-      <a href="contents.html">
-        <li class="botan">...etc</li>
-      </a>
-    </ul>
-
-    <main>
+  <main>
+  <div class="center">
       <div class="window">
-        <h4>Hello</h4><img id="hedicon" src="x.png">
-        <p>
-          あなたは
-          <a class="count">
-            <script>
-              document.write(("000000" + (Math.floor(Math.random() * 9999) + 10)).slice(-6));
-            </script>
-          </a>
-          人目の来場者です。<br>
-          IdeoavesのWebサイトへようこそ。<br>
-          <a class="memo">キリ番報告とかまで再現する気はないですが、JavaのMath.randomを色々弄っている数値なので、キリが良かったらいいことがあるかもしれません。</a>
-        </p>
+        <a href="index.html">top</a>
+        <a href="about.html">name</a>
+        <a href="contents.html">_etc</a><br>
+        <a href="https://scrapbox.io/ideoaves/">scrap</a>
+        <a href="https://discord.gg/576vRAZhK5">disco</a><br>
+      </div>
+      <div class="window">
+        <div class="people">
+          <div class="name"><a href="https://twitter.com/HAZUQU">hazuqu</a></div>映像をしている。
+        </div>
+        <div class="people">
+          <div class="name"><a href="https://twitter.com/olime_sian">olime_sian</a></div>絵をしている。
+        </div>
       </div>
 
       <div class="window">
-        <h4>About - ideoavesについて</h4><img id="hedicon" src="x.png">
-        <p>
-          <a class="bold">Ideoaves</a>　は複数の作者と個人による集まりです。参加者は<a href="about.html">CHARACTER</a>から御覧ください。<br><br>
-          映像制作を始め、写真やイラスト等、主に視覚表現を中心にいろいろやっています。時折小説や音楽をするときもあります。<br>
-          またこのサイトは、古き良きインターネットの質感を自らの手で残しておきたいという理由から、極力手打ちのhtmlやCSSで、色々な実装を無駄に容量を食いながらして遊んでいます。（但しJSはほとんどコピペです）<br>
-          サイトについて、何か有りましたら<a href="https://twitter.com/dis0rders__">TwitterのDM</a>にご連絡下さい。
-        </p>
+        <h4>link</h4>
+        <a href="https://misskey.io/@ceta" style="background-color: #74aa53; color: #FFFFFFAA">misskey.io</a>
+        <a href="https://bsky.app/profile/ideoaves.bsky.social"
+          style="background-color: #1b3fc1; color: #FFFFFFAA">bsky.app</a>
+        <a href="https://vrchat.com/home/user/usr_a24ea979-9b74-49a7-bb56-c60e3c790202"
+          style="background-color: #a8a8a8;">vrchat.com</a>
+        <a href="https://scrapbox.io/ideoaves/" style="background-color: #53aa9c;">scrapbox.io</a>
+        <a href="https://discord.gg/576vRAZhK5" style="background-color: #235ba3;">discord.gg</a><br>
+        <a href="https://editor.p5js.org/IDEOAVES/sketches" style="background-color: #ed1c43;">editor.p5js.org</a>
+        <a href="https://soundcloud.com/void_nemo" style="background-color: #ed731c;">soundcloud.com</a>
+        <a href="https://www.youtube.com/channel/UCgvtTAkv7gcaN1JUBwevoPQ"
+          style="background-color: #ed1717;">youtube.com</a>
+        <a href="https://vimeo.com/hazuqu" style="background-color: #17a9ed; color: #FFFFFF55;">vimeo.com</a>
+        <a href="https://www.pixiv.net/users/75238991" style="background-color: #1973d4;">pixiv.net</a>
+        <a href="https://voidnemo.myportfolio.com/" style="background-color: #000000;">myportfolio.com</a>
+        <a href="https://www.instagram.com/void_nemo/"
+          style="background-color: #f21c83; color: #FFFFFFAA;">instagram.com</a>
+        <a href="https://www.tiktok.com/@void_nemo" style="background-color: #0d0d0d; color: #FFFFFF55;">tiktok.com</a>
       </div>
 
       <div class="window">
-        <h4>更新</h4><img id="hedicon" src="x.png">
-        <table class="news">
-          <tr>
-            <th>2022-12-13</th>
-            <td>メンバー交代に伴い大規模改修。</td>
-          </tr>
-          <tr>
-            <th>2022-08-20</th>
-            <td>ヘッダーを変更。</td>
-          </tr>
-          <tr>
-            <th>2022-07-18</th>
-            <td>雑多すぎて個人サイト風といえどやりすぎだったので改装。<br><a href="oldindex.html">旧バージョン</a></td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="window">
-        <h4>バナー</h4><img id="hedicon" src="x.png">
+        <h4>banner</h4>
         <p>
-          直リンご自由にどうぞ（content内の画像はご遠慮ください）<br>
-          <a href="https://ideoaves.github.io"><img src="https://ideoaves.github.io/banner.png"></a>
+          <a href="https://ideoaves.github.io" class="linkimage"><img
+              src="https://ideoaves.github.io/banner.png"></a><br>
+          もしよければリンク掲載の際に<a href="https://twitter.com/void_nemo">twitter</a>に連絡もくれたらうれしいです<br><br>
+
         </p>
-        <p style="padding-top: 10px;">●相互リンク●<br>
-          <a href="https://mikanixonable.github.io/"><img src="https://mikanixonable.github.io/banner.png" width="200"
-              height="40" alt="人造日本人"></a>
+        <p>
+          <a href="https://mikanixonable.github.io/" class="linkimage"><img
+              src="https://mikanixonable.github.io/banner.png" width="200" height="40" alt="人造日本人"></a>
         </p>
       </div>
 

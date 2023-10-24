@@ -5,141 +5,81 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <title>ＣＨＡＲＡＣＴＥＲ - ideoaves</title>
-  <script src="cursor.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+  <script src="sketch.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <style>
-    img {
-      object-fit: cover;
-    }
-
-    .na {
-      vertical-align: middle;
-      display: inline-block;
-    }
-
-    .prof .in {
-      box-shadow: none;
-    }
-
-    .boxes {
-      margin: 0px;
-    }
-
-    .prof span img {
-      width: 100%;
-    }
-  </style>
 </head>
 
 
 <body>
-  <div class="hcenter">
-    <header>
-      <img src="icon.png" height="30px" align="left">
-      <ul style="float: left;">
-        <a href="index.html">
-          <li class="botan bold">IDEOAVES</li>
-        </a><a href="about.html">
-          <li class="botan">CHARACTER</li>
-        </a><a href="hazuqu.html">
-          <li class="botan"><img src="H.png" height="30px" align="center"></li><a href="olime_sian.html">
-            <li class="botan"><img src="LI.png" height="30px" align="center"></li>
-          </a>
-      </ul>
-      <ul style="float: right">
-        <a href="404.html">
-          <li class="botan"> </li>
-        </a>
-      </ul>
-    </header>
-  </div>
-  <div class="center">
+  <header>
+    <img class="title" src="title.gif">
+  </header>
 
-    <ul>
-      <a href="index.html">
-        <li class="botan bold">TOP</li>
-      </a>
-      <a href="about.html">
-        <li class="botan">CHARACTER</li>
-      </a>
-      <a href="contents.html">
-        <li class="botan">...etc</li>
-      </a>
-    </ul>
-
-    <main>
-      <span class="boxes">
-
-        <div style="width: 26%; align-self: start;" class="prof">
-          <div class="bar">
-            <h4>@HAZUQU</h4><img id="hedicon" src="x.png">
-          </div>
-          <span>
-            <iframe width="100%" src="https://www.youtube.com/embed/zLa2maWOiOo?autoplay=1&controls=0&disablekb=1&loop=1&mute=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
-            <div style="display:flex">
-              <div>
-                <a href="https://twitter.com/hazuqu" style="background-color: #000;"><img class="in"
-                    style="border-radius: 50%; width:  50px; height: 50px;"
-                    src="https://pbs.twimg.com/profile_images/1447211858948026374/j1jtUAYi_400x400.jpg"></a>
-              </div>
-              <div class="na"><a class="name" href="hazuqu.github.io">木葉はづく</a>
-                <a class="memo" style="padding-top:0.1em;">映像制作、デザイン</a>
-              </div>
+  <main>
+    <div class="center">
+      <div class="window">
+        <a href="index.html">top</a>
+        <a href="about.html">name</a>
+        <a href="contents.html">_etc</a><br>
+        <a href="https://scrapbox.io/ideoaves/">scrap</a>
+        <a href="https://discord.gg/576vRAZhK5">disco</a><br>
+      </div>
+      <div class="window">
+        <div class="bar">
+          <h4>@HAZUQU</h4><img id="hedicon" src="x.png">
+        </div>
+        <span>
+          <iframe width="100%"
+            src="https://www.youtube.com/embed/zLa2maWOiOo?autoplay=1&controls=0&disablekb=1&loop=1&mute=1&rel=0"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe><br>
+          <div style="display:flex">
+            <div class="na"><a class="name" href="https://hazuqu.github.io">木葉はづく</a>
+              <a class="memo" style="padding-top:0.1em;">映像制作、デザイン</a>
             </div>
-            映像作家・デザイナー。Vtuberやライブ演出背景などの映像を制作している。<br>
-            <a href="https://twitter.com/HAZUQU" class="botan">Twitter</a><br><a href="https://hazuqu.github.io/about.html"
-              class="botan">作品集</a><br>
-          </span>
-        </div>
-
-        <div style="width: 26%; align-self: start;" class="prof">
-          <div class="bar">
-            <h4>@olime_sian</h4><img id="hedicon" src="x.png">
           </div>
-          <span>
-            <img src="https://pbs.twimg.com/media/F2RZ4Bna8AAD42d?format=webp&name=small"><br>
-            <div style="display:flex">
-              <div>
-                <a href="https://twitter.com/olime_sian" style="background-color: #000;"><img class="in"
-                    style="border-radius: 50%; width:  50px; height: 50px;"
-                    src="https://pbs.twimg.com/media/Fqdl80yaYAEDcjG?format=webp&name=small"></a>
-              </div>
-              <div class="na"><a class="name" href="olime_sian.html">折メ思案</a>
-                <a class="memo" style="padding-top:0.1em;">イラスト</a>
-              </div>
+          映像作家・デザイナー。Vtuberやライブ演出背景などの映像を制作している。<br>
+          <a href="https://twitter.com/HAZUQU" class="botan">Twitter</a><br><a
+            href="https://hazuqu.github.io/about.html" class="botan">作品集</a><br>
+        </span>
+      </div>
+      <div class="window">
+        <div class="bar">
+          <h4>@olime_sian</h4><img id="hedicon" src="x.png">
+        </div>
+        <span>
+          <img src="https://pbs.twimg.com/media/F2RZ4Bna8AAD42d?format=webp&name=small"><br>
+          <div style="display:flex">
+            <div class="na"><a class="name" href="olime_sian.html">折メ思案</a>
+              <a class="memo" style="padding-top:0.1em;">イラスト</a>
             </div>
-            おえかき<br>
-            <a href="https://twitter.com/olime_sian" class="botan">Twitter</a><br><a href="https://www.pixiv.net/users/75238991" class="botan">Pixiv</a><br>
-          </span>
-        </div>
-
-        <div style="width: 26%; align-self: start;" class="prof">
-          <div class="bar">
-            <h4>@void_nemo</h4><img id="hedicon" src="x.png">
           </div>
-          <span>
-            <img class="-" src="https://pbs.twimg.com/media/Fz27YeMaEAArIkd?format=jpg&name=small"><br>
-            <div style="display:flex">
-
-              <div class="na"><a class="name" href="disorders.html">void_nemo</a><br>
-                <a class="memo" style="padding-top:0.1em;">表現研究、音楽、日常</a><br>
-              </div>
-            </div>写真とかDTMとかジェネレティブの研究をしてます。日常垢です。<br>
-            <a href="https://twitter.com/void_nemo" class="botan">Twitter</a><br>
-          </span>
+          おえかき<br>
+          <a href="https://twitter.com/olime_sian" class="botan">Twitter</a><br><a
+            href="https://www.pixiv.net/users/75238991" class="botan">Pixiv</a><br>
+        </span>
+      </div>
+      <div class="window">
+        <div class="bar">
+          <h4>@void_nemo</h4><img id="hedicon" src="x.png">
         </div>
+        <span>
+          <img class="-" src="https://pbs.twimg.com/media/Fz27YeMaEAArIkd?format=jpg&name=small"><br>
+          <div style="display:flex">
 
-        <div style="width: 40%; align-self: start;" class="prof">
-          <div class="bar">
-            <h4>その他...</h4><img id="hedicon" src="x.png">
-          </div>
-          <span>
-            Ideoavesでの現在の主なアカウントは以上のとおりです。<br>その他の制作履歴は<a href="contents.html">...etc</a>を御覧ください。
-          </span>
-        </div>
-      </span>
-    </main>
+            <div class="na"><a class="name" href="void_nemo/">void_nemo</a><br>
+              <a class="memo" style="padding-top:0.1em;">表現研究、音楽、日常</a><br>
+            </div>
+          </div>写真とかDTMとかジェネレティブの研究をしてます。日常垢です。<br>
+          <a href="https://twitter.com/void_nemo" class="botan">Twitter</a><br>
+        </span>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>

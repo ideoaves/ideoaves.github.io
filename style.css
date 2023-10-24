@@ -1,50 +1,46 @@
 body {
-    background-color: black;
-    background-size: 50px 50px;
-    background-position: 50% 0%;
-    background-image:
-        linear-gradient(0deg, transparent 49px, #666 50px),
-        linear-gradient(90deg, transparent 49px, #666 50px);
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: serif;
+    width: 60%;
+    max-width: 700px;
+    padding: 50px;
+    margin: 0 auto;
+}
+
+canvas { 
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: -1;
 }
 
 main {
-    padding: 50px 50px 50px 50px;
     height: 100%;
     margin: 5px;
 }
 
-ul {
-    padding-inline: 0px;
-    line-height: 30px;
-}
-
 .center {
     display: block;
-    text-align: center;
-    margin: 0 auto;
     align-self: center;
-    width: 1024px;
-    background-color: black;
-    padding: 50px 0px;
-    border-style: outset;
-    border-width: 1px;
-    overflow: auto;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .center .back {
     display: block;
     text-align: left;
     padding: 0px 10%;
-    color: #FFF;
+    color: #000000;
 }
 
 .title {
-    padding: 150px 0px 100px 0px;
-    width: 80%;
+    display: block;
+    margin: 60px 0;
+    filter: invert();
+    width: 50%;
 }
-
 
 .boxes {
     display: flex;
@@ -57,26 +53,9 @@ ul {
 
 .window {
     display: block;
-    margin: 50px auto;
-    width: 70%;
+    margin: 50px 0;
     text-align: left;
-    border-width: 1px 2px 2px 1px;
-    background-color: black;
-    border-style: outset;
-    border-color: white;
     font-size: 0.9em;
-}
-
-.window p,
-table,
-span,
-h1,
-h2,
-h3 {
-    margin: -10px 10px 10px 10px;
-    text-align: justify;
-    letter-spacing: 2px;
-    line-height: 2;
 }
 
 
@@ -89,7 +68,6 @@ h3 {
     width: 20%;
     vertical-align: top;
     border-width: 0 2px 2px 1px;
-    background-color: black;
     border-style: outset;
     border-color: white;
     word-break: break-all;
@@ -102,18 +80,12 @@ h3 {
 }
 
 h4 {
-    width: 99%;
-    height: 25px;
-    padding-left: 1%;
-    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: right;
     vertical-align: middle;
     margin-top: 0;
-    border-style: outset;
-    border-width: 5px 0px 1px 0px;
-    background-color: black;
-    font-style: italic;
     letter-spacing: 2px;
-    color: white;
     overflow: hidden;
 }
 
@@ -230,54 +202,24 @@ h3 {
 
 /* ボタン */
 
-.botan {
-    color: black;
-    background-color: black;
-    display: inline;
-    padding: 0px 20px;
-    margin: 5px 10px;
-    border-style: solid;
-    background-color: #DFDFDF;
-    border-color: #ffffff #808080 #808080 #ffffff;
-    text-align: center;
-    font-family: serif;
-    font-style: italic;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: black;
-}
-
-.botan:hover {
-    cursor: pointer
-}
-
-.botan:active {
-    border-color: #808080 #ffffff #ffffff #808080;
-}
-
-.dead {
-    color: gray;
-    text-shadow: 1px 1px 0 #fff;
-    background-color: #DFDFDF;
-}
-
 a {
     text-decoration: none;
 }
 
-main a[href]:link:not(.botan) {
+main a[href]:link:not(.linkimage) {
+    padding: 0px 3px;
     color: #FFFFFF;
-    background-color: #0000FF;
+    background-color: #000;
 }
 
-main a[href]:visited:not(.botan) {
+main a[href]:visited:not(.linkimage) {
     color: #FFFFFF;
-    background-color: #0000FF;
+    background-color: #000;
 }
 
-main a[href]:hover:not(.botan) {
+main a[href]:hover:not(.linkimage) {
     color: #FFFFFF;
-    background-color: gray;
+    background-color: gray !important;
 }
 
 .news {
@@ -344,26 +286,10 @@ main a[href]:hover:not(.botan) {
 }
 
 
-.hcenter {
-    border-style: solid;
-    background-color: #DFDFDF;
-    border-width: 2px 0px;
-    border-color: #ffffff #808080 #808080 #ffffff;
-    height: 30px;
-    display: block;
+header {
     margin: 0 auto;
     align-self: center;
     overflow: hidden;
-}
-
-header ul {
-    height: 30px;
-}
-
-header .botan {
-    padding: 9px 20px;
-    margin: 0px;
-    line-height: 30px;
 }
 
 /* レアネレイ語説明処理 */
@@ -381,6 +307,12 @@ header .botan {
 
 /* スマホ用 */
 @media screen and (max-width:900px) {
+    body {
+        width: 95%;
+        padding: 5px;
+        margin: 0 auto;
+        font-size: 0.8em;
+    }
 
     main {
         padding: 0;
@@ -388,7 +320,7 @@ header .botan {
     }
 
     .center {
-        padding: 50px 0px;
+        padding: 10px 0px;
         width: 97%;
     }
 
