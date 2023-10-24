@@ -71,6 +71,9 @@ main {
     font-size: 0.9em;
 }
 
+.window img {
+    max-width:100%;
+}
 
 /* ウィンドウ内コンテンツ */
 
