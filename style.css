@@ -102,7 +102,7 @@ main {
 }
 
 h4 {
-    padding-top: 20px;
+    padding-top: 80px;
     padding-bottom: 10px;
     text-align: right;
     vertical-align: middle;
@@ -260,6 +260,55 @@ main a[href]:hover:not(.linkimage) {
 
 .cont th {
     font-style: bold;
+}
+
+
+/* works */
+.works {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.worksImage {
+    margin: 10px;
+    margin-bottom: 90px;
+    width: 150px;
+    height: 150px;
+    outline: 1px dashed black;
+}
+
+a div.worksImage{
+    outline: 1px solid black;
+}
+
+.worksImage div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.worksImage div img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.worksImage div img[src$="n.png"],.worksImage div img[src$="f.png"] {
+    width: 60px;
+    height: 60px;
+}
+
+p.tit {
+    font-weight: bold;
+}
+
+.works div span :not(.tit) {
+    font-size: 0.8em;
+}
+
+.linkimage {
+    color: black;
 }
 
 
