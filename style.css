@@ -276,15 +276,6 @@ main a[href]:hover:not(.linkimage) {
     height: 150px;
     outline: 1px dashed black;
 }
-@media screen and (max-width:900px) {
-    .worksImage {
-        margin: 10px;
-        margin-bottom: 90px;
-        width: 45%;
-        aspect-ratio: 1;
-        outline: 1px dashed black;
-    }
-}
 
 a div.worksImage{
     outline: 1px solid black;
