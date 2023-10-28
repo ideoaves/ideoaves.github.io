@@ -29,6 +29,14 @@ canvas {
     z-index: -1;
 }
 
+button {
+    border: none;
+    outline: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
 main {
     height: 100%;
     margin: 5px;
@@ -228,18 +236,18 @@ a {
     text-decoration: none;
 }
 
-main a[href]:link:not(.linkimage) {
+main a[href]:link:not(.linkimage), button {
     padding: 0px 3px;
     color: #FFFFFF;
     background-color: #000;
 }
 
-main a[href]:visited:not(.linkimage) {
+main a[href]:visited:not(.linkimage), button:active {
     color: #FFFFFF;
     background-color: #000;
 }
 
-main a[href]:hover:not(.linkimage) {
+main a[href]:hover:not(.linkimage), button:hover {
     color: #FFFFFF;
     background-color: gray !important;
 }
