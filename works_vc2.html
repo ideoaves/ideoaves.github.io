@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="視覚表現をしています">
+    <title>Ideoaves</title>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ideoaves" />
+    <meta name="twitter:description" content="視覚表現をしています" />
+    <meta name="twitter:image" content="https://ideoaves.github.io/icon.png" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+    <script src="sketch.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <img class="title" src="title.gif">
+
+    </header>
+
+    <main>
+        <div class="window">
+            <a href="index.html" title="トップページです。">top</a>
+            <a href="about.html" title="人の詳細です。">name</a>
+            <a href="works.html" title="作品ごちゃ混ぜ一覧です。&#13;&#10;視覚表現は全部あります。工事中">work</a><br>
+            <a href="https://scrapbox.io/ideoaves/" title="個人用Scrapboxです。&#13;&#10;日記や情報の羅列があります。">scrap</a>
+            <a href="https://discord.gg/576vRAZhK5"
+                title="個人ディスコサーバーです。&#13;&#10;作業用の音楽を聞いたり、情報を集めたりしています。">disco</a><br>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link
+                href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Monoton&family=Noto+Sans&display=swap"
+                rel="stylesheet">
+        </div>
+        <div class="center">
+            <div class="window">
+                <img src="https://pbs.twimg.com/media/FxiwTDjakAMu1BS?format=jpg&name=4096x4096">
+                <audio id="a1" src="チュㇷ゚カワ・カムイラン.wav"></audio>
+                <div class="play" style="outline: solid #000 1px; padding:0 10px; width: fit-content; margin: 0 auto;">
+                    <span a>♪test_sound.wav</span>　
+                    <span onclick="document.getElementById('a1').play()">▷</span>
+                    <span onclick="document.getElementById('a1').pause()">ll</span>
+                </div>
+            </div>
+            <div styke="width: 500px; height: 500px">
+            <iframe src="p5.html"  scrolling="no" style="width:500px; height:500px;">
+                </iframe>
+            </div>
+    </main>
+</body>
+
+</html>
