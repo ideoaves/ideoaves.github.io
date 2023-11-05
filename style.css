@@ -320,6 +320,17 @@ p.tit {
     color: black;
 }
 
+#prevbox{
+    width: 100%;
+    outline: 1px solid black;
+    padding: 10px;
+}
+
+#displayimg{
+    display: block;
+    margin: auto;
+}
+
 
 /* フォント */
 
