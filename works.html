@@ -150,6 +150,48 @@
                     <!--ここまで-->
                 </div>
 
+                <h4>void_nemo_ceta</h4>
+                <div class="works">
+                    <!--作品単体-->
+                    <div class="worksImage">
+                        <div>
+                            <img style="object-position:top 0px left 25px;  width:100%" src="works/ceta_vrc.png">
+                        </div>
+                        <span>
+                            <p class="tit">メタバース汎用アバター「Ceta」
+                            <p>
+                                Cetaのローポリモデル。
+                        </span>
+                    </div>
+                    <!--ここまで-->
+
+                    <!--作品単体-->
+                    <div class="worksImage">
+                        <div>
+                            <img style="object-position:top 0px left 25px; width:100%" src="works/chep_vrc.png">
+                        </div>
+                        <span>
+                            <p class="tit">VRC想定アバター「Chep」
+                            <p>
+                                ChepのVRC想定アバター。
+                        </span>
+                    </div>
+                    <!--ここまで-->
+
+                    <!--作品単体-->
+                    <div class="worksImage">
+                        <div>
+                            <img src="works/image.bmp">
+                        </div>
+                        <span>
+                            <p class="tit">セタ（UTAU単独音）
+                            <p>
+                                自作UTAU音源。
+                        </span>
+                    </div>
+                    <!--ここまで-->
+                </div>
+
                 <h4>void_nemo_ruye</h4>
                 <div class="works">
                     <!--作品単体-->
@@ -321,15 +363,15 @@
                     <!--ここまで-->
 
                     <!--作品単体-->
-                        <div class="worksImage">
-                            <div>
-                                <img src="works/nihonga.png">
-                            </div>
-                            <span>
-                                <p>
-                                    日本画課題「銀河形成」
-                            </span>
+                    <div class="worksImage">
+                        <div>
+                            <img src="works/nihonga.png">
                         </div>
+                        <span>
+                            <p>
+                                日本画課題「銀河形成」
+                        </span>
+                    </div>
                     <!--ここまで-->
 
                     <!--作品単体-->
@@ -342,7 +384,7 @@
                                 油絵課題「銀河形成」
                         </span>
                     </div>
-                <!--ここまで-->
+                    <!--ここまで-->
 
                     <script>
                         // クリックされたimgをクリックイベントリスナーで監視
@@ -351,17 +393,17 @@
                             div.addEventListener('click', (event) => {
                                 // クリックされたimgのsrcを取得
                                 const imgSrc = event.currentTarget.querySelector('img').getAttribute('src');
-    
+
                                 // 画像を表示するための要素を取得
                                 const imageContainer = document.getElementById('prevbox');
                                 const displayedImage = document.getElementById('displayimg');
-    
+
                                 // 画像を設定し、表示
                                 displayedImage.setAttribute('src', imgSrc);
                                 imageContainer.style.display = 'block';
                             });
                         });
-    
+
                         // 画像をクリックしたときに非表示にする
                         const displayedImage = document.getElementById('displayimg');
                         displayedImage.addEventListener('click', () => {
