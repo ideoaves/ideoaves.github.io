@@ -159,5 +159,14 @@ h4 {
 
     body>div {
         width: 100%;
+        height: 30%;
+    }
+
+    .works {
+        width: calc(100% * 1/2 - 22px);
+    }
+
+    .shou .works {
+        width: calc(100% * 1/3 - 23px);
     }
 }
