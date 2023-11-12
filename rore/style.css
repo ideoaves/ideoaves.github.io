@@ -1,0 +1,163 @@
+:root {
+    --main-color: rgb(76, 176, 174);
+    --text-color: #000;
+    --back-color: #ffffff;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    appearance: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: small;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+body>div {
+    width: 60%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    margin: 40px auto;
+    text-align: center;
+    color: var(--main-color);
+}
+
+h3 {
+    text-align: center;
+    color: var(--main-color);
+}
+
+/*ヘッダー*/
+
+#header {
+    margin-bottom: -5%;
+}
+
+#header img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+/*プロフィール*/
+
+#profile {
+    text-align: center;
+    margin: 100px auto;
+}
+
+#profile img {
+    width: 200px;
+}
+
+#name {
+    font-size: xx-large;
+    margin: 10px auto;
+    color: var(--main-color);
+}
+
+#text {
+    width: 50%;
+    margin: auto;
+    text-align: left;
+}
+
+#link table {
+    margin: 20px auto;
+    border-spacing: 10px 0;
+}
+
+table td {
+    padding: 0 10px;
+    background-color: var(--main-color);
+    color: var(--back-color);
+}
+
+/*作品*/
+
+.works_list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.works {
+    width: calc(100% * 1/4 - 22px);
+    height: auto;
+    margin: 10px;
+    outline: 1px solid var(--main-color);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.works:hover {
+    outline: 2px solid var(--main-color);
+    box-shadow: 4px 4px 0 var(--back-color), 5px 5px 0 var(--main-color);
+}
+
+.works .illust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.illust img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+h4 {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0 10px;
+    color: var(--main-color);
+}
+
+.works p {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.shou {
+    width: 110%;
+}
+
+.shou .works {
+    width: calc(100% * 1/6 - 23px);
+}
+
+@media screen and (max-width:1000px) {
+
+    body>div {
+        width: 100%;
+    }
+}
