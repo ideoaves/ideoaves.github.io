@@ -1,7 +1,8 @@
 :root {
-    --main-color: rgb(76, 176, 174);
-    --text-color: #000;
-    --back-color: #ffffff;
+    --back-color: rgb(82, 171, 170);
+    --sub-color: rgb(193, 224, 224);
+    --text-color: #ffffff;
+    --main-color: #ffffff;
 }
 
 button {
@@ -28,6 +29,8 @@ html {
     padding: 0;
     font-family: 'Noto Serif JP', serif;
     font-size: small;
+    color: var(--text-color);
+    background-color: var(--back-color);
 }
 
 body {
@@ -56,7 +59,20 @@ h3 {
 /*ヘッダー*/
 
 #header {
-    margin-bottom: -5%;
+    margin-bottom: -10%;
+}
+
+#header_title {
+    width: 100%;
+    background-color: var(--main-color);
+    color: var(--back-color);
+    font-size: large;
+    font-weight: bold;
+    padding: 2px 0;
+}
+
+#header_title span {
+    margin: 0 10px;
 }
 
 #header img {
@@ -64,6 +80,14 @@ h3 {
     height: 600px;
     object-fit: cover;
     object-position: 0 0;
+}
+
+.shadow {
+    position: relative;
+    z-index: -1;
+    top: -10px;
+    height: 90px;
+    background: linear-gradient(rgb(61, 70, 77), var(--back-color) 80%);
 }
 
 /*プロフィール*/

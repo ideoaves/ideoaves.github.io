@@ -22,7 +22,7 @@
     </style>
 </head>
 
-        <!--
+<!--
         
               A___A
              /     \   Meow
@@ -37,7 +37,9 @@
 
 <body>
     <div id="header">
-        <img src="image/header_y.png">
+        <div id="header_title"><span>rore works archive</span></div>
+            <img src="image/header_y.png">
+            <div class="shadow"></div>
     </div>
     <div id="profile">
         <div id="icon"><img src="image/icon.jpg"></div>
@@ -112,27 +114,22 @@
 
             <div class="shou" id="shou1">
                 <div class="works">
-                    <div class="illust"><a href="https://www.pixiv.net/artworks/110966229"><img src="image/syou.png"></a></div>
-                    <h4>タイトル</h4>
-                    <p>サブテキスト</p>
+                    <a href="https://www.pixiv.net/artworks/110966229">
+                        <div class="illust">
+                            <img src="image/syou.png">
+                        </div>
+                        <h4>タイトル</h4>
+                        <p>サブテキスト</p>
+                    </a>
                 </div>
                 <div class="works">
-                    <div class="illust"><img src="image/syou.png"></div>
-                </div>
-                <div class="works">
-                    <div class="illust"><img src="image/syou.png"></div>
-                </div>
-                <div class="works">
-                    <div class="illust"><img src="image/syou.png"></div>
-                </div>
-                <div class="works">
-                    <div class="illust"><img src="image/syou.png"></div>
-                </div>
-                <div class="works">
-                    <div class="illust"><img src="image/syou.png"></div>
-                </div>
-                <div class="works">
-                    <div class="illust"><img src="image/syou.png"></div>
+                    <a href="https://www.pixiv.net/artworks/110966229">
+                        <div class="illust">
+                            <img src="image/syou.png">
+                        </div>
+                        <h4>タイトル</h4>
+                        <p>サブテキスト</p>
+                    </a>
                 </div>
             </div>
 
@@ -161,10 +158,12 @@
         <div class="works_list">
 
             <div class="works">
-                <div class="illust"><a href="https://www.pixiv.net/artworks/99898096"><img src="image/illust.png"></a>
-                </div>
-                <h4>その速度の証明を</h4>
-                <p>コロナで暇だったので描きました</p>
+                <a href="https://www.pixiv.net/artworks/99898096">
+                    <div class="illust"><img src="image/illust.png">
+                    </div>
+                    <h4>その速度の証明を</h4>
+                    <p>コロナで暇だったので描きました</p>
+                </a>
             </div>
 
             <div class="works">
@@ -193,19 +192,20 @@
         <div class="works_list">
 
             <div class="works">
-                <div class="illust"></div>
                 <a href="https://www.pixiv.net/novel/show.php?id=20574155">
-                <h3>林檎の花束</h3>
-                <p>『私はタキオンさんを、もうすみずみまで知り尽くしていると言っていい。でも彼女の手足や髪の毛や心に触れるためには、途方もない苦労を必要とする。』<br>
-                    <br>
-                    リーガルリリー / 林檎の花束
-                </p>
-            </a>
+                    <div class="illust"></div>
+                    <h3>林檎の花束</h3>
+                    <p>『私はタキオンさんを、もうすみずみまで知り尽くしていると言っていい。でも彼女の手足や髪の毛や心に触れるためには、途方もない苦労を必要とする。』<br>
+                        <br>
+                        リーガルリリー / 林檎の花束
+                    </p>
+                </a>
             </div>
 
             <div class="works">
                 <div class="illust">
-                <img src="image/shosetu.jpg"></a></div>
+                    <img src="image/shosetu.jpg">
+                </div>
                 <h4>タイトル</h4>
                 <p>サブテキスト</p>
             </div>
@@ -213,5 +213,19 @@
         </div>
     </div>
 </body>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        // ページが読み込まれたときに実行されるコード
+        const illustDivs = document.querySelectorAll('.illust');
+
+        illustDivs.forEach(illustDiv => {
+            const imgElement = illustDiv.querySelector('img');
+            if (!imgElement || !imgElement.getAttribute('src')) {
+                illustDiv.closest('.works').style.display = 'none';
+            }
+        });
+    });
+</script>
 
 </html>
