@@ -1,5 +1,6 @@
 :root {
     --back-color: rgb(82, 171, 170);
+    --body_back-color: rgb(142, 212, 210);
     --sub-color: rgb(193, 224, 224);
     --text-color: #ffffff;
     --main-color: #ffffff;
@@ -34,15 +35,11 @@ html {
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    display: block;
-}
-
-body>div {
+    background-color: var(--body_back-color);
     width: 60%;
     max-width: 1200px;
     margin: auto;
+    display: block;
 }
 
 h2 {
@@ -84,17 +81,19 @@ h3 {
 
 .shadow {
     position: relative;
-    z-index: -1;
     top: -10px;
     height: 90px;
-    background: linear-gradient(rgb(61, 70, 77), var(--back-color) 80%);
+    background: linear-gradient(rgb(108, 149, 141), var(--body_back-color) 80%);
 }
 
 /*プロフィール*/
 
 #profile {
+    position: relative;
+    z-index:10;
     text-align: center;
     margin: 100px auto;
+    margin-top: -130px;
 }
 
 #profile img {
@@ -143,7 +142,7 @@ table td {
 
 .works:hover {
     outline: 2px solid var(--main-color);
-    box-shadow: 4px 4px 0 var(--back-color), 5px 5px 0 var(--main-color);
+    box-shadow: 4px 4px 0 var(--body_back-color), 5px 5px 0 var(--main-color);
 }
 
 .works .illust {
@@ -181,12 +180,16 @@ h4 {
 
 @media screen and (max-width:1000px) {
 
-    body>div {
+    body {
         width: 100%;
     }
 
     #header img {
         height: 30%;
+    }
+
+    #profile img {
+        width: 100px;
     }
 
     .works {
