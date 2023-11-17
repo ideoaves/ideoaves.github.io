@@ -42,14 +42,6 @@
             <div class="name">
               <div
                 style="font-size: 0.6em; line-height: 1.1em; letter-spacing: 0.2em; font-weight: 600; font-family: 'DotGothic16';">
-                <a href="https://twitter.com/HAZUQU" class="linkimage" style="color: #000;">
-                  &nbsp;&nbsp;&thinsp;i\,,<br>
-                  &nbsp;&nbsp; \&thinsp;\<br>
-                  &thinsp;入&nbsp;&#x1C0;&nbsp;&#x1C0;&nbsp;&thinsp;ノ1<br>
-                  &thinsp;1＼&#x1C0;&nbsp;レ&thinsp;&thinsp;」<br>
-                  &nbsp;＼&nbsp;&nbsp;&nbsp;／<br>
-                  &nbsp;&nbsp;＼_/<br><br>
-                </a>
               </div>
               <a href="https://twitter.com/HAZUQU">hazuqu</a>
             </div>映像をしている。<br><a href="https://hazuqu.github.io/">site</a>
@@ -63,33 +55,43 @@
               href="https://ideoaves.github.io/void_nemo/">site</a>
           </div>
         </div>
-        <div><button class="name">Ideoaves</button></div>
-          <span id="capt">
-          <h3 style="font-style: italic;">ideoavesのホームページへようこそ。</h3>
-          ここはideoavesの各々の各作品やSNSへのリンク置き場です。<br>
-          一番上、ロゴの下にあるのはサイト内のリンクです。<a href="index.html" title="トップページです。">
-            top</a>は<a class="bold">ここ</a>、<a href="about.html" title="人の詳細です。">name</a>は<a class="bold">メインキャラ三人のプロフィール</a>とリンク纏め、
-            <a href="works.html" title="作品ごちゃ混ぜ一覧です。&#13;&#10;視覚表現は全部あります。工事中">work</a>は<a class="bold">全作品のフォルダ</a>です。<br><br>
-            その下は個人ブログの<a href="https://scrapbox.io/ideoaves/" title="個人用Scrapboxです。&#13;&#10;日記や情報の羅列があります。">scrapbox</a>、<a href="https://discord.gg/576vRAZhK5" title="個人ディスコサーバーです。&#13;&#10;作業用の音楽を聞いたり、情報を集めたりしています。">disco</a>の個人サーバーです。<br><br>
-            linkでは使っているサービスが並んでいます。<br><br>
-            バーナーはご自由にお貼りください。00年代の感触は担保しますのでサイトの彩りにどうぞ。もしよければリンク掲載の際に<a href="https://twitter.com/void_nemo">twitter</a>に連絡もくれたらうれしいです<br><br>
-          </span>
-          <script>
-            let buto = document.getElementsByTagName('button')[0];
-            let capt = document.getElementById('capt');
-            capt.style.display ="none";
-            let changeElement = (capt) => {
-              if (capt.style.display == '') {
-                capt.style.display = 'none';
-              } else {
-                capt.style.display = '';
-              }
+        <div><a href="https://twitter.com/void_nemo">Ideoaves</a></div>
+        <div style="text-align: center;">
+        <audio id="a1" src="2000.mp3"></audio>
+          <span style="outline: solid #000 1px; padding:0 10px; width: fit-content; margin: 0 auto;">♪Opening.mp3
+          <span onclick="document.getElementById('a1').play()">▷</span>
+          <span onclick="document.getElementById('a1').pause()">ll</span>
+        </span>　
+        <audio id="a2" src="チュㇷ゚カワ・カムイラン.wav"></audio>
+          <span style="outline: solid #000 1px; padding:0 10px; width: fit-content; margin: 0 auto;">♪チュㇷ゚カワ・カムイラン CETA cover
+          <span onclick="document.getElementById('a2').play()">▷</span>
+          <span onclick="document.getElementById('a2').pause()">ll</span>
+        </span>
+        </div>
+        <h3 style="font-style: italic;">ideoavesのホームページへようこそ。</h3>
+        ここはideoavesの各々の各作品やSNSへのリンク置き場です。<br>
+        ヘッダーから<a href="works.html" title="作品ごちゃ混ぜ一覧です。&#13;&#10;視覚表現は全部あります。工事中">作品集</a>や<a
+          href="https://discord.gg/576vRAZhK5"
+          title="個人ディスコサーバーです。&#13;&#10;作業用の音楽を聞いたり、情報を集めたりしています。">disco</a>の個人サーバーなどにアクセスできます。<br>
+        バーナーはご自由にお貼りください。もしよければリンク掲載の際に<a href="https://twitter.com/void_nemo">twitter</a>に連絡もくれたらうれしいです。<br>
+        <br>
+        普段は映像制作やお絵描きをしながら、架空惑星や言語を作ったり、クリエイティブコーディングをしたり、ホームページを改造したり、DTMをしたり、スナップを撮り歩いたり、VRChatのクラブに行ったりしています。
+        <script>
+          let buto = document.getElementsByTagName('button')[0];
+          let capt = document.getElementById('capt');
+          capt.style.display = "none";
+          let changeElement = (capt) => {
+            if (capt.style.display == '') {
+              capt.style.display = 'none';
+            } else {
+              capt.style.display = '';
             }
+          }
 
-            buto.addEventListener('click', () => {
-              changeElement(capt);
-            }, false);
-          </script>
+          buto.addEventListener('click', () => {
+            changeElement(capt);
+          }, false);
+        </script>
       </div>
 
       <div class="window">
@@ -118,11 +120,11 @@
         <p>
           <a href="https://ideoaves.github.io" class="linkimage"><img
               src="https://ideoaves.github.io/banner.png"></a><br>
-              <code>
+          <code>
                 &lt;a href=&quot;https://ideoaves.github.io&quot; class=&quot;linkimage&quot;&gt;&lt;img
                 src=&quot;https://ideoaves.github.io/banner.png&quot;&gt;
                 </code><br>
-              <p class="center"><br>₊*。･ ﾟ.*✦  ✦*.ﾟ ･。*₊　リンク　₊*。･ ﾟ.*✦  ✦*.ﾟ ･。*₊<br></p>
+        <p class="center"><br>₊*。･ ﾟ.*✦ ✦*.ﾟ ･。*₊　リンク　₊*。･ ﾟ.*✦ ✦*.ﾟ ･。*₊<br></p>
         </p>
         <p>
           <a href="https://mikanixonable.github.io/" class="linkimage"><img
