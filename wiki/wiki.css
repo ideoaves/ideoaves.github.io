@@ -2,7 +2,7 @@ body {
     background-color: #f8f9fa;
     display: block;
     margin: 0 auto;
-    width: 1600px;
+    max-width: 1600px;
     height: 100%;
     font-family: sans-serif;
     line-height: 1.6;
@@ -35,6 +35,7 @@ main {
     margin: 0 auto;
     width: 960px;
     padding: 0 295px;
+    padding-top: 70px;
 }
 
 #sidemenu {
@@ -48,10 +49,26 @@ main {
     margin: 7px;
 }
 
-#sidemenu h5{
+#sidemenu h5 {
     text-align: center;
     font-size: 100%;
     font-weight: bold;
+}
+
+#toolbar {
+    display: block;
+    box-shadow: 0 1px #c8ccd1;
+    padding: 12px 0 7px 0;
+}
+
+#toolbar a {
+    padding: 12px 8px 7px 8px;
+}
+
+#syutten {
+    font-size: 0.875rem;
+    margin-top: 8px;
+    margin-bottom: 10px;
 }
 
 .infobox {
@@ -76,7 +93,7 @@ main {
     padding: 0.2em;
 }
 
-table .image{
+table .image {
     width: 100%;
     text-align: center;
     font-weight: normal;
@@ -88,7 +105,12 @@ table .image{
     text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: #000000;
     margin: 0;
     padding-top: 0.5em;
@@ -131,11 +153,50 @@ h2::after {
     padding: 5px;
 }
 
+.photo.mini{
+    float:left;
+    width: 300px;
+    margin-right: 10px;
+    border: 1px solid #c8ccd1;
+    background-color: #f8f9fa;
+    font-size: 94%;
+    padding: 5px;
+}
+
+.photo.big{
+    float: right;
+    width: 600px;
+    margin-right: 10px;
+    border: 1px solid #c8ccd1;
+    background-color: #f8f9fa;
+    font-size: 94%;
+    padding: 5px;
+}
+
 .photo.center {
-    width:50%;
+    width: 50%;
     margin: 0 auto;
 }
 
-.photo img {
+.photo img, video {
     width: 100%;
+}
+
+@media screen and (max-width:900px) {
+
+    body {
+        width: 100%;
+    }
+
+    main {
+        background-color: #FFFFFF;
+        margin: 0;
+        padding: 0;
+    }
+
+    #letbody {
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
 }
