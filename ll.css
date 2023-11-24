@@ -2,3 +2,10 @@
   font-family: 'll';
   src: url('Zinaki-Regular.ttf') format('truetype');
 }
+
+.LL {
+  font-family: "LL", Courier, monospace;
+  letter-spacing: 0.1em;
+  vertical-align:8%;
+  font-size: 0.9em;
+}
