@@ -2,190 +2,81 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../white.css">
-    <link rel="stylesheet" href="../ll.css">
-    <title>WɪᴋᴘᴇʟʟᴇᴛA</title>
-    <script src="cursor.js"></script>
-    <style>
-        .center {
-            width: 1400px;
-        }
-        
-        .window p,
-        table,
-        h1,
-        h2,
-        h3 {
-            text-align: center;
-        }
-
-        h4 {
-            border-bottom: none;
-            overflow: visible;
-            padding-top: 10px;
-        }
-
-        .in4 {
-            padding-left: 2em;
-            width: 80%;
-            top: -10px;
-        }
-
-        .block {
-            width: 70%;
-            margin: 0 auto;
-            padding-top: 100px;
-            padding-bottom: 40px;
-            line-height: 2em;
-            text-align: center;
-        }
-
-        a {
-            text-decoration: none;
-            color: #0645ad;
-            background: none;
-        }
-
-        a[href=""] {
-            text-decoration: none;
-            color: #ba0000;
-            background: none;
-        }
-
-        .nocenter,
-        .nocenter h1,
-        .nocenter h2,
-        .nocenter h3,
-        .nocenter h4 {
-            text-align: left;
-        }
-
-        .about {
-            width: 60%;
-
-        }
-
-        .aboutkoumoku {
-            width: 100%;
-            position: relative;
-            height: 400px;
-        }
-
-        .aboutimage {
-            float: right;
-            width: 40%;
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-
-        @media screen and (max-width:900px) {
-            .in4 {
-                width: 90%;
-            }
-
-            .block {
-                width: 97%;
-                line-height: 1.4em;
-            }
-
-            .about {
-                width: 100%;
-            }
-            .aboutkoumoku {
-                height: 600px;
-            }
-
-            .aboutimage {
-                position: relative;
-                width: 100%;
-            }
-        }
-    </style>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <script>
-    </script>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="wiki.css">
+  <link rel="stylesheet" href="../ll.css">
+  <meta name="description" content="視覚表現をしています">
+  <title>ボイドネモ架空研究所 - Ideoaves</title>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ideoaves" />
+  <meta name="twitter:description" content="視覚表現をしています" />
+  <meta name="twitter:image" content="https://ideoaves.github.io/icon.png" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/thbs/p5.js/1.7.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/thbs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+  <script src="sketch.js"></script>
 </head>
 
 
 <body>
-    <div class="hcenter">
-    <header>
-     <img src="../icon.png" height="30px" align="left">
-     <ul style="float: left;" >
-       <a href="../index.html"><li class="botan bold">IDEOAVES</li></a><a href="../about.html">
-         <li class="botan">CHARACTER</li></a><a href="../hazuqu.html"><li class="botan"><img src="../H.png" height="30px" align="center"></li><a href="../olime_sian.html"><li class="botan"><img src="../LI.png" height="30px" align="center"></li></a>
-    </ul><ul style="float: right">
-     <a href="404.html"><li class="botan"> </li></a>
-    </ul>
-    </header>
+  <main>
+    <div id="letbody">
+      <h1 id="1">ボイドネモ架空研究所</h1>
+      <div id="toolbar">
+        <div style="text-align: left;
+        float: left;">
+          <a style="border-bottom: 2px solid;">ページ</a>
+          <a>ノート</a>
+          <a>閲覧</a>
+        </div>
+        <div style="text-align: right;">
+          <a style="border-bottom: 2px solid;">閲覧</a>
+          <a>編集</a>
+          <a>履歴表示</a>
+          <a>ツール ∨</a>
+        </div>
+      </div>
+      <div id="syutten">出典: フリー個人网站『イデオアベス(Ideoaves)』</div>
+
+      <div class="infobox">
+        <table>
+          <tr>
+            <th class="title" colspan="2">
+              Ceta<br>
+              セタ
+          </tr>
+          <tr class="image">
+            <th colspan="2">
+              <img src="images/ceta.png" width="100%">
+              Bモニタルーム、モニタ壁前にて
+            </th>
+          </tr>
+          <tr>
+            <th class="title" colspan="2">SNS</th>
+          </tr>
+          <tr>
+            <th>Twitter</th>
+            <td><a href="https://twitter.com/void_nemo">void_nemo</td>
+          </tr>
+        </table>
+      </div>
+      ボイドネモ架空研究所は私（Ceta）が趣味でやっている、空想世界や言語を創作するフォーマットの一つです。小、中規模の架空世界創作、空想地図、言語創作をしています。
+
+      <h2>惑星”白露”</h2>
+      <div class="mini photo"><img src="images/earth_and_moon.png"><br>白露とその衛星pola</div>
+      <p class="sansyo">詳細は「<a href="siratuyu.html">白露</a>」を参照</p>
+      白露は現段階で最も情報量の多い架空惑星です。鳥類を知的生命体の位置においた文化構築を目指しています。<br>
+      3DCGやイラストを使った画像・映像資料の多い創作です。<br><br><br>
+      <h2>回遊文字</h2>
+      <div class="mini photo"><video autoplay muted loop playsinline src="images/kaiyuugo.mp4"></video><br>回遊文字の例</div>
+      短期間で制作すること、動きによって時制や格が決まること、というルールの元作られている文字体系です。小規模であること、場所を取らないこと、そして動くことに可能な限り美しさと意味を両立して持たせることを理想とします。<br>
+      単語の順番や文字の並びなどが時間によって変化します。読み物と言うよりも芸術言語の側面が非常に強いビジュアル表現です。<br>
+      現時点で単語数は110個、文字数は9個、語形変化（動き方の変化）は動詞が5つ（時制）、名詞が9つ（格）あります。<br>
     </div>
-    <div class="center">
-        <video autoplay loop muted playsinline src="wikpelleta_concept.mp4" width="100%"></video>
-        <main>
-            <div class="block">
-                <h1>Introduction</h1>
-                <h3>惑星”白露”観測データベース「Wikpelleta」へようこそ</h3>
-                惑星”白露”は、鳥に似た支配種の存在する空想惑星です。名称は一般公募による公式愛称です。<br>
-                この惑星では飛べることを前提に作られた社会・文化のもと、現代の地球とほぼ同等の水準で文明を発達させています。<br>
-                本サイトではそんな惑星の地理、言語、文化を観測調査し、その結果報告を行っていきます。
-            </div>
-            <div class="block nocenter">
-
-                <h1>About</h1>
-                <div class="about">メタ的に説明すると、私の架空の惑星、地図、言語、歴史等の一次創作です。<br>
-                    本創作では以下の3つを重点的に制作していこうと考えています。</div>
-
-                <div class="aboutkoumoku">
-                    <div class="about">
-                        <h4>1.架空世界の某百科事典風Webサイト『Wikpelleta』</h4>
-                        <div class="in4">
-                            目的の一つに、ハイパーリンクを縦横無尽に飛び回る楽しさを再現したいというものがあります。こうした架空世界系の創作はリストでの情報公開が一般的ですが、本創作ではあえて分散させ作品の情報量に深みを与えようと考えています。<br>
-                            <a class="memo">言語がある程度成立して固有名詞ができてから文化を構築する必要があるため、おそらくしばらく作品として出せないかと思います。気長に待っていただければと思います</a>
-                            <br><a href="1.html" class="botan">Dodie - WIKPELLETA</a>
-                        </div>
-                        <div class="aboutimage">
-                            <image src="SS_w.png" width="100%"></image>
-                        </div>
-                    </div>
-                </div>
-                <div class="aboutkoumoku">
-                    <div class="about">
-                        <h4>2.さえずりから作る言語『地鳴き語』</h4>
-                        <div class="in4">
-                            人間ではない生物が発音することを想定した人工言語を制作しています。鳥類用語を引用したアポステリオリな単語造形と、生身で飛べることによる人類との思考の違いを土台にしています。<br>
-                            <a class="memo">言語解説は中高で用いる英語・国語教科書のような体裁で行います。<br>
-                            これは言語の実際の使いやすさではなく、言語を使った思考の差異のイメージしやすさや、地球の文化との比較を優先するためです。</a>
-                            <br><a href="language.html" class="botan">地鳴き語</a>
-                        </div>
-                        <div class="aboutimage">
-                            <image src="images/voice.png" width="100%"></image>
-                        </div>
-                    </div>
-                </div>
-                <div class="aboutkoumoku">
-                    <div class="about">
-                        <h4>3.様々な媒体での作品制作</h4>
-                        <div class="in4">
-                            映像やイラスト、音楽など、多方面に手を出して世界観を作り出そうとしています。例えば物理エンジンをつかった惑星軌道のシミュレーションや、3DCGを使った建築物のレンダリング、Photoshopを使った地理描写などがあります。<br>
-                            また、Wikpelleta外でも、たとえば他作の創作世界の地図や言語の文字デザインのようなことをしてみたいと思っています。ご興味が有りましたら<a href="https://twitter.com/ideoaves">暮色ミネ</a>までDMいただければと思います。
-                            <br><a href="photo.html" class="botan">写真一覧</a>
-                        </div>
-                        <div class="aboutimage">
-                            <image src="images/earth_and_moon.png" width="100%"></image>
-                        </div>
-
-                        </div>
-                        </a>
-                    </div>
-                </div>
-
-
-
-        </main>
+    <div id="data">最終更新 2023年11月24日 (金) 14:52
+      （日時は個人設定で未設定ならばUTC）。<br>テキスト、画像はクリエイティブ・コモンズ表示-継承ライセンスの下で利用可能です。追加の条件が適用される場合があります。
     </div>
+  </main>
 </body>
 
 </html>
