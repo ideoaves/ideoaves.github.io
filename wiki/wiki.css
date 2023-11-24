@@ -205,6 +205,10 @@ h2::after, h3::after {
         width: 100%;
     }
 
+    #toolbar {
+    display: none;
+    }
+
     .infobox {
         width: 100%;
     }
