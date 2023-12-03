@@ -20,6 +20,24 @@ body::after {
     pointer-events: none;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    background-color: #00000019;
+    top: -5px;
+    left: -5px;
+    margin: auto;
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: darken;
+}
+
+img {
+    z-index: 3;
+}
+
 canvas { 
     position:fixed;
     top:0;
