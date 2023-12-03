@@ -9,11 +9,11 @@ function setup() {
 }
 
 function draw() {
-    background(255);
+    background(0);
 
     for (let i = 0; i < characters.length; i++) {
         let charInfo = characters[i];
-        fill(0);
+        fill(255);
         textSize(int(charInfo.size)/2);
         text(charInfo.char, int(charInfo.x), int(charInfo.y));
         charInfo.x += map(noise(i,frameCount/4), 0, 1, -2, 2);
