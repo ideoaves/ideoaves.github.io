@@ -1,5 +1,12 @@
+:root {
+    --text-color: #fff;
+    --back-color: #000;
+}
+
+
 body {
-    color: rgb(0, 0, 0);
+    color: var(--text-color);
+    background-color: var(--back-color);
     font-family: serif;
     width: 60%;
     max-width: 700px;
@@ -18,20 +25,6 @@ body::after {
     margin: auto;
     z-index: 5;
     pointer-events: none;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
-    background-color: #00000019;
-    top: -5px;
-    left: -5px;
-    margin: auto;
-    z-index: 1;
-    pointer-events: none;
-    mix-blend-mode: darken;
 }
 
 img {
@@ -77,7 +70,7 @@ main {
 .title {
     display: block;
     margin: 0;
-    filter: invert();
+    /*filter: invert();*/
     width: 50%;
 }
 
@@ -102,8 +95,7 @@ main {
 }
 
 .people{
-    background-color: #FFF;
-
+    background-color: var(--back-color);
     position:absolute;
 }
 
@@ -256,17 +248,17 @@ a {
 
 main a[href]:link:not(.linkimage), button {
     padding: 0px 3px;
-    color: #FFFFFF;
-    background-color: #000;
+    color: var(--back-color);
+    background-color: var(--text-color);
 }
 
 main a[href]:visited:not(.linkimage), button:active {
-    color: #FFFFFF;
-    background-color: #000;
+    color: var(--back-color);
+    background-color: var(--text-color);
 }
 
 main a[href]:hover:not(.linkimage), button:hover {
-    color: #FFFFFF;
+    color: var(--back-color);
     background-color: gray !important;
 }
 
@@ -300,11 +292,11 @@ main a[href]:hover:not(.linkimage), button:hover {
     margin-bottom: 90px;
     width: 150px;
     height: 150px;
-    outline: 1px dashed black;
+    outline: 1px dashed var(--text-color);
 }
 
 a div.worksImage{
-    outline: 1px solid black;
+    outline: 1px solid var(--text-color);
 }
 
 .worksImage div {
@@ -335,12 +327,12 @@ p.tit {
 }
 
 .linkimage {
-    color: black;
+    color: var(--text-color);
 }
 
 #prevbox{
     width: 100%;
-    outline: 1px solid black;
+    outline: 1px solid var(--text-color);
     padding: 10px;
 }
 
