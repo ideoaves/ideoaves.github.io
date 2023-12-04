@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="wiki.css">
+  <link rel="stylesheet" href="../ll.css">
+  <meta name="description" content="視覚表現をしています">
+  <title>finomimu - Ideoaves</title>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="白露 - Ideoaves" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="https://ideoaves.github.io/wiki/images/earth.png" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/thbs/p5.js/1.7.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/thbs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+  <script src="sketch.js"></script>
+  <style>
+    .oto th, .oto td {
+      width: 50px;
+      text-align: center;
+    }
+    .ipa td{
+      padding-bottom: 30px;
+    }
+  </style>
+</head>
+
+
+<body>
+  <main>
+    <div id="letbody">
+      <h1 id="hakuro">finomimu</h1>
+      <div id="toolbar">
+        <div style="text-align: left;
+        float: left;">
+          <a style="border-bottom: 2px solid;">ページ</a>
+          <a>ノート</a>
+          <a>閲覧</a>
+        </div>
+        <div style="text-align: right;">
+          <a style="border-bottom: 2px solid;">閲覧</a>
+          <a>編集</a>
+          <a>履歴表示</a>
+          <a>ツール ∨</a>
+        </div>
+      </div>
+      <div id="syutten">出典: フリー個人网站『イデオアベス(Ideoaves)』</div>
+      finomimu（フィノミム）は
+      人工言語の一つです。<a href="index.html">VN架研</a>で思考のための言語として作られています。<br>
+        この言語で表現するのは共時的な状態についてです。たとえば「私はりんごを食べました」という文章を本言語で翻訳した場合、その日本語訳は「私はりんご完食状態です」となります。<br>
+        また、基準も同様で、日本語の「私」に相当する言葉には同じ思想のすべての人々も含みます。<br>
+        憚らず言ってしまえば、時間間隔に乏しい孤立した人間のための言語です。そのペルソナを意識しているため、似た属性に対して優しい設計にもなっています。例えば再帰代名詞の定義が日本語よりも厳密です。
+
+      <div id="sidemenu">
+        <h5>目次 [<a class="blue">非表示</a>]</h5>
+        <ul>
+          <li>1<span><a href="#mozi">発音・文字</a></span></li>
+          <li>2<span><a href="#pola"></a></span></li>
+        </ul>
+      </div>
+
+      <h2 id="mozi">発音・文字</h2>
+      <div class="photo" style="width: 100%;"><img src="images/finomim.png"><br>文例</div>
+      母音は日本語等と同じく5つ、子音は後部歯茎音よりも後ろを使いません。これにより口に何かを含みながらの発話やフォルマントの調節などがしやすくなっています。<br>
+      発音は日本語とほぼ同じです。母音のu,eが前に移動していること、fが語頭では[f]に、xが[ɕ]に、cが語頭では[t͡s]である点に注意です。<br>
+      本言語は思考用であり、また大本が人間声帯からの言語ではないため、発音に厳密性はあまり有りません。<br>
+      <h4>母音</h4>
+      <table class="oto">
+        <tbody>
+          <tr class="let">
+            <td>a</td>
+            <td>i</td>
+            <td>u</td>
+            <td>e</td>
+            <td>o</td>
+          </tr>
+          <tr class="ipa">
+            <td>[a]</td>
+            <td>[i]</td>
+            <td>[ə]</td>
+            <td>[ɛ]</td>
+            <td>[o̞]</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>二重母音</h4>
+      <table class="oto">
+        <tbody>
+          <tr class="let">
+            <td></td>
+            <td>ai</td>
+            <td>au</td>
+            <td>ae</td>
+            <td>ao</td>
+          </tr>
+          <tr class="let">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>ie</td>
+            <td>io</td>
+          </tr>
+          <tr class="let">
+            <td>ea</td>
+            <td></td>
+            <td>eu</td>
+          </tr>
+          <tr class="let">
+            <td>oa</td>
+            <td></td>
+            <td></td>
+            <td>oe</td>
+          
+        </tbody>
+      </table>
+      <h4>子音</h4>
+      <table class="oto">
+        <tbody>
+          <tr class="let">
+            <td>p</td>
+            <td>m</td>
+            <td>f</td>
+            <td>t</td>
+            <td>c</td>
+          </tr>
+          <tr class="ipa">
+            <td>[p]</td>
+            <td>[m]</td>
+            <td>[f],[ɸ]</td>
+            <td>[t]</td>
+            <td>[t͡s]([kʲ])</td>
+          </tr>
+          <tr class="let">
+            <td>x</td>
+            <td>s</td>
+            <td>z</td>
+            <td>n</td>
+            <td>h</td>
+          </tr>
+          <tr class="ipa">
+            <td>[ɕ]</td>
+            <td>[s]</td>
+            <td>[z]</td>
+            <td>[n]</td>
+            <td>[h]</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div id="data">最終更新 2023年12月04日 20:05
+      （日時は個人設定で未設定ならばUTC）。<br>テキスト、画像はクリエイティブ・コモンズ表示-継承ライセンスの下で利用可能です。追加の条件が適用される場合があります。
+    </div>
+  </main>
+</body>
+
+</html>
