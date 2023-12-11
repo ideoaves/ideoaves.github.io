@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'finomimu';
+  src: url('finomimu.ttf') format('truetype');
+}
+
+.fi {
+  font-family: "finomimu", Courier, monospace;
+  letter-spacing: -0.1em;
+  vertical-align:8%;
+  font-size: 3em;
+}
+
+.fi {
+  vertical-align: middle;
+  line-height: 10px;
+}
