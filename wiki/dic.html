@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finomimu文字 - Ideoaves</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="finomimu.css">
+    <style>
+        :root {
+            --text-color: #000000;
+            --back-color: #ffffff;
+        }
+
+        .search {
+            text-align: right;
+        }
+
+        .words {
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .word-entry {
+            padding: 10px 0;
+            font-size: 2em;
+        }
+
+        .fi {
+            font-size: 3em;
+            padding: 30px 0;
+        }
+
+        .word-translation {}
+
+        .attribute {
+            border: solid 1px #e0e0e0;
+            padding: 0 10px;
+            margin-right: 10px;
+        }
+
+        .at_group {
+            margin-right: 10px;
+        }
+
+        .jp {
+            font-weight: bold;
+        }
+
+        .word-content {}
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="center">
+            <div class="fi" style="font-size: 5em;">finomimo mien<br></div>
+            <div class="window">本ページでは<a href="finomimu.html">finomimu</a>の単語をソートしています。検索窓から文字列で検索も可能です。</div>
+            <div class="search">
+                <button onclick="fontswitch()">A　⇔　<a class="fi">fi</a></button>
+
+                <script>
+                    function fontswitch() {
+                        var elements = document.querySelectorAll('.word-entry');
+
+                        elements.forEach(function (element) {
+                            if (element.classList.contains("fi")) {
+                                element.classList.remove("fi");
+                            } else {
+                                element.classList.add("fi");
+                            }
+                        });
+                    }
+                </script>
+                <label for="search">🔍</label>
+                <input type="text" id="search" oninput="searchWords()">
+            </div>
+
+            <div id="dic"></div>
+
+
+            <script>
+                const loadJSON = callback => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.overrideMimeType("application/json");
+                    xhr.open('GET', 'finomimu.json', true);
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            const jsonData = JSON.parse(xhr.responseText);
+                            callback(jsonData);
+                        }
+                    };
+                    xhr.send();
+                };
+
+                const jsonToHTML = jsonData => {
+                    const dic = document.getElementById('dic');
+                    const createElem = (tag, className, textContent) => {
+                        const elem = document.createElement(tag);
+                        if (className) elem.className = className;
+                        if (textContent) elem.textContent = textContent;
+                        return elem;
+                    };
+
+                    jsonData.words.forEach(word => {
+                        const wordDiv = createElem('div', 'words');
+
+                        // Entry
+                        const entryDiv = createElem('div', 'word-entry fi', word.entry.form);
+                        wordDiv.appendChild(entryDiv);
+
+                        // Translation
+                        const translationDiv = createElem('div', 'word-translation');
+                        word.translations.forEach((translation, i) => {
+                            const combinedSpan = createElem('span', 'at_group');
+
+                            if (translation.title) {
+                                if (i > 0) {
+                                    combinedSpan.appendChild(document.createElement('br'));
+                                }
+                                combinedSpan.appendChild(createElem('span', 'attribute', translation.title));
+                            }
+
+                            translation.forms.forEach((form, index, array) => {
+                                combinedSpan.appendChild(createElem('span', 'jp', form));
+                                if (index < array.length - 1) combinedSpan.appendChild(document.createTextNode(', '));
+                            });
+
+                            translationDiv.appendChild(combinedSpan);
+                        });
+                        wordDiv.appendChild(translationDiv);
+
+                        // Content
+                        const contentDiv = createElem('div', 'word-content');
+                        word.contents.forEach(content => {
+                            contentDiv.appendChild(createElem('span', null, content.title));
+                            contentDiv.appendChild(createElem('span', null, content.text));
+                        });
+                        wordDiv.appendChild(contentDiv);
+
+                        dic.appendChild(wordDiv);
+                    });
+                };
+
+                loadJSON(jsonToHTML);
+            </script>
+
+            <script>
+                function searchWords() {
+                    var searchInput = document.getElementById('search').value.toLowerCase();
+                    var wordsDivs = document.getElementsByClassName('words');
+
+                    for (var i = 0; i < wordsDivs.length; i++) {
+                        var currentWord = wordsDivs[i].innerText.toLowerCase();
+                        if (currentWord.includes(searchInput)) {
+                            wordsDivs[i].style.display = 'block';
+                        } else {
+                            wordsDivs[i].style.display = 'none';
+                        }
+                    }
+                }
+            </script>
+        </div>
+    </main>
+</body>
+
+</html>
