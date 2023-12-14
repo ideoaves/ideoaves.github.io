@@ -16,12 +16,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/thbs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
   <script src="sketch.js"></script>
   <style>
-    .oto th, .oto td {
+    .oto th,
+    .oto td {
       width: 40px;
       text-align: center;
     }
-    .ipa td{
+
+    .ipa td {
       padding-bottom: 30px;
+    }
+
+    .imi {
+      outline: solid 1px #000;
+      border-spacing: 0px;
+    }
+
+    .imi td {
+      padding: 5px;
+      outline: solid 1px #000;
+      height: 3em;
     }
   </style>
 </head>
@@ -47,24 +60,31 @@
       </div>
       <div id="syutten">出典: フリー個人网站『イデオアベス(Ideoaves)』</div>
       finomimu（フィノミム　鰭:<a class="fi">finomimu</a>）は
-      人工言語の一つです。<a href="index.html">VN架研</a>で思考のための言語として作られています。<br>
-        この言語で表現するのは共時的な状態についてです。たとえば「私はりんごを食べました」という文章を本言語で翻訳した場合、その日本語訳は「私はりんご完食状態です」となります。<br>
-        また、基準も同様で、日本語の「私」に相当する言葉には同じ思想のすべての人々も含みます。<br>
-        憚らず言ってしまえば、時間間隔に乏しい孤立した人間のための言語です。そのペルソナを意識しているため、似た属性に対して優しい設計にもなっています。例えば再帰代名詞の定義が日本語よりも厳密です。
+      <a href="index.html">VN架研</a>によって作られている人工言語の一つです。<br>
 
       <div id="sidemenu">
         <h5>目次 [<a class="blue">非表示</a>]</h5>
         <ul>
-          <li>1<span><a href="#mozi">発音・文字</a></span></li>
-          <li>2<span><a href="#pola">🔧</a></span></li>
-          <li>n<span><a href="#goi">語彙</a></span></li>
+          <li>1<span><a href="#gaiyou">概要</a></span></li>
+          <li>2<span><a href="#mozi">発音・文字</a></span></li>
+          <li>3<span><a href="#goi">語彙</a></span></li>
+          <li>4<span><a href="#bunpou">文法</a></span></li>
         </ul>
       </div>
 
+      <h2 id="gaiyou">概要</h2>
+      <div class="photo" style="width: 100%;"><img src="images/finomim.png"><br></div>
+      本言語は芸術言語です。思考用言語と<a href="siratuyu.html">白露</a>の海洋地域で話されている設定の想像世界言語を兼ねています。<br>
+      分類上はART（芸術）,PHI（主義）,REA（現実）,IMG（想像）,TOL(流入無頓着)です。<br>
+      <br>
+      この言語で表現するのは共時的な状態についてです。たとえば「私はりんごを食べました」という文章を本言語で翻訳した場合、その日本語直訳は「私によってされたりんごの食事」となります。<br>
+      また、基準も同様で、日本語の「私」に相当する言葉には同じ思想のすべての人々も含みます。<br>
+      憚らず言ってしまえば、時間間隔に乏しい孤立した人間のための言語です。そのペルソナを意識しているため、似た属性に対して優しい設計にもなっています。例えば再帰代名詞の定義が日本語よりも厳密です。
+
       <h2 id="mozi">発音・文字</h2>
-      <div class="photo" style="width: 100%;"><img src="images/finomim.png"><br>文例</div>
       母音は日本語等と同じく5つ、子音は後部歯茎音よりも後ろを使いません。これにより口に何かを含みながらの発話やフォルマントの調節などがしやすくなっています。<br>
-      発音は日本語とほぼ同じです。母音のu,eが前に移動していること、fが語頭では[f]に、xが[ɕ]に、cが語頭では[t͡s]である点に注意です。<br>
+      発音は日本語とほぼ同じです。母音のu,eが前に移動していること、fが語頭では[f]に、xが[ɕ]になる点に注意です。<br>
+      tはその前にnがある場合[d]になります。<br>
       以下、各文字の発音を挙げます。あくまで推定される音の表であり、話者の母国語や地域によって大きく発音が変わります。<br>
       <h4>母音</h4>
       <table class="oto">
@@ -126,7 +146,7 @@
             <td>oi</td>
             <td></td>
             <td>oe</td>
-          
+
         </tbody>
       </table>
       <h4>子音</h4>
@@ -152,9 +172,9 @@
             <td>[p]</td>
             <td>[m]</td>
             <td>[f],[ɸ]</td>
-            <td>[t]</td>
+            <td>[t],[d]</td>
             <td>[l]</td>
-            <td>[t͡s]([kʲ])</td>
+            <td>[t͡s]</td>
           </tr>
           <tr class="let fi">
             <td>x</td>
@@ -179,11 +199,44 @@
           </tr>
         </tbody>
       </table>
-      <h2 id="goi">語彙</h2>
-      語彙を整備中です、しばらくはZpDICで造語を続けています。時折見に来てください。
+      <h2 id="bunpou">文法</h2>
+      本言語はほぼすべての単語を基本的に名詞として扱います。すなわち、一般的な「私はする」という文をそのまま訳すことはできません。これに最も近いのは「imon les」(私によってすること)です。（「imi les」は（わたしは（何かによって）するもの）となります）<br>
+      そのうち語の表す内容によって、存在語、動作語、形容語に分類されます。意訳の際にはそのまま名詞、動詞、形容詞に変換でき、鰭日辞書も同様に訳されます。<br>
+      それに習えば基本的な語順はSOV型になります。
+      それぞれの語は接辞によって横断でき、分類を強く表したい場合にも接辞が使われます。
+      <table class="imi">
+        <tr><td></td><td>存在に</td><td>動作に</td><td>形容に</td></tr>
+        <tr><td>存在を</td><td>-</td><td>-les</td><td>-ap</td></tr>
+        <tr><td>動作を</td><td>-</td><td>-les</td><td>-af</td></tr>
+        <tr><td>形容を</td><td>-</td><td>-les</td><td>-amet</td></tr>
+    </table>
+    またこの接辞は単語として成立後も残っている場合が多いため、単語の語尾を見れば判別が付きやすいです。それぞれ具体抽象は-n,-m、動作は-s、形容は-f,-pであることが多くあります。<br>
+    <br>
+    名詞以外に助詞もあり、それぞれ以下のようになっています。    
+      <h4>基本の助詞</h4>
+      <table class="imi" style="width: 100%;">
+        <tr style="text-align: center;"><td>鰭語</td><td>日本語</td><td>意味</td><td>例</td></tr>
+        <tr><td>-</td><td>-かつ</td><td>並列を指す。修飾の順番は最後の語から順番である場合が多いが明確に決まってはいない。</td><td>mizinoenumasfifaien - 自作映画</td></tr>
+        <tr><td>-o</td><td>-の</td><td>所有、状態の主体を表す。</td><td>imo letom - わたしの手</td></tr>
+        <tr><td>-i</td><td>-は</td><td>状態の主体を指す。動作の主体ではないので、主体以外が動作している場合にも用いる。</td><td>neni henumozip - 今は朝焼け</td></tr>
+        <tr><td>-ae</td><td>から、-の中で</td><td>出発や始点をさす。-oeが文中にない場合は指したものの内側の場を指す。出格、内格。</td><td>poehofae pihuzipoe - 朝から夜まで</td></tr>
+        <tr><td>-oe</td><td>へ、-の外で</td><td>到着や終点をさす。-aeが文中にない場合は指したものの外側の場を指す。向格、接格。</td><td>lieatae mixeatoe - 1から1000まで</td></tr>
+        <tr><td>-e</td><td>-を</td><td>動作を限定する。</td><td>finomime cefas - フィノミムという知</td></tr>
+        <tr><td>-u</td><td>-だ</td><td>体言止めの際の語尾を表す。丁寧語や厳密な表記を行う際に用いる場合が多い。</td><td>fienanu - 朝だ。</td></tr>
+        <tr><td>-un</td><td>-な、-の状態の</td><td>状態や存在語の修飾を表す。</td><td>toeatun haixem - 4つある果物</td></tr>
+        <tr><td>-in</td><td>-において</td><td>状態の場所をさす。</td><td>fianin finepies - 海においての泳ぎ</td></tr>
+        <tr><td>-on</td><td>-によって</td><td>動作の主体をさす。因格。</td><td>feamon nepiem - クラゲによる浮遊</td></tr>
+        <tr><td>-ue</td><td>-で、-を使った</td><td>動作の手段をさす。具格。</td><td>letonue finepies - 手を使った泳ぎ</td></tr>
+      </table>
+      この他、接辞があります。接辞には「-fon」（-の影響下で）や「-ox」（-に似ている）等があります。
+      <h2 id="goi">単語</h2>
+      現在最小の語は「at」（個）で、最長の語は「foemoseasis」(鬱)です。<br>
+      名詞に複合されて一つの名詞になるため、新しい単語は文字数が多くなりやすいです。<br>
+      <br>
+      単語は新規制作を続けています。しばらくはZpDICで造語しています。時折見に来てください。
       <a href="https://zpdic.ziphil.com/dictionary/1381">https://zpdic.ziphil.com/dictionary/1381</a>
     </div>
-    <div id="data">最終更新 2023年12月04日 20:05
+    <div id="data">最終更新 2023年12月15日 1:35
       （日時は個人設定で未設定ならばUTC）。<br>テキスト、画像はクリエイティブ・コモンズ表示-継承ライセンスの下で利用可能です。追加の条件が適用される場合があります。
     </div>
   </main>
