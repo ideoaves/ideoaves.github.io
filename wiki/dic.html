@@ -5,31 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>finomimu文字 - Ideoaves</title>
-    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="finomimu.css">
+    <link rel="stylesheet" href="../style.css">
     <style>
         :root {
             --text-color: #000000;
             --back-color: #ffffff;
         }
 
+        body {
+            max-width: 1000px;
+        }
+
         .search {
             text-align: right;
         }
 
+        #dic {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
         .words {
+            width: calc(1 / 3 * 100%);
             margin: 30px 0;
             text-align: left;
         }
 
         .word-entry {
             padding: 10px 0;
-            font-size: 2em;
+            font-size: 40px;
         }
 
-        .fi {
-            font-size: 3em;
-            padding: 30px 0;
+        .word-entry.fi {
+            line-height: unset;
+            font-size: 60px;
+        }
+
+        .heading {
+            vertical-align: -3px;
+            width: 100%;
+            font-size: 50px;
+            color: var(--back-color);
+            background-color: #888;
+        }
+
+        .heading.fi {
+            vertical-align: -10px;
+            line-height: unset;
+            font-size: 70px;
         }
 
         .word-translation {}
@@ -40,6 +64,21 @@
             margin-right: 10px;
         }
 
+        .relations span {
+            margin-right: 5px;
+            overflow-wrap: break-word;
+        }
+
+        .relations .relationtitle {
+            border: solid 1px #e0e0e0;
+            padding: 0 10px;
+        }
+
+        .kanren {
+            display: block;
+            padding-top: 10px;
+        }
+
         .at_group {
             margin-right: 10px;
         }
@@ -47,9 +86,6 @@
         .jp {
             font-weight: bold;
         }
-
-        .word-content {}
-
     </style>
 </head>
 
@@ -57,13 +93,13 @@
     <main>
         <div class="center">
             <div class="fi" style="font-size: 5em;">finomimo mien<br></div>
-            <div class="window">本ページでは<a href="finomimu.html">finomimu</a>の単語をソートしています。検索窓から文字列で検索も可能です。</div>
+            <div class="window">本ページでは<a href="finomimu.html">finomimu</a>の単語をソートしています。検索窓から文字列で検索も可能です。<br>現在は接辞をあわせて<span id="count" style="font-weight: bold;"></span>個の単語が記載されています。</div>
             <div class="search">
                 <button onclick="fontswitch()">A　⇔　<a class="fi">fi</a></button>
 
                 <script>
                     function fontswitch() {
-                        var elements = document.querySelectorAll('.word-entry');
+                        var elements = document.querySelectorAll('.word-entry, .heading');
 
                         elements.forEach(function (element) {
                             if (element.classList.contains("fi")) {
@@ -104,8 +140,21 @@
                         return elem;
                     };
 
+                    var prevFirstChar = null;
+                    var wordCount = 0;
+
                     jsonData.words.forEach(word => {
+                        var entryForm = word.entry.form;
+                        var firstChar = entryForm.charAt(0);
+
+                        if (firstChar !== prevFirstChar) {
+                            var headingDiv = createElem('div', 'heading fi', firstChar);
+                            dic.appendChild(headingDiv);
+                            prevFirstChar = firstChar;
+                        }
                         const wordDiv = createElem('div', 'words');
+                        var entryId = word.entry.id;
+
 
                         // Entry
                         const entryDiv = createElem('div', 'word-entry fi', word.entry.form);
@@ -135,13 +184,47 @@
                         // Content
                         const contentDiv = createElem('div', 'word-content');
                         word.contents.forEach(content => {
-                            contentDiv.appendChild(createElem('span', null, content.title));
+                            if (content.title) {
+                                contentDiv.appendChild(createElem('span', null, content.title + ": "));
+                            }
                             contentDiv.appendChild(createElem('span', null, content.text));
                         });
                         wordDiv.appendChild(contentDiv);
 
+                        // Relations
+                        if (word.relations && word.relations.length > 0) {
+                            var relationsDiv = createElem('span', 'relations');
+                            relationsDiv.appendChild(createElem('strong', 'kanren', '関連語'));
+
+                            word.relations.forEach((relation) => {
+                                var relationDiv = createElem('span');
+
+
+
+
+                                if (relation.entry && relation.entry.id) {
+                                    if (relation.title) {
+                                        var titleSpan = createElem('span', 'relationtitle', relation.title);
+                                        relationDiv.appendChild(titleSpan);
+                                    }
+                                    var link = createElem('a', null);
+                                    link.href = '#' + relation.entry.id; // リンクの href を設定
+                                    link.textContent = relation.entry.form;
+                                    relationDiv.appendChild(link);
+                                }
+
+                                relationsDiv.appendChild(relationDiv);
+                            });
+
+                            wordDiv.appendChild(relationsDiv);
+                        }
+                        wordDiv.id = entryId;
+
                         dic.appendChild(wordDiv);
+                        wordCount++;
                     });
+                    var countDiv = document.getElementById('count');
+                    countDiv.textContent = ' ' + wordCount;
                 };
 
                 loadJSON(jsonToHTML);
