@@ -33,6 +33,7 @@
         }
 
         .word-entry {
+            overflow-wrap: break-word;
             padding: 10px 0;
             font-size: 40px;
         }
@@ -91,6 +92,12 @@
         @media screen and (max-width:900px) {
             .words {
                 width: calc(1 / 2 * 100%);
+            }
+            .word-entry {
+                font-size: 20px;
+            }
+            .word-entry.fi {
+                font-size: 30px;
             }
         }
     </style>
