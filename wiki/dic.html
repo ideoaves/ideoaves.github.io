@@ -17,6 +17,10 @@
             max-width: 1000px;
         }
 
+        .tit {
+            font-size: 5em;
+        }
+
         .search {
             text-align: right;
         }
@@ -99,6 +103,10 @@
             .word-entry.fi {
                 font-size: 30px;
             }
+            .tit {
+            font-size: 5em;
+            line-height: unset;
+            }
         }
     </style>
 </head>
@@ -106,7 +114,7 @@
 <body>
     <main>
         <div class="center">
-            <div class="fi" style="font-size: 5em;">finomimo mien<br></div>
+            <div class="fi" class="tit">finomimo mien<br></div>
             <div class="window">本ページでは<a href="finomimu.html">finomimu</a>の単語をソートしています。検索窓から文字列で検索も可能です。<br>現在は接辞をあわせて<span id="count" style="font-weight: bold;"></span>個の単語が記載されています。</div>
             <div class="search">
                 <button onclick="fontswitch()">A　⇔　<a class="fi">fi</a></button>
