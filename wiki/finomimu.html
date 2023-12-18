@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="wiki.css">
   <link rel="stylesheet" href="finomimu.css">
-  <meta name="description" content="視覚表現をしています">
+  <meta name="description" content="">
   <title>finomimu - Ideoaves</title>
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="白露 - Ideoaves" />
+  <meta name="twitter:title" content="finomimu - Ideoaves" />
   <meta name="twitter:description" content="" />
   <meta name="twitter:image" content="https://ideoaves.github.io/wiki/images/earth.png" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -36,6 +36,25 @@
       outline: solid 1px #000;
       height: 3em;
     }
+
+    li {
+      margin: 10px 0 10px 20px;
+    }
+  li::before {
+    font-weight: bold;
+    content: "・　";
+  }
+
+  li .fino {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  li .japa {
+    font-style: italic;
+  }
+  li .japa::before {
+    content: "　";
+  }
   </style>
 </head>
 
@@ -69,6 +88,7 @@
           <li>2<span><a href="#mozi">発音・文字</a></span></li>
           <li>3<span><a href="#goi">語彙</a></span></li>
           <li>4<span><a href="#bunpou">文法</a></span></li>
+          <li>5<span><a href="#koubun">構文</a></span></li>
         </ul>
       </div>
 
@@ -110,43 +130,6 @@
             <td>[ɛ]</td>
             <td>[o̞]</td>
           </tr>
-        </tbody>
-      </table>
-      <h4>二重母音</h4>
-      <table class="oto">
-        <tbody>
-          <tr class="let">
-            <td></td>
-            <td>ai</td>
-            <td>au</td>
-            <td>ae</td>
-            <td>ao</td>
-          </tr>
-          <tr class="let">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>ie</td>
-            <td>io</td>
-          </tr>
-          <tr class="let">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>ue</td>
-          </tr>
-          <tr class="let">
-            <td>ea</td>
-            <td>ei</td>
-            <td>eu</td>
-            <td></td>
-          </tr>
-          <tr class="let">
-            <td>oa</td>
-            <td>oi</td>
-            <td></td>
-            <td>oe</td>
-
         </tbody>
       </table>
       <h4>子音</h4>
@@ -199,6 +182,16 @@
           </tr>
         </tbody>
       </table>
+      <h3>音配列</h3>
+      基本的にはCV(V)です。稀にCVVVの単語がありますがこの場合は２つ目の母音が無視されがちです。<br>
+      助詞や接辞が繋がり、基本的に語末は母音で、文末は子音で終わります。統一したい時には文末は助詞 -u をつけます。
+      <h2 id="goi">単語</h2>
+      <p class="sansyo">詳細は「<a href="dic.html">finomimu辞書</a>」を参照</p>
+      現在最小の語は「at」（個）で、最長の語は「foemoseasis」(鬱)です。<br>
+      名詞に複合されて一つの名詞になるため、新しい単語は文字数が多くなりやすいです。<br>
+      <br>
+      単語は新規制作を続けています。しばらくはZpDICで造語しています。こちらは上記辞書のβ版にあたるものですので最新の更新はこちらのほうが早いかもしれません。
+      <a href="https://zpdic.ziphil.com/dictionary/1381">https://zpdic.ziphil.com/dictionary/1381</a>
       <h2 id="bunpou">文法</h2>
       本言語はほぼすべての単語を基本的に名詞として扱います。すなわち、一般的な「私はする」という文をそのまま訳すことはできません。これに最も近いのは「imon les」(私によってすること)です。（「imi les」は（わたしは（何かによって）するもの）となります）<br>
       そのうち語の表す内容によって、存在語、動作語、形容語に分類されます。意訳の際にはそのまま名詞、動詞、形容詞に変換でき、鰭日辞書も同様に訳されます。<br>
@@ -229,15 +222,33 @@
         <tr><td>-ue</td><td>-で、-を使った</td><td>動作の手段をさす。具格。</td><td>letonue finepies - 手を使った泳ぎ</td></tr>
       </table>
       この他、接辞があります。接辞には「-fon」（-の影響下で）や「-ox」（-に似ている）等があります。
-      <h2 id="goi">単語</h2>
-      <p class="sansyo">詳細は「<a href="dic.html">finomimu辞書</a>」を参照</p>
-      現在最小の語は「at」（個）で、最長の語は「foemoseasis」(鬱)です。<br>
-      名詞に複合されて一つの名詞になるため、新しい単語は文字数が多くなりやすいです。<br>
+      <h2 id="koubun">構文</h2>
+      <h3>時制</h3>
+      接辞、副詞などを使って時制の表現ができます。具体的には、ある時間を指す語に-in(状態の場所)をつけたものを使います。過去進行形、未来進行形では接頭辞が用意されています。
+      <h4>過去</h4>
+      <li><a class="fino">zienin ~</a><a class="japa">昔の~、昔した~</a></li>
+      <li><a class="fino">zinoe-~</a><a class="japa">今までの~、今までしていた~</a></li>
+      <h4>未来</h4>
+      <li><a class="fino">pienin ~</a><a class="japa">未来の~、いつかする~</a></li>
+      <li><a class="fino">pioe-~</a><a class="japa">未来にある、今度している~</a></li>
       <br>
-      単語は新規制作を続けています。しばらくはZpDICで造語しています。こちらは上記辞書のβ版にあたるものですので最新の更新はこちらのほうが早いかもしれません。
-      <a href="https://zpdic.ziphil.com/dictionary/1381">https://zpdic.ziphil.com/dictionary/1381</a>
+      <h3>feo-ilu文</h3>
+      <div class="photo big" style="width: 300px;"><img src="images/feoilu.png"><br>浮遊し続ける</div>
+      接頭辞feo-、接尾辞-iluを使って再帰表現を行えます。例えば
+      <li><a class="fino">feo-imion haixeme hais-ilu</a><a class="japa">feo-私による 果実 食-ilu</a></li>
+      という文章が有った時、haisにiluが付いているので、ここにfeo-のあるimiが来ます。助詞は代入時に消えます。つまり「hais-imi」のように繋がって、意訳では「果実食する私」となります。<br>
+      <br>
+      また、同じ単語に両方とも付いていた場合はループします。これを使って現在進行系を表します。
+      <li><a class="fino">feo-hais-ilu</a><a class="japa">(直訳)食し食し食し食し食し...（意訳）食し続ける</a></li>
+      もしその単語に助詞が有った場合は助詞を含まないので
+      <li><a class="fino">feo-haixemae-ilu</a><a class="japa">果実の中の果実</a></li>
+      <li><a class="fino">feo-haisi-ilu</a><a class="japa">食事は食べること</a></li>
+      などの構造になります。助詞があった場合は助詞を消す際に-iluも消えるため、ループしません。（助詞だった名残です）<br>
+      同じ文章で入れ子状に二組以上ある場合は内側から代入していきます。
+      <li><a class="fino">poecomi feo-feo-panomemo-iluon-ilu-etom</a><a class="japa">政治は人民の人民による人民のためのもの</a></li>
+      <br>
     </div>
-    <div id="data">最終更新 2023年12月15日 1:35
+    <div id="data">最終更新 2023年12月18日 11:35
       （日時は個人設定で未設定ならばUTC）。<br>テキスト、画像はクリエイティブ・コモンズ表示-継承ライセンスの下で利用可能です。追加の条件が適用される場合があります。
     </div>
   </main>
