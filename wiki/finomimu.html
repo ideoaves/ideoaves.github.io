@@ -84,11 +84,11 @@
       <div id="sidemenu">
         <h5>目次 [<a class="blue">非表示</a>]</h5>
         <ul>
-          <li>1<span><a href="#gaiyou">概要</a></span></li>
-          <li>2<span><a href="#mozi">発音・文字</a></span></li>
-          <li>3<span><a href="#goi">語彙</a></span></li>
-          <li>4<span><a href="#bunpou">文法</a></span></li>
-          <li>5<span><a href="#koubun">構文</a></span></li>
+          <li><span><a href="#gaiyou">概要</a></span></li>
+          <li><span><a href="#mozi">発音・文字</a></span></li>
+          <li><span><a href="#tango">単語</a></span></li>
+          <li><span><a href="#bunpou">文法</a></span></li>
+          <li><span><a href="#goi">語彙</a></span></li>
         </ul>
       </div>
 
@@ -186,39 +186,23 @@
       <h3>音配列</h3>
       基本的にはCV(V)です。稀にCVVVの単語がありますがこの場合は２つ目の母音が無視されがちです。<br>
       助詞や接辞が繋がり、基本的に語末は母音で、文末は子音で終わります。統一したい時には文末は助詞 -u をつけます。
-      <h2 id="goi">単語</h2>
-      <p class="sansyo">詳細は「<a href="dic.html">finomimu辞書</a>」を参照</p>
-      現在最小の語は「at」（個）で、最長の語は「foemoseasis」(鬱)です。<br>
-      名詞に複合されて一つの名詞になるため、新しい単語は文字数が多くなりやすいです。<br>
-      <br>
-      単語は新規制作を続けています。しばらくはZpDICで造語しています。こちらは上記辞書のβ版にあたるものですので最新の更新はこちらのほうが早いかもしれません。
-      <a href="https://zpdic.ziphil.com/dictionary/1381">https://zpdic.ziphil.com/dictionary/1381</a>
-      <h3>人称代名詞</h3>
-      人称代名詞は３つあり、それぞれ
-      <li><a class="fino">imi</a><a class="japa">単数や会話相手、同じ状態の人々</a></li>
-      <li><a class="fino">taim</a><a class="japa">二人称、三人称、別の考えの自分</a></li>
-      <li><a class="fino">mim</a><a class="japa">四人称。人間自体や過去の偉人など</a></li>
-      です。どういった区別なのかというと、思考が連続している度合いによっています。すなわち、同じ思考であれば他者もimiに含まれ、自分自身であっても過去の考えの違う時期はtaimに含まれます。<br>
-      mimは思考の変化も含めた全体を包括する語です。
-      <img src="images/ninsyou.png" style="width: 100%;">
-      imi以外には複数形がそれぞれtimとmemとして用意されています。<br>
-      また、必然的に一人称のimiとtaimの使い分けによって時制が変化します。
-      <li><a class="fino">imion fiexeas</a><a class="japa">私は睡眠している</a></li>
-      <li><a class="fino">taimon fiexeas</a><a class="japa">いつかの私は睡眠していた/睡眠しているだろう</a></li>
-      これは文脈上成立し得る場合にのみつかわれていて、一般的な時制は接辞を使って明確に書く場合が多いです。
-      
-      <h2 id="bunpou">文法</h2>
-      本言語はほぼすべての単語を基本的に名詞として扱います。すなわち、一般的な「私はする」という文をそのまま訳すことはできません。これに最も近いのは「imion les」(私によってすること)です。（「imi les」は（わたしは（何かによって）するもの）となります）<br>
-      そのうち語の表す内容によって、存在語、動作語、形容語に分類されます。意訳の際にはそのまま名詞、動詞、形容詞に変換でき、鰭日辞書も同様に訳されます。<br>
-      それに習えば基本的な語順はSOV型になります。
-      それぞれの語は接辞によって横断でき、分類を強く表したい場合にも接辞が使われます。
+
+      <h2 id="tango">単語</h2>
+      <h3>単語の構造</h3>
+      finomimuには語幹と接辞が存在し、接辞には接頭辞と接尾辞の2種があります。接尾辞には助詞も含まれます。語幹は何もつけないか、接辞をつけることになります。
+      <li><a class="fino">(接辞)　+　...　+　(接辞) + 語幹 + (接辞)　+　...　+　助詞</a><a class="japa"></a></li>
+      語幹はほかの語幹とつながります。また、単語の最後は文中であれば確実に助詞がつきます。文末は本来助詞-uがつきますが、省略しても問題ありません。<br>
+      本言語はほぼすべての単語を基本的に名詞として扱います。残りは接置詞等です。<br>
+      <h3>単語の分類</h3>
+      名詞は存在（具体・抽象で分ける場合も多い）、動作、形容の３つにわけられます。
       <table class="imi">
-        <tr><td></td><td>存在に</td><td>動作に</td><td>形容に</td></tr>
-        <tr><td>存在を</td><td>-</td><td>-les</td><td>-ap</td></tr>
-        <tr><td>動作を</td><td>-</td><td>-les</td><td>-af</td></tr>
-        <tr><td>形容を</td><td>-</td><td>-les</td><td>-amet</td></tr>
+        <tr><td>具体</td><td>imi(私), hiem(植物), lufain(音楽)</td></tr>
+        <tr><td>抽象</td><td>-ami(しなければならないこと), faox(偽), xean(何も無い)</td></tr>
+        <tr><td>動作</td><td>has(存在), mihamus(観察), numas(構築)</td></tr>
+        <tr><td>形容</td><td>finen(いつも), henum(青色), luf(音声的)</td></tr>
     </table>
-    またこの接辞は単語として成立後も残っている場合が多いため、単語の語尾を見れば判別が付きやすいです。それぞれ具体抽象は-n,-m、動作は-s、形容は-f,-pであることが多くあります。<br>
+    これらを多少見分ける方法として語尾があります。それぞれ具体抽象は-n,-m、動作は-s、形容は-f,-pであることが多くあります。<br>
+    それぞれ別の役割に用意に変化します。
     <br>
     名詞以外に助詞もあり、それぞれ以下のようになっています。    
       <h4>基本の助詞</h4>
@@ -236,8 +220,15 @@
         <tr><td>-on</td><td>-によって</td><td>動作の主体をさす。因格。</td><td>feamon nepiem - クラゲによる浮遊</td></tr>
         <tr><td>-ue</td><td>-で、-を使った</td><td>動作の手段をさす。具格。</td><td>letonue finepies - 手を使った泳ぎ</td></tr>
       </table>
-      この他、接辞があります。接辞には「-fon」（-の影響下で）や「-ox」（-に似ている）等があります。
-      <h2 id="koubun">構文</h2>
+      この他、接辞があります。接辞には「-fon」（-の影響下で）や「-ox」（-に似ている）等があります。<br>
+      <h3>単語の結合</h3>
+      単語は他の単語とつながり一つの名詞になります。
+      <li><a class="fino">fian-in-fines-xeas</a><a class="japa">海-において-(泳ぎ-寝る) → 海水浴での背泳ぎ</a></li>
+      <li><a class="fino">finomim-ue-fimas-lipes-un-mim</a><a class="japa">言葉（finomimu）-を使って-(話して-書く)-状態の-人 → finomimu話者（書くこともできる）</a></li>
+      修飾の順番は前から順である場合が多いです。また、助詞がない結合を優先します。すなわち、「fianinfinesxeas」が「海で泳ぎつつ、別の場所で寝る」とは解釈されにくいです。（ただし、この言葉を言った人間がバーチャル空間で海を泳ぎながら自宅のベッドに寝ていた場合を除きます）
+
+      <h2 id="bunpou">文法</h2>
+      前述の通り全ての単語は名詞となりますが、つながりでよく見られる形は「主体、存在、動作」となるので、一般的表現に習えば基本的な語順はSOV型になります。
       <h3>時制</h3>
       接辞、副詞などを使って時制の表現ができます。具体的には、ある時間を指す語に-in(状態の場所)をつけたものを使います。過去進行形、未来進行形では接頭辞が用意されています。
       <h4>過去</h4>
@@ -261,7 +252,28 @@
       などの構造になります。助詞があった場合は助詞を消す際に-iluも消えるため、ループしません。（助詞だった名残です）<br>
       同じ文章で入れ子状に二組以上ある場合は内側から代入していきます。
       <li><a class="fino">poecomi feo-feo-panomemo-iluon-ilu-etom</a><a class="japa">政治は人民の人民による人民のためのもの</a></li>
+      
+      <h2 id="goi">語彙</h2>
+      <p class="sansyo">詳細は「<a href="dic.html">finomimu辞書</a>」を参照</p>
+      現在最小の語は「at」（個）で、最長の語は「foemoseasis」(鬱)です。<br>
+      名詞に複合されて一つの名詞になるため、新しい単語は文字数が多くなりやすいです。<br>
       <br>
+      単語は新規制作を続けています。しばらくはZpDICで造語しています。こちらは上記辞書のβ版にあたるものですので最新の更新はこちらのほうが早いかもしれません。
+      <a href="https://zpdic.ziphil.com/dictionary/1381">https://zpdic.ziphil.com/dictionary/1381</a>
+      <h3>人称代名詞</h3>
+      人称代名詞は３つあり、それぞれ
+      <li><a class="fino">imi</a><a class="japa">単数や会話相手、同じ状態の人々</a></li>
+      <li><a class="fino">taim</a><a class="japa">二人称、三人称、別の考えの自分</a></li>
+      <li><a class="fino">mim</a><a class="japa">四人称。人間自体や過去の偉人など</a></li>
+      です。どういった区別なのかというと、思考が連続している度合いによっています。すなわち、同じ思考であれば他者もimiに含まれ、自分自身であっても過去の考えの違う時期はtaimに含まれます。<br>
+      mimは思考の変化も含めた全体を包括する語です。
+      <img src="images/ninsyou.png" style="width: 100%;">
+      imi以外には複数形がそれぞれtimとmemとして用意されています。<br>
+      また、必然的に一人称のimiとtaimの使い分けによって時制が変化します。
+      <li><a class="fino">imion fiexeas</a><a class="japa">私は睡眠している</a></li>
+      <li><a class="fino">taimon fiexeas</a><a class="japa">いつかの私は睡眠していた/睡眠しているだろう</a></li>
+      これは文脈上成立し得る場合にのみつかわれていて、一般的な時制は接辞を使って明確に書く場合が多いです。
+      
     </div>
     <div id="data">最終更新 2023年12月18日 11:35
       （日時は個人設定で未設定ならばUTC）。<br>テキスト、画像はクリエイティブ・コモンズ表示-継承ライセンスの下で利用可能です。追加の条件が適用される場合があります。
