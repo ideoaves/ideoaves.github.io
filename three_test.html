@@ -26,8 +26,7 @@
         document.body.appendChild(renderer.domElement);
 
         // Text Geometry
-        const fontLoader = new THREE.FontLoader(); // Use FontLoader from THREE namespace
-        fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+        THREE.FontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
             const textGeometry = new THREE.TextGeometry('凹凸', {
                 font: font,
                 size: 1,
