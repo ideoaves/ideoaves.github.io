@@ -12,6 +12,7 @@
 <body>
     <script type="module">
         import * as THREE from 'https://threejs.org/build/three.module.js';
+        import { FontLoader } from 'https://threejs.org/build/three.module.js'; // Import FontLoader separately
 
         // Scene
         const scene = new THREE.Scene();
@@ -26,30 +27,33 @@
         document.body.appendChild(renderer.domElement);
 
         // Text Geometry
-        const textGeometry = new THREE.TextGeometry('凹凸', {
-            font: new THREE.FontLoader().load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json'),
-            size: 1,
-            height: 0.2,
-            curveSegments: 12,
-            bevelEnabled: true,
-            bevelThickness: 0.03,
-            bevelSize: 0.02,
-            bevelOffset: 0,
-            bevelSegments: 5
-        });
+        const fontLoader = new FontLoader(); // Create FontLoader instance
+        fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+            const textGeometry = new THREE.TextGeometry('凹凸', {
+                font: font,
+                size: 1,
+                height: 0.2,
+                curveSegments: 12,
+                bevelEnabled: true,
+                bevelThickness: 0.03,
+                bevelSize: 0.02,
+                bevelOffset: 0,
+                bevelSegments: 5
+            });
 
-        // Material with Bump Map
-        const material = new THREE.MeshPhongMaterial({
-            color: 0x00ff00,
-            specular: 0x222222,
-            shininess: 25,
-            bumpMap: new THREE.TextureLoader().load('https://threejs.org/examples/textures/water.jpg'),
-            bumpScale: 0.1
-        });
+            // Material with Bump Map
+            const material = new THREE.MeshPhongMaterial({
+                color: 0x00ff00,
+                specular: 0x222222,
+                shininess: 25,
+                bumpMap: new THREE.TextureLoader().load('https://threejs.org/examples/textures/water.jpg'),
+                bumpScale: 0.1
+            });
 
-        // Mesh
-        const textMesh = new THREE.Mesh(textGeometry, material);
-        scene.add(textMesh);
+            // Mesh
+            const textMesh = new THREE.Mesh(textGeometry, material);
+            scene.add(textMesh);
+        });
 
         // Lights
         const ambientLight = new THREE.AmbientLight(0x404040);
@@ -64,8 +68,10 @@
             requestAnimationFrame(animate);
 
             // Rotate the text
-            textMesh.rotation.x += 0.005;
-            textMesh.rotation.y += 0.005;
+            if (textMesh) {
+                textMesh.rotation.x += 0.005;
+                textMesh.rotation.y += 0.005;
+            }
 
             renderer.render(scene, camera);
         };
