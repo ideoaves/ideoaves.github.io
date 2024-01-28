@@ -12,7 +12,6 @@
 <body>
     <script type="module">
         import * as THREE from 'https://threejs.org/build/three.module.js';
-        import { FontLoader } from 'https://threejs.org/build/three.module.js'; // Import FontLoader separately
 
         // Scene
         const scene = new THREE.Scene();
@@ -27,7 +26,7 @@
         document.body.appendChild(renderer.domElement);
 
         // Text Geometry
-        const fontLoader = new FontLoader(); // Create FontLoader instance
+        const fontLoader = new THREE.FontLoader(); // Use FontLoader from THREE namespace
         fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
             const textGeometry = new THREE.TextGeometry('凹凸', {
                 font: font,
