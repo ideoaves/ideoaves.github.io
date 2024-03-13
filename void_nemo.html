@@ -4,11 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@void_nemo" />
-    <meta name="twitter:title" content="void_nemo" />
-    <meta name="twitter:description" content="Ceta, Miu, Chep, Ruye による集まり。" />
-    <meta name="twitter:image" content="https://ideoaves.cf/icon.png" />
     <title>void_nemo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,7 +73,6 @@
                 <a href="index.html" title="トップページです。">top</a>
                 <a href="about.html" title="人の詳細です。">name</a>
                 <a href="works.html" title="作品ごちゃ混ぜ一覧です。&#13;&#10;視覚表現は全部あります。工事中">work</a><br>
-                <a href="https://scrapbox.io/ideoaves/" title="個人用Scrapboxです。&#13;&#10;日記や情報の羅列があります。">scrap</a>
                 <a href="https://discord.gg/576vRAZhK5"
                     title="個人ディスコサーバーです。&#13;&#10;作業用の音楽を聞いたり、情報を集めたりしています。">disco</a><br>
             </div>
@@ -116,15 +110,30 @@
                     <span class="point_nemo">メンダコ。特になにもしていないが、かわいい。</span>
                 </div>
             </div>
+            <div style="text-align: center;">
+              <audio id="a2" src="チュㇷ゚カワ・カムイラン.wav"></audio>
+                <span style="outline: solid #000 1px; padding:0 10px; width: fit-content; margin: 0 auto;">♪チュㇷ゚カワ・カムイラン CETA cover
+                <span onclick="document.getElementById('a2').play()">▷</span>
+                <span onclick="document.getElementById('a2').pause()">ll</span>
+              </span>
+              </div>
+            <script>
+              let buto = document.getElementsByTagName('button')[0];
+              let capt = document.getElementById('capt');
+              capt.style.display = "none";
+              let changeElement = (capt) => {
+                if (capt.style.display == '') {
+                  capt.style.display = 'none';
+                } else {
+                  capt.style.display = '';
+                }
+              }
+    
+              buto.addEventListener('click', () => {
+                changeElement(capt);
+              }, false);
+            </script>
             <div class="window">
-                <h4>link</h4>
-                <a href="https://vrchat.com/home/user/usr_a24ea979-9b74-49a7-bb56-c60e3c790202" style="background-color: #a8a8a8;">vrchat.com</a>
-                <a href="https://scrapbox.io/ideoaves/" style="background-color: #53aa9c;">scrapbox.io</a>
-                <a href="https://discord.gg/576vRAZhK5" style="background-color: #235ba3;">discord.gg</a><br>
-                <a href="https://soundcloud.com/void_nemo" style="background-color: #ed731c;">soundcloud.com</a>
-            </div>
-            <div class="window">
-                <h4>work</h4>
                 <h3>ボイドネモ架空世界研究所（VN架研）</h3>
                 <img src="wiki/images/earth_and_moon.png"><br>
                 架空世界、人工言語関連の活動をしています。<br>
@@ -141,64 +150,6 @@
                 <img src="works/kamtu.png" style="margin: 0; width: 30%; filter: invert();">
                 <a href="https://codepen.io/chrome-cgi/full/PQWbjb/">カムツ文字フォント</a>: 巡宙艦ボンタ氏の「高い城のアムフォ」に登場するカムツ言葉の楔形フォント。（サイトはPomo Rossoさん）<br>
             </div>
-
-            <div class="window">
-                <h3>VRC</h3>
-                <img src="https://pbs.twimg.com/media/Fxy0-jLagAEA_N6?format=jpg&name=900x900"><br>
-                モデリングをしたり、音楽を聞いたりしています。<br>
-                <h5>アバター</h5>
-                <div class="works">
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img style="object-position:top 0px left 25px;  width:100%" src="works/ceta_vrc.png">
-                        </div>
-                        <span>
-                            <p class="tit">ceta
-                            <p>
-                                軽量さとテスト用の汎用ローポリモデル
-                        </span>
-                    </div>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img style="object-position:top 0px left 25px; width:100%" src="works/chep_vrc.png">
-                        </div>
-                        <span>
-                            <p class="tit">chep
-                            <p>
-                                マテリアル実験やファッションのためのハイポリモデル
-                        </span>
-                    </div>
-                </div>
-                <!--ここまで-->
-                <h5>ワールド</h5>
-                <div class="works">
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img style="width:100%" src="https://pbs.twimg.com/media/GAZRP13boAA9Wq4?format=jpg">
-                        </div>
-                        <span>
-                            <p class="tit">VSYNC
-                            <p>
-                                IBM風のモニタが並んだ空間
-                        </span>
-                    </div>
-                    <!--ここまで-->
-                </div>
-            </div>
-
-            <div class="window">
-                <h3>受動</h3>
-                <img src="https://mikanixonable.github.io/illusts/564.png"><br>
-                みかぶるさん<br>
-                <img src="images/banshi.png"><br>
-                ばんしさん<br>
-            </div>
-
         </div>
     </main>
 </body>

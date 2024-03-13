@@ -2,84 +2,120 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <title>name - ideoaves</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
-  <script src="sketch.js"></script>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>name - ideoaves</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://ideoaves.cf/favicon.ico">
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+    <script src="sketch.js"></script>
+    <style>
+        .window .vnLogo {
+            width: 20%;
+
+        }
+
+        .point_nemo {
+            display: block;
+            font-family: Courier, monospace;
+            letter-spacing: 2px;
+            line-height: 2em;
+            font-size: 0.7em;
+            margin: 0 10px;
+        }
+
+        .window img {
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h5 {
+            font-size: 1.1em;
+            padding-top: 1em;
+        }
+
+        .worksImage {
+            margin: 10px;
+            margin-bottom: 60px;
+        }
+
+        .pr {
+            display: flex;
+            width: 100%;
+            margin: 30px 0;
+        }
+
+        .icon {
+          width: 50%;
+        }
+
+        .pro {
+          width: 60%;
+        }
+
+        .pro h2 {
+            text-align: center;
+            font-size: 1.1em;
+            margin: 0;
+        }
+    </style>
 </head>
 
 
 <body>
-  <header>
-    <img class="title" src="title.gif">
-  </header>
+    <header>
+        <img class="title" src="title.gif">
+    </header>
 
-  <main>
-    <div class="center">
-      <div class="window">
-        <a href="index.html">top</a>
-        <a href="about.html">name</a>
-        <a href="works.html">work<br>
-        <a href="https://scrapbox.io/ideoaves/">scrap</a>
-        <a href="https://discord.gg/576vRAZhK5">disco</a><br>
-      </div>
-      <div class="window">
-        <div class="bar">
-          <h4>@HAZUQU</h4><img id="hedicon" src="x.png">
-        </div>
-        <span>
-          <iframe width="100%"
-            src="https://www.youtube.com/embed/zLa2maWOiOo?autoplay=1&controls=0&disablekb=1&loop=1&mute=1&rel=0"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe><br>
-          <div style="display:flex">
-            <div class="na"><a class="name" href="https://hazuqu.github.io">木葉はづく</a>
-              <a class="memo" style="padding-top:0.1em;">映像制作、デザイン</a>
+    <main>
+        <div class="center">
+            <div class="window">
+                <a href="index.html" title="トップページです。">top</a>
+                <a href="about.html" title="人の詳細です。">name</a>
+                <a href="works.html" title="作品ごちゃ混ぜ一覧です。&#13;&#10;視覚表現は全部あります。工事中">work</a><br>
+                <a href="https://discord.gg/576vRAZhK5"
+                title="個人ディスコサーバーです。&#13;&#10;作業用の音楽を聞いたり、情報を集めたりしています。">disco</a><br>
             </div>
-          </div>
-          映像作家・デザイナー。Vtuberやライブ演出背景などの映像を制作している。<br>
-          <a href="https://twitter.com/HAZUQU" class="botan">Twitter</a><br><a
-            href="https://hazuqu.github.io/about.html" class="botan">作品集</a><br>
-        </span>
-      </div>
-      <div class="window">
-        <div class="bar">
-          <h4>@olime_sian</h4><img id="hedicon" src="x.png">
-        </div>
-        <span>
-          <img src="https://pbs.twimg.com/media/F2RZ4Bna8AAD42d?format=webp&name=small"><br>
-          <div style="display:flex">
-            <div class="na"><a class="name" href="olime_sian.html">折メ思案</a>
-              <a class="memo" style="padding-top:0.1em;">イラスト</a>
+            <div class="window">
+                <div class="pr">
+                  <div class="icon">
+                    <img src="https://pbs.twimg.com/profile_images/1717144036010790912/Y0q7zU43_400x400.jpg">
+                    </div>
+                    <div class="pro">
+                    <h2>木葉はづく</h2>
+                    <div style="text-align: center; margin-bottom: 20px;">hazuqu</div>
+                    <span>映像作家。2DCGをメインに制作していて、カメラを使った実写映像やp5.jsを使ったジェネラティブ表現もしている。ついでに各種ウェブサイトを作っている。</span>
+                    </div>
+                </div>
+                <div class="pr">
+                  <div class="icon">
+                    <img src="https://pbs.twimg.com/media/GG23E4MbUAAplKr?format=jpg&name=small">
+                    </div>
+                    <div class="pro">
+                    <h2>折メ思案</h2>
+                    <div style="text-align: center; margin-bottom: 20px;">olime sian</div>
+                    <span>二次創作絵を描いている。最近は雑多にあちこちのジャンルを描いていて、大体は擬人化キャラクターが好き。<br>キャラクターデザインに興味がある。</span>
+                    </div>
+                </div>
+                <div class="pr">
+                  <div class="icon">
+                    <img src="works/ceta.jpg">
+                    </div>
+                    <div class="pro">
+                    <h2>void_nemo</h2>
+                    <div style="text-align: center; margin-bottom: 20px;">ceta, miu, chep, ruye</div>
+                    <span>４匹の海棲生物の集まり。バンドをするつもりだが今は架空世界の調査や新しい言語の開発に忙しい。</span>
+                    </div>
+                </div>
             </div>
-          </div>
-          おえかき<br>
-          <a href="https://twitter.com/olime_sian" class="botan">Twitter</a><br><a
-            href="https://www.pixiv.net/users/75238991" class="botan">Pixiv</a><br>
-        </span>
-      </div>
-      <div class="window">
-        <div class="bar">
-          <h4>@void_nemo</h4><img id="hedicon" src="x.png">
         </div>
-        <span>
-          <img class="-" src="https://pbs.twimg.com/media/Fz27YeMaEAArIkd?format=jpg&name=small"><br>
-          <div style="display:flex">
-
-            <div class="na"><a class="name" href="void_nemo/">void_nemo</a><br>
-              <a class="memo" style="padding-top:0.1em;">表現研究、音楽、日常</a><br>
-            </div>
-          </div>写真とかDTMとかジェネレティブの研究をしてます。日常垢です。<br>
-          <a href="https://twitter.com/void_nemo" class="botan">Twitter</a><br>
-        </span>
-      </div>
-    </div>
-  </main>
+    </main>
 </body>
 
 </html>
