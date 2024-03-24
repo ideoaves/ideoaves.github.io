@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>test</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            animation: g 10s infinite;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            -webkit-backdrop-filter: blur(12px) opacity(23%) saturate(50%);
+            backdrop-filter: blur(16px) opacity(23%) saturate(50%);
+            top: -5px;
+            left: -5px;
+            margin: auto;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        @keyframes g {
+            0% {
+                background: #ffffff;
+            }
+
+            50% {
+                background: #dfdfdf;
+            }
+
+            100% {
+                background: #ffffff;
+            }
+        }
+
+        .z {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="z">
+        <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/iWzUxFQQAKY?si=irzPKmlldwg0_hte"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+
+</html>
