@@ -16,20 +16,6 @@
             background-image: radial-gradient(#6c6c6c, #ffffff);
         }
 
-        body::after {
-            content: "";
-            position: fixed;
-            width: calc(100% + 10px);
-            height: calc(100% + 10px);
-            -webkit-backdrop-filter: blur(12px) opacity(23%) saturate(50%);
-            backdrop-filter: blur(16px) opacity(23%) saturate(50%);
-            top: -5px;
-            left: -5px;
-            margin: auto;
-            z-index: 5;
-            pointer-events: none;
-        }
-
         @keyframes g {
             0% {
                 background: #ffffff;
