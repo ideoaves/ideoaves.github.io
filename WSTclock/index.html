@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⌛️起床標準時(WST) 時計</title>
+    <style>
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background-color: #dfdfdf;
+        }
+
+        body {
+            width: auto;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        div,
+        h1,
+        button {
+            width: fit-content;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        button {
+            background: silver;
+            border: none;
+            border-radius: 0;
+            box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+            box-sizing: border-box;
+            color: transparent;
+            min-height: 23px;
+            min-width: 75px;
+            padding: 0 12px;
+            text-shadow: 0 0 #222;
+        }
+
+        button:active {
+            box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey;
+            text-shadow: 1px 1px #222
+        }
+
+        input {
+            background: #fff;
+            box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+            margin: 0;
+            padding: 2px 8px;
+        }
+
+        h1 {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        #time {
+            font-size: 70px;
+            margin-top: 10px;
+        }
+
+        #alert {
+            font-size: 20px;
+            color: #0000FF;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        tr {
+            text-align: center;
+        }
+
+        th:nth-child(1) {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <h1>起床標準時 (WST)</h1>
+        <div id="time">00:00:00</div>
+        <div id="JST-time"></div>
+        <button id="startB">Start</button>
+        <button id="resetB">Reset</button>
+    </div>
+    <div class="schedule">
+        <h1>Schedule</h1>
+        <div id="alert"></div>
+        <form id="schedule">
+            <input type="time" id="time-input" required>
+            <input type="text" id="task-input" placeholder="Task description" required>
+            <label>
+                <input type="checkbox" id="relative-time-checkbox"> WST
+            </label>
+            <button type="submit">追加</button>
+            <button type="button" id="delete">削除</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>時間</th>
+                    <th>予定</th>
+                    <th>残り時間</th>
+                </tr>
+            </thead>
+            <tbody id="schedule-list"></tbody>
+        </table>
+    </div>
+    <audio id="alarm" src="The Microsoft Sound.wav"></audio>
+    <script>
+        function closeNotification() {
+            const notification = document.getElementById('alert');
+            if (notification) {
+                notification.style.display = 'none';
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
