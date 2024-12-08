@@ -88,6 +88,24 @@
         <button id="startB">Start</button>
         <button id="resetB">Reset</button>
     </div>
+    <input type="text" class="henkan" placeholder="時:分">
+    <p id="kotae"></p>
+    <script>
+      const inp = document.querySelector('.henkan');
+      const k = document.getElementById('kotae');
+      inp.addEventListener('input', () => {
+        const timeString = inp.value;
+        const [hours, minutes] = timeString.split(":").map(Number);
+        if (isNaN(hours) || isNaN(minutes)) {
+          k.textContent = "";
+          return;
+        }
+        const now = new Date();
+        now.setHours(hours, minutes, 0, 0);
+        const unixTimeInMs = now.getTime();
+        k.textContent = `${unixTimeInMs}`;
+      });
+    </script>
     <div class="schedule">
         <h1>Schedule</h1>
         <div id="alert"></div>
