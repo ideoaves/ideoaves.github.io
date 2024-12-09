@@ -104,6 +104,9 @@
         }
         const now = new Date();
         now.setHours(hours, minutes, 0, 0);
+          if (now.getTime() > Date.now()) {
+   　　　　　　　 now.setDate(now.getDate() - 1);
+  　　　　　　}
         const unixTimeInMs = now.getTime();
         k.textContent = `${unixTimeInMs}`;
       });
