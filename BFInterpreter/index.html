@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <title>Brainfuck Interpreter</title>
+    <style>
+        body {
+            font-family: "IBM Plex Sans", serif;
+            font-weight: 400;
+            font-style: normal;
+            margin: 20px auto;
+            width: 1000px;
+            background-color: #000;
+            color: #FFF;
+        }
+
+        textarea {
+            background-color: #000;
+            color: #FFF;
+            width: 500px;
+            height: 100px;
+        }
+
+        .memory {
+            display: flex;
+        }
+
+        .cell {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .cellBox {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #000;
+            color: #FFF;
+            margin: 10px 0;
+            padding: 6px 10px;
+        }
+
+        input {
+            background-color: #000;
+            color: #FFF;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            height: 30px;
+            width: 100%;
+            text-align: center;
+            font-size: 1.3em;
+        }
+
+        #codePre {
+            font-family: "IBM Plex math";
+            line-height: 0.9em;
+            letter-spacing: 0.2px;
+            height: 340px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Brainfuck Interpreter</p>
+    <textarea id="codeInput" placeholder="code"></textarea>
+    <button onclick="runCode()">▶</button>
+    <div>
+        Speed: <input type="number" id="speed" value="10"> ms
+    </div>
+
+    <p>Code</p>
+    <pre id="codePre"></pre>
+
+    <p>Memory</p>
+    <div id="memoryDis" class="memory"></div>
+
+    <p>Output</p>
+    <div id="output"></div>
+
+    <script>
+        const memorySize = 4;
+        const memory = new Array(memorySize).fill(0);
+        let pointer = 0;
+        let output = "";
+        let currentIndex = 0;
+        let code = "";
+        let interval;
+
+        function updatememoryDis() {
+            const memoryDis = document.getElementById('memoryDis');
+            memoryDis.innerHTML = "";
+            memory.forEach((cell, index) => {
+                const celldiv = document.createElement('div');
+                celldiv.className = 'cellBox';
+                celldiv.style.display = 'flex';
+
+                const cellStr = String(cell).padStart(4, '0'); // 4桁で0埋め
+
+                for (let i = 0; i < 4; i++) {
+                    const digitDiv = document.createElement('div');
+                    digitDiv.className = 'cell';
+                    digitDiv.textContent = cellStr[i];
+                    celldiv.appendChild(digitDiv);
+                }
+                if (index === pointer) {
+                    celldiv.style.backgroundColor = "#FFF";
+                    celldiv.style.color = "#000";
+                }
+                memoryDis.appendChild(celldiv);
+            });
+        }
+        function updateOutputDisplay() {
+            document.getElementById('output').textContent = output;
+        }
+
+        function updatecodePre() {
+            const codePre = document.getElementById('codePre');
+            let display = "";
+            for (let i = 0; i < code.length; i++) {
+                if (i === currentIndex) {
+                    display += `<span style="color: #000; background-color: #FFF;">${code[i]}</span>`;
+                } else {
+                    display += code[i];
+                }
+            }
+            codePre.innerHTML = display;
+        }
+
+        function runCode() {
+            code = document.getElementById('codeInput').value;
+            const speed = parseInt(document.getElementById('speed').value);
+            output = "";
+            pointer = 0;
+            memory.fill(0);
+            currentIndex = 0;
+
+            clearInterval(interval);
+            updatememoryDis();
+            updateOutputDisplay();
+            updatecodePre();
+
+            const loopStack = [];
+            let loopMap = {};
+
+            // Preprocess to find matching brackets
+            const tempStack = [];
+            for (let i = 0; i < code.length; i++) {
+                if (code[i] === "[") {
+                    tempStack.push(i);
+                } else if (code[i] === "]") {
+                    const start = tempStack.pop();
+                    loopMap[start] = i;
+                    loopMap[i] = start;
+                }
+            }
+
+            interval = setInterval(() => {
+                if (currentIndex >= code.length) {
+                    clearInterval(interval);
+                    return;
+                }
+
+                const cmd = code[currentIndex];
+
+                switch (cmd) {
+                    case '>':
+                        pointer = (pointer + 1) % memorySize;
+                        break;
+                    case '<':
+                        pointer = (pointer - 1 + memorySize) % memorySize;
+                        break;
+                    case '+':
+                        memory[pointer] = (memory[pointer] + 1) % 256;
+                        break;
+                    case '-':
+                        memory[pointer] = (memory[pointer] - 1 + 256) % 256;
+                        break;
+                    case '.':
+                        output += String.fromCharCode(memory[pointer]);
+                        break;
+                    case ',':
+                        // No input handling implemented
+                        break;
+                    case '[':
+                        if (memory[pointer] === 0) {
+                            currentIndex = loopMap[currentIndex];
+                        }
+                        break;
+                    case ']':
+                        if (memory[pointer] !== 0) {
+                            currentIndex = loopMap[currentIndex];
+                        }
+                        break;
+                }
+
+                currentIndex++;
+                updatememoryDis();
+                updateOutputDisplay();
+                updatecodePre();
+
+            }, speed);
+        }
+    </script>
+
+</body>
+
+</html>
