@@ -29,8 +29,7 @@ function draw() {
   background(0);
   let x = 0;
   let y = 0;
-  translate(25,0)
-  scale(s = (height-10)/ 202.43);
+  scale(s = (height)/ 202.43);
   strokeWeight(1/s);
   r = 10;
 
