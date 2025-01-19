@@ -231,6 +231,12 @@ h3 {
     filter: brightness(100%) grayscale(0%) contrast(100%);
 }
 
+.logo {
+    margin: 0;
+    width: 50%;
+    aspect-ratio: 1201.37 / 202.43;
+}
+
 .prof .logo:hover {
     filter: brightness(1000%) grayscale(100%) contrast(1000%);
 }
