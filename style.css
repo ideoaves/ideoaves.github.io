@@ -231,10 +231,6 @@ h3 {
     filter: brightness(100%) grayscale(0%) contrast(100%);
 }
 
-.logo {
-    filter: brightness(1000%) grayscale(100%) contrast(1000%);
-}
-
 .prof .logo:hover {
     filter: brightness(1000%) grayscale(100%) contrast(1000%);
 }
