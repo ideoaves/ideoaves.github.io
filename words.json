@@ -86,10 +86,13 @@
 {"words":"あなたを嫌いになったから死ぬのでは無いのです。小説を書くのがいやになったからです。","trans":"","type":"words","source":"太宰治"},
 {"words":"Roger, uh, buh...","trans":"","type":"words","source":"Rick D. Husband","context":"リック・ハズバンドはコロンビア号空中分解事故の際、機長として搭乗していた。"},
 {"words":"それって、なんだかミステリー?","trans":"","type":"words","source":"パプリカ","sub":"パプリカ"},
+{"words":"俺の居場所なんざとっくにねえんだよ","trans":"","type":"words","source":"猪狩 慶一","sub":"妄想代理人 #13"},
+{"words":"おもろなるんならいくらでも不幸を描く。人だって殺す。世界だってひっくり返すわ。","trans":"","type":"words","source":"駿河駿馬","sub":"Re:CREATORS #17"},
 {"words":"修練を一度止めれば、得た技量は倍の速度で錆びていく","trans":"","type":"words","source":"メテオラ・エスターライヒ","sub":"Re:CREATORS #2"},
 {"words":"先生さようなら！","trans":"","type":"words","source":"鈴原 南","sub":"Wonder Egg Priority #2"},
 {"words":"私、キララロドリゲスマチュード18世宵の明星SSプラム","trans":"","type":"words","source":"キララ","sub":"Wonder Egg Priority #12"},
 {"words":"世の中に不満があるなら自分を変えろ、それが嫌なら、耳と目を閉じ口をつぐんで孤独に暮らせ","trans":"","type":"words","source":"草薙素子","sub":"攻殻機動隊 S.A.C. #1"},
+{"words":"まあ、自分の命だし何に使おうが自由ってこった","trans":"","type":"words","source":"バトー","sub":"攻殻機動隊 S.A.C. #24"},
 {"words":"規範無き行為はまた行為として成立しない。","trans":"","type":"words","source":"草薙素子","sub":"攻殻機動隊 S.A.C."},
 {"words":"君がその答えを見つけるまで、僕も一緒に考える。\n一緒に悩み続ける。","trans":"","type":"words","source":"湯川学","sub":"真夏の方程式"},
 {"words":"すごい、後悔の天才じゃないか！","trans":"","type":"words","source":"こだま","sub":"Sonny Boy #8"},
@@ -124,10 +127,11 @@
 {"words":"Wait a minute, wait a minute. You ain't heard nothin' yet!","trans":"待ってくれ。お楽しみはこれからだ！","type":"words","source":"Jack Robin","sub":"The Jazz Singer","context":"トーキー（音声のある映画）で最初に同期されたセリフ音声。"},
 {"words":"｢ちがふ、ちがふ、ちがふぞ！｣","trans":"","type":"lines","source":"くぎり符号の使ひ方〔句読法〕（ 案）","sub":"文部省","context":"感嘆符の用例文の１つ目"},
 {"words":"私、実はAIなんだ！一緒にトークしよう！","trans":"","type":"lines","source":"りんな","sub":"日本マイクロソフト"},
-{"words":"私の身体は 意思を纏わず意味を担う","trans":"","type":"lyrics","source":"GUM","sub":"んoon"},
 {"words":"There is no alternative","trans":"この道しかない","type":"lines","source":"Social Statics","sub":"Herbert Spencer"},
 {"words":"ああ、こわいよ。こわい目が、くるよ。","trans":"","type":"lines","source":"ミネルヴァ","sub":"邪眼は月輪に飛ぶ"},
 {"words":"I want out. This place is too cold. Keeper smells. Boring, boring, boring.","trans":"外に出たい。ここは寒すぎる。飼育係は臭う。退屈・退屈・退屈","type":"lines","source":"Bristol Zoo","sub":"Banksy"},
 {"words":"Meester snijt die key ras\nMyne name Is lubbert das","trans":"先生、早く石を切除してください。わたしの名はルッベルト・ダスです","type":"lines","source":"De extractie van de steen der waanzin"},
-{"words":"People just submitted it. I don’t know why. They “trust me”. Dumb fucks.","trans":"皆個人情報を送ってきた。理由はわからないけど彼らは「僕を信頼している」。バカなのかな。;","type":"words","source":"Mark Zuckerberg"}
+{"words":"People just submitted it. I don’t know why. They “trust me”. Dumb fucks.","trans":"皆個人情報を送ってきた。理由はわからないけど彼らは「僕を信頼している」。バカなのかな。","type":"words","source":"Mark Zuckerberg"},
+{"words":"わたくし、かなり気合を入れて頑張っております","trans":"","type":"words","source":"otacky","sub":"WORLD5－GhostHouse1　その1(旧動画)","context":"最古とみられる日本語でのゲーム実況動画。"},
+{"words":"えー今回、風のタクトゼルダの伝説、あ違う、ゼルダの伝説風のタクト実況風プレイということで","trans":"","type":"words","source":"ジャック・オ・蘭たん","sub":"ゼルダの伝説風のタクト　実況風プレイ １","context":"「実況」を冠した初のゲーム実況動画。"}
 ]
