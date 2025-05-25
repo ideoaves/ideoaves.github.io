@@ -30,18 +30,14 @@
   </header>
 
     <main>
-        <div class="window">
-            <a href="index.html" title="トップページです。">top</a>
-            <a href="about.html" title="人の詳細です。">name</a>
-            <a href="works.html" title="作品ごちゃ混ぜ一覧です。&#13;&#10;視覚表現は全部あります。工事中">work</a><br>
-            <a href="https://discord.gg/576vRAZhK5"
-                title="個人ディスコサーバーです。&#13;&#10;作業用の音楽を聞いたり、情報を集めたりしています。">disco</a><br>
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link
-                href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Monoton&family=Noto+Sans&display=swap"
-                rel="stylesheet">
-        </div>
+        <div id="hed"></div>
+        <script>
+  fetch("/header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("hed").innerHTML = html;
+    });
+</script>
         <div class="center">
             <div class="window">
                 <div id="prevbox">
