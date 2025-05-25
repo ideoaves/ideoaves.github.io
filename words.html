@@ -67,6 +67,14 @@
         <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
             <div id="output"></div>
         </div>
+        <div id="hed"></div>
+        <script>
+  fetch("/header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("hed").innerHTML = html;
+    });
+</script>
     </div>
     </a>
 
