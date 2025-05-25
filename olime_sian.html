@@ -86,11 +86,14 @@
   </header>
 <main>
   <div class="center">
-        <div class="window">
-        <a href="index.html" title="トップページです。">top</a>
-        <a href="works.html" title="作品ごちゃ混ぜ一覧です。
-視覚表現は全部あります。工事中">work</a>
-      </div>
+    <div id="hed"></div>
+        <script>
+  fetch("/header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("hed").innerHTML = html;
+    });
+</script>
   <div class="shadowimg" style="height: 300px;margin-bottom: 30px;">
         <img src="https://pbs.twimg.com/media/GK4V5AAa8AAZVdd?format=jpg&name=large"><img src="https://pbs.twimg.com/media/GOo2MjPacAAOhp6?format=jpg&name=large"><img src="https://pbs.twimg.com/media/Gln5OeEbgAAak_j?format=jpg&name=large">
       </div>
