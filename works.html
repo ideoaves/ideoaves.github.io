@@ -15,385 +15,163 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
 </head>
 
-
 <body>
     <header>
-    <div class="logo">
-      <script src="logo.js"></script>
-      <style>
-        canvas {
-          position: relative;
-        }
-      </style>
-      </div>
-  </header>
+        <div class="logo">
+            <script src="logo.js"></script>
+            <style>
+                canvas {
+                    position: relative;
+                }
+
+                .youtube {
+                    padding-top: 55%;
+                    width: 100%;
+                    position: relative;
+                }
+
+                .youtube iframe {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                }
+
+                h2 {
+                    text-align: left;
+                    margin-bottom: 0.4em;
+                    margin-left: 0em;
+                }
+
+                .name {
+                    text-align: right;
+                    margin-bottom: 20px;
+                }
+
+                .caption {
+                    text-align: left;
+                    margin-bottom: 20px;
+                }
+
+                .caption img {
+                    width: 70%;
+                }
+
+                .sak {
+                    margin-bottom:100px;
+                }
+            </style>
+        </div>
+    </header>
 
     <main>
         <div id="hed"></div>
         <script>
-  fetch("/header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("hed").innerHTML = html;
-    });
-</script>
-        <div class="center">
-            <div class="window">
-                <div id="prevbox">
-                    <img id="displayimg" src="">
-                </div>
-                <h4>hazuqu</h4>
-                <div class="works">
+            fetch("/header.html")
+                .then(res => res.text())
+                .then(html => {
+                    document.getElementById("hed").innerHTML = html;
+                });
+        </script>
 
-                    <!--作品単体-->
-                    <a href="https://hazuqu.github.io" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img src="works/n.png">
-                            </div>
-                            <span>
-                                <p class="tit">hazuqu_portfolio
-                                <p>
-                                    木葉はづくの作品集積サイト。
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <a href="https://hazuqu.github.io/gif.html" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img src="works/ascii.png">
-                            </div>
-                            <span>
-                                <p class="tit">ascii_gif
-                                <p>
-                                    文字だけを使った映像表現の模索。
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img src="works/hazuqu_ascii.png">
-                        </div>
-                        <span>
-                            <p class="tit">hazuqu_ascii_icon
-                            <p>
-                                ASCIIで作った木葉はづくのSNSアイコン
-                        </span>
+        <div class="window">
+            <div class="center">
+                <div class="sak">
+                    <h2>吉田楓 - 泡沫二进 _ ジャケットデザイン</h2>
+                    <div class="name">HAZUQU, olime_sian, (Phwa Yimiru)</div>
+                        <img src="https://pbs.twimg.com/media/Gvpv6MAXsAADTFm?format=jpg&name=4096x4096">
+                    <div class="caption">
+                        XFD：<a href="https://www.youtube.com/watch?v=E0DMBWWyTXs">吉田楓 - [泡沫二进] Trailer</a><br>
+                        "遠方にtechno zenを見据える国内の美学として、行政COREなるものがある（おそらくあちこちで提唱されている）のですが、<br>今回の万博から発せられる美学は、そのサブジャンルを作れるほどに奇妙だと思っています。"
                     </div>
-                    <!--ここまで-->
-
                 </div>
 
-                <h4>olime_sian</h4>
-                <div class="works">
-
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img src="https://pbs.twimg.com/media/F21zN4hbEAEYXHx?format=jpg&name=900x900">
-                        </div>
-                        <span>
-                            <p class="tit">足立レイ合同誌「00」参加
-                            <p>
-                                📶
-                        </span>
+                <div class="sak">
+                    <h2>memex - ミームデフレーション _ ミュージック・ビデオ</h2>
+                    <div class="name">HAZUQU, olime_sian</div>
+                    <div class="youtube">
+                        <iframe width="100%" src="https://www.youtube.com/embed/DY66cyRWQW8?modestbranding=1"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
                     </div>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img src="https://pbs.twimg.com/media/F21-7RMaIAAvUI_?format=jpg&name=small">
-                        </div>
-                        <span>
-                            <p class="tit">タキカフェアンソロジー "Spectre"参加
-                            <p>
-                                🐟
-                        </span>
+                    <div class="caption">
+                        メイキング：<a href="https://note.com/ideoaves2/n/n0135f3436a7d">ミームを作ってみたよ［memex - ミームデフレーション MVメイキング］</a><br>
+                        "こうなったら自分でインターネット・ミームを作るしかありません。"
+                        <img src="https://assets.st-note.com/img/1745131714-y93be7p6iBwFsjrlV8WJDqL0.jpg?width=1200">
                     </div>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <a href="works_o.html" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img src="works/f.png">
-                            </div>
-                            <span>
-                                <p class="tit">おえかき_uma
-                                <p>
-                                    ウマ娘の絵が入っています
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <a href="works_o2.html" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img src="works/f.png">
-                            </div>
-                            <span>
-                                <p class="tit">おえかき_v
-                                <p>
-                                    VTuberの絵が入っています
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <a href="works_vc.html" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img src="works/f.png">
-                            </div>
-                            <span>
-                                <p class="tit">ボイド・ネモ
-                                <p>
-                                    一次創作ボイド・ネモの絵です。
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
+                </div>
+                
+                <div class="sak">
+                    <h2>d.j.ァネイロ - 【MV】FOOT-AGE HERO／d.j.ァネイロ【#ボカコレ】 _ ミュージック・ビデオ</h2>
+                    <div class="name">HAZUQU, olime_sian</div>
+                    <div class="youtube">
+                        <iframe width="100%" src="https://www.youtube.com/embed/_6_lMz9PuJU?modestbranding=1"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="caption">
+                        メイキング：<a href="https://note.com/ideoaves2/n/n535959cc5eb9">【MV】FOOT-AGE HERO／d.j.ァネイロ【#ボカコレ】動画making & AEP配布</a><br>
+                        "想像上の脳の素材画像で踊るドール　ドロドロと残る構図、ポーズ撮る時代の中で"
+                    </div>
                 </div>
 
-                <h4>hazuqu & olime_sian</h4>
-                <div class="works">
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img style="object-position:top 0px left 25px;  width:100%" src="works/ceta_vrc.png">
-                        </div>
-                        <span>
-                            <p class="tit">メタバース汎用アバター「Ceta」
-                            <p>
-                                Cetaのローポリモデル。
-                        </span>
+                <div class="sak">
+                    <h2>夜丹れにや - lie somnia _ ミュージック・ビデオ</h2>
+                    <div class="name">HAZUQU, olime_sian</div>
+                    <div class="youtube">
+                        <iframe width="100%" src="https://www.youtube.com/embed/qEg_uMXWzMs?modestbranding=1"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
                     </div>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img style="object-position:top 0px left 25px; width:100%" src="works/chep_vrc.png">
-                        </div>
-                        <span>
-                            <p class="tit">VRC想定アバター「Chep」
-                            <p>
-                                ChepのVRC想定アバター。
-                        </span>
+                    <div class="caption">
+                        メイキング：<a href="https://note.com/ideoaves2/n/n56beb5eebba4">アニメを作ってみたよ［夜丹れにや - lie somnia
+                            MVメイキング］</a><br>
+                        "カメラが手前にずっと引く演出はよくあるMVの手法ですが、そこと時間を一致させる場合、カメラが前方に進んだら逆再生に、ゆっくり進んだらスローになるわけです。<br>なので本映像では見かけ上瞬きを2回していますが時間上（アニメのフレーム上）は1回しかしていません。<br>夢ですからね、したことが本当かどうかわからないです。"<br>
+                        <img src="https://assets.st-note.com/img/1729136161-vsTpJkLtzlarPZSDnyC5HQdb.png?width=1200" style="filter: invert() brightness(2);">
                     </div>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img src="works/image.bmp">
-                        </div>
-                        <span>
-                            <p class="tit">セタ（UTAU単独音）
-                            <p>
-                                自作UTAU音源。
-                        </span>
+                </div>
+                
+                <div class="sak">
+                    <h2>ｴɳ𝜏ҽɾɳҽ𝜏 αգᥙαɾιᥙ𝓶</h2>
+                    <div class="name">HAZUQU, Phwa Yimiru</div>
+                    <div class="caption">
+                        Link：<a href="Internet_aquarium/">Internet_aquarium/index.html</a><br>
+                        "インターネット水族館では、分厚いアクリル越しにインターネットのほんの少しを見ることが出来ます。"
                     </div>
-                    <!--ここまで-->
                 </div>
 
-                <h4>phewa yimiru & hazuqu</h4>
-                <div class="works">
-                    <!--作品単体-->
-                    <a href="https://ideoaves.myportfolio.com/2022-shibuya-hallowseve" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img
-                                    src="https://cdn.myportfolio.com/7a016162-dac3-4dad-aa9b-70503f8a152a/ac860490-af1c-40c1-bf53-30ac560a1871_rw_1920.jpg?h=1f4a5540a09fd9dc15884befe05d2ce2">
-                            </div>
-                            <span>
-                                <p class="tit">2022 SHIBUYA HALLOWSEVE
-                                <p>
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <a href="https://ideoaves.myportfolio.com/1629dfbb8490a0" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img
-                                    src="https://cdn.myportfolio.com/7a016162-dac3-4dad-aa9b-70503f8a152a/389c1736-9813-4768-a5a0-e4225b5e1ea6_rw_3840.jpg?h=72efe7cafb3867712feea773728b4dde">
-                            </div>
-                            <span>
-                                <p class="tit">流域
-                                <p>
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <a href="https://ideoaves.myportfolio.com/kurage" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img
-                                    src="https://cdn.myportfolio.com/7a016162-dac3-4dad-aa9b-70503f8a152a/21a31d3a-3b8c-4625-b6c1-9af78edfd4db_rw_3840.jpg?h=8418120c697181d982277c6b099b3a74">
-                            </div>
-                            <span>
-                                <p class="tit">くらげ
-                                <p>
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img src="works/2050.jpg">
-                        </div>
-                        <span>
-                            <p class="tit">2050年の懐古主義
-                            <p>
-                                VRCでフィルムスチル。
-                        </span>
+                <div class="sak">
+                    <h2>【初配信】 インターネットの到達不能極からきました 【CETA | void_nemo】</h2>
+                    <div class="name">HAZUQU, olime_sian, void_nemo</div>
+                    <img src="https://assets.st-note.com/img/1711970914449-Gqd06AwjwN.png?width=1200">
+                    <div class="caption">
+                        メイキング：<a href="https://note.com/ideoaves2/n/nc3d9492b16d5">VTuber”全部”担当してみた。</a><br>
+                        "逆に言えば、実際の配信をするのに足りないのはキャピキャピ感、ファン集めや長時間配信のためのメンタルのみということです。<br>あと致命的なことに、私は歌を歌う気もゲームをやる気も一切ないということです。"<br>
+                        <img src="https://assets.st-note.com/img/1711971930099-OuM6mIwsBp.png?width=1200">
                     </div>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <a href="https://ideoaves.myportfolio.com/april" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img
-                                    src="https://cdn.myportfolio.com/7a016162-dac3-4dad-aa9b-70503f8a152a/f001b923-fd4b-4615-83c0-698323bfcca6_rw_1920.jpg?h=a0ff268d3446d61ff1ec3ff436c73a18">
-                            </div>
-                            <span>
-                                <p class="tit">APRIL (FILM)
-                                <p>
-                                    ソ連のフィルムカメラ。
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <a href="https://ideoaves.myportfolio.com/1960" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img
-                                    src="https://cdn.myportfolio.com/7a016162-dac3-4dad-aa9b-70503f8a152a/47aca7aa-60c3-4437-8e14-d096adb88559_rw_1920.jpeg?h=b2825e3eda024cc0be20ddc98bea31d5">
-                            </div>
-                            <span>
-                                <p class="tit">1960
-                                <p>
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <a href="https://ideoaves.myportfolio.com/16041fd3be265b" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img
-                                    src="https://cdn.myportfolio.com/7a016162-dac3-4dad-aa9b-70503f8a152a/c1516090-c374-4ba6-b721-ca031034168c_rw_3840.jpg?h=d9f9b572c92da96b07ba570e98b75e3f">
-                            </div>
-                            <span>
-                                <p class="tit">CITYBIRDS
-                                <p>
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <a href="https://ideoaves.myportfolio.com/16041fd3be265b" class="linkimage">
-                        <div class="worksImage">
-                            <div>
-                                <img
-                                    src="https://cdn.myportfolio.com/7a016162-dac3-4dad-aa9b-70503f8a152a/ee64d0a3-d29c-4507-a836-267d82696e56_rw_1920.jpg?h=2e75cd96f1f5ddb167cedc3cf2664555">
-                            </div>
-                            <span>
-                                <p class="tit">BIRDS PORTRAIT
-                                <p>
-                            </span>
-                        </div>
-                    </a>
-                    <!--ここまで-->
                 </div>
 
-                <h4>📡</h4>
-                <div class="works">
-                    
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img src="https://pbs.twimg.com/media/F6xsmbzbIAEcbwy?format=jpg&name=small">
-                        </div>
-                        <span>
-                            <p>
-                                モニター、アクリル絵の具
-                        </span>
+                <div class="sak">
+                    <h2>60年～70年サブカル年表</h2>
+                    <div class="name">Phwa Yimiru</div>
+                    <div class="caption">
+                        Link：<a href="CrossTimeline/">CrossTimeline/index.html</a><br>
+                        "主に60年代～70年代における日本の空気感と当時のサブカルに焦点をあて、ジャンルをまたいで比較するための年表です。<br>技術発明と流行を混ぜてアーリーアダプター層の視点を作り出そうとしています。"
                     </div>
-                    <!--ここまで-->
+                </div>
 
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img src="works/nihonga.png">
-                        </div>
-                        <span>
-                            <p>
-                                日本画課題「銀河形成」
-                        </span>
+                <div class="sak">
+                    <h2>フリー個人网站『イデオアベス(Ideoaves)』 _ Webページ</h2>
+                    <div class="name">HAZUQU, olime_sian, Phwa Yimiru</div>
+                    <img src="wiki/images/Wiki_screenshot.jpg">
+                    <div class="caption">
+                        Link：<a href="wiki/siratuyu.html">白露 - ideoaves</a><br>
+                        "白露（はくろ）は天体の一つである。星系で唯一高度な生命体を有する。"
                     </div>
-                    <!--ここまで-->
-
-                    <!--作品単体-->
-                    <div class="worksImage">
-                        <div>
-                            <img src="works/aburae.png">
-                        </div>
-                        <span>
-                            <p>
-                                油絵課題「銀河形成」
-                        </span>
-                    </div>
-                    <!--ここまで-->
-
-                    <script>
-                        // クリックされたimgをクリックイベントリスナーで監視
-                        const imageDivs = document.querySelectorAll('.worksImage');
-                        imageDivs.forEach((div) => {
-                            div.addEventListener('click', (event) => {
-                                // クリックされたimgのsrcを取得
-                                const imgSrc = event.currentTarget.querySelector('img').getAttribute('src');
-
-                                // 画像を表示するための要素を取得
-                                const imageContainer = document.getElementById('prevbox');
-                                const displayedImage = document.getElementById('displayimg');
-
-                                // 画像を設定し、表示
-                                displayedImage.setAttribute('src', imgSrc);
-                                imageContainer.style.display = 'block';
-                            });
-                        });
-
-                        // 画像をクリックしたときに非表示にする
-                        const displayedImage = document.getElementById('displayimg');
-                        displayedImage.addEventListener('click', () => {
-                            const imageContainer = document.getElementById('prevbox');
-                            imageContainer.style.display = 'none';
-                        });
-                    </script>
-
                 </div>
             </div>
     </main>
