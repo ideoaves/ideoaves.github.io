@@ -2,126 +2,130 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>name - ideoaves</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
-    <style>
-        .window .vnLogo {
-            width: 20%;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>name - ideoaves</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+  <style>
+    .window .vnLogo {
+      width: 20%;
 
-        }
+    }
 
-        .point_nemo {
-            display: block;
-            font-family: Courier, monospace;
-            letter-spacing: 2px;
-            line-height: 2em;
-            font-size: 0.7em;
-            margin: 0 10px;
-        }
+    .point_nemo {
+      display: block;
+      font-family: Courier, monospace;
+      letter-spacing: 2px;
+      line-height: 2em;
+      font-size: 0.7em;
+      margin: 0 10px;
+    }
 
-        .window img {
-            width: 70%;
-            display: block;
-            margin: 0 auto;
-        }
+    .window img {
+      width: 70%;
+      display: block;
+      margin: 0 auto;
+    }
 
-        h5 {
-            font-size: 1.1em;
-            padding-top: 1em;
-        }
+    h5 {
+      font-size: 1.1em;
+      padding-top: 1em;
+    }
 
-        .worksImage {
-            margin: 10px;
-            margin-bottom: 60px;
-        }
+    .worksImage {
+      margin: 10px;
+      margin-bottom: 60px;
+    }
 
-        .pr {
-            display: flex;
-            width: 100%;
-            margin: 30px 0;
-        }
+    .pr {
+      display: flex;
+      width: 100%;
+      margin: 30px 0;
+    }
 
-        .icon {
-          width: 50%;
-        }
+    .icon {
+      width: 50%;
+    }
 
-        .pro {
-          width: 60%;
-        }
+    .pro {
+      width: 60%;
+    }
 
-        .pro h2 {
-            text-align: center;
-            font-size: 1.1em;
-            margin: 0;
-        }
-    </style>
+    .pro h2 {
+      text-align: center;
+      font-size: 1.1em;
+      margin: 0;
+    }
+  </style>
 </head>
 
 
 <body>
-    <header>
+  <header>
     <div class="logo">
       <script src="logo.js"></script>
-      <style>
-        canvas {
-          position: relative;
-        }
-      </style>
-      </div>
+    </div>
   </header>
 
-    <main>
-        <div class="center">
-            <div id="hed"></div>
-        <script>
-  fetch("/header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("hed").innerHTML = html;
-    });
-</script>
-            <div class="window">
-                <div class="pr">
-                  <div class="icon">
-                    <img src="https://pbs.twimg.com/profile_images/1827603360028950528/cjr_tArj_400x400.jpg">
-                    </div>
-                    <div class="pro">
-                    <h2>木葉はづく</h2>
-                    <div style="text-align: center; margin-bottom: 20px;">hazuqu</div>
-                    <span>映像作家。2DCGをメインに制作していて、カメラを使った実写映像やp5.jsを使ったジェネラティブ表現もしている。ついでに各種ウェブサイトを作っている。</span>
-                    </div>
-                </div>
-                <div class="pr">
-                  <div class="icon">
-                    <img src="https://pbs.twimg.com/media/GK4XYz_bIAAHvwE?format=png">
-                    </div>
-                    <div class="pro">
-                    <h2>折メ思案</h2>
-                    <div style="text-align: center; margin-bottom: 20px;">olime sian</div>
-                    <span>二次創作絵を描いている。最近は雑多にあちこちのジャンルを描いていて、大体は擬人化キャラクターが好き。<br>キャラクターデザインに興味がある。</span>
-                    </div>
-                </div>
-                <div class="pr">
-                  <div class="icon">
-                    <img src="icon_VN.png">
-                    </div>
-                    <div class="pro">
-                    <h2>ph環yimiru</h2>
-                    <div style="text-align: center; margin-bottom: 20px;">phewa yimiru</div>
-                    <span>架空世界や人工言語をしている。天文に興味がある</span>
-                    </div>
-                </div>
-            </div>
+  <main>
+    <div class="center">
+      <div id="hed"></div>
+      <script>
+        fetch("/header.html")
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById("hed").innerHTML = html;
+          });
+      </script>
+      <div class="window">
+        <div class="pr">
+          <div class="icon">
+            <img src="https://pbs.twimg.com/profile_images/1827603360028950528/cjr_tArj_400x400.jpg">
+          </div>
+          <div class="pro">
+            <h2>木葉はづく</h2>
+            <div style="text-align: center; margin-bottom: 20px;">hazuqu</div>
+            <span>映像作家。2DCGをメインに制作していて、カメラを使った実写映像やp5.jsを使ったジェネラティブ表現もしている。ついでに各種ウェブサイトを作っている。</span>
+          </div>
         </div>
-    </main>
+        <div class="pr">
+          <div class="icon">
+            <img src="https://pbs.twimg.com/media/GK4XYz_bIAAHvwE?format=png">
+          </div>
+          <div class="pro">
+            <h2>折メ思案</h2>
+            <div style="text-align: center; margin-bottom: 20px;">olime sian</div>
+            <span>二次創作絵を描いている。最近は雑多にあちこちのジャンルを描いていて、大体は擬人化キャラクターが好き。<br>キャラクターデザインに興味がある。</span>
+          </div>
+        </div>
+        <div class="pr">
+          <div class="icon">
+            <img src="icon_VN.png">
+          </div>
+          <div class="pro">
+            <h2>ph環yimiru</h2>
+            <div style="text-align: center; margin-bottom: 20px;">phewa yimiru</div>
+            <span>架空世界や人工言語をしている。天文に興味がある</span>
+          </div>
+        </div>
+        <div class="pr">
+          <div class="icon">
+          </div>
+          <div class="pro">
+            <h2>📡</h2>
+            <div style="text-align: center; margin-bottom: 20px;">antenna</div>
+            <span>ideoavesの共用アカウント、または外部用アカウント。あなたが知っている名前で呼べばそれぞれからの応答があります。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>

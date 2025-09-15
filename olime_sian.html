@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <meta name="twitter:card" content="summary">
@@ -9,19 +10,9 @@
   <meta name="twitter:description" content="リンクの一覧と趣味等の羅列です">
   <title>折メ思案 - ideoaves</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
   <style>
-    main a[href]:link:not(.botan) {
-      background-color: #77abb4;
-    }
-
-    main a[href]:visited:not(.botan) {
-      background-color: #77abb4;
-    }
-
-    main a[href]:hover:not(.botan) {
-      background-color: gray;
-    }
-
     .ini {
       width: 40px;
       vertical-align: middle;
@@ -41,8 +32,8 @@
 
     .shadowimg img {
       width: 29%;
-    height: inherit;
-    object-fit: cover;
+      height: inherit;
+      object-fit: cover;
     }
 
     .titles {
@@ -71,31 +62,31 @@
 
 
 <body>
-    <header>
+  <header>
     <div class="logo">
       <script src="logo.js"></script>
-      <style>
-        canvas {
-          position: relative;
-        }
-      </style>
-      </div>
+    </div>
   </header>
-<main>
-  <div class="center">
-    <div id="hed"></div>
-        <script>
-  fetch("/header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("hed").innerHTML = html;
-    });
-</script>
-  <div class="shadowimg" style="height: 300px;margin-bottom: 30px;">
-        <img src="https://pbs.twimg.com/media/GK4V5AAa8AAZVdd?format=jpg&name=large"><img src="https://pbs.twimg.com/media/GOo2MjPacAAOhp6?format=jpg&name=large"><img src="https://pbs.twimg.com/media/Gln5OeEbgAAak_j?format=jpg&name=large">
+  <main>
+    <div class="center">
+      <div id="hed"></div>
+      <script>
+        fetch("/header.html")
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById("hed").innerHTML = html;
+          });
+      </script>
+      <div class="shadowimg" style="height: 300px;margin-bottom: 30px;">
+        <img src="https://pbs.twimg.com/media/GK4V5AAa8AAZVdd?format=jpg&name=large"><img
+          src="https://pbs.twimg.com/media/GOo2MjPacAAOhp6?format=jpg&name=large"><img
+          src="https://pbs.twimg.com/media/Gln5OeEbgAAak_j?format=jpg&name=large">
       </div>
-      <a href="https://twitter.com/olime_sian" style="background-color: transparent;"><img style="border-radius: 50%; width:  100px; height: 100px;" src="https://pbs.twimg.com/profile_images/1864628493700747268/Ey5X7vQd_400x400.jpg"></a><br>
-      <a style="font-family: monospace; letter-spacing: 1px; line-height: 1.5; font-style: italic; font-size: x-large;">折メ思案</a><br>
+      <a href="https://twitter.com/olime_sian" class="linkimage"><img
+          style="border-radius: 50%; width:  100px; height: 100px;"
+          src="https://pbs.twimg.com/profile_images/1864628493700747268/Ey5X7vQd_400x400.jpg"></a><br>
+      <a
+        style="font-family: monospace; letter-spacing: 1px; line-height: 1.5; font-style: italic; font-size: x-large;">折メ思案</a><br>
       <a style="font-family: monospace;">Olime_Sian</a>
       <div class="window">
         <h4>リンク</h4>
@@ -103,8 +94,8 @@
           ・。｡・ﾟ・。　お題箱　｡・ﾟ・。｡・ﾟ<br><a href="https://odaibako.net/u/olime_sian">odaibako.net/u/olime_sian</a><br>
 
           *:.:*　SNS　*:.:*<br>
-          <a href="https://twitter.com/olime_sian" class="botan">Twitter</a>
-          <a href="https://www.pixiv.net/users/75238991" class="botan">Pixiv</a><br><br>
+          <a href="https://twitter.com/olime_sian">Twitter</a>
+          <a href="https://www.pixiv.net/users/75238991">Pixiv</a><br><br>
         </p>
         <p></p>
       </div>
@@ -113,13 +104,24 @@
         <h4>自己紹介</h4>
         <p>
           お絵かきをします。<br>
-          
-          <a class="titles">趣味</a><br><span>ウマ娘: タキカフェメインです。<br><span>けもフレ: 時々描きます。フクロウと海の生き物が好きです</span><br><span>Vtuber: 神椿とホロENを見ています </span><br><span>その他: キャラデザ、風景に興味があります </span><br><br>
-          <a class="titles">利用</a><br><span><a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ja"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br><span>私の描いた範囲の絵、GIFはCCライセンスの下で提供されます。</span></span>
-        </span></p>
+
+          <a class="titles">趣味</a><br><span>ウマ娘: タキカフェメインです。<br><span>けもフレ:
+              時々描きます。フクロウと海の生き物が好きです</span><br><span>Vtuber: 神椿とホロENを見ています </span><br><span>その他: キャラデザ、風景に興味があります
+            </span><br><br>
+            <a class="titles">利用</a><br>
+            <span><a class="linkimage" rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ja"
+                style="text-decoration: none;"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0"
+                  src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>
+              <span>私が趣味で制作した創作物は、CC BY 4.0の下で提供されます。</span>
+            </span>
+          </span>
+        </p>
       </div>
   </main>
 
 
 
-</div></body></html>
+  </div>
+</body>
+
+</html>
