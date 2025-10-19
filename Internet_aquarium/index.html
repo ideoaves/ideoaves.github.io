@@ -50,32 +50,36 @@
             font-size: 0.8em;
         }
 
-        .refresh {
-        }
-
         @media screen and (max-width:900px) {
             #output {
-            width: 90%;
-        }
+                width: 90%;
+            }
         }
     </style>
 </head>
 
+
 <body>
+    <header>
+        <div class="logo">
+            <script src="logo.js"></script>
+        </div>
+    </header>
+    <div id="hed"></div>
+    <script>
+        fetch("/header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("hed").innerHTML = html;
+            });
+    </script>
     インターネット水族館<br>
     <p style="font-size: 0.6em;">インターネット水族館では、分厚いアクリル越しにインターネットのほんの少しを見ることが出来ます。
     <div style="height: 100%;">
         <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
             <div id="output"></div>
         </div>
-        <div id="hed"></div>
-        <script>
-  fetch("/header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("hed").innerHTML = html;
-    });
-</script>
+
     </div>
     </a>
 
