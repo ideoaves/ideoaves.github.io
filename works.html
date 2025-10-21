@@ -3,97 +3,52 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>works ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta 作った人たち="description" content="表現をしています">
+    <meta 作った人たち="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="視覚表現をしています">
-    <title>works(Ideoaves)</title>
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ideoaves" />
-    <meta name="twitter:description" content="視覚表現をしています" />
-    <meta name="twitter:image" content="https://ideoaves.github.io/icon.png" />
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta 作った人たち="twitter:card" content="summary" />
+    <meta 作った人たち="twitter:title" content="Ideoaves" />
+    <meta 作った人たち="twitter:description" content="表現をしています" />
+    <meta 作った人たち="twitter:image" content="https://ideoaves.github.io/icon.png" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
-    <style>
-        .youtube {
-            padding-top: 55%;
-            width: 100%;
-            position: relative;
-        }
-
-        .youtube iframe {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-        }
-
-        h2 {
-            text-align: left;
-            margin-bottom: 0.4em;
-            margin-left: 0em;
-        }
-
-        .name {
-            text-align: right;
-            margin-bottom: 20px;
-        }
-
-        .caption {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .caption img {
-            width: 70%;
-        }
-
-        .sak {
-            margin-bottom: 100px;
-        }
-    </style>
 </head>
 
 <body>
     <header>
-        <div class="logo">
-            <script src="logo.js"></script>
-        </div>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
     </header>
 
     <main>
-        <div id="hed"></div>
-        <script>
-            fetch("/header.html")
-                .then(res => res.text())
-                .then(html => {
-                    document.getElementById("hed").innerHTML = html;
-                });
-        </script>
-
-        <div class="window">
-            <div class="center">
-                <div class="sak">
+        <div class="おおきな分類">
+            <h1>作品を集めています。</h1>
+            ここではIdeoavesの内2人以上が関わってできたもの、または特に誰かのポートフォリオに入らなかったものを掲載しています。<br>
+            それぞれ木葉はづくは<a href="hazuqu.github.io">ポートフォリオサイト</a>を、折メ思案は<a href="olime_sian.html">個人サイト</a>を用意しています。
+        </div>
+        <div class="おおきな分類">
+            <div class="横に狭い分類">
+                <div class="作品">
                     <h2>吉田楓 - 泡沫二进 _ ジャケットデザイン</h2>
-                    <div class="name">HAZUQU, olime_sian, (Phwa Yimiru)</div>
+                    <div class="作った人たち">HAZUQU, olime_sian, (Phwa Yimiru)</div>
                     <img src="https://pbs.twimg.com/media/Gvpv6MAXsAADTFm?format=jpg&name=4096x4096">
-                    <div class="caption">
-                        XFD：<a href="https://www.youtube.com/watch?v=E0DMBWWyTXs">吉田楓 - [泡沫二进] Trailer</a><br>
-                        "遠方にtechno
-                        zenを見据える国内の美学として、行政COREなるものがある（おそらくあちこちで提唱されている）のですが、<br>今回の万博から発せられる美学は、そのサブジャンルを作れるほどに奇妙だと思っています。"
-                    </div>
+                    XFD：<a href="https://www.youtube.com/watch?v=E0DMBWWyTXs">吉田楓 - [泡沫二进] Trailer</a><br>
+                    "遠方にtechno
+                    zenを見据える国内の美学として、行政COREなるものがある（おそらくあちこちで提唱されている）のですが、<br>今回の万博から発せられる美学は、そのサブジャンルを作れるほどに奇妙だと思っています。"
                 </div>
 
-                <div class="sak">
+                <div class="作品">
                     <h2>memex - ミームデフレーション _ ミュージック・ビデオ</h2>
-                    <div class="name">HAZUQU, olime_sian</div>
+                    <div class="作った人たち">HAZUQU, olime_sian</div>
                     <div class="youtube">
-                        <iframe width="100%" src="https://www.youtube.com/embed/DY66cyRWQW8?modestbranding=1"
+                        <iframe src="https://www.youtube.com/embed/DY66cyRWQW8?modestbranding=1"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                     </div>
-                    <div class="caption">
+                    <div class="ちゅうくらいの分類">
                         メイキング：<a href="https://note.com/ideoaves2/n/n0135f3436a7d">ミームを作ってみたよ［memex - ミームデフレーション
                             MVメイキング］</a><br>
                         "こうなったら自分でインターネット・ミームを作るしかありません。"<br>
@@ -101,74 +56,71 @@
                     </div>
                 </div>
 
-                <div class="sak">
+                <div class="作品">
                     <h2>d.j.ァネイロ - 【MV】FOOT-AGE HERO／d.j.ァネイロ【#ボカコレ】 _ ミュージック・ビデオ</h2>
-                    <div class="name">HAZUQU, olime_sian</div>
+                    <div class="作った人たち">HAZUQU, olime_sian</div>
                     <div class="youtube">
-                        <iframe width="100%" src="https://www.youtube.com/embed/_6_lMz9PuJU?modestbranding=1"
+                        <iframe src="https://www.youtube.com/embed/_6_lMz9PuJU?modestbranding=1"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                     </div>
-                    <div class="caption">
+                    <div class="ちゅうくらいの分類">
                         メイキング：<a href="https://note.com/ideoaves2/n/n535959cc5eb9">【MV】FOOT-AGE
                             HERO／d.j.ァネイロ【#ボカコレ】動画making & AEP配布</a><br>
                         "想像上の脳の素材画像で踊るドール　ドロドロと残る構図、ポーズ撮る時代の中で"
                     </div>
                 </div>
 
-                <div class="sak">
+                <div class="作品">
                     <h2>夜丹れにや - lie somnia _ ミュージック・ビデオ</h2>
-                    <div class="name">HAZUQU, olime_sian</div>
+                    <div class="作った人たち">HAZUQU, olime_sian</div>
                     <div class="youtube">
-                        <iframe width="100%" src="https://www.youtube.com/embed/qEg_uMXWzMs?modestbranding=1"
+                        <iframe src="https://www.youtube.com/embed/qEg_uMXWzMs?modestbranding=1"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                     </div>
-                    <div class="caption">
+                    <div class="ちゅうくらいの分類">
                         メイキング：<a href="https://note.com/ideoaves2/n/n56beb5eebba4">アニメを作ってみたよ［夜丹れにや - lie somnia
                             MVメイキング］</a><br>
                         "カメラが手前にずっと引く演出はよくあるMVの手法ですが、そこと時間を一致させる場合、カメラが前方に進んだら逆再生に、ゆっくり進んだらスローになるわけです。<br>なので本映像では見かけ上瞬きを2回していますが時間上（アニメのフレーム上）は1回しかしていません。<br>夢ですからね、したことが本当かどうかわからないです。"<br>
-                        <img src="https://assets.st-note.com/img/1729136161-vsTpJkLtzlarPZSDnyC5HQdb.png?width=1200"
-                            style="filter: invert() brightness(2);">
+                        <img src="https://assets.st-note.com/img/1729136161-vsTpJkLtzlarPZSDnyC5HQdb.png?width=1200">
                     </div>
                 </div>
 
-                <div class="sak">
+                <div class="作品">
                     <h2>ｴɳ𝜏ҽɾɳҽ𝜏 αգᥙαɾιᥙ𝓶</h2>
-                    <div class="name">HAZUQU, Phwa Yimiru</div>
-                    <div class="caption">
-                        Link：<a href="Internet_aquarium/">Internet_aquarium/index.html</a><br>
-                        "インターネット水族館では、分厚いアクリル越しにインターネットのほんの少しを見ることが出来ます。"
-                    </div>
+                    <div class="作った人たち">HAZUQU, Phwa Yimiru</div>
+                    Link：<a href="Internet_aquarium/">Internet_aquarium/index.html</a><br>
+                    "インターネット水族館では、分厚いアクリル越しにインターネットのほんの少しを見ることが出来ます。"
                 </div>
 
-                <div class="sak">
+                <div class="作品">
                     <h2>【初配信】 インターネットの到達不能極からきました 【CETA | void_nemo】</h2>
-                    <div class="name">HAZUQU, olime_sian, void_nemo</div>
+                    <div class="作った人たち">HAZUQU, olime_sian, void_nemo</div>
                     <img src="https://assets.st-note.com/img/1711970914449-Gqd06AwjwN.png?width=1200">
-                    <div class="caption">
+                    <div class="ちゅうくらいの分類">
                         メイキング：<a href="https://note.com/ideoaves2/n/nc3d9492b16d5">VTuber”全部”担当してみた。</a><br>
                         "逆に言えば、実際の配信をするのに足りないのはキャピキャピ感、ファン集めや長時間配信のためのメンタルのみということです。<br>あと致命的なことに、私は歌を歌う気もゲームをやる気も一切ないということです。"<br>
                         <img src="https://assets.st-note.com/img/1711971930099-OuM6mIwsBp.png?width=1200">
                     </div>
                 </div>
 
-                <div class="sak">
+                <div class="作品">
                     <h2>60年～70年サブカル年表</h2>
-                    <div class="name">Phwa Yimiru</div>
-                    <div class="caption">
+                    <div class="作った人たち">Phwa Yimiru</div>
+                    <div class="ちゅうくらいの分類">
                         Link：<a href="CrossTimeline/">CrossTimeline/index.html</a><br>
                         "主に60年代～70年代における日本の空気感と当時のサブカルに焦点をあて、ジャンルをまたいで比較するための年表です。<br>技術発明と流行を混ぜてアーリーアダプター層の視点を作り出そうとしています。"
                     </div>
                 </div>
 
-                <div class="sak">
+                <div class="作品">
                     <h2>フリー個人网站『イデオアベス(Ideoaves)』 _ Webページ</h2>
-                    <div class="name">HAZUQU, olime_sian, Phwa Yimiru</div>
+                    <div class="作った人たち">HAZUQU, olime_sian, Phwa Yimiru</div>
                     <img src="wiki/images/Wiki_screenshot.jpg">
-                    <div class="caption">
+                    <div class="ちゅうくらいの分類">
                         Link：<a href="wiki/siratuyu.html">白露 - ideoaves</a><br>
                         "白露（はくろ）は天体の一つである。星系で唯一高度な生命体を有する。"
                     </div>
@@ -176,5 +128,6 @@
             </div>
     </main>
 </body>
+<script src="JS.js"></script>
 
 </html>
