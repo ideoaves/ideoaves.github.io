@@ -82,9 +82,12 @@ fetch("header.html")
     document.getElementById("ヘッダー").innerHTML = html;
   });
 
-document.querySelectorAll('.カーソルを').forEach(div => {
-  div.setAttribute('tabindex', '0');
-  div.querySelectorAll('span')[1].classList.add('すると出る');
+document.querySelectorAll('.カーソルを').forEach(el => {
+  el.setAttribute('tabindex', '0');
+  const spans = el.querySelectorAll('span');
+  if (spans.length > 1) {
+    spans[1].classList.add('すると出る');
+  }
 });
 
 /* codeをコピーします */

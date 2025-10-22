@@ -163,17 +163,15 @@ a[href]:visited {
     display: inline-block;
     position: relative;
     cursor: help;
+}
 
-    &:focus-within {
-        .すると出る {
-            display: block;
-        }
+.カーソルを:focus-within .すると出る {
+    display: block;
+}
 
-        span {
-            background-color: #e0e0e0;
-            border-radius: 20px;
-        }
-    }
+.カーソルを:focus-within span {
+    background-color: #e0e0e0;
+    border-radius: 20px;
 }
 
 
