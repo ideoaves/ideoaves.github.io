@@ -1,18 +1,36 @@
-:root {
-    --text-color: #fff;
-    --back-color: #000;
+/* 基本的な構成ですね */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@330&family=Zen+Kaku+Gothic+New&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
+html {
+    background-color: #AAA;
+}
 
 body {
-    color: var(--text-color);
-    background-color: var(--back-color);
-    font-family: serif;
-    width: 60%;
-    max-width: 700px;
-    padding: 50px;
+    max-width: 1500px;
     margin: 0 auto;
+    /* 基本的な文字の扱い */
+    line-height: 1.8;
+    font-family: "Zen Kaku Gothic New", "Noto Sans SC", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
 }
+
+img {
+    width: 100%;
+}
+
+::selection {
+    color: #FFF;
+    background-color: #000;
+}
+
+/* ぼかし */
 body::after {
     content: "";
     position: fixed;
@@ -27,393 +45,224 @@ body::after {
     pointer-events: none;
 }
 
-img {
-    z-index: 3;
+
+
+/* 全体に対する設定ですね */
+
+/* 段落の話 */
+
+.おおきな分類 {
+    padding: 50px 0;
 }
 
-canvas { 
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index: -1;
+.ちゅうくらいの分類 {
+    padding: 20px 0;
 }
 
-button {
-    border: none;
-    outline: none;
-    background: transparent;
-    margin: 0;
+.小さな分類 {
+    padding: 10px 20px;
+}
+
+.横に狭い分類 {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* イメージの話 */
+
+.丸いアイコン {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+
+/* 文字の話 */
+
+a[href]:has(img) {
+    text-decoration: none;
+    background-color: transparent;
     padding: 0;
 }
 
-main {
-    height: 100%;
-    margin: 5px;
+a[href],
+.コピー！ {
+    background-color: #0000EE;
+    border-radius: 20px;
+    color: #FFF;
+    padding: 2px 5px;
 }
 
-.center {
-    display: block;
-    align-self: center;
-    margin: 0 auto;
+a[href]:active {
+    background-color: #fe0000;
+}
+
+a[href]:visited {
+    background-color: #551b8c;
+}
+
+/* 文字装飾の話 */
+
+.コメント文字 {
+    text-align: center;
+    line-height: 1.5rem;
+    font-size: 0.7em;
+}
+
+.小さい文字 {
+    line-height: 1.5rem;
+    font-size: 0.7em;
+}
+
+.中央に揃う文字 {
     text-align: center;
 }
 
-.center .back {
-    display: block;
-    text-align: left;
-    padding: 0px 10%;
-    color: #000000;
-}
-
-.title {
-    display: block;
-    margin: 0;
-    /*filter: invert();*/
-    width: 50%;
-}
-
-.boxes {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin: 50px 50px;
-    align-content: stretch;
-    justify-content: center;
-}
-
-.window {
-    display: block;
-    margin: 50px 0;
-    text-align: left;
-    font-size: 0.9em;
-    line-height: 2em;
-}
-
-.window img {
-    max-width:100%;
-}
-
-.people{
-    background-color: var(--back-color);
-    position:absolute;
-}
-
-/* ウィンドウ内コンテンツ */
-
-.prof {
-    text-align: center;
-    align-self: center;
-    margin: 25px 25px;
-    width: 20%;
-    vertical-align: top;
-    border-width: 0 2px 2px 1px;
-    border-style: outset;
-    border-color: white;
-    word-break: break-all;
-    font-size: 0.9em;
-}
-
-.bar {
-    display: block;
-
-}
-
-h4 {
-    padding-top: 80px;
-    padding-bottom: 10px;
-    text-align: right;
-    vertical-align: middle;
-    margin-top: 0;
-    letter-spacing: 2px;
-    overflow: hidden;
-}
-
-#hedicon {
-    margin-right: 6px;
-    margin-left: auto;
-    margin-top: -20px;
-    padding-bottom: 17px;
-    box-shadow: none;
-    outline: none;
-}
-
-.window #hedicon {
-    display: block;
-    padding-bottom: 30px;
-}
-
-.prof span,
-table {
-    display: block;
-    margin: -10px 12px 12px 10px;
-    text-align: justify;
-}
-
-.name {
-    text-align: left;
-    font-family: serif;
-    font-style: italic;
-    letter-spacing: 2px;
-}
-
-.count {
-    font-family: serif;
-    font-style: italic;
-    letter-spacing: 2px;
-}
-
-.prof img {
-    margin: 0 10px 10px 0;
-    outline: 1px solid;
-    display: block;
-    box-shadow: 4px 4px 0 rgb(0, 0, 0), 5px 5px 0 rgb(255, 255, 255);
-}
-
-.shadowimg img {
-    display: inline-block;
-    margin: 5px 10px 10px 0px;
-    outline: 1px solid;
-    box-shadow: 4px 4px 0 rgb(0, 0, 0), 5px 5px 0 rgb(255, 255, 255);
-}
-
-
-/* wiki */
-h1 {
-    font-size: 188%;
-    line-height: 1.3;
-    font-weight: normal;
-    margin-bottom: 1em;
-    border-bottom: 1px solid #a2a9b1;
-}
-
-h2 {
-    font-size: 150%;
-    font-weight: normal;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0.5em;
-    border-bottom: 1px solid #a2a9b1;
-}
-
-h3 {
-    font-size: 128%;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0.5em;
-}
-
-.filter1 {
-    filter: brightness(70%) grayscale(100%) contrast(1000%);
-}
-
-.nofilter {
-    filter: none;
-}
-
-.filter1light {
-    filter: brightness(130%) grayscale(100%) contrast(200%);
-}
-
-.filtermono {
-    filter: grayscale(100%);
-}
-
-.mono {
-    filter: grayscale(100%) contrast(150%);
-}
-
-.prof img:hover {
-    filter: brightness(100%) grayscale(0%) contrast(100%);
-}
-
-.mono:hover {
-    filter: brightness(100%) grayscale(0%) contrast(100%);
-}
-
-.logo {
-    margin: 0;
-    width: 50%;
-    aspect-ratio: 1201.37 / 202.43;
-}
-
-.prof .logo:hover {
-    filter: brightness(1000%) grayscale(100%) contrast(1000%);
-}
-
-
-/* ボタン */
-
-a {
-    text-decoration: none;
-}
-
-main a[href]:link:not(.linkimage), button {
-    padding: 0px 3px;
-    color: var(--back-color);
-    background-color: var(--text-color);
-}
-
-main a[href]:visited:not(.linkimage), button:active {
-    color: var(--back-color);
-    background-color: var(--text-color);
-}
-
-main a[href]:hover:not(.linkimage), button:hover {
-    color: var(--back-color);
-    background-color: gray !important;
-}
-
-.news {
-    vertical-align: "top";
-}
-
-.news th {
-    font-style: bold;
-    width: 100px;
-    vertical-align: top;
-}
-
-.cont {
-    vertical-align: "top";
-}
-
-.cont th {
-    font-style: bold;
-}
-
-
-/* works */
-.works {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.worksImage {
-    margin: 10px;
-    margin-bottom: 90px;
-    width: 150px;
-    height: 150px;
-    outline: 1px dashed var(--text-color);
-}
-
-a div.worksImage{
-    outline: 1px solid var(--text-color);
-}
-
-.worksImage div {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.worksImage div img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
-
-.worksImage div img[src$="n.png"],.worksImage div img[src$="f.png"] {
-    width: 60px;
-    height: 60px;
-}
-
-p.tit {
+.太い文字 {
     font-weight: bold;
-}
-
-.works div span :not(.tit) {
-    font-size: 0.8em;
-}
-
-.linkimage {
-    color: var(--text-color);
-}
-
-#prevbox{
-    width: 100%;
-    outline: 1px solid var(--text-color);
-    padding: 10px;
-}
-
-#displayimg{
-    display: block;
-    margin: auto;
+    letter-spacing: 4px;
 }
 
 
-/* フォント */
-
-.bold {
-    font-weight: bold;
+.書き途中::after {
+    content: "|";
+    animation: dots 1.2s steps(2) infinite;
+    line-height: 1rem;
+    font-size: 1.2em;
 }
 
-.italic {
-    font-family: serif;
-    font-style: italic;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 80%;
+@keyframes dots {
+
+    0%,
+    100% {
+        content: "|";
+    }
+
+    50% {
+        content: " ";
+    }
 }
 
-.memo {
-    display: block;
-    font-style: italic;
-    color: #666;
-    padding-top: 0.7em;
-    font-size: 90%;
-}
+/* 注釈の話 */
 
-.blue {
-    color: #ba0000;
-}
-
-@import url("ll.css");
-
-.ll {
-    font: 1.5em "LL", sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-}
-
-::-webkit-scrollbar {
+.すると出る {
     display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 10;
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: normal;
 }
 
-/* ヘッダー */
-* {
-    margin: 0px;
-    padding: 0px;
+.カーソルを {
+    display: inline-block;
+    position: relative;
+    cursor: help;
+}
+
+.カーソルを:focus-within .すると出る {
+    display: block;
+}
+
+.カーソルを:focus-within span {
+    background-color: #e0e0e0;
+    border-radius: 20px;
 }
 
 
-header {
+
+/* ここからは直下のページそれぞれについてです */
+/* ヘッダーの話 */
+.ヘッダーのリンクたち {
+    width: 100%;
+    padding: 30px 0;
+    font-size: 2em;
+}
+
+/* indexの話 */
+.扉絵 {
+    position: relative;
+    width: 80%;
     margin: 0 auto;
-    align-self: center;
+}
+
+.人 {
+    background-color: var(--back-color);
+    position: absolute;
+    z-index: 1;
+    border-radius: 20px;
+    padding: 2px 5px;
+    max-height: 4em;
+    max-width: 10em;
+    background-color: #FFF;
     overflow: hidden;
 }
 
-/* レアネレイ語説明処理 */
-#LL {
-    font-family: "LL", Courier, monospace;
-    letter-spacing: 0.1em;
+.人:hover {
+    max-height: 50em;
+    max-width: 25%;
 }
 
-.reibun {
-    margin: 10px 20px 20px 20px;
-    padding: 20px 50px 20px 50px;
-    line-height: 1.4em;
-    border-left: solid 10px #CCC;
+.バナー {
+    display: block;
+    width: 200px;
+    aspect-ratio: 4;
 }
 
-canvas {
-          position: relative;
-        }
+.SNSへのリンクたち a {
+    padding: 2px 5px;
+    margin-right: 0.5em;
+}
+
+.SNSへのリンクたち a:hover {
+    padding: 2px 50px;
+}
+
+/* worksの話 */
+
+.作品 {
+    margin-bottom: 100px;
+}
+
+.作品 iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.作品 img {
+    border-radius: 20px;
+    display: block;
+    width: 50%;
+    margin: 0 0 20px 0;
+}
+
+.作品 img:hover,
+.作品:not(:has(iframe)) img:first-of-type {
+    width: 100%;
+
+}
+
+.作った人たち {
+    text-align: right;
+    margin-bottom: 20px;
+    font-style: italic;
+    letter-spacing: 0.2em
+}
+
+.作品の説明 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+
 
 /* スマホ用 */
+
 @media screen and (max-width:900px) {
     body {
         width: 95%;
@@ -422,53 +271,19 @@ canvas {
         font-size: 0.8em;
     }
 
-    main {
-        padding: 0;
-        margin: 10px 0;
-    }
-
-    .center {
-        padding: 10px 0px;
-        width: 97%;
-    }
-
-    .title {
+    /* indexの話 */
+    .扉絵 {
         width: 100%;
     }
 
-    .boxes {
-        margin: 10px;
+    .人 {
+
+        max-height: 2em;
+        max-width: 25%;
     }
 
-    .window {
-        display: block;
-        margin: 20px auto;
-        width: 97%;
-    }
-
-    .prof {
-        margin: 0 0 40px 0;
-        width: 100% !important;
-    }
-
-    .none {
-        display: none;
-    }
-
-    /* ヘッダー */
-    header img[src="icon.png"] {
-        display: none;
-    }
-
-    header a[href="404.html"] {
-        display: none;
-    }
-
-    header a[href="olime_sian.html"] {
-        display: none;
-    }
-
-    header a[href="hazuqu.html"] {
-        display: none;
+    .人:hover {
+        max-height: 50em;
+        max-width: 25%;
     }
 }

@@ -1,131 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
   <meta charset="UTF-8">
+  <title>折メ思案 ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+  <meta name="description" content="表現をしています">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@olime_sian">
-  <meta name="twitter:title" content="プロフ - 折メ思案">
-  <meta name="twitter:description" content="リンクの一覧と趣味等の羅列です">
-  <title>折メ思案 - ideoaves</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="twitter:title" content="Ideoaves">
+  <meta name="twitter:description" content="表現をしています">
+  <meta name="twitter:image" content="https://ideoaves.github.io/icon.png">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
-  <style>
-    .ini {
-      width: 40px;
-      vertical-align: middle;
-      margin-right: 2em;
-    }
-
-    .nam {
-      font-family: SimSun;
-      font-size: 2em;
-      padding-bottom: 20px;
-      vertical-align: middle;
-    }
-
-    .proimg {
-      width: 80%;
-    }
-
-    .shadowimg img {
-      width: 29%;
-      height: inherit;
-      object-fit: cover;
-    }
-
-    .titles {
-      padding: 0 3px;
-      margin-right: 4px;
-      font-weight: bold;
-      background-color: #6c6c6c;
-      color: #f0f0f0;
-    }
-
-    @media screen and (max-width:900px) {
-      .proimg {
-        width: 100%;
-      }
-
-      .window p,
-      table,
-      h1,
-      h2,
-      h3 {
-        text-align: left;
-      }
-    }
-  </style>
 </head>
 
 
 <body>
   <header>
-    <div class="logo">
-      <script src="logo.js"></script>
-    </div>
+    <div class="ロゴ"></div>
+    <div id="ヘッダー"></div>
   </header>
+
   <main>
-    <div class="center">
-      <div id="hed"></div>
-      <script>
-        fetch("/header.html")
-          .then(res => res.text())
-          .then(html => {
-            document.getElementById("hed").innerHTML = html;
-          });
-      </script>
-      <div class="shadowimg" style="height: 300px;margin-bottom: 30px;">
-        <img src="https://pbs.twimg.com/media/GK4V5AAa8AAZVdd?format=jpg&name=large"><img
-          src="https://pbs.twimg.com/media/GOo2MjPacAAOhp6?format=jpg&name=large"><img
-          src="https://pbs.twimg.com/media/Gln5OeEbgAAak_j?format=jpg&name=large">
-      </div>
-      <a href="https://twitter.com/olime_sian" class="linkimage"><img
-          style="border-radius: 50%; width:  100px; height: 100px;"
-          src="https://pbs.twimg.com/profile_images/1864628493700747268/Ey5X7vQd_400x400.jpg"></a><br>
-      <a
-        style="font-family: monospace; letter-spacing: 1px; line-height: 1.5; font-style: italic; font-size: x-large;">折メ思案</a><br>
-      <a style="font-family: monospace;">Olime_Sian</a>
-      <div class="window">
-        <h4>リンク</h4>
-        <p style="text-align: center; line-height: 2;">
-          ・。｡・ﾟ・。　お題箱　｡・ﾟ・。｡・ﾟ<br><a href="https://odaibako.net/u/olime_sian">odaibako.net/u/olime_sian</a><br>
+    <div class="おおきな分類">
+      <div class="横に狭い分類">
+        <div class="ちゅうくらいの分類 中央に揃う文字">
+          <a href="https://twitter.com/olime_sian">
+            <img alt="" class="丸いアイコン"
+              src="https://pbs.twimg.com/profile_images/1864628493700747268/Ey5X7vQd_400x400.jpg"></a><br>
+          <h1>折メ思案</h1>
+          <a>Olime_Sian</a>
+        </div>
 
-          *:.:*　SNS　*:.:*<br>
-          <a href="https://twitter.com/olime_sian">Twitter</a>
-          <a href="https://www.pixiv.net/users/75238991">Pixiv</a><br><br>
-        </p>
-        <p></p>
-      </div>
+        <div class="ちゅうくらいの分類 中央に揃う文字">
+          <h2>リンク</h2>
+          <div class="小さな分類">
+            ・。｡・ﾟ・。　お題箱　｡・ﾟ・。｡・ﾟ<br>
+            <a href="https://odaibako.net/u/olime_sian">odaibako.net/u/olime_sian</a>
+          </div>
+          <div class="小さな分類">
+            *:.:*　SNS　*:.:*<br>
+            <a href="https://twitter.com/olime_sian">Twitter</a>
+            <a href="https://www.pixiv.net/users/75238991">Pixiv</a><br><br>
+          </div>
+        </div>
 
-      <div class="window">
-        <h4>自己紹介</h4>
-        <p>
+        <div class="ちゅうくらいの分類">
+          <h2>自己紹介</h2>
           お絵かきをします。<br>
-
-          <a class="titles">趣味</a><br>
-          　　<span>Vtuber: 神椿とホロENを見ています。最近は学術Vにハマってます。</span><br>
-          　　<span>ウマ娘: タキカフェメインです。</span><br>
-            <span>けもフレ:時々描きます。フクロウと海の生き物が好きです。</span><br>
-            <span>その他: キャラデザ、風景に興味があります。</span><br>
-            <br>
-            <a class="titles">利用</a><br>
-            <span><a class="linkimage" rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ja"
-                style="text-decoration: none;"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0"
-                  src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>
-              <span>私が趣味で制作した創作物は、CC BY 4.0の下で提供されます。</span>
-            </span>
-          </span>
-        </p>
+          <div class="小さな分類">
+            <h3>趣味</h3>
+            <a class="太い文字">Vtuber: </a> 神椿とホロENを見ています。最近は学術Vにハマってます。<br>
+            <a class="太い文字">ウマ娘: </a> タキカフェメインです。<br>
+            <a class="太い文字">けもフレ: </a> フクロウと海の生き物が好きです。<br>
+            <a class="太い文字">その他: </a> キャラデザ、風景に興味があります。<br>
+          </div>
+          <div class="小さな分類">
+            <h3>利用</h3>
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ja"><img
+                alt="クリエイティブ・コモンズ・ライセンス" style="width: auto;"
+                src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>
+            私が趣味で制作した創作物は、CC BY 4.0になっています！
+          </div>
+        </div>
       </div>
+    </div>
   </main>
-
-
-
-  </div>
+  <script src="JS.js"></script>
 </body>
-
 
 </html>
