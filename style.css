@@ -25,6 +25,11 @@ img {
     width: 100%;
 }
 
+iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
 ::selection {
     color: #FFF;
     background-color: #000;
@@ -122,6 +127,18 @@ a[href]:visited {
     letter-spacing: 4px;
 }
 
+.引用 {
+    border-radius: 20px;
+    outline: 1px solid #000;
+    padding: 5px 20px;
+}
+
+.箇条書き {
+    display: inline-block;
+    border-radius: 20px;
+    outline: 1px solid #000;
+    padding: 0 10px;
+}
 
 .書き途中::after {
     content: "|";
@@ -229,11 +246,6 @@ a[href]:visited {
     margin-bottom: 100px;
 }
 
-.作品 iframe {
-    width: 100%;
-    aspect-ratio: 16/9;
-}
-
 .作品 img {
     border-radius: 20px;
     display: block;
@@ -259,7 +271,82 @@ a[href]:visited {
     margin-bottom: 20px;
 }
 
+/* blogの話 */
+.ブログの最初 {
+    margin-bottom: 100px;
+}
 
+.ブログ div {
+    color: #000;
+}
+
+.ブログの投稿時間 {
+    text-align: right;
+    margin-bottom: 20px;
+    font-style: italic;
+    letter-spacing: 0.2em;
+}
+
+.ブログ:hover {
+    filter: drop-shadow(0 0 100px #FFF);
+}
+
+.ブログのサムネイル img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    margin: 0 0 20px 0;
+}
+
+.ブログのサムネイル img[src=""] {
+    height: 0;
+    margin: 0;
+}
+
+
+.目次 {
+    display: inline-block;
+    border-radius: 20px;
+    outline: 1px solid #000;
+    padding: 10px;
+}
+
+.目次 .h2 {
+    margin-left: 50px;
+}
+
+.目次 a {
+    text-decoration: none;
+    background-color: transparent;
+    padding: 0;
+    color: #000;
+    line-height: 1.3em;
+}
+
+.目次 a:hover::before {
+    content: ">";
+}
+
+.承認欲求 {
+    display: flex;
+    justify-content: flex-end;
+    margin: 50px 0 200px 0;
+}
+
+.承認欲求 div {
+    margin-left: 40px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.承認欲求 div:hover {
+    font-weight: bold;
+}
+
+.承認欲求 span {
+    margin-left: 10px;
+}
 
 /* スマホ用 */
 
@@ -285,5 +372,9 @@ a[href]:visited {
     .人:hover {
         max-height: 50em;
         max-width: 25%;
+    }
+
+    .目次 {
+        margin: 0;
     }
 }

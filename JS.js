@@ -75,8 +75,7 @@ function draw() {
 }
 
 /* ページの書式についてです */
-
-fetch("header.html")
+fetch("/header.html")
   .then(res => res.text())
   .then(html => {
     document.getElementById("ヘッダー").innerHTML = html;
@@ -99,5 +98,22 @@ document.querySelectorAll('code').forEach(el => {
         el.classList.add('コピー！');
         setTimeout(() => el.removeAttribute('class'), 800);
       });
+  });
+});
+
+
+/* ブログ用乱数生成機 */
+function rand() {
+    return Math.floor(Math.random() * 201);
+}
+
+const elements = document.querySelectorAll('.乱数');
+elements.forEach(el => {
+  el.textContent = rand();
+});
+document.querySelectorAll('.承認欲求 div').forEach(div => {
+  div.addEventListener('click', () => {
+    const span = div.querySelector('.乱数');
+    span.textContent = Number(span.textContent) + 1;
   });
 });
