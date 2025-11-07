@@ -108,7 +108,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
     html_body = re.sub(
     r"https://x\.com/([A-Za-z0-9_]+)/status/(\d+)",
     r'<blockquote class="twitter-tweet"><a href="https://twitter.com/\1/status/\2"></a></blockquote>'
-    r'<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>',
+    r'<script async src="https://platform.twitter.com/widgets.js"></script>',
     html_body
     )
     

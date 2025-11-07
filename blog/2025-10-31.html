@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>ブログらしきものを作る。 ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
-    <meta name="description" content="noteが微妙にSNS過ぎてあまり嬉しく...">
+    <meta name="description" content="目次構文の一覧タイトル系このようにある！...">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="ブログらしきものを作る。">
-    <meta name="twitter:description" content="noteが微妙にSNS過ぎてあまり嬉しく...">
+    <meta name="twitter:description" content="目次構文の一覧タイトル系このようにある！...">
     <meta name="twitter:image" content="blog_img/test.png">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
@@ -25,66 +25,76 @@
 
     <main>
         <div class="横に狭い分類">
-            
-<h1>ブログらしきものを作る。</h1>
-<div class="目次"><h4>目次</h4><a href="#構文の一覧">構文の一覧</a><br><a href="#タイトル系" class="h2">タイトル系</a><br><a href="#このように" class="h2">このように</a><br><a href="#ある-">ある！！！！！</a><br><a href="#埋め込み-画像" class="h2">埋め込み、画像</a><br><a href="#書式" class="h2">書式</a><br><a href="#おわりに">おわりに</a><br></div><br>
-noteが微妙にSNS過ぎてあまり嬉しくないのと、もう少しつぶやき感覚でありながらscrapboxほど簡単ではない手数の環境を手に入れたくなりました。<br>
-noteは背景が白すぎる。<br>
-<br>
-構造としては<br>
-<span class="箇条書き">blog/<br>
-<span class="箇条書き">オリジナル構文で書いたtxt</span><br>
-<span class="箇条書き">txtの情報をもとにhtmlファイルを作るpython</span><br>
-<span class="箇条書き">その参考になるフレームのhtml素材</span><br>
-<span class="箇条書き">画像用フォルダ<br>
-<span class="箇条書き">画像たち</span></span><br>
-<span class="箇条書き">出力先1　index.html　にタイトルや画像情報とtxtファイル制作時間を入れる</span><br>
-<span class="箇条書き">出力先1　YYYY-MM-DD.html　ブログ本体。txtをhtmlに変換したもの。txtの数だけ増える</span></span><br>
-となっています。<br>
-<br>
-<h1 id="構文の一覧">構文の一覧</h1><br>
-大体マークダウンから持ってきていますが、改行で操作したくないので[]で囲います。<br>
-<br>
-<h2 id="タイトル系">タイトル系</h2><br>
-<h3>ハッシュタグを使ってタイトルを出す3つが</h3><br>
-<h2 id="このように">このように</h2><br>
-<h1 id="ある-">ある！！！！！</h1><br>
-のと、4つ以上ハッシュタグがある場合は目次が勝手に追加されます。<br>
-<br>
-<h2 id="埋め込み-画像">埋め込み、画像</h2><br>
-Youtubeはリンクをコピペするだけでiframeにしてくれます。<br>
-<br>
-<iframe src="https://www.youtube.com/embed/NctffbWZ23w" allow="picture-in-picture" allowfullscreen></iframe><br>
-Twitterも埋め込めるようにするか（今実装　しました）<br>
-<blockquote class="twitter-tweet"><a href="https://twitter.com/Ph_wa_Yimiru/status/1984168244425715913"></a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><br>
-<span class="カーソルを"><span>ブログに画像をおいた場合</span><span>なくてもいいんですけどね。ないなら空のimgがあるだけなので。</span></span>1枚目のものをどこでも取ってきて一覧に出します。<br>
-<img alt="" src="blog_img/test.png"><br>
-<br>
-<h2 id="書式">書式</h2><br>
-あと本webの特徴として、<span class="カーソルを"><span>隠しコメント機能</span><span>こういう機能です。私は会話中に雑談やネタを仕込んだりしたくなるので、脚注以下　0px文字以上の機能が欲しいです</span></span>があり、それも使えます。<br>
-<br>
-<div class="引用"><span>引用もあります<br>
-改行もできます</span></div><div class="コメント文字">画像や引用にコメントをつけるための中央揃えです</div><br>
-<br>
-コメントアウト（```）をつかえば<br>
-#構文を無視してくれます。htmlは無視されません。<br>
-https://www.youtube.com/watch?v=NctffbWZ23w<br>
-[i test.png]<br>
-ここの実装は少し手間取りましたが、結局よくわからないので一度囲われた部分を抜き取る方法にしました。<br>
-もっといい方法がある。
 
-<br>
-<br>
-<h1 id="おわりに">おわりに</h1><br>
-継続できない気もしますが、noteで書きたくなったときに（表に出すまでもないな）と思ったときに使えればと思います。<br>
-いいねと共有ボタンもおいておきます。jsが乱数を出してくれるのですでにたくさんの評価を頂いています。ありがとうございます。<br>
-<span class="カーソルを"><span>押すと加算されます。</span><span>いっぱい押せばいっぱい加算されます。ただ特に値を保存してはいません。</span></span><br>
-それではよろしくお願いいたします。
+            <h1>ブログらしきものを作る。</h1>
+            <div class="目次">
+                <h4>目次</h4><a href="#構文の一覧">構文の一覧</a><br><a href="#タイトル系" class="h2">タイトル系</a><br><a href="#このように"
+                    class="h2">このように</a><br><a href="#ある-">ある！！！！！</a><br><a href="#埋め込み-画像"
+                    class="h2">埋め込み、画像</a><br><a href="#書式" class="h2">書式</a><br><a href="#おわりに">おわりに</a><br>
+            </div><br>
+            noteが微妙にSNS過ぎてあまり嬉しくないのと、もう少しつぶやき感覚でありながらscrapboxほど簡単ではない手数の環境を手に入れたくなりました。<br>
+            noteは背景が白すぎる。<br>
+            <br>
+            構造としては<br>
+            <span class="箇条書き">blog/<br>
+                <span class="箇条書き">オリジナル構文で書いたtxt</span><br>
+                <span class="箇条書き">txtの情報をもとにhtmlファイルを作るpython</span><br>
+                <span class="箇条書き">その参考になるフレームのhtml素材</span><br>
+                <span class="箇条書き">画像用フォルダ<br>
+                    <span class="箇条書き">画像たち</span></span><br>
+                <span class="箇条書き">出力先1　index.html　にタイトルや画像情報とtxtファイル制作時間を入れる</span><br>
+                <span class="箇条書き">出力先1　YYYY-MM-DD.html　ブログ本体。txtをhtmlに変換したもの。txtの数だけ増える</span></span><br>
+            となっています。<br>
+            <br>
+            <h1 id="構文の一覧">構文の一覧</h1><br>
+            大体マークダウンから持ってきていますが、改行で操作したくないので[]で囲います。<br>
+            <br>
+            <h2 id="タイトル系">タイトル系</h2><br>
+            <h3>ハッシュタグを使ってタイトルを出す3つが</h3><br>
+            <h2 id="このように">このように</h2><br>
+            <h1 id="ある-">ある！！！！！</h1><br>
+            のと、4つ以上ハッシュタグがある場合は目次が勝手に追加されます。<br>
+            <br>
+            <h2 id="埋め込み-画像">埋め込み、画像</h2><br>
+            Youtubeはリンクをコピペするだけでiframeにしてくれます。<br>
+            <br>
+            <iframe src="https://www.youtube.com/embed/NctffbWZ23w" allow="picture-in-picture"
+                allowfullscreen></iframe><br>
+            Twitterも埋め込めるようにするか（今実装　しました）<br>
+            <blockquote class="twitter-tweet"><a href="https://twitter.com/Ph_wa_Yimiru/status/1984168244425715913"></a>
+            </blockquote>
+            <script async src="https://platform.twitter.com/widgets.js"></script><br>
+            <span
+                class="カーソルを"><span>ブログに画像をおいた場合</span><span>なくてもいいんですけどね。ないなら空のimgがあるだけなので。</span></span>1枚目のものをどこでも取ってきて一覧に出します。<br>
+            <img alt="" src="blog_img/test.png"><br>
+            <br>
+            <h2 id="書式">書式</h2><br>
+            あと本webの特徴として、<span
+                class="カーソルを"><span>隠しコメント機能</span><span>こういう機能です。私は会話中に雑談やネタを仕込んだりしたくなるので、脚注以下　0px文字以上の機能が欲しいです</span></span>があり、それも使えます。<br>
+            <br>
+            <div class="引用"><span>引用もあります<br>
+                    改行もできます</span></div>
+            <div class="コメント文字">画像や引用にコメントをつけるための中央揃えです</div><br>
+            <br>
+            コメントアウト（```）をつかえば<br>
+            #構文を無視してくれます。htmlは無視されません。<br>
+            https://www.youtube.com/watch?v=NctffbWZ23w<br>
+            [i test.png]<br>
+            ここの実装は少し手間取りましたが、結局よくわからないので一度囲われた部分を抜き取る方法にしました。<br>
+            もっといい方法がある。
 
-                <div class="承認欲求">
-                    <div class="heart">♥<span class="乱数"></span></div>
-                    <div class="up">⤴<span class="乱数"></span></div>
-                </div>
+            <br>
+            <br>
+            <h1 id="おわりに">おわりに</h1><br>
+            継続できない気もしますが、noteで書きたくなったときに（表に出すまでもないな）と思ったときに使えればと思います。<br>
+            いいねと共有ボタンもおいておきます。jsが乱数を出してくれるのですでにたくさんの評価を頂いています。ありがとうございます。<br>
+            <span class="カーソルを"><span>押すと加算されます。</span><span>いっぱい押せばいっぱい加算されます。ただ特に値を保存してはいません。</span></span><br>
+            それではよろしくお願いいたします。
+
+            <div class="承認欲求">
+                <div class="heart">♥<span class="乱数"></span></div>
+                <div class="up">⤴<span class="乱数"></span></div>
+            </div>
         </div>
 
     </main>
