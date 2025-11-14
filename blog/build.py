@@ -16,10 +16,9 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         continue
 
     path = os.path.join(BLOG_DIR, filename)
-
-    koushinDay = os.path.getctime(path)
-    date_obj = datetime.fromtimestamp(koushinDay)
-    hiduke = date_obj.strftime("%Y-%m-%d")
+    hiduke = filename.rsplit(".", 1)[0]
+    date_str = hiduke[:10]
+    date_obj = datetime.strptime(date_str, "%Y-%m-%d")
 
     with open(path, "r", encoding="utf-8") as f:
         text = f.read().strip()
@@ -50,7 +49,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         toc.append((level, title, anchor))
         return f'<h{level} id="{anchor}">{title}</h{level}>'
     # h1h2
-    html_body = re.sub(r"^(#{1,2})\s+(.+)$", repl, html_body, flags=re.MULTILINE)
+    html_body = re.sub(r"^(#{1,2})\s+(.+?)(?:\r?\n|$)", repl, html_body, flags=re.MULTILINE)
 
     #目次生成
     if len(toc) > 3:
@@ -62,7 +61,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         html_body = toc_html + html_body
 
     #h3
-    html_body = re.sub(r"^### (.+)$", r"<h3>\1</h3>", html_body, flags=re.MULTILINE)
+    html_body = re.sub(r"^### (.+?)(?:\r?\n|$)$", r"<h3>\1</h3>", html_body, flags=re.MULTILINE)
     
     #注釈 <本文。{注釈}>
     html_body = re.sub(
@@ -164,7 +163,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         )
         full_html = re.sub(
             r'<meta name="twitter:image" content="[^"]*">',
-            f'<meta name="twitter:image" content="{first_img}">',
+            f'<meta name="twitter:image" content="https://ideoaves.github.io/blog/{first_img}">',
             full_html,
         )
 
@@ -176,12 +175,12 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         "title": title_line,
         "img": first_img,
         "summary": summary_100,
-        "date": hiduke,
-        "koushinDay": koushinDay,
+        "date": date_str,
+        "sortDate": date_obj,
     })
 
 #index.html
-blogs.sort(key=lambda b: b["koushinDay"], reverse=True)
+blogs.sort(key=lambda b: b["sortDate"], reverse=True)
 
 index_content = ""
 for b in blogs:

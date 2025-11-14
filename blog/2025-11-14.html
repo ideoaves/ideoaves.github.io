@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AE向けのXY別軸の桑原(Kuwahara)フィルタ ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="映像を作りました こういう映像を作りまし...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AE向けのXY別軸の桑原(Kuwahara)フィルタ">
+    <meta name="twitter:description" content="映像を作りました こういう映像を作りまし...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/blog_img/kuwahara_thumb.jpg">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+        <div class="横に狭い分類">
+            
+<h1>AE向けのXY別軸の桑原(Kuwahara)フィルタ</h1>
+<div class="目次"><h4>目次</h4><a href="#映像を作りました">映像を作りました</a><br><a href="#AftereffectsでISFを使う">AftereffectsでISFを使う</a><br><a href="#改変は自由です">改変は自由です</a><br><a href="#ISFについて">ISFについて</a><br></div><br>
+<h1 id="映像を作りました">映像を作りました</h1><iframe src="https://www.youtube.com/embed/3Vjw2ZhSXE0" allow="picture-in-picture" allowfullscreen></iframe><br>
+こういう映像を作りました。手書き感の演出としてKuwaharaフィルタを使う予定でしたが、既存エフェクトプラグインでは応用できなさそうなことと、実装に関してすでに計算式を入手できて簡単なためISFでシェーダを書いてみました。<br>
+<img alt="" src="blog_img/kuwahara_prev.gif"><br>
+ここからダウンロードできます。<br>
+<a href="https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/kuwahara.fs">kuwahara.fs</a><br>
+<br>
+<h1 id="AftereffectsでISFを使う">AftereffectsでISFを使う</h1>ISF4AEというそのままなものがあります。<br>
+<a href="https://github.com/baku89/ISF4AE">https://github.com/baku89/ISF4AE</a><br>
+これを導入してエフェクトとして追加し、そこでfsファイルを選択することで読み込めます。<br>
+<span class="カーソルを"><span>調整レイヤを読むことはできないので</span><span>なぜなら調整レイヤの実際は「平面」だからです</span></span>CC compsite等を先に挟んでください。<br>
+<br>
+<h1 id="改変は自由です">改変は自由です</h1>特に新しいことはしてないので自由にいじってください。<br>
+例えばradiusXとradiusYをそれぞれrとr2に入れていますが、両方radiusXにすれば一般的なkuwaharaフィルタと同じ操作感になります。<br>
+<span class="カーソルを"><span>INPUTSに並んでいるのがAE上で操作可能なパラメタ</span><span>inputImageはAEの画面を読むものです</span></span>ですが、もしその場合はradiusYの方を消していいです。<br>
+<br>
+かなりシンプルと言うか初期装備のfsなので自分専用のブラーを作るなどの下地にできるかもしれません。<br>
+<br>
+<h1 id="ISFについて">ISFについて</h1>GLSLの方で1から並列計算らしい画を出すことは多々あったのですが、ここ最近は画像加工に近い遊び方ができています。<br>
+時折Twitterに上げている電波天文台の画像の動画はISFのスケッチのようなものです。<br>
+よかったら皆も遊びましょう。
+
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+        </div>
+
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>
