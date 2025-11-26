@@ -1,0 +1,28 @@
+AE向けのXY別軸の桑原(Kuwahara)フィルタ
+id=hazuqu
+[i kuwahara_thumb.jpg]
+
+# 映像を作りました
+https://www.youtube.com/watch?v=3Vjw2ZhSXE0
+こういう映像を作りました。手書き感の演出としてKuwaharaフィルタを使う予定でしたが、既存エフェクトプラグインでは応用できなさそうなことと、実装に関してすでに計算式を入手できて簡単なためISFでシェーダを書いてみました。
+[i kuwahara_prev.gif]
+ここからダウンロードできます。
+[kuwahara.fs https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/kuwahara.fs]
+
+# AftereffectsでISFを使う
+ISF4AEというそのままなものがあります。
+[https://github.com/baku89/ISF4AE]
+これを導入してエフェクトとして追加し、そこでfsファイルを選択することで読み込めます。
+<調整レイヤを読むことはできないので{なぜなら調整レイヤの実際は「平面」だからです}>CC compsite等を先に挟んでください。
+
+# 改変は自由です
+特に新しいことはしてないので自由にいじってください。
+例えばradiusXとradiusYをそれぞれrとr2に入れていますが、両方radiusXにすれば一般的なkuwaharaフィルタと同じ操作感になります。
+<INPUTSに並んでいるのがAE上で操作可能なパラメタ{inputImageはAEの画面を読むものです}>ですが、もしその場合はradiusYの方を消していいです。
+
+かなりシンプルと言うか初期装備のfsなので自分専用のブラーを作るなどの下地にできるかもしれません。
+
+# ISFについて
+GLSLの方で1から並列計算らしい画を出すことは多々あったのですが、ここ最近は画像加工に近い遊び方ができています。
+時折Twitterに上げている電波天文台の画像の動画はISFのスケッチのようなものです。
+よかったら皆も遊びましょう。

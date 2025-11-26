@@ -282,6 +282,32 @@ a[href]:visited {
     color: #000;
 }
 
+main:not(:has(#hazuquを表示:checked)) #hazuquの記事 {
+    display: none;
+}
+
+main:not(:has(#思案を表示:checked)) #思案の記事 {
+    display: none;
+}
+
+main:not(:has(#yimiruを表示:checked)) #yimiruの記事 {
+    display: none;
+}
+
+main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
+    display: none;
+}
+
+.チェックボックスたち {
+    display: block;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.チェックボックス {
+    margin: 0 10px;
+}
+
 .ブログの投稿時間 {
     text-align: right;
     margin-bottom: 20px;
@@ -312,6 +338,7 @@ a[href]:visited {
     border-radius: 20px;
     outline: 1px solid #000;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .目次 .h2 {

@@ -22,7 +22,11 @@ for filename in sorted(os.listdir(BLOG_DIR)):
 
     with open(path, "r", encoding="utf-8") as f:
         text = f.read().strip()
+        
+    id_match = re.search(r'id=([^\s]+)', text)
+    author_id = id_match.group(1) if id_match else ""
 
+    text = re.sub(r'id=[^\s]+\s*', '', text).strip()
     lines = text.splitlines()
     title_line = lines[0].strip("# ").strip() if lines else "( U̴̺͎͙̔͆̔n̴͙̦̟͛̾͝t̸̼̘̺͑̽̽i̸̝͖̻͋̿͊t̴͉͎̟͊͒̕l̸̝̞͒̕̕è̴͉̫̫̒̓d̴̙͎̟̓͝͝ )"
     body_md = "\n".join(lines[1:])
@@ -120,6 +124,12 @@ for filename in sorted(os.listdir(BLOG_DIR)):
     for i, block in enumerate(blocks):
         html_body = html_body.replace(f"__BLOCK_{i}__", block)
         
+    #作った人たちの追加
+    author_html = ""
+    if author_id:
+        author_html = f'<div class="作った人たち">{author_id}</div>\n'
+    
+
     #-ここまで構文弄り-
     summary_text = re.sub(r'<div class="目次">.*?</div>', '', html_body, flags=re.DOTALL)
     summary_text = re.sub(r'<span class="カーソルを">.*?</span>', '', summary_text, flags=re.DOTALL)
@@ -133,7 +143,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
 
     full_html = re.sub(
         r'<ブログの中身>',
-        f'\n<h1>{title_line}</h1>\n{html_body}\n',
+        f'\n<h1>{title_line}</h1>\n{author_html}{html_body}\n',
         full_html,
         flags=re.DOTALL,
     )
@@ -177,6 +187,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         "summary": summary_100,
         "date": date_str,
         "sortDate": date_obj,
+        "author": author_id,
     })
 
 #index.html
@@ -185,7 +196,7 @@ blogs.sort(key=lambda b: b["sortDate"], reverse=True)
 index_content = ""
 for b in blogs:
     index_content += f"""
-<a class="ブログ" href="{b['filename']}">
+<a class="ブログ" id="{b['author']}の記事" href="{b['filename']}">
     <div class="ブログのサムネイル">
         <img alt="" src="{b['img']}">
     </div>
@@ -200,9 +211,37 @@ for b in blogs:
 """
 
 index_html = blogframe_html
+replacement_html = '''
+
+<div class="横に狭い分類">
+    <soan class="チェックボックスたち">
+        <span class="チェックボックス">
+            <input type="checkbox" id="hazuquを表示" checked>
+            <label for="hazuquを表示">hazuqu</label>
+        </span>
+
+        <span class="チェックボックス">
+            <input type="checkbox" id="思案を表示" checked>
+            <label for="思案を表示">思案</label>
+        </span>
+
+        <span class="チェックボックス">
+            <input type="checkbox" id="yimiruを表示" checked>
+            <label for="yimiruを表示">yimiru</label>
+        </span>
+        
+        <span class="チェックボックス">
+            <input type="checkbox" id="ideoavesを表示" checked>
+            <label for="ideoavesを表示">ideoaves</label>
+        </span>
+    </span>
+</div>
+<div class="横に狭い分類">
+''' + index_content
+
 index_html = re.sub(
     r'<div class="横に狭い分類">.*?</div>.*?</div>.*?</div>',
-    f'<div class="横に狭い分類">\n{index_content}',
+    replacement_html,
     index_html,
     flags=re.DOTALL,
 )
