@@ -228,7 +228,7 @@ a[href]:visited {
 }
 
 .バナー {
-    display: block;
+    display: inline-block;
     width: 200px;
     aspect-ratio: 4;
 }
