@@ -1,0 +1,18 @@
+{
+    "2025-10-31.html": {
+        "filename": "2025-10-31.html",
+        "title": "ブログらしきものを作る。",
+        "img": "blog_img/test.png",
+        "summary": "noteが微妙にSNS過ぎてあまり嬉しくないのと、もう少しつぶやき感覚でありながらscrapboxほど簡単ではない手数の環境を手に入れたくなりました。 noteは背景が白すぎる。 構造としては blo...",
+        "date": "2025-10-31",
+        "author": "yimiru"
+    },
+    "2025-11-14.html": {
+        "filename": "2025-11-14.html",
+        "title": "AE向けのXY別軸の桑原(Kuwahara)フィルタ",
+        "img": "blog_img/kuwahara_thumb.jpg",
+        "summary": "映像を作りました こういう映像を作りました。手書き感の演出としてKuwaharaフィルタを使う予定でしたが、既存エフェクトプラグインでは応用できなさそうなことと、実装に関してすでに計算式を入手できて簡...",
+        "date": "2025-11-14",
+        "author": "hazuqu"
+    }
+}

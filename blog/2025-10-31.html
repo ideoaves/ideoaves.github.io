@@ -28,7 +28,7 @@
             
 <h1>ブログらしきものを作る。</h1>
 <div class="作った人たち">yimiru</div>
-<div class="目次"><h4>目次</h4><a href="#構文の一覧">構文の一覧</a><br><a href="#タイトル系" class="h2">タイトル系</a><br><a href="#このように" class="h2">このように</a><br><a href="#ある-">ある！！！！！</a><br><a href="#埋め込み-画像" class="h2">埋め込み、画像</a><br><a href="#書式" class="h2">書式</a><br><a href="#おわりに">おわりに</a><br></div><br>
+<div class="目次"><h4>目次</h4><a href="#構文の一覧">構文の一覧</a><br><a href="#タイトル系" class="h2">タイトル系</a><br><a href="#このように" class="h2">このように</a><br><a href="#ある-">ある！！！！！</a><br><a href="#埋め込み-画像" class="h2">埋め込み、画像</a><br><a href="#書式" class="h2">書式</a><br><a href="#追加修正" class="h2">追加修正</a><br><a href="#おわりに">おわりに</a><br></div><br>
 noteが微妙にSNS過ぎてあまり嬉しくないのと、もう少しつぶやき感覚でありながらscrapboxほど簡単ではない手数の環境を手に入れたくなりました。<br>
 noteは背景が白すぎる。<br>
 <br>
@@ -45,14 +45,14 @@ noteは背景が白すぎる。<br>
 <br>
 <h1 id="構文の一覧">構文の一覧</h1>大体マークダウンから持ってきていますが、改行で操作したくないので[]で囲います。<br>
 <br>
-<h2 id="タイトル系">タイトル系</h2>### ハッシュタグを使ってタイトルを出す3つが<br>
-<h2 id="このように">このように</h2><h1 id="ある-">ある！！！！！</h1>のと、4つ以上ハッシュタグがある場合は目次が勝手に追加されます。<br>
+<h2 id="タイトル系">タイトル系</h2><h3 id="ハッシュタグを使ってタイトルを出す3つが">ハッシュタグを使ってタイトルを出す3つが</h3><h2 id="このように">このように</h2><h1 id="ある-">ある！！！！！</h1>のと、4つ以上ハッシュタグがある場合は目次が勝手に追加されます。<br>
 <br>
 <h2 id="埋め込み-画像">埋め込み、画像</h2>Youtubeはリンクをコピペするだけでiframeにしてくれます。<br>
-<br>
 <iframe src="https://www.youtube.com/embed/NctffbWZ23w" allow="picture-in-picture" allowfullscreen></iframe><br>
+<br>
 Twitterも埋め込めるようにするか（今実装　しました）<br>
 <blockquote class="twitter-tweet"><a href="https://twitter.com/Ph_wa_Yimiru/status/1984168244425715913"></a></blockquote><script async src="https://platform.twitter.com/widgets.js"></script><br>
+<br>
 <span class="カーソルを"><span>ブログに画像をおいた場合</span><span>なくてもいいんですけどね。ないなら空のimgがあるだけなので。</span></span>1枚目のものをどこでも取ってきて一覧に出します。<br>
 <img alt="" src="blog_img/test.png"><br>
 <br>
@@ -60,15 +60,19 @@ Twitterも埋め込めるようにするか（今実装　しました）<br>
 <br>
 <div class="引用"><span>引用もあります<br>
 改行もできます</span></div><div class="コメント文字">画像や引用にコメントをつけるための中央揃えです</div><br>
-<br>
 コメントアウト（```）をつかえば<br>
 #構文を無視してくれます。htmlは無視されません。<br>
 https://www.youtube.com/watch?v=NctffbWZ23w<br>
 [i test.png]<br>
 ここの実装は少し手間取りましたが、結局よくわからないので一度囲われた部分を抜き取る方法にしました。<br>
 もっといい方法がある。
-
 <br>
+<br>
+<h2 id="追加修正">追加修正</h2><span class="箇条書き">12/3: jsonにまとめる方式に変更、ブログカードの追加、idで執筆者を記載しチェックボックスで操作できるように。<br>
+<span class="箇条書き">修正はtxtファイルが無い場合hmtl直打ちになる。それぐらいの責任があったほうが良いし、どうせtxtファイルの削除は手動なので面倒で消さないだろう。</span><br>
+<span class="箇条書き">ブログカードはリンクを置けば良い。以下のように。hazuquのサイトにもいずれおけるようにします。</span></span><br>
+<br>
+<a class="ブログ カード" href="2025-10-31.html"><div class="ブログのサムネイル"><img alt="" src="blog_img/test.png"></div><div class="ブログのタイトル"><h2>ブログらしきものを作る。</h2></div><div class="ブログの投稿時間">2025-10-31</div><div class="ブログの最初">noteが微妙にSNS過ぎてあまり嬉しくないのと、もう少しつぶやき感覚でありながらscrapboxほど簡単ではない手数の環境を手に入れたくなりました。 noteは背景が白すぎる。 構造としては blo...<br></div></a><br>
 <br>
 <h1 id="おわりに">おわりに</h1>継続できない気もしますが、noteで書きたくなったときに（表に出すまでもないな）と思ったときに使えればと思います。<br>
 いいねと共有ボタンもおいておきます。jsが乱数を出してくれるのですでにたくさんの評価を頂いています。ありがとうございます。<br>

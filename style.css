@@ -282,11 +282,22 @@ a[href]:visited {
     color: #000;
 }
 
+/* ここだけブログカードの話 */
+.ブログ.カード {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.ブログ.カード .ブログの最初 {
+    margin-bottom: 0;
+}
+
 main:not(:has(#hazuquを表示:checked)) #hazuquの記事 {
     display: none;
 }
 
-main:not(:has(#思案を表示:checked)) #思案の記事 {
+main:not(:has(#sianを表示:checked)) #sianの記事 {
     display: none;
 }
 
