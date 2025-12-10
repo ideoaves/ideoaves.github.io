@@ -127,6 +127,23 @@ for filename in sorted(os.listdir(BLOG_DIR)):
     # 中央揃え構文 [c 内容] を<div>タグに変換するよ。
     html_body = re.sub(r"\[c\s+([^\]]+)\]", r'<div class="コメント文字">\1</div>', html_body)
     
+    # 他のブログ記事へのリンクをブログカード形式に変換するよ。
+    def create_blog_card(match):
+        blog_filename = match.group(1)
+        # blogs_dataに記事情報があるか確認するよ。
+        blog_info = blogs_data.get(blog_filename)
+
+        if blog_info:
+            # 記事情報が見つかったら、index.htmlと同じ形式のHTMLを生成するよ。
+            return (f'<a class="ブログ カード" href="{blog_info.get("filename", "")}">'
+                    f'<div class="ブログのサムネイル"><img alt="" src="{blog_info.get("img", "")}"></div>'
+                    f'<div class="ブログのタイトル"><h2>{blog_info.get("title", "")}</h2></div>'
+                    f'<div class="ブログの投稿時間">{blog_info.get("date", "")}</div>'
+                    f'<div class="ブログの最初">{blog_info.get("summary", "")}<br></div>'
+                    '</a>')
+        return match.group(0)
+    html_body = re.sub(r"\[blog\s+((?:https?://ideoaves\.github\.io/blog/)?[\w-]+\.html)\]", create_blog_card, html_body)
+    
     # [テキスト URL] 形式のリンクを<a>タグに変換するよ。
     html_body = re.sub(r"\[([^\]\[]+?)\s+([^\]\s]+)\]", r'<a href="\2">\1</a>', html_body)
     
@@ -147,24 +164,6 @@ for filename in sorted(os.listdir(BLOG_DIR)):
     r'<script async src="https://platform.twitter.com/widgets.js"></script>',
     html_body
     )
-    
-    # 他のブログ記事へのリンクをブログカード形式に変換するよ。
-    def create_blog_card(match):
-        blog_filename = match.group(1)
-        # blogs_dataに記事情報があるか確認するよ。
-        blog_info = blogs_data.get(blog_filename)
-
-        if blog_info:
-            # 記事情報が見つかったら、index.htmlと同じ形式のHTMLを生成するよ。
-            return (f'<a class="ブログ カード" href="{blog_info.get("filename", "")}">'
-                    f'<div class="ブログのサムネイル"><img alt="" src="{blog_info.get("img", "")}"></div>'
-                    f'<div class="ブログのタイトル"><h2>{blog_info.get("title", "")}</h2></div>'
-                    f'<div class="ブログの投稿時間">{blog_info.get("date", "")}</div>'
-                    f'<div class="ブログの最初">{blog_info.get("summary", "")}<br></div>'
-                    '</a>')
-        return match.group(0)
-    html_body = re.sub(r"(?:https?://ideoaves\.github\.io/blog/)?([\w-]+\.html)", create_blog_card, html_body)
-    
     
     # 残った改行文字を<br>タグに変換するよ。
     html_body = re.sub(r"\r\n|\r|\n", "<br>\n", html_body)
