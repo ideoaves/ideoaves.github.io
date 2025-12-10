@@ -15,19 +15,11 @@
         "date": "2025-11-14",
         "author": "hazuqu"
     },
-    "2025-12-03.html": {
-        "filename": "2025-12-03.html",
-        "title": "年の報告2025",
-        "img": "blog_img/November.png",
-        "summary": "2025年お疲れ様でした全然できてないですね。 1月このブログサイトも含めたクリエイティブコレクティブを正式に始動しました。 これは特に肩書を「ideoaves」と称するものではなくて、ゆるやかに必要...",
-        "date": "2025-12-03",
-        "author": "hazuqu sian yimiru ideoaves"
-    },
     "2025-12-10.html": {
         "filename": "2025-12-10.html",
         "title": "CRTディスプレイの再現",
         "img": "blog_img/CRTscan_thum.png",
-        "summary": "ファイルCRT_scan.fs 機能blur横向きに少しぼかしを入れます。メイン機能ではないのでぼかしすぎると粗が出ます。 RGB %RGBの粒の表示度です。ピクセルが小さくなると実際のモニターやco...",
+        "summary": "ファイルCRT_scan.fs 使い方ISF4AEを使ってください。詳しくは AE向けのXY別軸の桑原(Kuwahara)フィルタ2025-11-14映像を作りました こういう映像を作りました。手書き...",
         "date": "2025-12-10",
         "author": "hazuqu"
     }

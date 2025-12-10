@@ -4,6 +4,13 @@ id=hazuqu
 # ファイル
 [CRT_scan.fs https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/CRT_scan.fs]
 
+# 使い方
+ISF4AEを使ってください。詳しくは
+2025-11-14.html
+にあります。
+またTIMEを使う関係でUse Layer Timeにチェックが点いていないと思います。これは付けてください。
+またはTIMEを動かしても良いです。Slowmotionより厳密に時間操作できるかも知れませんね。
+
 # 機能
 ### blur
 横向きに少しぼかしを入れます。メイン機能ではないのでぼかしすぎると粗が出ます。

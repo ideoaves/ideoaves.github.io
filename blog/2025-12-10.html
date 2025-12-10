@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>CRTディスプレイの再現 ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
-    <meta name="description" content="ファイルCRT_scan.fs 機能bl...">
+    <meta name="description" content="ファイルCRT_scan.fs 使い方I...">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="CRTディスプレイの再現">
-    <meta name="twitter:description" content="ファイルCRT_scan.fs 機能bl...">
+    <meta name="twitter:description" content="ファイルCRT_scan.fs 使い方I...">
     <meta name="twitter:image" content="https://ideoaves.github.io/blog/blog_img/CRTscan_thum.png">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
@@ -28,8 +28,15 @@
             
 <h1>CRTディスプレイの再現</h1>
 <div class="作った人たち">hazuqu</div>
+<div class="目次"><h4>目次</h4><a href="#ファイル">ファイル</a><br><a href="#使い方">使い方</a><br><a href="#機能">機能</a><br><a href="#日記">日記</a><br></div><br>
 <img alt="" class="ブログの画像" src="blog_img/CRTscan_thum.png"><br>
 <h1 id="ファイル">ファイル</h1><a href="https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/CRT_scan.fs">CRT_scan.fs</a><br>
+<br>
+<h1 id="使い方">使い方</h1>ISF4AEを使ってください。詳しくは<br>
+<a class="ブログ カード" href="2025-11-14.html"><div class="ブログのサムネイル"><img alt="" src="blog_img/kuwahara_thumb.jpg"></div><div class="ブログのタイトル"><h2>AE向けのXY別軸の桑原(Kuwahara)フィルタ</h2></div><div class="ブログの投稿時間">2025-11-14</div><div class="ブログの最初">映像を作りました こういう映像を作りました。手書き感の演出としてKuwaharaフィルタを使う予定でしたが、既存エフェクトプラグインでは応用できなさそうなことと、実装に関してすでに計算式を入手できて簡...<br></div></a><br>
+にあります。<br>
+またTIMEを使う関係でUse Layer Timeにチェックが点いていないと思います。これは付けてください。<br>
+またはTIMEを動かしても良いです。Slowmotionより厳密に時間操作できるかも知れませんね。<br>
 <br>
 <h1 id="機能">機能</h1><h3 id="blur">blur</h3>横向きに少しぼかしを入れます。メイン機能ではないのでぼかしすぎると粗が出ます。<br>
 <h3 id="RGB-">RGB %</h3>RGBの粒の表示度です。ピクセルが小さくなると実際のモニターやcompの解像度と干渉して変な表示になりますので、Pixel sizeが小さいときにはRGBの％を落としてください<br>
