@@ -1,4 +1,3 @@
-# 必要なモジュールをインポートするよ。
 import os
 import re
 from datetime import datetime
@@ -34,7 +33,6 @@ processed_filenames = set()
 
 # ブログディレクトリ内のファイルを一つずつ処理するループだよ。
 for filename in sorted(os.listdir(BLOG_DIR)):
-    # 拡張子が.txtのファイルだけを処理の対象にするよ。
     if not filename.endswith(".txt"):
         continue
 
@@ -62,7 +60,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
 
     html_body = body_md
     
-    # --- ここからMarkdown風の独自構文をHTMLに変換していくよ ---
+    # --- ここからMarkdown風オリジナル構文をHTMLに変換していくよ ---
 
     # ```で囲まれたコードブロックを、他の正規表現処理から保護するために一時的に置き換えるよ。
     blocks = []
@@ -82,12 +80,12 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         level = len(hashes)
         title = m.group(2).strip()
         anchor = anchorize(title)
-        if level <= 2: # h1とh2のみを目次に追加
+        if level <= 2: # h1とh2のみを目次に追加するよ。
             toc.append((level, title, anchor))
         return f'<h{level} id="{anchor}">{title}</h{level}>'
     html_body = re.sub(r"^(#{1,3})\s+(.+?)(?:\r?\n|$)", repl, html_body, flags=re.MULTILINE)
 
-    # 目次の項目が3つより多ければ、目次HTMLを生成して記事の先頭に追加するよ。
+    # 目次HTMLを生成して記事の先頭に追加するよ。
     if len(toc) > 3:
         toc_html = '<div class="目次"><h4>目次</h4>'
         for level, title, anchor in toc:
@@ -103,8 +101,14 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         html_body,
     )
     
-    # 画像構文 [i ファイル名] を<img>タグに変換するよ。
-    html_body = re.sub(r"\[i\s+([^\]]+)\]", r'<img alt="" src="blog_img/\1">', html_body)
+    # 画像構文 [i ファイル名] を<img>タグに変換するよ。URLの場合はそのまま、ファイル名の場合はblog_img/を付けるよ。
+    def replace_image_tag(match):
+        image_path = match.group(1)
+        if image_path.startswith("http"):
+            return f'<img alt="" class="ブログの画像" src="{image_path}">'
+        else:
+            return f'<img alt="" class="ブログの画像" src="blog_img/{image_path}">'
+    html_body = re.sub(r"\[i\s+([^\]]+)\]", replace_image_tag, html_body)
     
     # 小さい文字構文 [s 文字] を<span>タグに変換するよ。
     html_body = re.sub(r"\[s\s+([^\]]+)\]", r'<span class="小さい文字">\1</span>', html_body)
@@ -158,7 +162,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
                     f'<div class="ブログの投稿時間">{blog_info.get("date", "")}</div>'
                     f'<div class="ブログの最初">{blog_info.get("summary", "")}<br></div>'
                     '</a>')
-        return match.group(0) # 見つからなければ元のテキストをそのまま返すよ。
+        return match.group(0)
     html_body = re.sub(r"(?:https?://ideoaves\.github\.io/blog/)?([\w-]+\.html)", create_blog_card, html_body)
     
     
@@ -179,7 +183,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         author_html = f'<div class="作った人たち">{author_id}</div>\n'
     
 
-    # --- ここからサマリー（要約）とメタ情報を生成するよ ---
+    # --- ここからサマリーとメタ情報を生成するよ ---
 
     # HTMLタグなどを取り除いて、記事一覧ページに表示する要約文を生成するよ。
     summary_text = re.sub(r'<div class="目次">.*?</div>', '', html_body, flags=re.DOTALL)
@@ -201,7 +205,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         flags=re.DOTALL,
     )
 
-    # 個別記事ページの<head>内のタイトルやdescriptionなどのメタ情報を、記事固有のものに差し替えるよ。
+    # 個別記事ページの<head>内のメタ情報を、記事固有のものに差し替えるよ。
     if output_filename != "index.html":
         full_html = re.sub(
             r"<title>.*?</title>",
@@ -309,5 +313,4 @@ with open(INDEX_PATH, "w", encoding="utf-8") as f:
 with open(JSON_PATH, "w", encoding="utf-8") as f:
     json.dump(blogs_data, f, ensure_ascii=False, indent=4)
 
-# 処理が終わったことを知らせるメッセージを表示するよ。
 print("ブログ更新　いえい。")

@@ -368,6 +368,12 @@ main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
     content: ">";
 }
 
+.ブログの画像 {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+}
+
 .承認欲求 {
     display: flex;
     justify-content: flex-end;
@@ -416,5 +422,13 @@ main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
 
     .目次 {
         margin: 0;
+    }
+
+    .ブログ.カード {
+        width: 90%;
+    }
+
+    .ブログの画像 {
+        width: 100%;
     }
 }

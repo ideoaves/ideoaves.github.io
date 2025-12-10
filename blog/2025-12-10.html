@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CRTディスプレイの再現 ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="ファイルCRT_scan.fs 機能bl...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CRTディスプレイの再現">
+    <meta name="twitter:description" content="ファイルCRT_scan.fs 機能bl...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/blog_img/CRTscan_thum.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+        <div class="横に狭い分類">
+            
+<h1>CRTディスプレイの再現</h1>
+<div class="作った人たち">hazuqu</div>
+<img alt="" class="ブログの画像" src="blog_img/CRTscan_thum.png"><br>
+<h1 id="ファイル">ファイル</h1><a href="https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/CRT_scan.fs">CRT_scan.fs</a><br>
+<br>
+<h1 id="機能">機能</h1><h3 id="blur">blur</h3>横向きに少しぼかしを入れます。メイン機能ではないのでぼかしすぎると粗が出ます。<br>
+<h3 id="RGB-">RGB %</h3>RGBの粒の表示度です。ピクセルが小さくなると実際のモニターやcompの解像度と干渉して変な表示になりますので、Pixel sizeが小さいときにはRGBの％を落としてください<br>
+<h3 id="Pixel-size">Pixel size</h3>ドットの大きさです。めちゃくちゃ大きくするとRGBの粒が見えます。<span class="カーソルを"><span>今回は太いビームとしてRGBRGBが光ります</span><span>仕組み上はスリットから3ビーム入って、RGBそれぞれに同時に照射されます。今回はビームを絞りきれていない状態といえます</span></span>。<br>
+1ストライプのビームにしたいときは<br>
+<div class="引用"><span><span class="小さい文字">// R,G,B単体のサブピクセルのサイズ。<br>
+vec2 RGBdotSize = vec2(pixelScale / 6, pixelScale); </span></span></div>のpixelScale / 6をpixelScale / 3にするといいです。<br>
+アパーチャグリルと呼ばれるすだれ状の蛍光体を参照しています。<br>
+<h3 id="Decay">Decay</h3>減衰の速度です。10にすると一切減衰しなくなります。<br>
+過剰に下げるとSlowmotionで走査の速度を遅らせることなく走査していますよ感がでます。<br>
+<h3 id="Slowmotion">Slowmotion</h3>実時間に対して遅くします。1にするとほぼリアルタイムになりますが、完全に1フレームで1周にすると走査する場所が全くおなじになるため、あえて1ライン程度ずらしています。ゆっくり動く横向きの線が現れます。<br>
+<h3 id="-interlace-小文字になってる-今気づきました-OR-Progressive"><span class="カーソルを"><span>interlace</span><span>小文字になってる！今気づきました</span></span> OR Progressive</h3>プログレッシブも対応です。<br>
+インターレースが奇数偶数をそれぞれ走査するのに対し、プログレッシブは全行をそのまま走査します。<br>
+なお速度が2倍になるのでインターレースの技術的メリットは無いです。<br>
+<br>
+<h1 id="日記">日記</h1>ISFで遊ぶのが日課になってきました。<br>
+<br>
+CRTディスプレイの質感を作りたかったのですが、<br>
+むしろインターレースの走査の再現に興味が向いてしまいました。<br>
+そのため閃光や減衰の仕方には改良の余地を残していますが、ここまで来ると重みづけでなんとかなると思いますので、どれぐらいデフォルメするか、演出上過度に”らしい”感じにできるか、の自由度に振っています。
+
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+        </div>
+
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>
