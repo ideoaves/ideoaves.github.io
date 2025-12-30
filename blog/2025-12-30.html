@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ポートフォリオの逆 ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="PCの操作系統を監視してビジュアライズす...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ポートフォリオの逆">
+    <meta name="twitter:description" content="PCの操作系統を監視してビジュアライズす...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/blog_img/sche1.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+        <div class="横に狭い分類">
+            
+<h1>ポートフォリオの逆</h1>
+<div class="作った人たち">hazuqu</div>
+PCの操作系統を監視してビジュアライズするツールを用意しました。<br>
+いつも起動時に動き始めるpyファイルがあり、私の生活を少しだけ雑にしてくれるのですが、その機能の一つです。<br>
+<img alt="" class="ブログの画像" src="blog_img/sche1.png"><br>
+<br>
+<h1 id="構造">構造</h1>pyでPCの状態をみてリストに放り込みます。初期は操作毎に記録していましたが今は10分単位にしています。なので10分未満で操作しても記録には残りません。<br>
+<span class="小さい文字">
+record = {<br>
+                "timestamp": 時間,<br>
+                "active_window": いまアクティブなウィンドウ,<br>
+                "idle_seconds": 放置してからのカウントアップ,<br>
+                "audio_playing": 音声が流れているかどうか<br>
+            }
+</span>
+<br>
+そのリストファイルを読んでp5.jsでrectを大量に置きます。<br>
+p5にしたのは単に慣れているからです。<br>
+<img alt="" class="ブログの画像" src="blog_img/sche2.png">
+<div class="コメント文字">テレタイプかタイプライターアートのような見た目にできるスキンも用意しました</div><br>
+<br>
+<h1 id="もともと">もともと</h1>SNSを見ていたらp5芸でrectをランダムに散らすグラフィックと、<span class="カーソルを"><span>PCのスクショをOCRでテキスト化してJSONにしてAIで読み取らせて日報を作るツール</span><span><a href="https://twitter.com/kensuu/status/2003012829914501378">https://twitter.com/kensuu/status/2003012829914501378</a></span></span>が流れてきたので作りました。<br>
+<br>
+何のソフトをどのように扱っているかわからない反面、放置時間やネットサーフィンに時間を費やしている箇所が非常によく見えて、自分がなにをしていなかったのかを視覚化するツールとして適当に感じました。<br>
+ここからrectを過剰装飾して見づらくしていきました。<br>
+<br>
+その用途で現在かなり活躍していまして、思ったより仕事の進捗に影響が出ていて良いです。<br>
+それと自分の24+n時間周期の体内時計のズレや、体調が悪くなってベッドに行くタイミングだけ24時間周期で来ていることや、<span class="カーソルを"><span>2ソフトを往復しているときにYoutubeの再生rectが優位に増えること</span><span>つまり、マルチタスク時に想像以上に集中が足りていないということですね</span></span>がわかって面白かったです。<br>
+<br>
+もしデータが大量に集まったら1ヶ月単位でグラフィックを用意して貼れたら良いなと思います。ポートフォリオの逆です。
+
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+        </div>
+
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>

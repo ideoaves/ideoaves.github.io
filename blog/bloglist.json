@@ -22,5 +22,13 @@
         "summary": "ファイルCRT_scan.fs 使い方ISF4AEを使ってください。詳しくは AE向けのXY別軸の桑原(Kuwahara)フィルタ にあります。 またTIMEを使う関係でUse Layer Timeに...",
         "date": "2025-12-10",
         "author": "hazuqu"
+    },
+    "2025-12-30.html": {
+        "filename": "2025-12-30.html",
+        "title": "ポートフォリオの逆",
+        "img": "blog_img/sche1.png",
+        "summary": "PCの操作系統を監視してビジュアライズするツールを用意しました。 いつも起動時に動き始めるpyファイルがあり、私の生活を少しだけ雑にしてくれるのですが、その機能の一つです。 構造pyでPCの状態をみて...",
+        "date": "2025-12-30",
+        "author": "hazuqu"
     }
 }
