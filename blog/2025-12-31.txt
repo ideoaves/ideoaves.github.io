@@ -1,0 +1,150 @@
+年の報告2025
+id=hazuqu ideoaves
+[i November.png]
+# 2025年お疲れ様でした
+木葉はづくです。
+今年は全体的に外側に出過ぎて徘徊している気分でした。ちょっと遠すぎるかもです。
+もうすこし内側に行きたいですね。
+ともかく、良いお年を。
+
+# 今年した新しいこと
+## ideoaves
+このブログサイトも含めたクリエイティブコレクティブを正式に始動しました。
+これは特に肩書を「ideoaves」と称するものではなくて、ゆるやかに必要なものを自分の範疇を超えて入手するハブに近いものです。
+比較的色々できたかなと思います。
+
+それとideoavesのgithub pagesを新調してこのブログを作るようにもなりましたね。
+
+## 𝗣𝗢𝒊𝗡𝗧 𝗡𝗘𝗠𝗢
+Discord個人鯖[『𝗣𝗢𝒊𝗡𝗧 𝗡𝗘𝗠𝗢』　https://discord.gg/dcqAR8RyPn]をリニューアルしました。
+よくある制作のインプットを貼る場ではありますが、近い友人を固めていないため各々の分野が被っていないという利点があります。
+Twitterのおすすめ欄の焼き増しではないようにしているので、個人鯖群に飽きた人には少し刺激になると思います。
+```
+<style>
+iframe {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+}
+</style>
+```
+## ディレクション
+https://www.youtube.com/watch?v=DY66cyRWQW8
+去年から継続して演出面での話をする頻度を増やしています。
+去年に「画面内映像」という肩書を頂いたのでモニターを直撮りする演出を試したり
+<デザインの段階で美学ミームの文脈に枝葉を伸ばさないか提案をしてみたり{[i https://pbs.twimg.com/media/GwsrlvUbgAItrK4?format=jpg&name=large]}>していました。
+まだ型が定まっていない段階でもしかすると面白い話ができるかも知れません。
+
+## ISF, python
+もともとjs周辺ではコードを書いていましたが、canvasの外にプログラム周辺でできることを増やしたく、
+内々でpython製のツールを作ったり、ISFを使ってAE上で都合のいいエフェクトを作ったりしています。
+https://x.com/HAZUQU/status/1998300078818332782
+
+# 今年楽しかったこと
+## 映像の仕事
+ディレクションの話にもつながりますが、面白いフォーマットやフローの仕事が多かったです。
+```
+コンテストで受賞した皆様のイラストをめちゃくちゃにするとか<br>
+<iframe src="https://www.youtube.com/embed/ud27TX0XBZM" allow="picture-in-picture" allowfullscreen"></iframe><br>
+<br>
+ずっと16分割された2DCGとか<br>
+<iframe src="https://www.youtube.com/embed/1moa2h4eQ3M" allow="picture-in-picture" allowfullscreen></iframe><br>
+<br>
+アニメーション・p5jsグラフィック・コンポジットを同時進行するとか<br>
+<iframe src="https://www.youtube.com/embed/-6P17fTp8FQ" allow="picture-in-picture" allowfullscreen></iframe><br>
+```
+他にも<縦向きのサイネージにブルスクを出したり{[i https://pbs.twimg.com/media/G6AqVbjbYAA63ST?format=jpg&name=large]}>、<AA（アスキーアート）の肩書をもらったり {[i https://pbs.twimg.com/amplify_video_thumb/1966840379791302656/img/JaRg64bEBV9GzBzU.jpg]}>、<画像をZ深度とってトランジションしたり{[i flasluv.png]}>していました。
+もっとYoutubeをいろいろにしたい！！！
+
+## 生活
+CDs関連で<GOLD DISC{検索すると様子が見えます: <a href="https://x.com/search?q=GOLDDISC%20CDs">https://x.com/search?q=GOLDDISC%20CDs</a>}>に出たりYMWに今年も出たりしました。
+[i https://pbs.twimg.com/media/GzqkR6Lb0AA7Vrn?format=jpg&name=medium]
+他にはマルチネ20等のクラブや音楽イベントにお邪魔しました。
+
+あとはちょっとした集まりに出向くようになりました。去年よりももっと人と交流する体力がついてきました。
+今年はちょっと重くなってしまった鬱病の治療がてらほとんど動かずにいましたので、来年は健康になれると良いなと思います。
+[s ちなみに1ヶ月に1回程度しか外に出ていないわけで、家で何をしているのかと言うと、
+我々の部屋にはソフト・ハード双方の視覚・聴覚制作ツールが一通りあり、触って、
+Youtubeでホロライブを見て、どこからか出てきた本を読んで、
+色々なクリエイティブチームと通話し茶々を入れています。
+]
+
+# ideoaves各々の動向
+メンバーの総括もしておきます。
+```
+<style>
+        .worksList {
+            font-family:
+                "IBM Plex Mono",
+                "IBM Plex Sans JP",
+                "IBM Plex Sans SC",
+                sans-serif;
+            font-style: italic;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container {
+            position: relative;
+        }
+
+        .item {
+            display: block;
+            position: absolute;
+            white-space: nowrap;
+            line-height: 1;
+        }
+
+        .month {
+            font-size: 11px;
+            font-weight: 100;
+            color: #FFF;
+        }
+
+        .day {
+            font-size: 8px;
+            font-weight: 100;
+            color: #FFF;
+        }
+
+        .user {
+            font-size: 14px;
+            color: #000;
+            font-weight: 200;
+            z-index: 10;
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: 400;
+            background: radial-gradient(ellipse closest-side, #d2d3d5, transparent);
+            border-radius: 50%;
+            padding: 25px 40px;
+
+        }
+
+        .credit {
+            font-size: 10px;
+            color: #FFF;
+            font-weight: 200;
+        }
+</style>
+```
+### 木葉はづく
+[hazuquの制作リストを御覧ください https://hazuqu.github.io/about.html]
+
+### 折メ思案
+```
+<span class="user">宇推くりあ</span><span class="title">H3ロケット打上げ成功1周年のお祝いしよ！！！</span><span class="credit">サムネイル</span><br>
+<span class="user">________</span><span class="title">書留</span><span class="credit">動画用イラスト</span><br>
+<span class="user">ウソのつきかた</span><span class="title">泡沫二进</span><span class="credit">同人寄稿</span><br>
+<span class="user">吉田楓</span><span class="title">ウソのつづりかた</span><span class="credit">同人寄稿</span><br>
+
+```
+### ph環yimiru
+```
+<span class="user">Gradierwerk</span><span class="title">多島海 Vol.1 特集：都市SF</span><span class="credit">表紙写真</span><br>
+```

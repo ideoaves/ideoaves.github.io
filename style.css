@@ -18,7 +18,7 @@ body {
     line-height: 1.8;
     font-family: "Zen Kaku Gothic New", "Noto Sans SC", sans-serif;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 img {
@@ -372,6 +372,10 @@ main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
     display: block;
     margin: 0 auto;
     width: 60%;
+}
+
+.twitter-tweet {
+    margin: 0 auto;
 }
 
 .承認欲求 {
