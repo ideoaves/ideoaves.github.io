@@ -71,80 +71,15 @@ Youtubeでホロライブを見て、どこからか出てきた本を読んで�
 
 # ideoaves各々の動向
 メンバーの総括もしておきます。
-```
-<style>
-        .worksList {
-            font-family:
-                "IBM Plex Mono",
-                "IBM Plex Sans JP",
-                "IBM Plex Sans SC",
-                sans-serif;
-            font-style: italic;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-        #container {
-            position: relative;
-        }
-
-        .item {
-            display: block;
-            position: absolute;
-            white-space: nowrap;
-            line-height: 1;
-        }
-
-        .month {
-            font-size: 11px;
-            font-weight: 100;
-            color: #FFF;
-        }
-
-        .day {
-            font-size: 8px;
-            font-weight: 100;
-            color: #FFF;
-        }
-
-        .user {
-            font-size: 14px;
-            color: #000;
-            font-weight: 200;
-            z-index: 10;
-        }
-
-        .title {
-            font-size: 16px;
-            font-weight: 400;
-            background: radial-gradient(ellipse closest-side, #d2d3d5, transparent);
-            border-radius: 50%;
-            padding: 25px 40px;
-
-        }
-
-        .credit {
-            font-size: 10px;
-            color: #FFF;
-            font-weight: 200;
-        }
-</style>
-```
 ### 木葉はづく
 [hazuquの制作リストを御覧ください https://hazuqu.github.io/about.html]
 
 ### 折メ思案
-```
-<span class="user">宇推くりあ</span><span class="title">H3ロケット打上げ成功1周年のお祝いしよ！！！</span><span class="credit">サムネイル</span><br>
-<span class="user">________</span><span class="title">書留</span><span class="credit">動画用イラスト</span><br>
-<span class="user">ウソのつきかた</span><span class="title">泡沫二进</span><span class="credit">同人寄稿</span><br>
-<span class="user">吉田楓</span><span class="title">ウソのつづりかた</span><span class="credit">同人寄稿</span><br>
+[- 宇推くりあ - H3ロケット打上げ成功1周年のお祝いしよ！！！ (サムネイル)
+________ - 書留 (動画用イラスト)
+ウソのつきかた - 泡沫二进 (同人寄稿)
+吉田楓 - ウソのつづりかた (同人寄稿)]
 
-```
 ### ph環yimiru
-```
-<span class="user">Gradierwerk</span><span class="title">多島海 Vol.1 特集：都市SF</span><span class="credit">表紙写真</span><br>
-```
+[- Gradierwerk - 多島海 Vol.1 特集：都市SF (表紙写真)]
