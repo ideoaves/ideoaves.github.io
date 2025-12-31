@@ -15,7 +15,7 @@ body {
     max-width: 1500px;
     margin: 0 auto;
     /* 基本的な文字の扱い */
-    line-height: 1.8;
+    line-height: 2.1;
     font-family: "Zen Kaku Gothic New", "Noto Sans SC", sans-serif;
     font-weight: 300;
     font-size: 15px;
@@ -426,6 +426,7 @@ main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
 
     .目次 {
         margin: 0;
+        margin-bottom: 20px;
     }
 
     .ブログ.カード {
