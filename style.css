@@ -374,6 +374,10 @@ main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
     width: 60%;
 }
 
+.ブログの画像:first-of-type {
+    width: 100%;
+}
+
 .twitter-tweet {
     margin: 0 auto;
 }

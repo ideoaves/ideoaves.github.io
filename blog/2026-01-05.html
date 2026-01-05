@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>資料画像を軽く整理するツール ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="目的Scrapbox主体で貯めている60...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="資料画像を軽く整理するツール">
+    <meta name="twitter:description" content="目的Scrapbox主体で貯めている60...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/blog_img/image_org.jpg">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+        <div class="横に狭い分類">
+            
+<h1>資料画像を軽く整理するツール</h1>
+<div class="作った人たち">yimiru</div>
+<div class="目次"><h4>目次</h4><a href="#目的">目的</a><br><a href="#既存ツールの問題点" class="h2">既存ツールの問題点</a><br><a href="#欲しかった機能">欲しかった機能</a><br><a href="#今後欲しい機能">今後欲しい機能</a><br></div><br>
+<img alt="" class="ブログの画像" src="blog_img/image_org.jpg"><br>
+<h1 id="目的">目的</h1>Scrapbox主体で貯めている60-70年代の国内の様子について、画像のリンク切れや集積の難しさの問題があり、<br>
+またローカルではエクスプローラーのファイル分けと既存のタグつけツールの煩雑さの問題もあったため、<br>
+両者を回避したツールを制作したかった。<br>
+また今年のIdeoavesではpython強化年としていたため、json + python(tkinter)で制作した。<br>
+実際に作ってみてかなり情報をまとめやすくなった。またjsonを直に編集することで想定よりもタグ付けのストレスが減った。<br>
+<h2 id="既存ツールの問題点">既存ツールの問題点</h2>タグやフラッグといった機能が多く過剰。起動毎に画像を読み込む時間がかかる。<br>
+メタデータ情報はそのままデータベースとするには取り出しにくく、扱う画像の大半がネット上のもののためメタデータの価値がない。<br>
+<br>
+<h1 id="欲しかった機能">欲しかった機能</h1>撮影された時期を重視するため時系列順に並ぶ。<br>
+・出典に記載されている時間は欠落する場合があるため、年、年月だけが書かれていてもソートできるようにする。<br>
+・昭和の画像のみを集めるため、簡易的な計算で西暦と元号を両方入力可能。<br>
+タグ検索ができる。また、タグは容易に書き換えられる。<br>
+<br>
+<h1 id="今後欲しい機能">今後欲しい機能</h1>場所の解像度がまちまちなため、既存の住所データを用いて大きな範囲での検索を可能にしたい。<br>
+地図にオーバーレイし、画像の表示をグリッドではなく場所で一致させる。タイムラインウィンドウ（現状）とマッピングウィンドウをそれぞれ用意する。
+
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+        </div>
+
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>
