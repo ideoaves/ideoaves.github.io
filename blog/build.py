@@ -282,8 +282,8 @@ replacement_html = '''
         </span>
 
         <span class="チェックボックス">
-            <input type="checkbox" id="思案を表示" checked>
-            <label for="思案を表示">思案</label>
+            <input type="checkbox" id="sianを表示" checked>
+            <label for="sianを表示">思案</label>
         </span>
 
         <span class="チェックボックス">
