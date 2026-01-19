@@ -105,9 +105,14 @@ for filename in sorted(os.listdir(BLOG_DIR)):
     def replace_image_tag(match):
         image_path = match.group(1)
         if image_path.startswith("http"):
-            return f'<img alt="" class="ブログの画像" src="{image_path}">'
+            src = image_path
         else:
-            return f'<img alt="" class="ブログの画像" src="blog_img/{image_path}">'
+            src = f"blog_img/{image_path}"
+
+        if image_path.lower().endswith(('.mp4', '.webm', '.mov')):
+            return f'<video class="ブログの映像" src="{src}" controls loop></video>'
+        else:
+            return f'<img alt="" class="ブログの画像" src="{src}">'
     html_body = re.sub(r"\[i\s+([^\]]+)\]", replace_image_tag, html_body)
     
     # 小さい文字構文 [s 文字] を<span>タグに変換するよ。
@@ -186,7 +191,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
 
     # HTMLタグなどを取り除いて、記事一覧ページに表示する要約文を生成するよ。
     summary_text = re.sub(r'<div class="目次">.*?</div>', '', html_body, flags=re.DOTALL)
-    summary_text = re.sub(r'<span class="カーソルを">.*?</span>', '', summary_text, flags=re.DOTALL)
+    summary_text = re.sub(r'<span class="カーソルを"[^>]*><span>(.*?)</span>.*?</span>', r'\1', summary_text, flags=re.DOTALL)
     summary_text = re.sub(r"<[^>]+>", "", summary_text).strip()
     summary_text = re.sub(r"\s+", " ", summary_text)
 
