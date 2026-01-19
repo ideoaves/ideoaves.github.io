@@ -418,6 +418,10 @@ main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
         font-size: 0.8em;
     }
 
+    .カーソルを {
+        text-decoration: underline #e0e0e080;
+    }
+
     /* indexの話 */
     .扉絵 {
         width: 100%;
