@@ -8,7 +8,7 @@
 }
 
 html {
-    background-color: #AAA;
+    background-color: #CCC;
 }
 
 body {
@@ -454,4 +454,5 @@ main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
     .ブログの映像 {
         width: 100%;
     }
+
 }
