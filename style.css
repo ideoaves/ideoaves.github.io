@@ -230,7 +230,14 @@ a[href]:visited {
 .バナー {
     display: inline-block;
     width: 200px;
-    aspect-ratio: 4;
+    aspect-ratio: 5;
+    vertical-align: text-top;
+}
+
+a.バナー:not(:has(img)) {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
 }
 
 .SNSへのリンクたち a {
