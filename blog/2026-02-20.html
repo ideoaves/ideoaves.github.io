@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>水槽越しにモニターを撮る。 ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="にっけいさんの『psyche』のMVをし...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="水槽越しにモニターを撮る。">
+    <meta name="twitter:description" content="にっけいさんの『psyche』のMVをし...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/blog_img/psy_1.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+        <div class="横に狭い分類">
+            
+<h1>水槽越しにモニターを撮る。</h1>
+<div class="作った人たち">hazuqu</div>
+<div class="目次"><h4>目次</h4><a href="#アイデア">アイデア</a><br><a href="#構成">構成</a><br><a href="#操作">操作</a><br><a href="#各種モニタについて">各種モニタについて</a><br></div><br>
+<blockquote class="twitter-tweet"><a href="https://twitter.com/n_k_kei/status/2024861601828909524"></a></blockquote><script async src="https://platform.twitter.com/widgets.js"></script><br>
+にっけいさんの『psyche』のMVをしました。<br>
+<br>
+<h1 id="アイデア">アイデア</h1>にっけいさんから提案頂いたのは「真っ白な部屋にただ水槽が置かれている画面」でした。<br>
+最初は3DCGや実写で水槽をオブジェクトとして用意する予定だったのですが、話を聞いてみて、物体としての「アクリル板」すら透明である必要がでてきました。<br>
+映像において<span class="カーソルを"><span>透明化されているものは数多くあります</span><span>エフェクト、動画の縁、ファイルのメタデータ、表示されたモニター、人とモニターの間、メガネやコンタクト、眼球、脳。</span></span>ので、その内テーマにあうレイヤーを探し、ディスプレイスメントのエフェクトがわかりやすくかつ透明であると考えました。<br>
+<br>
+また手法としては、制作会議の直近にフロクロさんが言及していた『デジアナ』の手法を用いることにしました。<br>
+<div class="引用"><span>デジタルとアナログを往復してルックをつくるやり方</span></div><a href="https://x.com/2r96/status/1945876636500627766">ツイート</a><br>
+図示するとこのようになります。<br>
+<span class="箇条書き"><span class="箇条書き"><span class="箇条書き">デジタル-CG映像　→</span><br>
+<span class="箇条書き">アナログ-印刷写真　→　デジタル-撮影写真　→</span> アナログ-水槽　→　デジタル-撮影映像(BGレイヤ)　→</span><br>
+<span class="箇条書き">アナログ-アクリル板イラスト　→　デジタル-スキャン写真　→</span><br>
+コンポジット</span><br>
+以前から「画面内映像」のクレジットのもと、モニター内に映像を投影しつつ、さらにモニターをカメラで撮影する方式を取ることがありましたので、その延長としてのデジアナを試すことは容易でした。<br>
+<br>
+<h1 id="構成">構成</h1><img alt="" class="ブログの画像" src="blog_img/psy_1.png"><br>
+30cm×30cm×30cmのガラス製の水槽容器に5Lの水を入れ、容器の上にスマートフォンを貼付したガラス板を設置します。<br>
+容器はiPadなどの16:9の薄型モニターの上に置かれ、映像が水を通りカメラに映るように調整します。<br>
+水面に反射させる映像は別途小型モニターを用意しておき、適宜水槽の上から向けます。<br>
+<img alt="" class="ブログの画像" src="blog_img/psy_2.png">この写真はメイキングではなくコンセプト画像で、実際にはアクリル板にイラストを描き、逐次スキャナで撮影し、撮った画像を連番としてAftereffects上で合成しています。<br>
+このためカメラの被写界深度の影響を受けません。<br>
+<br>
+<h1 id="操作">操作</h1>ディスプレイスメントをつけるためには、波が跳ね返る時間を引いたタイミングで全体を揺らす必要がありました。<br>
+実際には回転する椅子の上にすべてをガムテープで固定して、水以外が同時に移動回転するようにしています。<br>
+<br>
+揺らし方によってディスプレイスメントの動きは変化します。<br>
+椅子を回す場合、水は回転しながら立方体の面に衝突し、すぐに撹拌します。また撮影空間が四角形であることがわかりにくくなります。<br>
+椅子を左右に揺らす場合、水はその方向の面に反射し続けます。画面に対して垂直・並行な波ができ、閉じた空間に感じます。小さな文字を読ませつつ、歌詞の感情の機微に合わせて微細な調節ができます。<br>
+<br>
+また水面への反射を演出する際、別に準備していたモニターを手作業で反射させました。<br>
+今回は行っていないのですが、強い光を横から入れ反射させる、なにかものを投げ入れる、水質を徐々に変える、などの方法でエフェクトを掛けることができそうでした。<br>
+<br>
+<h1 id="各種モニタについて">各種モニタについて</h1>iPhoneの古い機種は手ぶれ補正を切ることができないので、Blackmagicのカメラアプリを利用しました。<br>
+切れない場合水槽の水と同じ様にその場にとどまろうとしてしまい、画面が逆に揺れてしまいます。<br>
+<br>
+水槽に沈めるモニターはiPadを使っていました。<br>
+iPadには動画をループ再生する機能がないので、VLCアプリを利用しました。<br>
+スライドショーを用いる場合は再生バーが動かせないため撮影時に失敗すると3分間待つことになります。<br>
+VLCアプリでは動画をクラウドから再生する必要があり、一旦Driveにアップしてから映像を流します。
+
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+        </div>
+
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>

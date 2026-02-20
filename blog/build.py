@@ -164,7 +164,7 @@ for filename in sorted(os.listdir(BLOG_DIR)):
     
     # Twitter(X)のURLを埋め込み用blockquoteに変換するよ。
     html_body = re.sub(
-    r"https://x\.com/([A-Za-z0-9_]+)/status/(\d+)",
+    r"(?<![\"'>])https://(?:x|twitter)\.com/([A-Za-z0-9_]+)/status/(\d+)[^\s]*",
     r'<blockquote class="twitter-tweet"><a href="https://twitter.com/\1/status/\2"></a></blockquote>'
     r'<script async src="https://platform.twitter.com/widgets.js"></script>',
     html_body
