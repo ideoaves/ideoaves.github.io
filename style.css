@@ -12,10 +12,11 @@ html {
 }
 
 body {
-    max-width: 1500px;
+    max-width: 800px;
     margin: 0 auto;
     /* 基本的な文字の扱い */
     line-height: 2.1;
+    line-break: strict;
     font-family: "Zen Kaku Gothic New", "Noto Sans SC", sans-serif;
     font-weight: 300;
     font-size: 15px;
