@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNL・木葉はづくのホームページ</title>
+    <style src="https://web-static.archive.org/_static/css/banner-styles.css"></style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'MS PGothic', 'MS UI Gothic', 'MS Gothic', sans-serif;
+            background-image: url('http://dl3.glitter-graphics.net/pub/514/514873kwpj8sc5kp.gif');
+            background-attachment: fixed;
+            background-repeat: repeat;
+        }
+
+        a {
+            color: #ef19f3;
+        }
+
+        a:visited, a.踏んだ {
+            color: #491ba4;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        h2 {
+            margin: 10px 0;
+        }
+
+        h3 {
+            font-size: 16px;
+        }
+
+        table {
+            border: 2px solid grey;
+        }
+
+        .コンテナ {
+            max-width: 900px;
+            margin: 0 100px;
+            background: #D6CCF6;
+        }
+
+        main {
+            position: relative;
+            padding: 0;
+        }
+
+        .タイトル {
+            background-color: #000000;
+            color: #ffffff;
+            font-style: italic;
+            text-shadow: 6px 0 3px #ef19f3;
+            padding: 10px 20px;
+            font-size: 24px;
+        }
+
+        .ようこそ {
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .ようこそ table {
+            display: inline;
+        }
+
+        .更新中 {
+            background-color: #000000;
+            color: #00ff00;
+            padding: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .更新中 div {
+            animation: slide 10s linear infinite;
+            display: inline-block;
+            padding-left: 100%;
+        }
+
+        .コンテンツ {
+            position: relative;
+            display: block;
+            height: 800px;
+            overflow: hidden;
+        }
+
+        .立ち絵の箱 {
+            width: 100%;
+            position: absolute;
+            margin-bottom: 20px;
+        }
+
+        .tachie-img {
+            position: absolute;
+            top: 0;
+            left: -110px;
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .自己紹介の箱 {
+            width: 60%;
+            align-items: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+        }
+
+        .自己紹介 {
+            position: absolute;
+            bottom: 0;
+            padding: 20px;
+        }
+
+        .ヘッダーコンテナ {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .顔の写真,
+        .face-img {
+            max-width: 140px;
+        }
+
+        .顔の写真 {
+            position: relative;
+            display: grid;
+            background-color: cadetblue;
+            border: 1px solid;
+            border-color: #fff #000 #000 #fff;
+            box-shadow: 1px 1px 0 #000;
+        }
+
+        .箇条書き {
+            background: #ffffffaa;
+            position: relative;
+            padding: 10px;
+            font-family: "MS Gothic", "MS PGothic", sans-serif;
+            line-height: 1.5;
+            color: red;
+            border-color: #fff #000 #000 #fff;
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        .動画一覧 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 1fr;
+            margin: 10px 0;
+            background-color: #fff;
+        }
+
+        .動画一覧>*:not(div) {
+            border: 2px solid;
+            border-color: #000 #fff #fff #000;
+            box-sizing: border-box;
+        }
+
+        .動画一覧 img {
+            width: 100%;
+            height: 100%;
+            padding: 2px;
+            object-fit: cover;
+            box-sizing: border-box;
+            aspect-ratio: 4/3;
+        }
+
+        .その他のブロック {
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px solid;
+            line-height: 1.4em;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .バナー集 {
+            margin-top: 40px;
+            background-color: #ffffffaa;
+            border-color: #fff #000 #000 #fff;
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        .バナー img {
+            display: block;
+            width: 200px;
+            height: 40px;
+        }
+
+        .バナー {
+            display: inline-block;
+            margin: 5px;
+            border: 2px solid;
+            border-color: #000 #fff #fff #000;
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        .バナー:hover,
+        .動画一覧 img:hover {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 #000;
+        }
+
+
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            color: white;
+            background-color: black;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media screen and (max-width:900px) {
+            .コンテナ {
+                width: 100%;
+                margin: 0;
+            }
+
+            .コンテンツ {
+                position: relative;
+                display: block;
+                min-height: 105vh;
+            }
+
+            .tachie-img {
+                position: absolute;
+                top: 0;
+                left: -200px;
+                z-index: 0;
+                object-fit: cover;
+            }
+
+            .自己紹介の箱 {
+                width: 100%;
+                align-items: center;
+                position: absolute;
+                right: 0;
+                top: 200px;
+                height: 100%;
+            }
+
+            .自己紹介 {
+                position: relative;
+            }
+
+            .ヘッダーコンテナ {
+                display: block;
+            }
+
+            .バナー img {
+                width: 150px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="コンテナ">
+        <div class="タイトル">
+            <h1><a href="https://ideoaves.github.io/" style="color: white; text-decoration: none;">IDEOAVES</a></h1>
+        </div>
+        <div class="ようこそ">
+            <img src="owl.gif" alt="" style="width: 30px;">
+            <em>ようこそ
+                <table>
+                    <tr>
+                        <style>
+                            ul#acecounter li {
+                                margin: 0px;
+                                padding: 0px;
+                            }
+
+                            ul#acecounter li a {
+                                display: block;
+                                font-size: 10px;
+                            }
+
+                            ul#acecounter li ul {
+                                display: none;
+                            }
+
+                            ul#acecounter li:hover ul {
+                                display: block;
+                                margin: 0px;
+                                padding: 0px;
+                            }
+
+                            ul#acecounter li ul li {
+                                float: none;
+                                margin: 0;
+                                padding: 0px;
+                            }
+                        </style>
+                        <td align="center"><a href="http://www.ace-counter.com/"><img
+                                    src="http://www.ace-counter.com/d26_f6_3058/69cb3d0f7f1d7/" alt="アクセスカウンター"
+                                    border="0"></a></td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <ul id="acecounter" style="list-style-type:none; margin:0px;padding:0px;">
+                                <li><a href=""><img src="http://www.ace-counter.com/images/acecounter.gif"
+                                            border="0"></a>
+                                    <ul style="list-style-type:none; text-align:left;margin-left:5px;">
+                                        <li><a href="http://tvgame-shop.biz/">テレビゲーム通販</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                人目のバードウオッチャー！
+            </em>
+            <img src="owl.gif" alt="" style="width: 30px;">
+        </div>
+        <div class="更新中">
+            <div>✦*.ﾟ ･。*₊　　現在更新中です　　₊*。･ ﾟ.*✦　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　✦*.ﾟ ･。*₊　　【来週】4/7おやすみ　　₊*。･ ﾟ.*✦</div>
+        </div>
+    </header>
+    <main class="コンテナ">
+        <div class="コンテンツ">
+            <div class="立ち絵の箱">
+                <img src="tachie.png" alt="木葉はづく全身" class="tachie-img">
+            </div>
+            <div class="自己紹介の箱">
+                <div class="自己紹介">
+                    <div class="ヘッダーコンテナ">
+                        <div class="タイトルコンテナ">
+                            <h1>木葉はづく</h1>
+                            <h3>hazuqu</h3>
+                            <p style="margin-top: 15px; line-height: 1.6; font-weight: bold; color: #ef19f3;">
+                                新世紀とともにインターネットにやってきたフクロウ系バーチャルネットライバー。<br>
+                                秋葉原の何処かにある、魔法電気ショップの店員をしている傍ら、ネットの星空を飛び回ります！
+                            </p>
+                        </div>
+                        <div class="顔の写真">
+                            <img src="face.png" alt="木葉はづく顔" class="face-img">
+                        </div>
+                    </div>
+
+                    <h2>Data　―――*★</h2>
+                    <div class="箇条書き">
+                        ハンネ　　＊＊＊＊　　◆HAZUQU<br>
+                        誕生日　　＊＊＊＊　　12/17<br>
+                        趣味　　＊＊＊＊＊　　パソコン、宇宙、動画（Flashもカムも）<br>
+                        推しAA　　＊＊＊＊　　ᵛᵥ(୭v୭)ᵛᵥ
+                    </div>
+                    <h2>Video　―――*★</h2>
+                    <div class="動画一覧">
+                        <div style="position: relative;">
+                            <a href="#"><img src="【ピクミン/初見】いまさらゲームキューブ購入です" alt="【ピクミン/初見】いまさらゲームキューブ購入です"></a>
+                            <img src="radar.gif"
+                                style="width: 50px; height: 50px; position: absolute; top: -10px; left: -10px;">
+                        </div>
+                        <a href="https://x.com/HAZUQU/status/1907006961922744780/photo/1"><img
+                                src="https://pbs.twimg.com/media/GncL2OoaAAA7hrB?format=jpg&name=small"></a>
+                        <a href="https://www.youtube.com/watch?v=C6EhK1YrjhY"><img
+                                src="https://i.ytimg.com/vi/C6EhK1YrjhY/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCVBGK7CIaHCMtbnbW5YIqdMeU1JQ"></a>
+                        <a href="#"><img src="【雑談散歩19】秋葉パソコン巡り XPどうなったかな" alt="【雑談散歩19】秋葉パソコン巡り XPどうなったかな"></a>
+                        <a href="#"><img src="【どうぶつの森】スローライフフォレスト100日目" alt="【どうぶつの森】スローライフフォレスト100日目"></a>
+                        <a href="#"><img src="【appleプレゼン同時視聴】なにやら新ガジェのかおり" alt="【appleプレゼン同時視聴】なにやら新ガジェのかおり"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="その他のブロック">
+            <h2>News　―――*★</h2>
+            2001.10.01 <a href="ウイルスに感染しました（対処法まとめ）">ウイルスに感染しました（対処法まとめ）</a><br>
+            2001.09.16 <a href="モデムってもうティッシュ扱いなの？">モデムってもうティッシュ扱いなの？</a><br>
+            2001.09.10 <a href="s1g問題。なかなか死なないもんだなぁ">s1g問題。なかなか死なないもんだなぁ</a><br>
+            2001.08.25 <a href="H-ⅡAロケット試験延期について">H-ⅡAロケット試験延期について</a><br>
+            2001.08.20 <a href="H-ⅡAロケット試験日につき予定変更になります">H-ⅡAロケット試験日につき配信予定は変更になります</a><br>
+            2001.06.30 <a href="さようならOCNnavi">さようならOCNnavi</a><br>
+            2001.04.10 <a class="踏んだ" href="コピペ（吉野家）などのコメントについて">コピペ（吉野家）などのコメントについて</a><br>
+            <a href="続きを見る">続きを見る</a>
+        </div>
+        <div class="その他のブロック">
+            <h2>links</h2>
+            <div class="links">
+                <a href="https://x.com/HAZUQU"><img src="a010.gif" style="height: 30px;">掲示板</a>
+                <a href="https://hazuqu.github.io/"><img src="kolibrie.gif" style="height: 30px;">ウェブサイト</a>
+                <img src="blinkiesCafe-iE.gif" style="height: 30px;">
+            </div>
+        </div>
+        <div class="バナー集">
+            <h2>banners　―――*★</h2>
+            <p>
+                <a href="https://mikanixonable.github.io/" class="バナー"><img
+                        src="https://mikanixonable.github.io/banner.png" alt="人造日本人"></a>
+                <a href="https://gradierwerk.github.io" class="バナー"><img src="https://gradierwerk.github.io/banner.png"
+                        alt="gradierwerk"></a>
+                <a href="https://kkofu.github.io" class="バナー"><img src="https://kkofu.github.io/images/banner.jpg"
+                        alt="kkofu"></a>
+                <a href="https://hozumi.site/" class="バナー"><img src="img/blue-room-banner.avif"
+                        alt="あなたは青い部屋が好きですか？"></a>
+                <a href="https://licjar.xyz" class="バナー"><img src="https://licjar.xyz/images/banner.svg"
+                        alt="licjar"></a>
+                <a href="https://sanmenso.com/" class="バナー"><img
+                        src="https://sanmenso.com/images/banner/sanmenso_banner.png" alt="SANMENSO"></a>
+                <a href="internet" class="バナー"><img src="Enough nostalgia. I fold." alt=""></a>
+            </p>
+        </div>
+        <footer>
+            2001 Hazuqu. All Right, Even if This is a Lie.
+        </footer>
+    </main>
+</body>
+
+</html>
