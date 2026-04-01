@@ -126,7 +126,33 @@ for filename in sorted(os.listdir(BLOG_DIR)):
         return text
     html_body = replace_bullets(html_body)
     
-    # 引用構文 [> 内容] を<div>タグに変換するよ。
+    # 特例：引用ブロック内のネストしたリンクを先に処理するよ。
+    def process_nested_links_in_quotes(text):
+        # 改行を一時的に特殊文字に置き換えるよ。
+        temp_text = text.replace('\n', '__NEWLINE__')
+        
+        def replace_nested_quote(match):
+            content = match.group(1)
+            # 特殊文字を改行に戻すよ。
+            content = content.replace('__NEWLINE__', '\n')
+            # 内容内の [テキスト URL] 形式を<a>タグに変換するよ。
+            content = re.sub(r"\[([^\]\[]+?)\s+([^\]\s]+)\]", r'<a href="\2">\1</a>', content)
+            # 内容内の [URL] 形式を<a>タグに変換するよ。
+            content = re.sub(r"\[([^\]\s]+)\]", r'<a href="\1">\1</a>', content)
+            return f'<div class="引用"><span>{content}</span></div>'
+        
+        # 引用ブロックを正確にマッチさせるよ。[> から対応する ] まで
+        def find_quote_blocks(text):
+            import re
+            pattern = re.compile(r'\[>\s+((?:[^\[\]]|\[[^\]]*\])*)\]')
+            return pattern.sub(replace_nested_quote, text)
+        
+        result = find_quote_blocks(temp_text)
+        return result.replace('__NEWLINE__', '\n')
+    
+    html_body = process_nested_links_in_quotes(html_body)
+    
+    # 引用構文 [> 内容] を<div>タグに変換するよ。（ネストしていない通常の引用）
     html_body = re.sub(r"\[>\s+([^\]]+)\]", r'<div class="引用"><span>\1</span></div>', html_body)
     
     # 中央揃え構文 [c 内容] を<div>タグに変換するよ。
