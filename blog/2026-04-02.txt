@@ -17,7 +17,7 @@ id=hazuqu
 ## 90-00年代史
 また、歴史改変についてはスプレッドシートに年表を埋めてから、改変可能な箇所の年号にマイナスを入れていく方法を取りました。
 改変可能とは、商業的な失敗や政治、行政といった人の行動如何で容易に解決できるポイントを指します。
-前述した佐倉葉ウェブ文化研究室の[作業報告書 http://blog.livedoor.jp/sakuraba_izl/]、[インターネット歴史年表 - JPNIC https://www.nic.ad.jp/timeline/]、[日本ネット前史（1984年〜ニフティサーブ誕生）｜小口覺 https://note.com/oguyan/n/n2cd30e60c9ce]なども参考にしました。
+前述した佐倉葉ウェブ文化研究室の[作業報告書 http://blog.livedoor.jp/sakuraba_izl/]、[インターネット歴史年表 - JPNIC https://www.nic.ad.jp/timeline/]、[関係情報：情報通信関連：情報通信白書 https://www.soumu.go.jp/johotsusintokei/whitepaper/index.html]なども参考にしました。
 
 # 改変の中身
 まずはゴールとしてVNI(バーチャルネットアイドル)が現代のVtuberのようにアバターを身にまとい、可能ならトラッキングしつつ映像をインターネットで生配信できる歴史だったら、とします。
