@@ -150,20 +150,190 @@
       </span>
       <h3>link</h3>
       <p>
-        <a href="https://mikanixonable.github.io/" class="バナー"><img src="https://mikanixonable.github.io/banner.png" alt="人造日本人"></a>
-        <a href="https://gradierwerk.github.io" class="バナー"><img src="https://gradierwerk.github.io/banner.png" alt="gradierwerk"></a>
-        <a href="https://kkofu.github.io" class="バナー"><img src="https://kkofu.github.io/images/banner.jpg" alt="kkofu"></a>
+        <a href="https://mikanixonable.github.io/" class="バナー"><img src="https://mikanixonable.github.io/banner.png"
+            alt="人造日本人"></a>
+        <a href="https://gradierwerk.github.io" class="バナー"><img src="https://gradierwerk.github.io/banner.png"
+            alt="gradierwerk"></a>
+        <a href="https://kkofu.github.io" class="バナー"><img src="https://kkofu.github.io/images/banner.jpg"
+            alt="kkofu"></a>
         <a href="https://hozumi.site/" class="バナー"><img src="img/blue-room-banner.avif" alt="あなたは青い部屋が好きですか？"></a>
         <a href="https://licjar.xyz" class="バナー"><img src="https://licjar.xyz/images/banner.svg" alt="licjar"></a>
-        <a href="https://sanmenso.com/" class="バナー"><img src="https://sanmenso.com/images/banner/sanmenso_banner.png" alt="SANMENSO"></a>
+        <a href="https://sanmenso.com/" class="バナー"><img src="https://sanmenso.com/images/banner/sanmenso_banner.png"
+            alt="SANMENSO"></a>
       </p>
       <address style="text-align: right;"><a href="https://validator.w3.org/check?uri=https://ideoaves.github.io/">
           <img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!"
             style="height: 31px; width: 88px;"></a></address>
     </div>
   </main>
+  <style>
+    .デスクトップ {
+      position: fixed;
+      bottom: 200px;
+      right: 200px;
+      text-align: right;
+    }
+
+    .セリフ {
+      font-size: 0.7em;
+      text-align: left;
+    }
+
+    .セリフの引用元 {
+      font-size: 0.4em;
+      color: #666;
+    }
+
+    .吹き出し {
+      position: relative;
+      padding: 14px 14px;
+      margin: 10px;
+      background-color: #ffffff;
+      width: 200px;
+      overflow-wrap: break-word;
+      border-radius: 10px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        right: 10%;
+        width: 10px;
+        height: 10px;
+        background-color: #ffffff;
+        rotate: 45deg;
+      }
+    }
+
+    .キャラ {
+      width: 70%;
+      position: absolute;
+      right: 0;
+    }
+
+    @media (max-width: 800px) {
+      .デスクトップ {
+        display: none;
+      }
+    }
+  </style>
+  <div class="デスクトップ">
+    <div class="吹き出し">
+      <div class="セリフ">
+        <div id="serif-text"></div>
+      </div>
+      <div id="serif-source" class="セリフの引用元"></div>
+    </div>
+    <div class="キャラ"><img src="話してる人.png" alt=""></div>
+  </div>
+
+  </div>
+  <script>
+    const serifs = [
+      { text: "私はひどく泣き崩れたあと、作ったものをあとで送るといってベランダから飛び降りた。好きなんですね、仕事。", source: "夢日記3" },
+      { text: "植物をちぎらないで、安くなる。", source: "夢日記3" },
+      { text: "友達は「わかるよ」と言った。電柱には縦向きに隙間なく禁煙の正方形のシールが並んでいる。私はあの友達が唯一の本物だと思う。", source: "夢日記3" },
+      { text: "そして、「ほら見てご覧、美味しそうなグラタンがあるよ」と言いながら窓の外を差した。眼下には都市が広がり、しかしグラタンの店はすぐにわかった。", source: "夢日記3" },
+      { text: "ホテルでは資本家と家族が話していて、あまり余計なことをして欲しくないと思った。", source: "夢日記3" },
+      { text: "トランプ大統領が月に行くことになった。", source: "夢日記3" },
+      { text: "人間はみんな最初から単なるテーマパークに居るだけだった。本当に、余計なことはしないほうがいい。", source: "うらにっき" },
+      { text: "夢はなかった。", source: "うらにっき" },
+      { text: "一旦自慢をします。自慢をするのは自分に自信がないからで、それをすることによって何かが変わることを考えている。", source: "うらにっき" },
+      { text: "ふと窓を見ると巨大なパラボラアンテナが搬送されていた（巨大なバンの後ろから）", source: "夢日記2" },
+      { text: "目覚めると、まだ太陽で少し明るくなったばかりの隅田川の橋上にいた。川辺におりて、靴のまま川に入った。そして上流へと進んで行った。私たちはそこでプログラミングの話などをした。", source: "夢日記2" },
+      { text: "私と、依頼曲の歌を歌う人A、友人Bは地下鉄から外に出た。青白く誰もいない時間だった。モニターに楽曲が流れ始め、私と友人Bの間でAは歌い始めた。人は集まらない。", source: "夢日記2" },
+      { text: "みんなで記念撮影をして、本当にワールドと今生の別れをつげる。最後にみんなと歌った歌が楽しかった。もう二度と会うことはない。", source: "夢日記2" },
+      { text: "最近は特殊メイクや身体の調整でそのままVの姿になった方が安上がり", source: "夢日記2" },
+      { text: "アジトの食卓でスマホをいじっていると、見知った人が箪笥を漁っていて、流石に日本を牛耳っている人の人脈は違うなと思った。", source: "夢日記2" },
+      { text: "ベランダからカメラでいろいろな道路の動画を撮った。そしてとても太った。", source: "夢日記2" },
+      { text: "ここの消費もベルトコンベアみたいになってきたなと思った。", source: "夢日記" },
+      { text: "あまり美味しくないがコスパは最強だ。窓から日が差し始めた。確かにここが居場所だなと思った。", source: "夢日記" },
+      { text: "私は過去に一様に執着しすぎているかもしれない。", source: "夢日記" },
+      { text: "川の管理者がマナティーを攻撃してデータとして保存してしまった。もう天然物は居ない。", source: "夢日記" },
+      { text: "あまりに空気や光が澄んでいるので、空気の切れ間に入るとオリオン大星雲がくっきりと見えた。木星の地表面のような禍々しさだった。核爆発のようにも見えた。", source: "夢日記" },
+      { text: "することがないので二人で瞑想をしていると、ここの職員が我々の行動を見ていて中々変だねと言って一緒に座り始めた。", source: "夢日記" },
+      { text: "「次の定例に来ないと学裁だヨ！」", source: "夢日記" },
+      { text: "世界が終わることになった。私は地球を脱出することにしていた。と言っても、インターネットアルゴリズムが巧妙に、その資格がある人間にだけ脱出方法の情報を伝えていて、実質的には選んではいない。", source: "夢日記" },
+      { text: "宇宙ステーションはちゃんとインターネットが通じるかな。", source: "夢日記" },
+      { text: "私が残す化石は示準である必要を感じなくて、むしろある種の攪拌をしたいと思っている。修正主義とかではなく、その攪拌した意図も含めた文化の破片として化石になりたい。", source: "24年12月 日記" },
+      { text: "GAFAはネイティブにとって最早自然の一部と見做していい。", source: "24年12月 日記" },
+      { text: "20年後の冷蔵庫には名前をまだ知らない物が入っていて欲しい。頼む資本主義。", source: "24年12月 日記" },
+      { text: "ありがとう私の多様な友人。いつも評価したり肯定したり反論したり母集団にしてくれる複雑な心地よさが好きです。", source: "25年1月 日記" },
+      { text: "冷笑的立場、マクロな視座であることに、これ以上の希望というか、居心地を求める必要を感じなくなった。それは極度な功利主義のそれでしかない", source: "25年1月 日記" },
+      { text: "そのルックやムーブメントはまだ早い。人類はまだ滅亡しない。", source: "25年1月 日記" },
+      { text: "ワクワクする事があった。虚無みたいな議論ではなく、ある単一の目標への追求。あとは渦中にしてくれることだけ。", source: "25年1月 日記" },
+      { text: "私が努力しても観測し得ない（もしくは観測する気がなくとも情報が入ってくるが、全体の見えない）世界が好きだ。", source: "25年2月 日記" },
+      { text: "クラスTシャツのことを思い出した。高校の運動会で、クラスで誰も立候補しなかったためにデザインを先生がした時があった。", source: "25年2月 日記" },
+      { text: "今関心がそちらになくてもずっとやろう。全部やろう。彼らに見つけてもらえるまで暴れてみよう、連絡をしてみよう。", source: "25年2月 日記" },
+      { text: "私はどこにでもいたい。思想とか知能とか職業とか年齢とか言語とかで区分けされた世界にいると、窒息してしまう。", source: "25年4月 日記" },
+      { text: "わたしは花束をもらえるような人間になりたい", source: "21年5月 日記" },
+      { text: "常に宇宙と指先を把握していたいし、文化文脈の線上であることを自覚し続けていたい。そうでない方が正常というなら、それで満足できるのであれば、人間はつまらない。私は狂っていて、そして貴方はつまらない！", source: "25年4月 日記" },
+      { text: "たすけてーーーー…", source: "25年4月 日記" },
+      { text: "一度正直になってみてほしい。正直であること、それが仮に俗物的だったり利己的だったりすることは悪いことではないから。", source: "25年4月 日記" },
+      { text: "人工衛星にとっての満足の先に、深海という全く別の世界があって、身体をプラズマに溶かしてそこに沈めるというのは、なんという幸せなんだろう。", source: "25年4月 日記" },
+      { text: "死んだら全てが文字に圧縮される。どのような業績も悪事も、ハイパーリンクによって並列される。インターネットという自然に還る。", source: "25年4月 日記" },
+      { text: "素朴な恐怖で人を属性でしか見れなくなることは誰にでもある。私は恐怖を拭える対話をいつでもするつもりです。", source: "25年12月 日記" },
+      { text: "思想担当という役割が欲しい。ディレクターという肩書きでは美術的知識しか担えず、そうではなくそれぞれの制作に必要な外部の知識を用意するべきだ。", source: "25年12月 日記" },
+      { text: "Twitterの黎明期、全ユーザーが時報botをうごかしていたのを思い出した。", source: "25年12月 日記" },
+      { text: "世界が終わりかけているようで、確かに我々は関連しているが、それを省みるとか間違えるとかは意味がなく、ダラダラと永遠に続く。その破壊衝動をこそセカイ系と呼ぶ。", source: "25年11月 日記" },
+      { text: "勉強へのやる気、心地よさへのやる気、それらに到達する為に焦る必要がないという気分。", source: "25年11月 日記" },
+      { text: "助手席を倒して見える空と電線だけの車窓", source: "私的パターン化されたエモ" },
+      { text: "初めて見た夜の1:11:11のデジタル時計", source: "私的パターン化されたエモ" },
+      { text: "学校のPCで開いてフォルダ移動だけを続けるcmd", source: "私的パターン化されたエモ" },
+      { text: "惑星の大きさ比較動画", source: "私的パターン化されたエモ" },
+      { text: "车内で走行音を吸って勝手に塗りつぶすDSiのうごメモ", source: "私的パターン化されたエモ" },
+      { text: "知らずにONにしていて、急に攻撃してくるニコ生クルーズ", source: "私的パターン化されたエモ" },
+      { text: "台風の風で変化する雨音とやけにクリアに聞こえるWiiのBGM", source: "私的パターン化されたエモ" },
+      { text: "体育の授業を眺めながら隠し持ったスマホをいじる保健室での時間", source: "私的パターン化されたエモ" },
+      { text: "地元の科学館の常連になって有名人の気分で歩く歩幅", source: "私的パターン化されたエモ" },
+      { text: "友人のPSPをかりて友人を無視してやるGTA", source: "私的パターン化されたエモ" },
+      { text: "押さえすぎて潰れてしまったぷにぷに立体図鑑の本", source: "私的パターン化されたエモ" },
+      { text: "私は大勲位菊花章を授与されない。私は奉職しない。私は南極にも宇宙にも行かない。", source: "私は何でないか" },
+      { text: "私は22世紀を見ない。", source: "私は何でないか" },
+      { text: "中に入って写真を撮ると\"破壊\"されるインスタレーション。", source: "一行アイデア" },
+      { text: "本を手渡しする時、ある1ページをクシャクシャに破り捨てる本。", source: "一行アイデア" },
+      { text: "左右から発されたフキダシを集合の波括弧として扱う漫画のコマ。", source: "一行アイデア" },
+      { text: "ワックの看板（W）が出てそういうフィクションかと思ったら、店から出る時には重力が逆になってて普通にマック（M）になってる演出。", source: "一行アイデア" },
+      { text: "様々なボカロPの人にBPMや拍を描かないで歌詞と音程だけを送り、届いたものを合わせるカノン。", source: "一行アイデア" },
+      { text: "時間は恣意的な秒によって定められている。BPM、フレームレート、加速度。自分の定めた（もしくは秒より正確な近似秒（本来秒の方が近似値だが））新秒を使い、それらを定める。", source: "一行アイデア" },
+      { text: "しゃべりを定点スリットスキャン（読唇を文字にできる）", source: "一行アイデア" },
+      { text: "メイキングのように描いては消す映像を撮り、こまどりにする。（デジタルでの作業量信仰用ストップモーション）", source: "一行アイデア" }
+    ];
+    const fillers = ["それで…", "とか…", "えっと…", "…", "んーー…"];
+    const hello = ["こんにちは", "どうも", "はい", "なんでしょう", "やめてーー","なでないで","おやすみなさい","こんばんは","なんですか","んーーーー","なっ"];
+
+    function setRandomSerif() {
+      const selectedSerif = serifs[Math.floor(Math.random() * serifs.length)];
+      const serif = document.getElementById('serif-text');
+      const source = document.getElementById('serif-source');
+
+      if (serif && source) {
+        serif.textContent = selectedSerif.text;
+        source.textContent = selectedSerif.source;
+
+        // クリックされた！
+        const chara = document.querySelector('.キャラ');
+        if (chara) {
+          chara.addEventListener('click', () => {
+            serif.textContent = hello[Math.floor(Math.random() * hello.length)];
+            source.textContent = "";
+          });
+        }
+
+        setTimeout(() => {
+          serif.textContent = fillers[Math.floor(Math.random() * fillers.length)];
+          source.textContent = "";
+          setTimeout(() => {
+            setRandomSerif();
+          }, 2000);
+        }, 24000);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', setRandomSerif);
+  </script>
+
   <script src="JS.js"></script>
 </body>
-
 
 </html>
