@@ -95,6 +95,19 @@
             font-size: 21px;
             font-weight: bold;
         }
+
+        #toggle-source {
+            display: none;
+        }
+
+        .出典 {
+            display: none;
+            font-size: 8px;
+        }
+
+        #toggle-source:checked+.出典ボタン+.出典 {
+            display: block;
+        }
     </style>
 </head>
 
@@ -102,7 +115,111 @@
     <h1>横断年表(昭和40年代中心)</h1>
     主に60年代～80年代における日本の空気感と当時のサブカルに焦点をあて、ジャンルをまたいで比較するための年表です。<br>
     技術発明と流行を混ぜてアーリーアダプター層の視点を作り出そうとしています<br>
-    <label><input type="checkbox" id="viewMode">時間距離⇔等間隔</label>
+    <label><input type="checkbox" id="viewMode">時間距離⇔等間隔</label><br>
+    <input type="checkbox" id="toggle-source">
+    <label for="toggle-source" class="出典ボタン">出典</label>
+    <div id="source" class="出典">
+        <a href="https://ja.wikipedia.org/"> Wikipedia </a><br>
+        <a href="https://showakan.jp/about/showa-chronology/"> 昭和の年表 | 【公式】昭和館 </a><br>
+        <a href="https://tokyo-urbandesignhistory.jp/chronology/"> 年表 - 東京の都市づくり通史 特設サイト </a><br>
+        <a href="https://www.gikai.metro.tokyo.lg.jp/netreport/"> 令和7年本会議ネットリポート </a><br>
+        <a href="https://codan.boy.jp/index.html"> 団地ファンサイト「公団ウォーカー」 </a><br>
+        <a href="pdf"> 群馬大学教育学部紀要 東京における住宅再開発の進展とその影響 山口幸男(1977) </a><br>
+        <a
+            href="https://crd.ndl.go.jp/reference/entry/reference/show?id=1000372880&ldtl=1&dtltbs=1&mcmd=25&st=update&asc=desc&fi=2_3%202_2%206_0%205_%E7%A4%BE%E4%BC%9A%E4%BA%BA&ndc1=3&ndc_lk=1&page=ref_view&type=reference">
+            環状七号線と環状八号線の歴史について東京の環状道路（環八と環七）の歴史について調べています。知りたい... | レファレンス協同データベース </a><br>
+        <a href="https://www.city.adachi.tokyo.jp/hakubutsukan/learning.html"> 足立を学ぶ｜足立区立郷土博物館 </a><br>
+        <a href="http://blog.livedoor.jp/mouseunit/"> 秋葉原歴史記事(mouseunit's Blog) </a><br>
+        <a href="https://photoakiba.jp/special/electric_town/08/04_radio_center_mansei/01.htm">
+            【フォト秋葉原】現在の秋葉原が発祥の地である、歴史ある寿司店「すし栄」の物語 </a><br>
+        <a
+            href="https://www.city.tsukuba.lg.jp/soshikikarasagasu/toshikeikakubutoshikeikakuka/gyomuannai/4/3/1002135.html">
+            筑波研究学園都市とは／つくば市公式ウェブサイト </a><br>
+        <a href="https://www.city.tsukuba.lg.jp/material/files/group/15/nenpyo11.pdf"> 筑波研究学園都市年表 </a><br>
+        <a href="https://www.dailyshincho.jp/article/2024/04061050/?all=1">
+            桜の絶景スポット、皇居外堀の「有名カフェ」　事実上の“無許可営業“を60年超も続ける特殊事情（全文） | デイリー新潮 </a><br>
+        <a href="https://dailyportalz.jp/kiji/maboroshi-no-yomiuri-tower"> 高さ4000ｍ・幻の読売タワーとは？　昭和最強のメディア人・正力松太郎の夢をたどる旅
+            :: デイリーポータルZ </a><br>
+        <a href="https://foujita.hatenablog.jp/entry/2020/12/02/220259"> 東京に三本のテレビ塔が立っていた時代（１）テレビ塔ができるまで - 日 用 帳
+        </a><br>
+        <a href="https://www.sangiin.go.jp/japanese/70/70-2.html"> 国会議事堂案内　議事堂建築の概要：参議院 </a><br>
+        <a href="書籍"> 帝国ホテル百年の歩み </a><br>
+        <a href="http://seikatsukan888.blog112.fc2.com/blog-entry-194.html"> もうひとつの原爆慰霊碑 - アトリエかわしろ生活館 </a><br>
+        <a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/index.html"> 関係情報：情報通信関連：情報通信白書 </a><br>
+        <a href="https://www.shmj.or.jp/"> 日本半導体歴史館 </a><br>
+        <a href="https://jpn.nec.com/profile/corp/history/pdf/history-80.pdf"> NEC 日本電気最近十年史 創立八十周年記念 </a><br>
+        <a href="https://www.youtube.com/@VintageCG/videos"> VintageCG - YouTube </a><br>
+        <a href="https://sts.kahaku.go.jp/research/taikei/I.html"> I.映像・情報・コンピュータ関連 | 産業技術史資料情報センター　Center for the
+            History of Japanese Industrial Technology </a><br>
+        <a href="https://www.earlytelevision.org/postwar_gallery.html"> Gallery of Unusual Postwar Sets and Kits
+        </a><br>
+        <a href="https://note.com/kazushinakamura/n/n31dd63b61e5c"> CPU - パソコンの中心部｜kzn </a><br>
+        <a href="https://www.sign-us.jp/kindai/computer3.pdf"> ENIAC と EDVAC －最初のコンピューターはどんなものであったか </a><br>
+        <a href="書籍"> 計算機屋かく戦えり </a><br>
+        <a href="https://ascii.jp/elem/000/001/214/1214060/"> ASCII.jp：FUJIC／日本最初のコンピュータを一人で創り上げた男──岡崎文次 (1/4)
+        </a><br>
+        <a href="https://www.ne.jp/asahi/k-suzu/tsuzuki/micon.html"> マイコン </a><br>
+        <a href="https://www.nic.ad.jp/timeline/"> インターネット歴史年表 - JPNIC </a><br>
+        <a href="https://note.com/oguyan/n/n2cd30e60c9ce"> 日本ネット前史（1984年〜ニフティサーブ誕生）｜小口覺 </a><br>
+        <a href="https://www.komazawa-u.ac.jp/~kobamasa/reference/nenpyo/inethis/inethis1.html"> 古瀬、廣瀬／インターネット関連年表
+        </a><br>
+        <a href="https://websitemap.sakura.ne.jp/index.html"> 佐倉葉ウェブ文化研究室 </a><br>
+        <a href="http://blog.livedoor.jp/sakuraba_izl/archives/57988065.html"> FLASH黄金時代を中心としたFlash動画関連年表 :
+            佐倉葉ウェブ文化研究室の作業報告書 </a><br>
+        <a href="https://www.multicians.org/thvv/mail-history.html"> The History of Electronic Mail </a><br>
+        <a href="https://www.jstage.jst.go.jp/article/itej1978/46/1/46_1_40/_pdf"> ファクシミリ放送 伊藤 豊(1992) </a><br>
+        <a href="https://www.jarl.org/Japanese/A_Shiryo/A-6_History/History-02.htm"> アマチュア無線年表・1945年～1974年 </a><br>
+        <a href="https://j-animedb.com/?p=6159"> タツノコプロのことをふりかえってみた件 ⑭ スキャニメイトのこと - 神籬 himorogi </a><br>
+        <a href="http://scanimate.com/"> Scanimateサイトへようこそ - コンピュータアニメーションの歴史 - 初期のアナログアニメーションコンピュータ - </a><br>
+        <a href="https://www.jstage.jst.go.jp/article/ieejjournal/132/7/132_433/_pdf"> デジタル技術によるアニメーション変革史 </a><br>
+        <a
+            href="https://www.wdic.org/w/MOE/%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%83%E3%83%88">
+            コミックマーケット ‐ 通信用語の基礎知識 </a><br>
+        <a href="https://repository.dl.itc.u-tokyo.ac.jp/?page=1&size=20&sort=controlnumber&search_type=0&q=0"> UTokyo
+            Repository </a><br>
+        <a href="pdf"> 筑波大学心珪学研究 大学生の留年の研究 （I）松原達哉(1979) </a><br>
+        <a href="pdf"> 大学入試の歴史(第26回) 動揺する学力検査科目 1966年以降の大学入試 </a><br>
+        <a href="https://www.shindeme.com/"> 進学校データ名鑑 </a><br>
+        <a href="https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/219493/1/kjs_024_197.pdf"> 京都社会学年報　第24号
+            革命から解放へ、軍事からテロリズムへ　井口暁（2016） </a><br>
+        <a href="pdf"> 東京都立高校の制服自由化　清重めい(2018) </a><br>
+        <a href="http://miraikakukyodo.jp/h.tyosakusen/mokuji.html"> 本多延嘉著作選全七巻総目次（２００９／１０／０１） </a><br>
+        <a href="https://www.jstage.jst.go.jp/article/shakaigakukenkyu/96/0/96_165/_pdf">
+            日本の一九六〇年代学生運動における多元性文化的アプローチによる事例分析から 小杉亮子(2015) </a><br>
+        <a href="https://todaijichikai.org/kakunin/"> 東大確認書 | 東京大学教養学部学生自治会 </a><br>
+        <a href="https://gendainoriron.jp/vol.19/rostrum/ro05.php"> 「私の東大闘争も歴史の目に映るだろうか」東京統一管理職ユニオン委員長・本誌編集委員・大野 隆 ｜
+            論壇 </a><br>
+        <a href="書籍"> 学生たちの牧歌　1967-1968　中村桂子(2019) </a><br>
+        <a href="https://www.u-tokyo.ac.jp/content/400141850.pdf"> 所蔵資料紹介（特定歴史公文書等）　東京大学「紛争日誌　その１」 </a><br>
+        <a href="pdf"> 学生運動と東京大学五月祭 佐藤寛也(2023) </a><br>
+        <a href="https://komasai.info/documents/komaba-festival-in-conflict/"> 「紛争」の中の駒場祭 - 駒場祭情報館 </a><br>
+        <a href="https://jsds-org.sakura.ne.jp/19th/houkoku-yamaguchi/"> houkoku/yamaguchi – 障害学会 </a><br>
+        <a href="https://www.socialismrealised.eu/"> Welcome to Socialism Realised - Socialism Realised </a><br>
+        <a href="https://www.jstage.jst.go.jp/article/kokusaianzenhosho/51/3/51_90/_pdf/-char/ja">
+            日本にとって「デタント」とは何だったのか　石本凌也(2023) </a><br>
+        <a href="https://kazsan1956.wiki.fc2.com/"> 私的 日本のフォーク＆ロック史 </a><br>
+        <a href="https://www.ne.jp/asahi/yukio/hello/html/songframe.html"> 70's Rockの名曲・名盤 </a><br>
+        <a href="https://www.suginamigaku.org/2008/09/forkdance.html"> フォークダンスはどこへ～懐かしの競技～｜すぎなみ学倶楽部 </a><br>
+        <a href="pdf"> 小学校の運動会に関する史的考察 一運動会の萌芽期にみる事例分析を通して一　浜野兼一(2004) </a><br>
+        <a href="https://www.youtube.com/playlist?list=PLFx8SYdZV_p12woarwOrQn8AKu1T5qS4k"> フォークソング「アナログ」 - YouTube
+        </a><br>
+        <a href="https://db.10plus1.jp/backnumber/article/articleid/1135/"> 東京フォークゲリラ・ノーリターンズ （別称＝昭和残響伝） | 小田マサノリ ‹
+            Issue No.32 ‹ 『10+1』 DATABASE | テンプラスワン・データベース </a><br>
+        <a href="https://r100tokyo.com/curiosity/in-this-place/211001/"> 泉麻人が綴る、原宿・表参道「オシャレカルチャー」変遷史 |
+            人生を豊かにする東京ウェブマガジン Curiosity </a><br>
+        <a href="https://jsma.ne.jp/pdf/textbook__1.pdf"> ミッポン靴産業150年 </a><br>
+        <a href="https://hanabun.press/series/soleinu/"> 帰ってきたそれいぬ | 花形文化通信 </a><br>
+        <a href="https://www.ntt-east.co.jp/databook/pdf/2024_S2.pdf"> 公衆電話ボックスのうつりかわり </a><br>
+        <a href="https://www.ntt-west.co.jp/info/databook/pdf/100-134_denshindenwa_ayumi.pdf"> 電信電話のあゆみ </a><br>
+        <a
+            href="https://web.archive.org/web/20251006074118/http://time-space.kddi.com/it-technology/20191023/2765.html">
+            日本で電話が生まれて150年 黒電話や公衆電話など『電話の歴史』を振り返る｜KDDI トビラ </a><br>
+        <a href="https://tvjiko.web.fc2.com/index.html"> 放送の事故 </a><br>
+        <a href="https://tenkyo.net/kaiho/pdf/2012_03/2012-03-11.pdf"> 日本の新聞に見る昔の日食報道 </a><br>
+        <a href="https://www.asj.or.jp/geppou/archive_open/1970/pdf/19700810.pdf"> 1968~69年に出現した彗星 富田弘一郎(1970)
+        </a><br>
+        <a href="https://www2.nict.go.jp/sts/stmg/K3-Book/Manuscript/VLBI%20all%20v2.pdf"> 日本のVLBI史（初期及び発展期） </a>
+    </div>
 
     <div class="timeline" id="timeline"></div>
 

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログプレビュー</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <style>
+        #editor-overlay {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 400px;
+            height: 80vh;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        #editor-textarea {
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+            </style>
+</head>
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+        <div class="横に狭い分類">
+            <div id="preview-content">
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="editor-overlay">
+        <textarea id="editor" class="editor-textarea" style="width: 100%; height: 100%;">title
+id=hazuqu
+本文</textarea>
+    </div>
+
+    <script src="JS.js"></script>
+
+    <script>
+        // build.pyの変換ロジックをJavaScriptで再現
+        function convertMarkdownToHtml(text) {
+            let html_body = text;
+            
+            // ```で囲まれたコードブロックを保護
+            const blocks = [];
+            html_body = html_body.replace(/^```[ \t]*$\n((?:(?!^```[ \t]*$)[\s\S])+?)^```[ \t]*$/gm, (match, inner) => {
+                blocks.push(inner);
+                return `__BLOCK_${blocks.length-1}__`;
+            });
+
+            // 見出し変換と目次生成
+            const toc = [];
+            html_body = html_body.replace(/^(#{1,3})\s+(.+?)(?:\r?\n|$)/gm, (match, hashes, title) => {
+                const level = hashes.length;
+                const anchor = title.replace(/\W+/g, '-');
+                if (level <= 2) {
+                    toc.push({ level, title, anchor });
+                }
+                return `<h${level} id="${anchor}">${title}</h${level}>`;
+            });
+
+            // 目次HTMLを先頭に追加
+            if (toc.length > 3) {
+                let toc_html = '<div class="目次"><h4>目次</h4>';
+                toc.forEach(item => {
+                    const cls = item.level === 2 ? ' class="h2"' : '';
+                    toc_html += `<a href="#${item.anchor}"${cls}>${item.title}</a><br>`;
+                });
+                toc_html += '</div>\n';
+                html_body = toc_html + html_body;
+            }
+
+            // 注釈構文 <本文{注釈}>
+            html_body = html_body.replace(/<([^>{]+)\{([^}]+)\}>/g, '<span class="カーソルを"><span>$1</span><span>$2</span></span>');
+
+            // 画像構文 [i ファイル名]
+            html_body = html_body.replace(/\[i\s+([^\]]+)\]/g, (match, imagePath) => {
+                const src = imagePath.startsWith('http') ? imagePath : `blog_img/${imagePath}`;
+                if (imagePath.toLowerCase().match(/\.(mp4|webm|mov)$/)) {
+                    return `<video class="ブログの映像" src="${src}" controls loop><\/video>`;
+                } else {
+                    return `<img alt="" class="ブログの画像" src="${src}" \/>`;
+                }
+            });
+
+            // 小さい文字構文 [s 文字]
+            html_body = html_body.replace(/\[s\s+([^\]]+)\]/g, '<span class="小さい文字">$1</span>');
+
+            // 箇条書き構文 [- 内容]
+            html_body = html_body.replace(/\[-\s*([^\[\]]+?)\s*\]/g, '<span class="箇条書き">$1</span>');
+
+            // 引用構文 [> 内容] - ネスト対応
+            const processNestedLinksInQuotes = (text) => {
+                const tempText = text.replace(/\n/g, '__NEWLINE__');
+                const result = tempText.replace(/\[>\s+((?:[^\[\]]|\[[^\]]*\])*)\]/g, (match, content) => {
+                    const processedContent = content
+                        .replace(/__NEWLINE__/g, '\n')
+                        .replace(/\[([^\]\[]+?)\s+([^\]\s]+)\]/g, '<a href="$2">$1</a>')
+                        .replace(/\[([^\]\s]+)\]/g, '<a href="$1">$1</a>');
+                    return `<div class="引用"><span>${processedContent}</span></div>`;
+                });
+                return result.replace(/__NEWLINE__/g, '\n');
+            };
+            
+            html_body = processNestedLinksInQuotes(html_body);
+            html_body = html_body.replace(/\[>\s+([^\]]+)\]/g, '<div class="引用"><span>$1</span></div>');
+
+            // 中央揃え構文 [c 内容]
+            html_body = html_body.replace(/\[c\s+([^\]]+)\]/g, '<div class="コメント文字">$1</div>');
+
+            // ブログカード構文 [blog ファイル名]
+            html_body = html_body.replace(/\[blog\s+((?:https?:\/\/ideoaves\.github\.io\/blog\/)?[\w-]+\.html)\]/g, '<a class="ブログカード" href="$1"><div class="ブログのサムネイル"><img alt="" src=""></div><div class="ブログのタイトル"><h2>ブログタイトル</h2></div><div class="ブログの投稿時間">日付</div><div class="ブログの最初">要約文...</div></a>');
+
+            // リンク構文 [テキスト URL]
+            html_body = html_body.replace(/\[([^\]\[]+?)\s+([^\]\s]+)\]/g, '<a href="$2">$1</a>');
+
+            // リンク構文 [URL]
+            html_body = html_body.replace(/\[([^\]\s]+)\]/g, '<a href="$1">$1</a>');
+
+            // YouTube埋め込み
+            html_body = html_body.replace(/(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)([^&\s\?]+)(?:[^\s]*)?/g, '<iframe src="https:\/\/www.youtube.com\/embed\/$1" allow="picture-in-picture" allowfullscreen><\/iframe>');
+
+            // Twitter埋め込み
+            html_body = html_body.replace(/https:\/\/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+)[^\s]*/g, '<blockquote class="twitter-tweet"><a href="https:\/\/twitter.com\/$1\/status\/$2"><\/a><\/blockquote><script async src="https:\/\/platform.twitter.com\/widgets.js"><\/script>');
+
+            // 改行を<br>に変換
+            html_body = html_body.replace(/\r\n|\r|\n/g, '<br>\n');
+
+            // コードブロックを復元
+            blocks.forEach((block, i) => {
+                html_body = html_body.replace(`__BLOCK_${i}__`, `<pre><code>${block}<\/code><\/pre>`);
+            });
+
+            return html_body;
+        }
+
+        // リアルタイムプレビュー更新
+        const editor = document.getElementById('editor');
+        const previewContent = document.getElementById('preview-content');
+
+        function updatePreview() {
+            const text = editor.value;
+            
+            if (text.trim()) {
+                // id=著者名 の記述を探して、著者IDを取得
+                const idMatch = text.match(/^id=(.*)$/m);
+                const authorId = idMatch ? idMatch[1].trim() : '';
+                
+                // 著者IDの記述を本文から削除し、タイトル行と本文に分割
+                const textWithoutId = text.replace(/^id=.*\r?\n?/m, '').trim();
+                const lines = textWithoutId.split('\n');
+                const titleLine = lines[0] ? lines[0].replace(/^#+\s*/, '').trim() : 'タイトルなし';
+                const bodyText = lines.slice(1).join('\n');
+                const bodyHtml = convertMarkdownToHtml(bodyText);
+                
+                // 著者情報があればHTMLに追加
+                const authorHtml = authorId ? `<div class="作った人たち">${authorId}</div>\n` : '';
+                
+                previewContent.innerHTML = `<h1>${titleLine}</h1>\n${authorHtml}${bodyHtml}\n<div class="承認欲求">\n                    <div class="heart">♥<span class="乱数"></span></div>\n                    <div class="up">⤴<span class="乱数"></span></div>\n                </div>`;
+            } else {
+                previewContent.innerHTML = '<div class="承認欲求"><div class="heart">♥<span class="乱数"></span></div><div class="up">⤴<span class="乱数"></span></div></div>';
+            }
+        }
+
+        // イベントリスナー
+        editor.addEventListener('input', updatePreview);
+        editor.addEventListener('keyup', updatePreview);
+
+        // 初期化
+        updatePreview();
+    </script>
+</body>
+</html>

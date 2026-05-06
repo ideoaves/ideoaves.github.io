@@ -4,2666 +4,3887 @@
     "sort_date": "1952/08/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "CTSSデモンストレーション": {
+    "date": "1961/11/00",
+    "sort_date": "1961/11/01",
+    "tag": "インターネット",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
   },
   "ARPANET": {
     "date": "1969/10/01",
     "sort_date": "1969/10/01",
     "tag": "インターネット",
     "end_date": "1983/01/01",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "CTSSで反戦メールを一斉送信（最初のスパムメールの一）": {
+    "date": "1971/00/00",
+    "sort_date": "1971/01/01",
+    "tag": "インターネット",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
   },
   "File Transfer Protocol (FTP)": {
     "date": "1971/04/16",
     "sort_date": "1971/04/16",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "ALOHAnet": {
     "date": "1971/06/00",
     "sort_date": "1971/06/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "東京大学と京都大学を接続　N-1ネットワーク": {
     "date": "1974/10/01",
     "sort_date": "1974/10/01",
     "tag": "インターネット",
     "end_date": "1981/10/00",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "都内20kmで光ファイバケーブルの現場試験（唐ヶ崎-霞が関-大手町-蔵前-浜町間）": {
     "date": "1978/00/00",
     "sort_date": "1978/01/01",
     "tag": "インターネット",
     "end_date": "1985/02/00",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "N-1ネットワーク　正式運用開始": {
     "date": "1981/10/00",
     "sort_date": "1981/10/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   ":-)": {
     "date": "1982/09/19",
     "sort_date": "1982/09/19",
-    "tag": "インターネット",
+    "tag": "インターネット, サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "ARPANET TCP/IPへ切り替え（インターネットの起源とされる）": {
     "date": "1983/01/01",
     "sort_date": "1983/01/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "KEKと各大学を接続　HEPnet-J": {
     "date": "1984/01/01",
     "sort_date": "1984/01/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "草の根BBSの始まり 千代田常磐マイコンクラブ「ミニデータベース」": {
     "date": "1984/01/00",
     "sort_date": "1984/01/01",
-    "tag": "インターネット",
+    "tag": "インターネット, サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "草の根BBS 小田原マイコンクラブ「マイコンセンター」": {
     "date": "1984/03/20",
     "sort_date": "1984/03/20",
-    "tag": "インターネット",
+    "tag": "インターネット, サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "JUNET 慶應義塾大学と東京工業大学を接続": {
     "date": "1984/10/01",
     "sort_date": "1984/10/01",
     "tag": "インターネット",
     "end_date": "1986/01/00",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "日本縦貫光ファイバケーブル（旭川・鹿児島間）": {
     "date": "1985/02/00",
     "sort_date": "1985/02/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "パソコン通信ハンドブック　通称「青本」発売": {
     "date": "1985/03/26",
     "sort_date": "1985/03/26",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "電気通信事業法改正 通信自由化　電電公社民営化": {
     "date": "1985/04/01",
     "sort_date": "1985/04/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "パソコン通信 アスキーネット 開始": {
     "date": "1985/05/01",
     "sort_date": "1985/05/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "最初のオンライン連載小説　『シシャノミルユメ』": {
     "date": "1985/08/00",
     "sort_date": "1985/08/01",
-    "tag": "インターネット",
+    "tag": "インターネット, サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "JUNET、CSNETと接続": {
     "date": "1986/01/00",
     "sort_date": "1986/01/01",
     "tag": "インターネット",
     "end_date": "1989/04/01",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "(^_^)": {
     "date": "1986/06/20",
     "sort_date": "1986/06/20",
-    "tag": "インターネット",
+    "tag": "インターネット, サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   ".jpの登録管理の委任": {
     "date": "1986/08/05",
     "sort_date": "1986/08/05",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "HyperCard": {
     "date": "1987/00/00",
     "sort_date": "1987/01/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "パソコン通信 ニフティサーブ 開始": {
     "date": "1987/04/15",
     "sort_date": "1987/04/15",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "WIDEプロジェクト 最初の合宿": {
     "date": "1988/05/00",
     "sort_date": "1988/05/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "CERN　WWW提案": {
     "date": "1989/03/01",
     "sort_date": "1989/03/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   ".JUNETから.JPへ移行": {
     "date": "1989/04/01",
     "sort_date": "1989/04/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "World Wide Web 開発": {
     "date": "1989/06/00",
     "sort_date": "1989/06/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "HTMLコード化": {
     "date": "1990/05/01",
     "sort_date": "1990/05/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "最初のWWWプロトタイプ": {
     "date": "1990/11/01",
     "sort_date": "1990/11/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "最初のWebページ": {
     "date": "1990/12/20",
     "sort_date": "1990/12/20",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "最初のWebブラウザ　WorldWideWeb　（NeXTのシステムのみで動いた）": {
     "date": "1990/12/23",
     "sort_date": "1990/12/23",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "Hypertext Transfer Protocol (0.9)": {
     "date": "1991/00/00",
     "sort_date": "1991/01/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "クロスプラットフォームのWebブラウザ　Line Mode Browser": {
     "date": "1991/03/01",
     "sort_date": "1991/03/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "奥乃博（NTT基礎研）　日本国憲法、社内情報等をHTML化　（非公開）": {
     "date": "1992/02/01",
     "sort_date": "1992/02/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "INET’92開催　(神戸)": {
     "date": "1992/06/15",
     "sort_date": "1992/06/15",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "最初のWeb上の写真": {
     "date": "1992/07/18",
     "sort_date": "1992/07/18",
-    "tag": "インターネット",
+    "tag": "インターネット, サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "森田洋平（KEK）　kekux.kek.jpにHTMLを置く（FTPサーバー）": {
     "date": "1992/09/30",
     "sort_date": "1992/09/30",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "KEK　http://kekux.kek.jp/kek.html　（WWWサーバー）": {
     "date": "1993/02/10",
     "sort_date": "1993/02/10",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
-  "第２世代Webブラウザ　XMosaic": {
+  "第２世代Webブラウザ　NCSA Mosaic": {
     "date": "1993/02/16",
     "sort_date": "1993/02/16",
     "tag": "インターネット",
-    "end_date": "",
-    "to_date": ""
+    "end_date": "1993/10/07",
+    "sort_tag": "イ",
+    "memo": ""
   },
   "infotalk": {
     "date": "1993/03/03",
     "sort_date": "1993/03/03",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "日本語に対応　LMXosaic": {
     "date": "1993/10/07",
     "sort_date": "1993/10/07",
     "tag": "インターネット",
-    "end_date": "",
-    "to_date": ""
+    "end_date": "1993/11/19",
+    "sort_tag": "イ",
+    "memo": ""
   },
   "NTTサーバ　http://www.ntt.jp/": {
     "date": "1993/10/07",
     "sort_date": "1993/10/07",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "インターネットの商用利用が解禁": {
+    "date": "1993/11/00",
+    "sort_date": "1993/11/01",
+    "tag": "インターネット",
+    "end_date": "cont",
+    "sort_tag": "イ",
+    "memo": ""
   },
   "Mosaic-L10Nリリース。": {
     "date": "1993/11/19",
     "sort_date": "1993/11/19",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "最初のco.jpドメイン　www.fujitsu.co.jp": {
     "date": "1994/06/01",
     "sort_date": "1994/06/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "神戸市 マルチメディア文化都市構想 自治体のインターネット接続": {
+    "date": "1994/08/00",
+    "sort_date": "1994/08/01",
+    "tag": "インターネット",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "iNTERNET magazine": {
+    "date": "1994/09/00",
+    "sort_date": "1994/09/01",
+    "tag": "インターネット",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "『千里眼』 ロボット検索エンジン": {
+    "date": "1994/11/00",
+    "sort_date": "1994/11/01",
+    "tag": "インターネット, サブ",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "テレホーダイ": {
+    "date": "1995/08/22",
+    "sort_date": "1995/08/22",
+    "tag": "インターネット",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
   },
   "Japan WWW Conference '95　(神戸)": {
     "date": "1995/11/28",
     "sort_date": "1995/11/28",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "国内初のライブストリーミング（WIDEプロジェクト）": {
     "date": "1995/11/30",
     "sort_date": "1995/11/30",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "So-net": {
+    "date": "1996/01/15",
+    "sort_date": "1996/01/15",
+    "tag": "インターネット",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "Yahoo! JAPAN": {
+    "date": "1996/04/01",
+    "sort_date": "1996/04/01",
+    "tag": "インターネット",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
   },
   "あやしいわーるど 開始": {
     "date": "1996/08/21",
     "sort_date": "1996/08/21",
-    "tag": "インターネット",
+    "tag": "インターネット, サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "あめぞう掲示板 開始": {
     "date": "1997/08/05",
     "sort_date": "1997/08/05",
-    "tag": "インターネット",
+    "tag": "インターネット, サブ",
+    "end_date": "1999/05/00",
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "GeoCities 日本語版": {
+    "date": "1997/09/15",
+    "sort_date": "1997/09/16",
+    "tag": "インターネット, サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
   },
   "2ちゃんねる 開始": {
     "date": "1999/05/00",
     "sort_date": "1999/05/01",
+    "tag": "インターネット, サブ",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "長野県 初の商用ADSLインターネット接続": {
+    "date": "1999/09/01",
+    "sort_date": "1999/09/01",
     "tag": "インターネット",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "Google日本語版開始 GAFAの台頭": {
+    "date": "2000/09/12",
+    "sort_date": "2000/09/12",
+    "tag": "インターネット",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "ふたば☆ちゃんねる 開始": {
+    "date": "2001/08/30",
+    "sort_date": "2001/08/30",
+    "tag": "インターネット, サブ",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "InfoNavigatorサービス終了": {
+    "date": "2002/06/24",
+    "sort_date": "2002/06/24",
+    "tag": "インターネット, サブ",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "はてなダイアリー 開始（ブログ界の登場）": {
+    "date": "2003/03/13",
+    "sort_date": "2003/03/13",
+    "tag": "インターネット, サブ",
+    "end_date": "",
+    "sort_tag": "イ",
+    "memo": ""
+  },
+  "EDVACに関する報告書の第一草稿（ノイマン型）": {
+    "date": "1945/06/30",
+    "sort_date": "1945/06/30",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
   },
   "世界最初の大型コンピューター ENIAC完成": {
     "date": "1946/02/14",
     "sort_date": "1946/02/14",
     "tag": "コンピュータ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "コ",
+    "memo": ""
   },
   "ベル研究所 点接触型トランジスタの発明": {
     "date": "1947/12/23",
     "sort_date": "1947/12/23",
     "tag": "コンピュータ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "SSEM稼働 最初のノイマン型コンピュータ": {
+    "date": "1948/06/21",
+    "sort_date": "1948/06/21",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "EDSAC発売 最初の実用的ノイマン型コンピュータ": {
+    "date": "1949/05/06",
+    "sort_date": "1949/05/06",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
   },
   "接合型トランジスタ 製品化": {
     "date": "1952/00/00",
     "sort_date": "1952/01/01",
     "tag": "コンピュータ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "国産 FUJIC 最初の国産コンピュータ": {
+    "date": "1954/03/00",
+    "sort_date": "1954/03/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
   },
   "IBM 704": {
     "date": "1954/04/00",
     "sort_date": "1954/04/01",
     "tag": "コンピュータ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "国産 TAC": {
+    "date": "1959/01/21",
+    "sort_date": "1959/01/21",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
   },
   "国産初のIC": {
     "date": "1961/01/00",
     "sort_date": "1961/01/01",
     "tag": "コンピュータ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "コ",
+    "memo": ""
   },
   "文字コード ASCII 制定": {
     "date": "1963/06/17",
     "sort_date": "1963/06/17",
     "tag": "コンピュータ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "コ",
+    "memo": ""
   },
   "IBM 2260 ブラウン管出力を可能とする": {
     "date": "1964/00/00",
     "sort_date": "1964/01/01",
     "tag": "コンピュータ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "コ",
+    "memo": ""
   },
   "IBM System/360": {
     "date": "1964/04/07",
     "sort_date": "1964/04/07",
     "tag": "コンピュータ",
     "end_date": "",
-    "to_date": ""
-  },
-  "8インチのフロッピー": {
-    "date": "1971/00/00",
-    "sort_date": "1971/01/01",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Intel 4004 民生用マイクロプロセッサ（4ビット）の登場": {
-    "date": "1971/11/15",
-    "sort_date": "1971/11/15",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Intel 8008 マイクロプロセッサ（8ビット）の登場": {
-    "date": "1972/04/00",
-    "sort_date": "1972/04/01",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Xerox Alto": {
-    "date": "1973/03/01",
-    "sort_date": "1973/03/01",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Altair 8800 世界初のパーソナルコンピューター": {
-    "date": "1974/12/00",
-    "sort_date": "1974/12/01",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "MN1610 マイクロプロセッサ（16ビット）の登場": {
-    "date": "1975/04/00",
-    "sort_date": "1975/04/01",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Apple 創業": {
-    "date": "1976/04/01",
-    "sort_date": "1976/04/01",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Apple I": {
-    "date": "1976/04/11",
-    "sort_date": "1976/04/11",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Apple II": {
-    "date": "1977/06/00",
-    "sort_date": "1977/06/01",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Apple Graphics Tablet 民生用ペンタブレット": {
-    "date": "1979/00/00",
-    "sort_date": "1979/01/01",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "IBM Rebus（Eye-Bee-M）": {
-    "date": "1981/00/00",
-    "sort_date": "1981/01/01",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Apple Macintosh 128K": {
-    "date": "1984/04/12",
-    "sort_date": "1984/04/12",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Windows 1.0": {
-    "date": "1985/11/20",
-    "sort_date": "1985/11/20",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Photoshop 1.0": {
-    "date": "1990/00/00",
-    "sort_date": "1990/01/01",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Windows 95": {
-    "date": "1995/08/24",
-    "sort_date": "1995/08/24",
-    "tag": "コンピュータ",
-    "end_date": "",
-    "to_date": ""
+    "sort_tag": "コ",
+    "memo": ""
   },
   "The Mother of All Demos": {
     "date": "1968/12/09",
     "sort_date": "1968/12/09",
     "tag": "コンピュータ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "8インチのフロッピー": {
+    "date": "1971/00/00",
+    "sort_date": "1971/01/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Intel 4004 民生用マイクロプロセッサ（4ビット）の登場": {
+    "date": "1971/11/15",
+    "sort_date": "1971/11/15",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Intel 8008 マイクロプロセッサ（8ビット）の登場": {
+    "date": "1972/04/00",
+    "sort_date": "1972/04/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Xerox Alto": {
+    "date": "1973/03/01",
+    "sort_date": "1973/03/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Altair 8800 世界初のパーソナルコンピューター": {
+    "date": "1974/12/00",
+    "sort_date": "1974/12/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "MN1610 マイクロプロセッサ（16ビット）の登場": {
+    "date": "1975/04/00",
+    "sort_date": "1975/04/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Apple 創業": {
+    "date": "1976/04/01",
+    "sort_date": "1976/04/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Apple I": {
+    "date": "1976/04/11",
+    "sort_date": "1976/04/11",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Apple II": {
+    "date": "1977/06/00",
+    "sort_date": "1977/06/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Apple Graphics Tablet 民生用ペンタブレット": {
+    "date": "1979/00/00",
+    "sort_date": "1979/01/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "IBM Rebus（Eye-Bee-M）": {
+    "date": "1981/00/00",
+    "sort_date": "1981/01/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Amiga『Boing Ball』": {
+    "date": "1984/01/00",
+    "sort_date": "1984/01/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Apple Macintosh 128K": {
+    "date": "1984/04/12",
+    "sort_date": "1984/04/12",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Windows 1.0": {
+    "date": "1985/11/20",
+    "sort_date": "1985/11/20",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Photoshop 1.0": {
+    "date": "1990/00/00",
+    "sort_date": "1990/01/01",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Windows 95": {
+    "date": "1995/08/24",
+    "sort_date": "1995/08/24",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
+  },
+  "Macromedia Flash": {
+    "date": "1997/02/19",
+    "sort_date": "1997/02/19",
+    "tag": "コンピュータ",
+    "end_date": "",
+    "sort_tag": "コ",
+    "memo": ""
   },
   "露店撤廃令": {
     "date": "1949/08/04",
     "sort_date": "1949/08/04",
     "tag": "サブ",
     "end_date": "1950/09/11",
-    "to_date": ""
+    "sort_tag": "サ",
+    "memo": ""
   },
   "東京ラジオデパート　秋葉原の電気街化": {
     "date": "1950/09/11",
     "sort_date": "1950/09/11",
     "tag": "サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "サ",
+    "memo": ""
   },
   "新宿コマ劇場": {
     "date": "1956/12/28",
     "sort_date": "1956/12/28",
     "tag": "サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "サ",
+    "memo": ""
   },
   "カードショップ羅針盤": {
     "date": "1969/00/00",
     "sort_date": "1969/01/01",
     "tag": "サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "サ",
+    "memo": ""
   },
   "日本漫画大会　即売会の先駆け": {
     "date": "1972/07/29",
     "sort_date": "1972/07/29",
     "tag": "サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "サ",
+    "memo": ""
   },
-  "第1回コミック=マーケット　開催": {
+  "第1回コミックマーケット（コミケ, C1）　開催": {
     "date": "1975/12/21",
     "sort_date": "1975/12/21",
     "tag": "サブ",
-    "end_date": "",
-    "to_date": ""
+    "end_date": "1979/12/23",
+    "sort_tag": "サ",
+    "memo": ""
   },
   "『宇宙戦艦ヤマト』劇場版公開 第二次アニメブーム": {
     "date": "1977/08/06",
     "sort_date": "1977/08/06",
     "tag": "サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "『機動戦士ガンダム』": {
+    "date": "1979/04/07",
+    "sort_date": "1979/04/07",
+    "tag": "サブ",
+    "end_date": "",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "同人誌『シベール』 男性向同人誌の登場": {
+    "date": "1979/04/08",
+    "sort_date": "1979/04/08",
+    "tag": "サブ",
+    "end_date": "",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "第13回コミックマーケット（コミケ, C13 冬）代表が米沢嘉博に": {
+    "date": "1979/12/23",
+    "sort_date": "1979/12/23",
+    "tag": "サブ",
+    "end_date": "",
+    "sort_tag": "サ",
+    "memo": ""
   },
   "まんだらけ 中野ブロードウェイに開店": {
     "date": "1981/00/00",
     "sort_date": "1981/01/01",
     "tag": "サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "サ",
+    "memo": ""
   },
   "アニメイト池袋本店": {
     "date": "1983/00/00",
     "sort_date": "1983/01/01",
     "tag": "サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "サ",
+    "memo": ""
   },
   "ラオックス・ザ・コンピュータ館 秋葉原のパソコン街化": {
     "date": "1990/04/29",
     "sort_date": "1990/04/29",
     "tag": "サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "個人サイト『富ヶ谷』": {
+    "date": "1993/00/00",
+    "sort_date": "1993/01/01",
+    "tag": "サブ",
+    "end_date": "",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "日記リンクス （日記界の登場）": {
+    "date": "1995/05/18",
+    "sort_date": "1995/05/18",
+    "tag": "サブ",
+    "end_date": "1996/07/02",
+    "sort_tag": "サ",
+    "memo": ""
   },
   "『新世紀エヴァンゲリオン』放映 第三次アニメブーム": {
     "date": "1995/10/04",
     "sort_date": "1995/10/04",
     "tag": "サブ",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "『ReadMe!JAPAN』": {
+    "date": "1996/07/02",
+    "sort_date": "1996/07/02",
+    "tag": "サブ",
+    "end_date": "cont",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "『\"FUNNY\" GAMER'S HEAVEN』 テキストサイトの登場": {
+    "date": "1997/08/12",
+    "sort_date": "1997/09/17",
+    "tag": "サブ",
+    "end_date": "",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "『東方幻想空間 博麗神社』": {
+    "date": "1999/12/08",
+    "sort_date": "1999/12/08",
+    "tag": "サブ",
+    "end_date": "",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "モナーの誕生日": {
+    "date": "2000/01/03",
+    "sort_date": "2000/01/03",
+    "tag": "サブ",
+    "end_date": "",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "『侍魂』（テキストサイトブーム）": {
+    "date": "2001/01/18",
+    "sort_date": "2001/01/18",
+    "tag": "サブ",
+    "end_date": "2001/02/14, fin",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "『バーチャルネットアイドル・ちゆ１２歳』（VNIの登場）": {
+    "date": "2001/02/14",
+    "sort_date": "2001/02/14",
+    "tag": "サブ",
+    "end_date": "2003/01/05",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "紅白FLASH合戦": {
+    "date": "2002/09/26",
+    "sort_date": "2002/09/26",
+    "tag": "サブ",
+    "end_date": "2002/12/31",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "紅白FLASH合戦終了（FLASH黄金時代）": {
+    "date": "2002/12/31",
+    "sort_date": "2002/12/31",
+    "tag": "サブ",
+    "end_date": "cont",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "『ばーちゃるねっとあいどるゆにっと テキッ娘。』": {
+    "date": "2003/01/05",
+    "sort_date": "2003/01/05",
+    "tag": "サブ",
+    "end_date": "",
+    "sort_tag": "サ",
+    "memo": ""
+  },
+  "のまネコ問題": {
+    "date": "2005/09/00",
+    "sort_date": "2005/09/01",
+    "tag": "サブ",
+    "end_date": "",
+    "sort_tag": "サ",
+    "memo": ""
   },
   "ヒッピー族": {
     "date": "1960/00/00",
     "sort_date": "1960/01/01",
     "tag": "ファッション",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "フ",
+    "memo": ""
   },
   "みゆき族": {
     "date": "1964/00/00",
     "sort_date": "1964/01/01",
     "tag": "ファッション",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "フ",
+    "memo": ""
   },
   "ファッションブランド「MILK」設立 ロリータの始まり": {
     "date": "1970/03/00",
     "sort_date": "1970/03/01",
     "tag": "ファッション",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "フ",
+    "memo": ""
   },
   "『non-no』創刊 アンノン族": {
     "date": "1971/05/25",
     "sort_date": "1971/05/25",
     "tag": "ファッション",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "フ",
+    "memo": ""
+  },
+  "ファッションブランド「PINK HOUSE」": {
+    "date": "1973/06/02",
+    "sort_date": "1973/06/02",
+    "tag": "ファッション",
+    "end_date": "",
+    "sort_tag": "フ",
+    "memo": ""
   },
   "渋谷PARCO開店(渋谷ファッション)": {
     "date": "1973/06/14",
     "sort_date": "1973/06/14",
     "tag": "ファッション",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "フ",
+    "memo": ""
   },
   "竹の子族": {
     "date": "1978/02/00",
     "sort_date": "1978/02/01",
     "tag": "ファッション",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "フ",
+    "memo": ""
   },
   "DCブランドの流行": {
     "date": "1978/10/28",
     "sort_date": "1978/10/28",
     "tag": "ファッション",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "フ",
+    "memo": ""
   },
   "ファッションブランド「Angelic Pretty」設立": {
     "date": "1979/00/00",
     "sort_date": "1979/01/01",
     "tag": "ファッション",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "フ",
+    "memo": ""
   },
   "カラス族 DCブランド": {
     "date": "1983/00/00",
     "sort_date": "1983/01/01",
     "tag": "ファッション",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "フ",
+    "memo": ""
+  },
+  "ファッションブランド「Jane Marple」": {
+    "date": "1985/04/01",
+    "sort_date": "1985/04/01",
+    "tag": "ファッション",
+    "end_date": "",
+    "sort_tag": "フ",
+    "memo": ""
   },
   "全日本学生自治会総連合（全学連）結成": {
     "date": "1948/07/06",
     "sort_date": "1948/07/06",
     "tag": "運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "運",
+    "memo": ""
   },
   "第6回全国協議会(六全協)": {
     "date": "1955/07/27",
     "sort_date": "1955/07/27",
     "tag": "運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "運",
+    "memo": ""
   },
-  "第一次羽田闘争": {
+  "三里塚闘争": {
+    "date": "1966/06/22",
+    "sort_date": "1966/06/22",
+    "tag": "運動",
+    "end_date": "1967/08/16",
+    "sort_tag": "運",
+    "memo": ""
+  },
+  "空港反対同盟、新左翼受け入れ": {
+    "date": "1967/08/16",
+    "sort_date": "1967/08/16",
+    "tag": "運動",
+    "end_date": "1971/09/16",
+    "sort_tag": "運",
+    "memo": ""
+  },
+  "第一次羽田闘争 街頭闘争の幕開け": {
     "date": "1967/10/08",
     "sort_date": "1967/10/08",
     "tag": "運動",
+    "end_date": "cont",
+    "sort_tag": "運",
+    "memo": ""
+  },
+  "第二次羽田闘争": {
+    "date": "1967/11/12",
+    "sort_date": "1967/11/12",
+    "tag": "運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "運",
+    "memo": ""
+  },
+  "飯田橋事件 (佐世保エンタープライズ寄港阻止闘争)": {
+    "date": "1968/01/15",
+    "sort_date": "1968/01/15",
+    "tag": "運動",
+    "end_date": "1968/01/23",
+    "sort_tag": "運",
+    "memo": ""
+  },
+  "エンタープライズ出港": {
+    "date": "1968/01/23",
+    "sort_date": "1968/01/23",
+    "tag": "運動",
+    "end_date": "",
+    "sort_tag": "運",
+    "memo": ""
   },
   "10.21国際反戦デー闘争": {
     "date": "1969/10/21",
     "sort_date": "1969/10/21",
     "tag": "運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "運",
+    "memo": ""
   },
   "佐藤首相訪米阻止闘争": {
     "date": "1969/11/16",
     "sort_date": "1969/11/16",
     "tag": "運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "運",
+    "memo": ""
   },
   "華青闘告発": {
     "date": "1970/07/07",
     "sort_date": "1970/07/07",
     "tag": "運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "運",
+    "memo": ""
   },
   "連合赤軍 設立": {
     "date": "1971/00/00",
     "sort_date": "1971/01/01",
     "tag": "運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "運",
+    "memo": ""
   },
   "日本幻野祭": {
     "date": "1971/08/14",
     "sort_date": "1971/08/14",
     "tag": "運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "運",
+    "memo": ""
+  },
+  "強制代執行阻止闘争": {
+    "date": "1971/09/16",
+    "sort_date": "1971/09/16",
+    "tag": "運動",
+    "end_date": "",
+    "sort_tag": "運",
+    "memo": ""
   },
   "CSIR Mk1 コンピュータによるデジタル音楽": {
     "date": "1949/11/00",
     "sort_date": "1949/11/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "NHK電子音楽スタジオ": {
     "date": "1955/11/27",
     "sort_date": "1955/11/27",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "IBM コンピュータによる歌唱 デイジーベル": {
     "date": "1961/06/00",
     "sort_date": "1961/06/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "ローリング・ストーンズ 結成": {
     "date": "1962/04/00",
     "sort_date": "1962/04/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "ビートルズ デビュー": {
     "date": "1962/10/05",
     "sort_date": "1962/10/05",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "モーグ・シンセサイザー": {
     "date": "1964/10/00",
     "sort_date": "1964/10/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
+  },
+  "ビートルズ来日": {
+    "date": "1966/06/30",
+    "sort_date": "1966/06/30",
+    "tag": "音楽",
+    "end_date": "",
+    "sort_tag": "音",
+    "memo": ""
+  },
+  "東京フォークゲリラ 新宿駅西口広場": {
+    "date": "1969/02/28",
+    "sort_date": "1969/02/28",
+    "tag": "音楽, 世相",
+    "end_date": "1969/07/18",
+    "sort_tag": "音",
+    "memo": ""
+  },
+  "新宿駅西口地下広場でフォークゲリラ追放": {
+    "date": "1969/07/18",
+    "sort_date": "1969/07/18",
+    "tag": "音楽, 世相",
+    "end_date": "",
+    "sort_tag": "音",
+    "memo": ""
   },
   "マイケル・ジャクソン メジャーデビュー": {
     "date": "1969/10/00",
     "sort_date": "1969/10/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "バンド 頭脳警察 結成": {
     "date": "1969/12/00",
     "sort_date": "1969/12/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "ミニモーグ": {
     "date": "1970/00/00",
     "sort_date": "1970/01/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "はっぴいえんど 日本語ロック": {
     "date": "1970/03/00",
     "sort_date": "1970/03/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "ビートルズ 事実上の解散": {
     "date": "1970/04/10",
     "sort_date": "1970/04/10",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "アナログシンセサイザー発売 Korg700、Roland SH-1000、YAMAHA SY-1": {
     "date": "1973/00/00",
     "sort_date": "1973/01/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
+  },
+  "渋谷パルコ 開業": {
+    "date": "1973/06/14",
+    "sort_date": "1973/06/14",
+    "tag": "音楽, 世相",
+    "end_date": "",
+    "sort_tag": "音",
+    "memo": ""
   },
   "ヒップホップ": {
     "date": "1973/08/11",
     "sort_date": "1973/08/11",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "イエロー・マジック・オーケストラ(YMO)": {
     "date": "1978/00/00",
     "sort_date": "1978/01/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "TR-808": {
     "date": "1980/00/00",
     "sort_date": "1980/01/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "ヤマハ・DXシリーズ FM音源": {
     "date": "1983/05/00",
     "sort_date": "1983/05/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "DnBの始まり": {
     "date": "1990/00/00",
     "sort_date": "1990/01/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
+  },
+  "HMV渋谷 開業 音楽の中心地が渋谷へ（渋谷系）": {
+    "date": "1990/11/16",
+    "sort_date": "1990/11/16",
+    "tag": "音楽",
+    "end_date": "",
+    "sort_tag": "音",
+    "memo": ""
   },
   "シティポップ": {
     "date": "1995/00/00",
     "sort_date": "1995/01/01",
     "tag": "音楽",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "音",
+    "memo": ""
   },
   "東大医学部　スト開始": {
     "date": "1968/01/29",
     "sort_date": "1968/01/29",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "日大全共闘 結成": {
     "date": "1968/05/27",
     "sort_date": "1968/05/27",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "日大全共闘、機動隊により制圧": {
     "date": "1968/06/11",
     "sort_date": "1968/06/11",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "東大 医学部全闘委 安田講堂占拠": {
     "date": "1968/06/15",
     "sort_date": "1968/06/15",
     "tag": "学生",
     "end_date": "1968/06/17",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "東大安田講堂占拠 機動隊投入": {
     "date": "1968/06/17",
     "sort_date": "1968/06/17",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "東大、機動隊導入への一日スト": {
     "date": "1968/06/20",
     "sort_date": "1968/06/20",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "東大安田講堂占拠": {
     "date": "1968/07/02",
     "sort_date": "1968/07/02",
     "tag": "学生",
     "end_date": "1969/01/19",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "東大全共闘 結成": {
     "date": "1968/07/05",
     "sort_date": "1968/07/05",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "日大、機動隊に殉職者": {
     "date": "1968/09/04",
     "sort_date": "1968/09/04",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "東大全共闘、団交": {
     "date": "1968/11/04",
     "sort_date": "1968/11/04",
     "tag": "学生",
     "end_date": "1968/11/12",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "東大全共闘、民主化行動委員会（民青系）と乱闘": {
     "date": "1968/11/12",
     "sort_date": "1968/11/12",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
-  "東大 駒場祭": {
+  "東大 駒場祭　また同日本郷にて全共闘決起大会": {
     "date": "1968/11/22",
     "sort_date": "1968/11/22",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "東大七学部学生集会 民青系や無党派のスト収拾が決定": {
     "date": "1969/01/10",
     "sort_date": "1969/01/10",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "東大安田講堂事件": {
     "date": "1969/01/18",
     "sort_date": "1969/01/18",
     "tag": "学生",
     "end_date": "1969/01/19",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "東大安田講堂事件 封鎖解除": {
     "date": "1969/01/19",
     "sort_date": "1969/01/19",
     "tag": "学生",
     "end_date": "",
-    "to_date": ""
-  },
-  "国産商用第1号テレビ 白黒テレビ TV3-14T": {
-    "date": "1953/00/00",
-    "sort_date": "1953/01/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "欧州原子核研究機構CERN 設立": {
-    "date": "1954/09/29",
-    "sort_date": "1954/09/29",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "TR-55 日本初のトランジスタラジオ": {
-    "date": "1955/09/00",
-    "sort_date": "1955/09/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "日本 世界一のトランジスタ生産": {
-    "date": "1960/00/00",
-    "sort_date": "1960/01/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "東芝21型D-WE 日本初の国産カラーテレビ": {
-    "date": "1960/07/00",
-    "sort_date": "1960/07/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Sketchpad": {
-    "date": "1963/00/00",
-    "sort_date": "1963/01/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "CS-10A『コンペット』 日本初の電卓": {
-    "date": "1964/03/18",
-    "sort_date": "1963/01/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ビデオテープレコーダ CV-2000": {
-    "date": "1965/08/00",
-    "sort_date": "1965/08/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Super8": {
-    "date": "1966/00/00",
-    "sort_date": "1966/01/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "東海発電所で日本初の原子力商業送電開始": {
-    "date": "1966/07/25",
-    "sort_date": "1966/07/25",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ポケットベル": {
-    "date": "1968/07/01",
-    "sort_date": "1968/07/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "東京中央郵便局 郵便区分機TR-3・4を公開（手書き数字読み取り）": {
-    "date": "1968/07/01",
-    "sort_date": "1968/07/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "原子力船むつ": {
-    "date": "1968/11/27",
-    "sort_date": "1968/11/27",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "TDK SD 国内で発売 世界初の音楽用カセットテープ": {
-    "date": "1969/03/00",
-    "sort_date": "1969/03/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "有人深海調査艇しんかい": {
-    "date": "1969/03/20",
-    "sort_date": "1969/03/20",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "セイコークォーツ アストロン35SQ 世界最初のクォーツ式腕時計": {
-    "date": "1969/12/25",
-    "sort_date": "1969/12/25",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "美浜発電所　運転開始": {
-    "date": "1970/11/28",
-    "sort_date": "1970/11/28",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ソニー Uマチック発売 フィルムからテープへ": {
-    "date": "1971/10/10",
-    "sort_date": "1971/10/10",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "超伝導リニア LSM200": {
-    "date": "1972/03/00",
-    "sort_date": "1972/03/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "カシオミニ 世界初のパーソナル電卓": {
-    "date": "1972/08/03",
-    "sort_date": "1972/08/03",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ソニー ベータマックス SL-6300 発表": {
-    "date": "1975/04/16",
-    "sort_date": "1975/04/16",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "日本ビクター VHS  HR-3300 発売": {
-    "date": "1976/10/31",
-    "sort_date": "1976/10/31",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "日本語ワードプロセッサ JW-10 発表": {
-    "date": "1978/09/26",
-    "sort_date": "1978/09/26",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ウォークマン": {
-    "date": "1979/07/00",
-    "sort_date": "1979/07/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "Motorola DynaTAC 最初の市販携帯電話": {
-    "date": "1983/00/00",
-    "sort_date": "1983/01/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ET-10 最初の液晶カラーテレビ": {
-    "date": "1984/08/00",
-    "sort_date": "1984/08/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "写ルンです": {
-    "date": "1986/00/00",
-    "sort_date": "1986/01/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "チェルノブイリ原子力発電所事故": {
-    "date": "1986/04/26",
-    "sort_date": "1986/04/26",
-    "tag": "技術, 事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "表示機能付きのポケットベル（RC-101型）": {
-    "date": "1987/00/00",
-    "sort_date": "1987/01/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "NTT携帯電話1号機 TZ-802型": {
-    "date": "1987/00/01",
-    "sort_date": "1987/01/01",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "カシオ QV-10 最初に普及したデジタルカメラ": {
-    "date": "1994/11/14",
-    "sort_date": "1994/11/14",
-    "tag": "技術",
-    "end_date": "",
-    "to_date": ""
+    "sort_tag": "学",
+    "memo": ""
   },
   "第１回アマチュア無線技士国家試験": {
     "date": "1951/06/00",
     "sort_date": "1951/06/01",
     "tag": "技術, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "国産商用第1号テレビ 白黒テレビ TV3-14T": {
+    "date": "1953/00/00",
+    "sort_date": "1953/01/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
   },
   "テレビ本放送開始": {
     "date": "1953/02/01",
     "sort_date": "1953/02/01",
     "tag": "技術, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "欧州原子核研究機構CERN 設立": {
+    "date": "1954/09/29",
+    "sort_date": "1954/09/29",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "TR-55 日本初のトランジスタラジオ": {
+    "date": "1955/09/00",
+    "sort_date": "1955/09/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "日本 世界一のトランジスタ生産": {
+    "date": "1960/00/00",
+    "sort_date": "1960/01/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "東芝21型D-WE 日本初の国産カラーテレビ": {
+    "date": "1960/07/00",
+    "sort_date": "1960/07/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
   },
   "テレビ カラー本放送開始": {
     "date": "1960/09/10",
     "sort_date": "1960/09/10",
     "tag": "技術, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "Sketchpad": {
+    "date": "1963/00/00",
+    "sort_date": "1963/01/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "CS-10A『コンペット』 日本初の電卓": {
+    "date": "1964/03/18",
+    "sort_date": "1963/01/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "ビデオテープレコーダ CV-2000": {
+    "date": "1965/08/00",
+    "sort_date": "1965/08/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "Super8": {
+    "date": "1966/00/00",
+    "sort_date": "1966/01/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
   },
   "JARL 養成課程講習会 （アマチュア無線ブーム）": {
     "date": "1966/03/00",
     "sort_date": "1966/03/01",
     "tag": "技術, 世相",
     "end_date": "1975/04/00, fin",
-    "to_date": ""
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "東海発電所で日本初の原子力商業送電開始": {
+    "date": "1966/07/25",
+    "sort_date": "1966/07/25",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "ポケットベル": {
+    "date": "1968/07/01",
+    "sort_date": "1968/07/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "東京中央郵便局 郵便区分機TR-3・4を公開（手書き数字読み取り）": {
+    "date": "1968/07/01",
+    "sort_date": "1968/07/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
   },
   "郵便番号が導入": {
     "date": "1968/07/01",
     "sort_date": "1968/07/01",
     "tag": "技術, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "原子力船むつ": {
+    "date": "1968/11/27",
+    "sort_date": "1968/11/27",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "TDK SD 国内で発売 世界初の音楽用カセットテープ": {
+    "date": "1969/03/00",
+    "sort_date": "1969/03/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "有人深海調査艇しんかい": {
+    "date": "1969/03/20",
+    "sort_date": "1969/03/20",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "セイコークォーツ アストロン35SQ 世界最初のクォーツ式腕時計": {
+    "date": "1969/12/25",
+    "sort_date": "1969/12/25",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
   },
   "電話計算サービスDIALS開始": {
     "date": "1970/09/26",
     "sort_date": "1970/09/26",
     "tag": "技術, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "美浜発電所　運転開始": {
+    "date": "1970/11/28",
+    "sort_date": "1970/11/28",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "公衆電気通信法 改正": {
+    "date": "1971/05/01",
+    "sort_date": "1971/05/01",
+    "tag": "技術",
+    "end_date": "1972/00/00",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "ソニー Uマチック発売 フィルムからテープへ": {
+    "date": "1971/10/10",
+    "sort_date": "1971/10/10",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "ファクシミリの普及": {
+    "date": "1972/00/00",
+    "sort_date": "1972/01/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "超伝導リニア LSM200": {
+    "date": "1972/03/00",
+    "sort_date": "1972/03/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "カシオミニ 世界初のパーソナル電卓": {
+    "date": "1972/08/03",
+    "sort_date": "1972/08/03",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
   },
   "日本 アマチュア無線局数が世界一に": {
     "date": "1975/04/00",
     "sort_date": "1975/04/01",
     "tag": "技術, 世相",
     "end_date": "cont",
-    "to_date": ""
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "ソニー ベータマックス SL-6300 発表": {
+    "date": "1975/04/16",
+    "sort_date": "1975/04/16",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "日本ビクター VHS  HR-3300 発売": {
+    "date": "1976/10/31",
+    "sort_date": "1976/10/31",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
   },
   "VHSの生産台数がベータを抜く": {
     "date": "1978/00/00",
     "sort_date": "1978/01/01",
     "tag": "技術, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "日本語ワードプロセッサ JW-10 発表": {
+    "date": "1978/09/26",
+    "sort_date": "1978/09/26",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "ウォークマン": {
+    "date": "1979/07/00",
+    "sort_date": "1979/07/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "Motorola DynaTAC 最初の市販携帯電話": {
+    "date": "1983/00/00",
+    "sort_date": "1983/01/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "ET-10 最初の液晶カラーテレビ": {
+    "date": "1984/08/00",
+    "sort_date": "1984/08/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "写ルンです": {
+    "date": "1986/00/00",
+    "sort_date": "1986/01/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "チェルノブイリ原子力発電所事故": {
+    "date": "1986/04/26",
+    "sort_date": "1986/04/26",
+    "tag": "技術, 事件",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "表示機能付きのポケットベル（RC-101型）": {
+    "date": "1987/00/00",
+    "sort_date": "1987/01/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "NTT携帯電話1号機 TZ-802型": {
+    "date": "1987/00/01",
+    "sort_date": "1987/01/01",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
+  },
+  "カシオ QV-10 最初に普及したデジタルカメラ": {
+    "date": "1994/11/14",
+    "sort_date": "1994/11/14",
+    "tag": "技術",
+    "end_date": "",
+    "sort_tag": "技",
+    "memo": ""
   },
   "携帯電話の普及率が50％を超える": {
     "date": "1998/00/00",
     "sort_date": "1998/01/01",
     "tag": "技術, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "技",
+    "memo": ""
   },
   "トキワ荘": {
     "date": "1953/00/00",
     "sort_date": "1953/01/01",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "前衛芸術グループ 九州派 福岡県庁西側大通り壁面にてペルソナ展": {
     "date": "1956/11/02",
     "sort_date": "1956/11/02",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "原宿セントラルアパート　喫茶店「レオン」": {
     "date": "1958/00/00",
     "sort_date": "1958/01/01",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "歌劇団『華麗なる千拍子』": {
     "date": "1960/00/00",
     "sort_date": "1960/01/01",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "前衛芸術グループ ハイレッド・センター活動開始": {
     "date": "1962/08/15",
     "sort_date": "1962/08/15",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "鉄腕アトム アニメ放送開始": {
     "date": "1963/01/01",
     "sort_date": "1963/01/01",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "前衛芸術グループ ゼロ次元 名古屋国際ホテル前でパフォーマンス": {
     "date": "1963/01/01",
     "sort_date": "1963/01/01",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
+  },
+  "『人生劇場 飛車角』東映が仁侠映画志向": {
+    "date": "1963/03/16",
+    "sort_date": "1963/03/16",
+    "tag": "芸術",
+    "end_date": "",
+    "sort_tag": "芸",
+    "memo": ""
   },
   "『ロボットの時代』刊行": {
     "date": "1964/00/00",
     "sort_date": "1964/01/01",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "月刊漫画ガロ創刊": {
     "date": "1964/07/24",
     "sort_date": "1964/07/24",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "漫画雑誌COM創刊": {
     "date": "1967/01/00",
     "sort_date": "1967/01/01",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "『2001年宇宙の旅』公開": {
     "date": "1968/04/11",
     "sort_date": "1968/04/11",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
+  },
+  "テレビ番組『8時だョ!全員集合』放送開始": {
+    "date": "1969/10/04",
+    "sort_date": "1969/10/04",
+    "tag": "芸術",
+    "end_date": "",
+    "sort_tag": "芸",
+    "memo": ""
   },
   "季刊NW-SF第一号 ニュー・ウェーブ運動(SF)": {
     "date": "1970/07/01",
     "sort_date": "1970/07/01",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "大泉サロン　「24年組」の漫画家の集った場所": {
     "date": "1970/10/00",
     "sort_date": "1970/10/01",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
+  },
+  "香港映画『ドラゴン危機一発』ブルース・リー": {
+    "date": "1971/10/31",
+    "sort_date": "1971/10/31",
+    "tag": "芸術",
+    "end_date": "",
+    "sort_tag": "芸",
+    "memo": ""
   },
   "歌劇団『ベルサイユのばら』": {
     "date": "1972/00/00",
     "sort_date": "1972/01/01",
     "tag": "芸術",
     "end_date": "",
-    "to_date": ""
-  },
-  "『ブレードランナー』公開": {
-    "date": "1982/07/03",
-    "sort_date": "1982/07/03",
-    "tag": "芸術",
-    "end_date": "",
-    "to_date": ""
-  },
-  "『AKIRA』連載": {
-    "date": "1982/12/20",
-    "sort_date": "1982/12/20",
-    "tag": "芸術",
-    "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
   },
   "三流劇画ムーブメント": {
     "date": "1978/00/00",
     "sort_date": "1978/01/01",
     "tag": "芸術, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "芸",
+    "memo": ""
+  },
+  "テレビ番組『ザ・ベストテン』放送開始 ニューミュージック": {
+    "date": "1978/01/19",
+    "sort_date": "1978/01/19",
+    "tag": "芸術",
+    "end_date": "",
+    "sort_tag": "芸",
+    "memo": ""
+  },
+  "ゲーム『スペースインベーダー』": {
+    "date": "1978/08/00",
+    "sort_date": "1978/08/01",
+    "tag": "芸術",
+    "end_date": "",
+    "sort_tag": "芸",
+    "memo": ""
+  },
+  "『太陽を盗んだ男』 公開": {
+    "date": "1979/10/06",
+    "sort_date": "1979/10/06",
+    "tag": "芸術",
+    "end_date": "",
+    "sort_tag": "芸",
+    "memo": ""
+  },
+  "MTV開局　ミュージック・ビデオの広まり": {
+    "date": "1981/08/01",
+    "sort_date": "1981/08/01",
+    "tag": "芸術",
+    "end_date": "",
+    "sort_tag": "芸",
+    "memo": ""
+  },
+  "『ブレードランナー』公開": {
+    "date": "1982/07/03",
+    "sort_date": "1982/07/03",
+    "tag": "芸術",
+    "end_date": "",
+    "sort_tag": "芸",
+    "memo": ""
+  },
+  "『AKIRA』連載": {
+    "date": "1982/12/20",
+    "sort_date": "1982/12/20",
+    "tag": "芸術",
+    "end_date": "",
+    "sort_tag": "芸",
+    "memo": ""
+  },
+  "広島 平和記念公園（国内の近代建築の黎明期）": {
+    "date": "1954/04/01",
+    "sort_date": "1954/04/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
   },
   "日本住宅公団 設立": {
     "date": "1955/07/25",
     "sort_date": "1955/07/25",
     "tag": "建築",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "建",
+    "memo": ""
   },
   "環状七号線 杉並区で第一期工事": {
     "date": "1957/12/00",
     "sort_date": "1957/12/01",
     "tag": "建築",
     "end_date": "1964/00/00, fin",
-    "to_date": ""
+    "sort_tag": "建",
+    "memo": ""
   },
   "東京タワー🗼": {
     "date": "1958/12/23",
     "sort_date": "1958/12/23",
     "tag": "建築",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "建",
+    "memo": ""
   },
   "国立西洋美術館": {
     "date": "1959/00/00",
     "sort_date": "1959/01/01",
     "tag": "建築",
     "end_date": "",
-    "to_date": ""
-  },
-  "百尺規制 廃止": {
-    "date": "1963/07/16",
-    "sort_date": "1963/07/16",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ユニットバスの台頭 バスオール": {
-    "date": "1963/09/00",
-    "sort_date": "1963/09/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "環状七号線 新神谷橋より西側が供用": {
-    "date": "1964/00/00",
-    "sort_date": "1964/01/01",
-    "tag": "建築",
-    "end_date": "cont",
-    "to_date": ""
-  },
-  "第1次マンションブーム": {
-    "date": "1964/00/00",
-    "sort_date": "1964/01/01",
-    "tag": "建築",
-    "end_date": "cont",
-    "to_date": ""
-  },
-  "ホテルニューオータニ本館": {
-    "date": "1964/08/31",
-    "sort_date": "1964/08/31",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "東海道新幹線開通": {
-    "date": "1964/10/01",
-    "sort_date": "1964/10/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "国立代々木競技場": {
-    "date": "1964/10/00",
-    "sort_date": "1964/10/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "淀橋浄水場　廃止": {
-    "date": "1965/03/31",
-    "sort_date": "1965/03/31",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "新宿副都心": {
-    "date": "1967/02/00",
-    "sort_date": "1967/02/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "スポメニック Podgarić": {
-    "date": "1967/03/00",
-    "sort_date": "1967/03/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "電通テック本社ビル": {
-    "date": "1967/05/00",
-    "sort_date": "1967/05/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "都営住宅 高層化, 第2次マンションブーム": {
-    "date": "1968/00/00",
-    "sort_date": "1968/01/01",
-    "tag": "建築",
-    "end_date": "1971/03/26",
-    "to_date": ""
-  },
-  "霞が関ビルディング 最初の100m超えの高層ビル": {
-    "date": "1968/04/12",
-    "sort_date": "1968/04/12",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "小笠原諸島 返還 LORAN用電波塔が日本一の高さに": {
-    "date": "1968/06/26",
-    "sort_date": "1968/06/26",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "環状七号線 足立区 全通": {
-    "date": "1969/08/20",
-    "sort_date": "1969/08/20",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "多摩ニュータウンの最初の入居, 第3次マンションブーム": {
-    "date": "1971/03/26",
-    "sort_date": "1971/03/26",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "京王プラザホテル": {
-    "date": "1971/06/05",
-    "sort_date": "1971/06/05",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "東名高速全線開通": {
-    "date": "1971/12/21",
-    "sort_date": "1971/12/21",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "反住器竣工 野武士の台頭": {
-    "date": "1972/00/00",
-    "sort_date": "1972/01/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "中銀カプセルタワービル": {
-    "date": "1972/04/07",
-    "sort_date": "1972/04/07",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "第七次都電撤去": {
-    "date": "1972/11/12",
-    "sort_date": "1972/11/12",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "対馬オメガ局送信用鉄塔": {
-    "date": "1974/09/00",
-    "sort_date": "1974/09/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "サンシャイン60": {
-    "date": "1978/04/06",
-    "sort_date": "1978/04/06",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ラフォーレ原宿": {
-    "date": "1978/10/28",
-    "sort_date": "1978/10/28",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "日本住宅公団 解散": {
-    "date": "1981/10/01",
-    "sort_date": "1981/10/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "環状七号線 全面開通": {
-    "date": "1985/00/00",
-    "sort_date": "1985/01/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "JR発足": {
-    "date": "1987/04/01",
-    "sort_date": "1987/04/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "青函トンネル開通": {
-    "date": "1988/03/13",
-    "sort_date": "1988/03/13",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "東京ドーム (完成前は体積の比喩を霞が関ビルで行っていた。1東京ドーム = 2.48 霞ヶ関ビル)": {
-    "date": "1988/03/18",
-    "sort_date": "1988/03/18",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "東京都庁第一本庁舎": {
-    "date": "1990/12/00",
-    "sort_date": "1990/12/01",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ららぽーとスキードームSSAWS「ザウス」": {
-    "date": "1993/07/15",
-    "sort_date": "1993/07/15",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
-  },
-  "明石海峡大橋": {
-    "date": "1998/04/05",
-    "sort_date": "1998/04/05",
-    "tag": "建築",
-    "end_date": "",
-    "to_date": ""
+    "sort_tag": "建",
+    "memo": ""
   },
   "「東京計画1960」発表": {
     "date": "1961/00/00",
     "sort_date": "1961/01/01",
     "tag": "建築, 芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "皇居外濠の利用許可が更新されなくなる　事実上の不法占拠状態": {
+    "date": "1962/03/00",
+    "sort_date": "1962/03/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "百尺規制 廃止": {
+    "date": "1963/07/16",
+    "sort_date": "1963/07/16",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "ユニットバスの台頭 バスオール": {
+    "date": "1963/09/00",
+    "sort_date": "1963/09/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "環状七号線 新神谷橋より西側が供用": {
+    "date": "1964/00/00",
+    "sort_date": "1964/01/01",
+    "tag": "建築",
+    "end_date": "cont",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "第1次マンションブーム": {
+    "date": "1964/00/00",
+    "sort_date": "1964/01/01",
+    "tag": "建築",
+    "end_date": "cont",
+    "sort_tag": "建",
+    "memo": ""
   },
   "丹下健三による築地再開発計画": {
     "date": "1964/00/00",
     "sort_date": "1964/01/01",
     "tag": "建築, 芸術",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "ホテルニューオータニ本館": {
+    "date": "1964/08/31",
+    "sort_date": "1964/08/31",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "東海道新幹線開通": {
+    "date": "1964/10/01",
+    "sort_date": "1964/10/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "国立代々木競技場": {
+    "date": "1964/10/00",
+    "sort_date": "1964/10/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "淀橋浄水場　廃止": {
+    "date": "1965/03/31",
+    "sort_date": "1965/03/31",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "ソニービル": {
+    "date": "1966/04/15",
+    "sort_date": "1966/04/15",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "新宿副都心": {
+    "date": "1967/02/00",
+    "sort_date": "1967/02/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "スポメニック Podgarić": {
+    "date": "1967/03/00",
+    "sort_date": "1967/03/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "電通テック本社ビル": {
+    "date": "1967/05/00",
+    "sort_date": "1967/05/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "帝国ホテル　ライト館解体開始": {
+    "date": "1967/12/01",
+    "sort_date": "1967/12/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "都営住宅 高層化, 第2次マンションブーム": {
+    "date": "1968/00/00",
+    "sort_date": "1968/01/01",
+    "tag": "建築",
+    "end_date": "1971/03/26",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "霞が関ビルディング 最初の100m超えの高層ビル": {
+    "date": "1968/04/12",
+    "sort_date": "1968/04/12",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "正力タワー構想": {
+    "date": "1968/05/10",
+    "sort_date": "1968/05/10",
+    "tag": "建築, 芸術",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "小笠原諸島 返還 LORAN用電波塔が日本一の高さに": {
+    "date": "1968/06/26",
+    "sort_date": "1968/06/26",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "環状七号線 足立区 全通": {
+    "date": "1969/08/20",
+    "sort_date": "1969/08/20",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "研究学園都市開発事業起工式": {
+    "date": "1969/11/00",
+    "sort_date": "1969/11/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "NTV 送信所を東京タワーに（都内のテレビ塔3つすべてが予備に）": {
+    "date": "1970/11/10",
+    "sort_date": "1970/11/10",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "多摩ニュータウンの最初の入居, 第3次マンションブーム": {
+    "date": "1971/03/26",
+    "sort_date": "1971/03/26",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "京王プラザホテル": {
+    "date": "1971/06/05",
+    "sort_date": "1971/06/05",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "東名高速全線開通": {
+    "date": "1971/12/21",
+    "sort_date": "1971/12/21",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "反住器竣工 野武士の台頭": {
+    "date": "1972/00/00",
+    "sort_date": "1972/01/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "中銀カプセルタワービル": {
+    "date": "1972/04/07",
+    "sort_date": "1972/04/07",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "第七次都電撤去": {
+    "date": "1972/11/12",
+    "sort_date": "1972/11/12",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "ワールドトレードセンター（ニューヨーク）": {
+    "date": "1973/04/04",
+    "sort_date": "1973/04/04",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "対馬オメガ局送信用鉄塔": {
+    "date": "1974/09/00",
+    "sort_date": "1974/09/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "サンシャイン60": {
+    "date": "1978/04/06",
+    "sort_date": "1978/04/06",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "ラフォーレ原宿": {
+    "date": "1978/10/28",
+    "sort_date": "1978/10/28",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "日本住宅公団 解散": {
+    "date": "1981/10/01",
+    "sort_date": "1981/10/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "環状七号線 全面開通": {
+    "date": "1985/00/00",
+    "sort_date": "1985/01/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "JR発足": {
+    "date": "1987/04/01",
+    "sort_date": "1987/04/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "青函トンネル開通": {
+    "date": "1988/03/13",
+    "sort_date": "1988/03/13",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "東京ドーム (完成前は体積の比喩を霞が関ビルで行っていた。1東京ドーム = 2.48 霞ヶ関ビル)": {
+    "date": "1988/03/18",
+    "sort_date": "1988/03/18",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "東京都庁第一本庁舎": {
+    "date": "1990/12/00",
+    "sort_date": "1990/12/01",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "ららぽーとスキードームSSAWS「ザウス」": {
+    "date": "1993/07/15",
+    "sort_date": "1993/07/15",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
+  },
+  "明石海峡大橋": {
+    "date": "1998/04/05",
+    "sort_date": "1998/04/05",
+    "tag": "建築",
+    "end_date": "",
+    "sort_tag": "建",
+    "memo": ""
   },
   "金閣寺放火事件 アプレゲール犯罪": {
     "date": "1950/07/02",
     "sort_date": "1950/07/02",
     "tag": "事件",
     "end_date": "",
-    "to_date": ""
-  },
-  "チ37号事件 連続偽札使用事件の発端": {
-    "date": "1961/12/07",
-    "sort_date": "1961/12/07",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ケネディ大統領暗殺事件": {
-    "date": "1963/11/22",
-    "sort_date": "1963/11/22",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "山陽電鉄爆破事件": {
-    "date": "1967/06/18",
-    "sort_date": "1967/06/18",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "由比忠之進 首相官邸前で焼身自殺": {
-    "date": "1967/11/11",
-    "sort_date": "1967/11/11",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "金嬉老事件": {
-    "date": "1968/02/20",
-    "sort_date": "1968/02/20",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "横須賀線電車爆破事件": {
-    "date": "1968/06/16",
-    "sort_date": "1968/06/16",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "永山事件　判決において死刑適用基準を明示（永山基準）": {
-    "date": "1968/10/11",
-    "sort_date": "1968/10/11",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "三億円事件": {
-    "date": "1968/12/10",
-    "sort_date": "1968/12/10",
-    "tag": "事件",
-    "end_date": "1968/12/21",
-    "to_date": ""
-  },
-  "三億円事件 モンタージュ写真が公開": {
-    "date": "1968/12/21",
-    "sort_date": "1968/12/21",
-    "tag": "事件",
-    "end_date": "cont",
-    "to_date": ""
-  },
-  "永山事件　第4の事件": {
-    "date": "1969/01/05",
-    "sort_date": "1969/01/05",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "よど号ハイジャック事件 日本初のハイジャック事件": {
-    "date": "1970/03/31",
-    "sort_date": "1970/03/31",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "大阪万博、アイジャック事件": {
-    "date": "1970/04/26",
-    "sort_date": "1970/04/26",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "瀬戸内シージャック事件": {
-    "date": "1970/05/12",
-    "sort_date": "1970/05/12",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "あさま山荘事件": {
-    "date": "1972/02/19",
-    "sort_date": "1972/02/19",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "第一次競馬ブーム ハイセイコー": {
-    "date": "1973/00/00",
-    "sort_date": "1973/01/01",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "三菱重工爆破事件 連続企業爆破事件の一件目": {
-    "date": "1974/08/30",
-    "sort_date": "1974/08/30",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "大韓航空機撃墜事件 GPSが民間に開放される": {
-    "date": "1983/09/01",
-    "sort_date": "1983/09/01",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "第二次覚せい剤乱用期": {
-    "date": "1984/00/00",
-    "sort_date": "1984/01/01",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "日本航空123便墜落事故": {
-    "date": "1985/08/12",
-    "sort_date": "1985/08/12",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "宮崎勤事件": {
-    "date": "1988/08/22",
-    "sort_date": "1988/08/22",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "地下鉄サリン事件": {
-    "date": "1995/03/20",
-    "sort_date": "1995/03/20",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "第三次覚せい剤乱用期": {
-    "date": "1997/00/00",
-    "sort_date": "1997/01/01",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
-  },
-  "酒鬼薔薇聖斗事件": {
-    "date": "1997/02/10",
-    "sort_date": "1997/02/10",
-    "tag": "事件",
-    "end_date": "",
-    "to_date": ""
+    "sort_tag": "事",
+    "memo": ""
   },
   "血のメーデー事件": {
     "date": "1952/05/01",
     "sort_date": "1952/05/01",
     "tag": "事件, 運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "チ37号事件 連続偽札使用事件の発端": {
+    "date": "1961/12/07",
+    "sort_date": "1961/12/07",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "ケネディ大統領暗殺事件": {
+    "date": "1963/11/22",
+    "sort_date": "1963/11/22",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "山陽電鉄爆破事件": {
+    "date": "1967/06/18",
+    "sort_date": "1967/06/18",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "由比忠之進 首相官邸前で焼身自殺": {
+    "date": "1967/11/11",
+    "sort_date": "1967/11/11",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "金嬉老事件": {
+    "date": "1968/02/20",
+    "sort_date": "1968/02/20",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
   },
   "楯の会 血盟状を作成": {
     "date": "1968/02/25",
     "sort_date": "1968/02/25",
     "tag": "事件, 運動",
     "end_date": "1968/10/05",
-    "to_date": ""
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "十勝沖地震 南部鉄道線運休": {
+    "date": "1968/05/16",
+    "sort_date": "1968/05/16",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "横須賀線電車爆破事件": {
+    "date": "1968/06/16",
+    "sort_date": "1968/06/16",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
   },
   "楯の会 結成": {
     "date": "1968/10/05",
     "sort_date": "1968/10/05",
     "tag": "事件, 運動",
     "end_date": "1970/11/25",
-    "to_date": ""
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "永山事件　判決において死刑適用基準を明示（永山基準）": {
+    "date": "1968/10/11",
+    "sort_date": "1968/10/11",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
   },
   "新宿騒乱": {
     "date": "1968/10/21",
     "sort_date": "1968/10/21",
     "tag": "事件, 運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "三億円事件": {
+    "date": "1968/12/10",
+    "sort_date": "1968/12/10",
+    "tag": "事件",
+    "end_date": "1968/12/21",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "三億円事件 モンタージュ写真が公開": {
+    "date": "1968/12/21",
+    "sort_date": "1968/12/21",
+    "tag": "事件",
+    "end_date": "cont",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "永山事件　第4の事件": {
+    "date": "1969/01/05",
+    "sort_date": "1969/01/05",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "よど号ハイジャック事件 日本初のハイジャック事件": {
+    "date": "1970/03/31",
+    "sort_date": "1970/03/31",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "大阪万博、アイジャック事件": {
+    "date": "1970/04/26",
+    "sort_date": "1970/04/26",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "瀬戸内シージャック事件": {
+    "date": "1970/05/12",
+    "sort_date": "1970/05/12",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "横浜障害児殺害事件": {
+    "date": "1970/05/29",
+    "sort_date": "1970/05/29",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "東京タワー占拠事件": {
+    "date": "1970/07/08",
+    "sort_date": "1970/07/08",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
   },
   "三島事件": {
     "date": "1970/11/25",
     "sort_date": "1970/11/25",
     "tag": "事件, 運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "事",
+    "memo": ""
   },
   "上赤塚交番襲撃事件": {
     "date": "1970/12/18",
     "sort_date": "1970/12/18",
     "tag": "事件, 運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "事",
+    "memo": ""
   },
   "松本楼焼失": {
     "date": "1971/11/19",
     "sort_date": "1971/11/19",
     "tag": "事件, 運動",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "あさま山荘事件": {
+    "date": "1972/02/19",
+    "sort_date": "1972/02/19",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "第一次競馬ブーム ハイセイコー": {
+    "date": "1973/00/00",
+    "sort_date": "1973/01/01",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "七夕豪雨": {
+    "date": "1974/07/07",
+    "sort_date": "1974/07/07",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "三菱重工爆破事件 連続企業爆破事件の一件目": {
+    "date": "1974/08/30",
+    "sort_date": "1974/08/30",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "大韓航空機撃墜事件 GPSが民間に開放される": {
+    "date": "1983/09/01",
+    "sort_date": "1983/09/01",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "第二次覚せい剤乱用期": {
+    "date": "1984/00/00",
+    "sort_date": "1984/01/01",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "日本航空123便墜落事故": {
+    "date": "1985/08/12",
+    "sort_date": "1985/08/12",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "宮崎勤事件": {
+    "date": "1988/08/22",
+    "sort_date": "1988/08/22",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "地下鉄サリン事件": {
+    "date": "1995/03/20",
+    "sort_date": "1995/03/20",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "ベッコアメ事件 インターネット史における最初の逮捕": {
+    "date": "1996/01/31",
+    "sort_date": "1996/01/31",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "第三次覚せい剤乱用期": {
+    "date": "1997/00/00",
+    "sort_date": "1997/01/01",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "酒鬼薔薇聖斗事件": {
+    "date": "1997/02/10",
+    "sort_date": "1997/02/10",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
+  },
+  "西鉄バスジャック事件": {
+    "date": "2000/05/03",
+    "sort_date": "2000/05/03",
+    "tag": "事件",
+    "end_date": "",
+    "sort_tag": "事",
+    "memo": ""
   },
   "東京市 廃止": {
     "date": "1943/07/01",
     "sort_date": "1943/07/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "団塊世代　誕生": {
     "date": "1947/00/00",
     "sort_date": "1947/01/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "学制改革 「金の卵」": {
     "date": "1947/04/00",
     "sort_date": "1947/04/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "露店撤廃令（GHQ） 秋葉原の電気街化": {
     "date": "1949/04/00",
     "sort_date": "1949/04/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "中央競馬開催": {
     "date": "1954/09/25",
     "sort_date": "1954/09/25",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "神武景気": {
     "date": "1954/12/00",
     "sort_date": "1954/12/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "集団就職列車": {
     "date": "1955/04/00",
     "sort_date": "1955/04/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "交通戦争（乗用車の急増）": {
     "date": "1955/10/00",
     "sort_date": "1955/10/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "経済白書「もはや戦後ではない」": {
     "date": "1956/00/00",
     "sort_date": "1956/01/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "太陽族": {
     "date": "1956/00/00",
     "sort_date": "1956/01/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "ミッチー・ブーム": {
     "date": "1958/11/27",
     "sort_date": "1958/11/27",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "安保 新条約案強行採決 60年安保闘争": {
     "date": "1960/05/19",
     "sort_date": "1960/05/19",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "原油の輸入自由化": {
     "date": "1962/10/00",
     "sort_date": "1962/10/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "1964年東京オリンピック": {
     "date": "1964/10/10",
     "sort_date": "1964/10/10",
     "tag": "世相",
     "end_date": "1964/10/24",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "1964年東京オリンピック 閉会式": {
     "date": "1964/10/24",
     "sort_date": "1964/10/24",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "ベトナムに平和を!市民連合（ベ平連） 設立": {
     "date": "1965/04/24",
     "sort_date": "1965/04/24",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "道路交通法改正 歩行者用信号機が登場": {
     "date": "1965/09/01",
     "sort_date": "1965/09/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "ユーロ通貨": {
     "date": "1965/12/16",
     "sort_date": "1965/12/16",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
+  },
+  "木島則夫ハプニングショー　コマ劇場前で騒動": {
+    "date": "1968/05/18",
+    "sort_date": "1968/05/18",
+    "tag": "世相",
+    "end_date": "",
+    "sort_tag": "世",
+    "memo": ""
   },
   "首都圏大雪": {
     "date": "1969/03/00",
     "sort_date": "1969/03/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "大相撲 世紀の大誤審 ビデオ判定の導入": {
     "date": "1969/03/10",
     "sort_date": "1969/03/10",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "五百円紙幣発行": {
     "date": "1969/05/14",
     "sort_date": "1969/05/14",
     "tag": "世相",
     "end_date": "cont",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "反戦フォークゲリラ排除事件": {
     "date": "1969/06/28",
     "sort_date": "1969/06/28",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "「交通戦争」　交通事故死が史上最多": {
     "date": "1970/00/00",
     "sort_date": "1970/01/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "日本万国博覧会(大阪万博) 開催": {
     "date": "1970/03/15",
     "sort_date": "1970/03/15",
     "tag": "世相",
     "end_date": "1970/08/13",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "都内初の歩行者天国　銀座、新宿、池袋、浅草": {
     "date": "1970/08/02",
     "sort_date": "1970/08/02",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "大阪万博終了": {
     "date": "1970/08/13",
     "sort_date": "1970/08/13",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "円変動相場制移行": {
     "date": "1970/08/28",
     "sort_date": "1970/08/28",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "東京ホームジョッキー 最初のテレビショッピング": {
     "date": "1970/10/00",
     "sort_date": "1970/10/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "“不幸の手紙”流行": {
     "date": "1970/10/00",
     "sort_date": "1970/10/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "日本マクドナルド１号店": {
     "date": "1971/07/00",
     "sort_date": "1971/07/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "カップラーメン登場": {
     "date": "1971/09/18",
     "sort_date": "1971/09/18",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "「ゴミ戦争」宣言": {
     "date": "1971/09/28",
     "sort_date": "1971/09/28",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "ボウリングブーム": {
     "date": "1972/00/00",
     "sort_date": "1972/01/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "カラー写真の普及率が50%を超える": {
     "date": "1972/00/00",
     "sort_date": "1972/01/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "介良小型UFO捕獲事件": {
     "date": "1972/08/00",
     "sort_date": "1972/08/01",
     "tag": "世相",
     "end_date": "1973/11/25",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "第1次オイルショック": {
     "date": "1973/00/00",
     "sort_date": "1973/01/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "パリ協定 (市民の関心が反戦から反開発へ)": {
     "date": "1973/01/27",
     "sort_date": "1973/01/27",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "『ノストラダムスの大予言』出版 オカルトブーム": {
     "date": "1973/11/25",
     "sort_date": "1973/11/25",
     "tag": "世相",
     "end_date": "1974/03/07",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "ユリ・ゲラーが念力を中継（超能力ブーム）": {
     "date": "1974/03/07",
     "sort_date": "1974/03/07",
     "tag": "世相",
     "end_date": "1975/02/23",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "甲府事件 UFOの目撃": {
     "date": "1975/02/23",
     "sort_date": "1975/02/23",
     "tag": "世相",
     "end_date": "1979/08/01",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "ディスコブーム": {
     "date": "1978/00/00",
     "sort_date": "1978/01/01",
     "tag": "世相",
     "end_date": "",
-    "to_date": ""
-  },
-  "「口裂け女」噂の終息": {
-    "date": "1979/08/01",
-    "sort_date": "1979/08/01",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
-  },
-  "スキーブーム": {
-    "date": "1980/00/00",
-    "sort_date": "1980/01/01",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
-  },
-  "第1回ミニ独立国サミット ミニ独立国ブーム(1977年～)": {
-    "date": "1983/04/03",
-    "sort_date": "1983/04/03",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
-  },
-  "国際科学技術博覧会": {
-    "date": "1985/03/17",
-    "sort_date": "1985/03/17",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
-  },
-  "バブル景気": {
-    "date": "1986/00/00",
-    "sort_date": "1986/01/01",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
-  },
-  "さとり世代　誕生": {
-    "date": "1987/00/00",
-    "sort_date": "1987/01/01",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ポケベルブーム": {
-    "date": "1987/00/00",
-    "sort_date": "1987/01/01",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
-  },
-  "第二次競馬ブーム オグリキャップ": {
-    "date": "1988/10/00",
-    "sort_date": "1988/10/01",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
-  },
-  "平成元年": {
-    "date": "1989/01/08",
-    "sort_date": "1989/01/08",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
-  },
-  "シネコン時代の始まり 流し込み制の終了": {
-    "date": "1993/04/24",
-    "sort_date": "1993/04/24",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
-  },
-  "阪神・淡路大震災": {
-    "date": "1995/01/17",
-    "sort_date": "1995/01/17",
-    "tag": "世相",
-    "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "宇宙科学博覧会 開催": {
     "date": "1978/07/16",
     "sort_date": "1978/07/16",
     "tag": "世相, 天文",
     "end_date": "1979/09/02",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
+  },
+  "「口裂け女」噂の終息": {
+    "date": "1979/08/01",
+    "sort_date": "1979/08/01",
+    "tag": "世相",
+    "end_date": "",
+    "sort_tag": "世",
+    "memo": ""
   },
   "宇宙科学博覧会 終了": {
     "date": "1979/09/02",
     "sort_date": "1979/09/02",
     "tag": "世相, 天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
-  "サンフランシスコ平和条約": {
-    "date": "1951/09/08",
-    "sort_date": "1951/09/08",
-    "tag": "政治",
+  "スキーブーム": {
+    "date": "1980/00/00",
+    "sort_date": "1980/01/01",
+    "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
-  "自衛隊 前身は警察予備隊(1950年)": {
-    "date": "1954/07/01",
-    "sort_date": "1954/07/01",
-    "tag": "政治",
+  "第1回ミニ独立国サミット ミニ独立国ブーム(1977年～)": {
+    "date": "1983/04/03",
+    "sort_date": "1983/04/03",
+    "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
-  "自由党と日本民主党が自由民主党を結成（55年体制の始まり）": {
-    "date": "1955/11/15",
-    "sort_date": "1955/11/15",
-    "tag": "政治",
-    "end_date": "cont",
-    "to_date": ""
-  },
-  "アメリカ軍が空中偵察でソ連のミサイル基地を発見（キューバ危機）": {
-    "date": "1962/10/14",
-    "sort_date": "1962/10/14",
-    "tag": "政治",
+  "国際科学技術博覧会": {
+    "date": "1985/03/17",
+    "sort_date": "1985/03/17",
+    "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
-  "ワシントンハイツ返還": {
-    "date": "1964/08/12",
-    "sort_date": "1964/08/12",
-    "tag": "政治",
-    "end_date": "fin",
-    "to_date": ""
-  },
-  "佐藤栄作内閣": {
-    "date": "1964/11/09",
-    "sort_date": "1964/11/09",
-    "tag": "政治",
-    "end_date": "1972/07/07",
-    "to_date": ""
-  },
-  "ローリング・サンダー作戦（北爆）": {
-    "date": "1965/03/02",
-    "sort_date": "1965/03/02",
-    "tag": "政治",
+  "バブル景気": {
+    "date": "1986/00/00",
+    "sort_date": "1986/01/01",
+    "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
-  "大学の運営に関する臨時措置法　施行": {
-    "date": "1969/08/17",
-    "sort_date": "1969/08/17",
-    "tag": "政治",
+  "さとり世代　誕生": {
+    "date": "1987/00/00",
+    "sort_date": "1987/01/01",
+    "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
-  "ベトナムからのアメリカ軍の段階的撤退": {
-    "date": "1969/06/00",
-    "sort_date": "1969/06/01",
-    "tag": "政治",
+  "ポケベルブーム": {
+    "date": "1987/00/00",
+    "sort_date": "1987/01/01",
+    "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
-  "田中角栄内閣": {
-    "date": "1972/07/07",
-    "sort_date": "1972/07/07",
-    "tag": "政治",
-    "end_date": "1974/12/09",
-    "to_date": ""
-  },
-  "日中共同声明": {
-    "date": "1972/09/29",
-    "sort_date": "1972/09/29",
-    "tag": "政治",
+  "第二次競馬ブーム オグリキャップ": {
+    "date": "1988/10/00",
+    "sort_date": "1988/10/01",
+    "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
-  "ニクソンのアメリカ史上初めての大統領任期中の辞任": {
-    "date": "1974/08/09",
-    "sort_date": "1974/08/09",
-    "tag": "政治",
+  "平成元年": {
+    "date": "1989/01/08",
+    "sort_date": "1989/01/08",
+    "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
-  "三木内閣": {
-    "date": "1974/12/09",
-    "sort_date": "1974/12/09",
-    "tag": "政治",
+  "シネコン時代の始まり 流し込み制の終了": {
+    "date": "1993/04/24",
+    "sort_date": "1993/04/24",
+    "tag": "世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
-  "ベトナム戦争終結": {
-    "date": "1975/04/30",
-    "sort_date": "1975/04/30",
-    "tag": "政治",
+  "阪神・淡路大震災": {
+    "date": "1995/01/17",
+    "sort_date": "1995/01/17",
+    "tag": "世相",
     "end_date": "",
-    "to_date": ""
-  },
-  "ベルリンの壁崩壊": {
-    "date": "1989/11/09",
-    "sort_date": "1989/11/09",
-    "tag": "政治",
-    "end_date": "",
-    "to_date": ""
-  },
-  "ソビエト連邦崩壊": {
-    "date": "1991/12/25",
-    "sort_date": "1991/12/25",
-    "tag": "政治",
-    "end_date": "",
-    "to_date": ""
+    "sort_tag": "世",
+    "memo": ""
   },
   "玉音放送": {
     "date": "1945/08/15",
     "sort_date": "1945/08/15",
     "tag": "政治, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "政",
+    "memo": ""
   },
   "東京都区部が23区に 板橋区から練馬区が分区": {
     "date": "1947/08/01",
     "sort_date": "1947/08/01",
     "tag": "政治, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "サンフランシスコ平和条約": {
+    "date": "1951/09/08",
+    "sort_date": "1951/09/08",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "自衛隊 前身は警察予備隊(1950年)": {
+    "date": "1954/07/01",
+    "sort_date": "1954/07/01",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "自由党と日本民主党が自由民主党を結成（55年体制の始まり）": {
+    "date": "1955/11/15",
+    "sort_date": "1955/11/15",
+    "tag": "政治",
+    "end_date": "cont",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "アメリカ軍が空中偵察でソ連のミサイル基地を発見（キューバ危機）": {
+    "date": "1962/10/14",
+    "sort_date": "1962/10/14",
+    "tag": "政治",
+    "end_date": "1963/08/30",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "部分的核実験禁止条約": {
+    "date": "1963/08/05",
+    "sort_date": "1963/08/05",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "米ソホットライン": {
+    "date": "1963/08/30",
+    "sort_date": "1963/08/30",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "ワシントンハイツ返還": {
+    "date": "1964/08/12",
+    "sort_date": "1964/08/12",
+    "tag": "政治",
+    "end_date": "fin",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "佐藤栄作内閣": {
+    "date": "1964/11/09",
+    "sort_date": "1964/11/09",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "ローリング・サンダー作戦（北爆）": {
+    "date": "1965/03/02",
+    "sort_date": "1965/03/02",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "非核三原則": {
+    "date": "1967/12/11",
+    "sort_date": "1967/12/11",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "『人間の顔をした社会主義』": {
+    "date": "1968/04/00",
+    "sort_date": "1968/04/01",
+    "tag": "政治",
+    "end_date": "1968/08/20",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "プラハの春": {
+    "date": "1968/08/20",
+    "sort_date": "1968/08/20",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "ベトナムからのアメリカ軍の段階的撤退": {
+    "date": "1969/06/00",
+    "sort_date": "1969/06/01",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "大学の運営に関する臨時措置法　施行": {
+    "date": "1969/08/17",
+    "sort_date": "1969/08/17",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "アースデイ": {
+    "date": "1970/04/22",
+    "sort_date": "1970/04/22",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
   },
   "ニクソンショック": {
     "date": "1971/08/16",
     "sort_date": "1971/08/16",
     "tag": "政治, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "政",
+    "memo": ""
   },
   "沖縄返還": {
     "date": "1972/05/15",
     "sort_date": "1972/05/15",
     "tag": "政治, 世相",
     "end_date": "fin",
-    "to_date": ""
+    "sort_tag": "政",
+    "memo": ""
   },
   "日本列島改造論": {
     "date": "1972/06/11",
     "sort_date": "1972/06/11",
     "tag": "政治, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "田中角栄内閣": {
+    "date": "1972/07/07",
+    "sort_date": "1972/07/07",
+    "tag": "政治",
+    "end_date": "1974/12/09",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "日中共同声明": {
+    "date": "1972/09/29",
+    "sort_date": "1972/09/29",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
   },
   "尊属殺人罪違憲判決": {
     "date": "1973/04/04",
     "sort_date": "1973/04/04",
     "tag": "政治, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "ニクソンのアメリカ史上初めての大統領任期中の辞任": {
+    "date": "1974/08/09",
+    "sort_date": "1974/08/09",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "三木内閣": {
+    "date": "1974/12/09",
+    "sort_date": "1974/12/09",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "ベトナム戦争終結": {
+    "date": "1975/04/30",
+    "sort_date": "1975/04/30",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
   },
   "消費税法　3%": {
     "date": "1989/04/01",
     "sort_date": "1989/04/01",
     "tag": "政治, 世相",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "ベルリンの壁崩壊": {
+    "date": "1989/11/09",
+    "sort_date": "1989/11/09",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "ソビエト連邦崩壊": {
+    "date": "1991/12/25",
+    "sort_date": "1991/12/25",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "細川内閣　55年体制が崩壊": {
+    "date": "1993/08/09",
+    "sort_date": "1993/08/09",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "小渕内閣　単独政党政権の終わり": {
+    "date": "1998/07/30",
+    "sort_date": "1998/07/30",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "99年体制": {
+    "date": "1999/10/05",
+    "sort_date": "1999/10/05",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
+  },
+  "小泉内閣": {
+    "date": "2001/04/26",
+    "sort_date": "2001/04/26",
+    "tag": "政治",
+    "end_date": "",
+    "sort_tag": "政",
+    "memo": ""
   },
   "日本 ペンシルロケット打ち上げ": {
     "date": "1955/04/12",
     "sort_date": "1955/04/12",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
-  "ソ連 人工衛星「スプートニク1号」": {
+  "ソ連 人工衛星「スプートニク1号」(宇宙開発競争の始まり)": {
     "date": "1957/10/04",
     "sort_date": "1957/10/04",
     "tag": "天文",
-    "end_date": "",
-    "to_date": ""
+    "end_date": "1974/06/23",
+    "sort_tag": "天",
+    "memo": ""
   },
   "ソ連 ライカが地球軌道に到達": {
     "date": "1957/11/03",
     "sort_date": "1957/11/03",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "東京大学航空研究所": {
+    "date": "1958/04/00",
+    "sort_date": "1958/04/01",
+    "tag": "天文",
+    "end_date": "1964/04/01",
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ航空宇宙局 NASA 設立": {
     "date": "1958/07/29",
     "sort_date": "1958/07/29",
     "tag": "天文",
     "end_date": "cont",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "NACA解体、NASA活動開始": {
     "date": "1958/10/01",
     "sort_date": "1958/10/01",
     "tag": "天文",
     "end_date": "fin",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ 人工衛星「SCORE」世界で最初の通信衛星、通信中継": {
     "date": "1958/12/18",
     "sort_date": "1958/12/18",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "NASA Insignia（~1975, 1992~）": {
     "date": "1959/00/00",
     "sort_date": "1959/01/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ 人工衛星「タイロス1号」最初の気象衛星": {
     "date": "1960/04/01",
     "sort_date": "1960/04/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "オズマ計画 (発のSETI)": {
+    "date": "1960/04/08",
+    "sort_date": "1960/04/08",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   },
   "ソ連 人工衛星「ボストーク1号」人類初の有人宇宙飛行": {
     "date": "1961/03/18",
     "sort_date": "1961/03/18",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ マーキュリー計画 初の有人宇宙飛行": {
     "date": "1961/05/05",
     "sort_date": "1961/05/05",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ 人工衛星「テルスター1号」最初のテレビ中継": {
     "date": "1962/07/10",
     "sort_date": "1962/07/10",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ ジョン・F・ケネディ「We choose to go to the Moon」": {
     "date": "1962/09/12",
     "sort_date": "1962/09/12",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アレシボ望遠鏡": {
     "date": "1963/00/00",
     "sort_date": "1963/01/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ マーキュリー計画終了（マーキュリー・アトラス9号着水）": {
     "date": "1963/05/16",
     "sort_date": "1963/05/16",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "アメリカ 人工衛星「ヴェラ」核実験の監視用衛星": {
+    "date": "1963/10/17",
+    "sort_date": "1963/10/17",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   },
   "アレシボ天文台": {
     "date": "1963/11/01",
     "sort_date": "1963/11/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
-  "東京大学宇宙航空研究所 発足": {
+  "航空研究所が宇宙航空研究所に改組": {
     "date": "1964/04/01",
     "sort_date": "1964/04/01",
     "tag": "天文",
-    "end_date": "cont",
-    "to_date": ""
+    "end_date": "1966/08/00",
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ ジェミニ計画 ジェミニ1号": {
     "date": "1964/04/08",
     "sort_date": "1964/04/08",
     "tag": "天文",
     "end_date": "1966/11/15",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "ソ連 人類初の宇宙遊泳": {
     "date": "1965/03/18",
     "sort_date": "1965/03/18",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ ジェミニ計画 アメリカ人初の宇宙遊泳": {
     "date": "1965/06/03",
     "sort_date": "1965/06/03",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "ソ連「ルナ9号」世界初の無人月面着陸": {
     "date": "1966/02/03",
     "sort_date": "1966/02/03",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ アポロ計画の始まり（アポロAS-201打上げ）": {
     "date": "1966/02/26",
     "sort_date": "1966/02/26",
     "tag": "天文",
     "end_date": "1975/07/15",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "「人工衛星の打ち上げとその利用に関する長期計画」": {
+    "date": "1966/08/00",
+    "sort_date": "1966/08/01",
+    "tag": "天文",
+    "end_date": "1969/10/01",
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ ジェミニ計画終了 （ジェミニ12号着水）": {
     "date": "1966/11/15",
     "sort_date": "1966/11/15",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ アポロ1号火災事故": {
     "date": "1967/01/27",
     "sort_date": "1967/01/27",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "パルサーの発見（PSR B1919+21）": {
+    "date": "1967/07/00",
+    "sort_date": "1967/07/01",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "ガンマ線バーストの発見（GRB 670702）": {
+    "date": "1967/07/02",
+    "sort_date": "1967/07/02",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "宇宙条約": {
+    "date": "1967/10/10",
+    "sort_date": "1967/10/10",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   },
   "アポロ11号打ち上げ": {
     "date": "1969/07/16",
     "sort_date": "1969/07/16",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アポロ11号 月に着陸": {
     "date": "1969/07/20",
     "sort_date": "1969/07/20",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アポロ11号 太平洋に着水": {
     "date": "1969/07/24",
     "sort_date": "1969/07/24",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "宇宙開発事業団NASDA　発足": {
     "date": "1969/10/01",
     "sort_date": "1969/10/01",
     "tag": "天文",
     "end_date": "cont",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "野辺山太陽電波観測所開所式": {
     "date": "1969/10/00",
     "sort_date": "1969/10/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "国立天文台 6mミリ波電波望遠鏡": {
+    "date": "1970/00/00",
+    "sort_date": "1970/01/01",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   },
   "国産人工衛星おおすみ打ち上げ": {
     "date": "1970/02/11",
     "sort_date": "1970/02/11",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "パイオニア10号　探査機METIの先駆け": {
+    "date": "1972/03/02",
+    "sort_date": "1972/03/02",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "筑波宇宙センター 開設": {
+    "date": "1972/06/01",
+    "sort_date": "1972/06/01",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ スカイラブ打上げ": {
     "date": "1973/05/14",
     "sort_date": "1973/05/14",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "ソ連 L3計画中止": {
     "date": "1974/06/23",
     "sort_date": "1974/06/23",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アレシボ・メッセージ": {
     "date": "1974/11/16",
     "sort_date": "1974/11/16",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "NASA ワーム（~1992）": {
     "date": "1975/00/00",
     "sort_date": "1975/01/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アポロ・ソユーズテスト計画": {
     "date": "1975/07/15",
     "sort_date": "1975/07/15",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "N-Iロケット打ち上げ": {
+    "date": "1975/09/09",
+    "sort_date": "1975/09/09",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   },
   "スペースシャトル1号機 エンタープライズ号打ち上げ": {
     "date": "1977/02/18",
     "sort_date": "1977/02/18",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "ひまわり": {
+    "date": "1977/07/14",
+    "sort_date": "1977/07/14",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "Wow! シグナル": {
+    "date": "1977/08/15",
+    "sort_date": "1977/08/15",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "ボイジャー1号": {
+    "date": "1977/09/05",
+    "sort_date": "1977/09/05",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   },
   "ソ連 L3計画での有人月面着陸予定時期": {
     "date": "1979/00/00",
     "sort_date": "1979/01/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "アメリカ スカイラブ再突入": {
     "date": "1979/07/11",
     "sort_date": "1979/07/11",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "宇宙科学研究所ISAS 改組": {
     "date": "1981/00/00",
     "sort_date": "1981/01/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "N-IIロケット": {
+    "date": "1981/02/11",
+    "sort_date": "1981/02/11",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   },
   "45mミリ波電波望遠鏡試験観測開始": {
     "date": "1981/10/00",
     "sort_date": "1981/10/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "野辺山ミリ波干渉計稼働": {
     "date": "1982/10/00",
     "sort_date": "1982/10/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "チャレンジャー号爆発事故": {
     "date": "1986/01/28",
     "sort_date": "1986/01/28",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "H-Iロケット": {
+    "date": "1986/08/13",
+    "sort_date": "1986/08/13",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   },
   "「国立天文台」発足": {
     "date": "1988/00/00",
     "sort_date": "1988/01/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
   },
   "ハッブル宇宙望遠鏡": {
     "date": "1990/04/24",
     "sort_date": "1990/04/24",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "秋山豊寛　初の日本人宇宙飛行士": {
+    "date": "1990/12/02",
+    "sort_date": "1990/12/02",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "H-IIロケット": {
+    "date": "1994/02/04",
+    "sort_date": "1994/02/04",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   },
   "すばる望遠鏡": {
     "date": "1999/00/00",
     "sort_date": "1999/01/01",
     "tag": "天文",
     "end_date": "",
-    "to_date": ""
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "H-IIAロケット": {
+    "date": "2001/08/29",
+    "sort_date": "2001/08/29",
+    "tag": "天文",
+    "end_date": "cont",
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "はやぶさ": {
+    "date": "2003/05/09",
+    "sort_date": "2003/05/09",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
+  },
+  "宇宙航空研究開発機構（JAXA）発足": {
+    "date": "2003/10/01",
+    "sort_date": "2003/10/01",
+    "tag": "天文",
+    "end_date": "",
+    "sort_tag": "天",
+    "memo": ""
   }
 }
