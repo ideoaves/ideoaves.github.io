@@ -181,7 +181,7 @@ a[href]:visited {
     display: inline-block;
     position: relative;
     cursor: help;
-    text-decoration: underline dotted #e0e0e0;
+    text-decoration: underline dotted white;
 }
 
 .カーソルを:focus-within .すると出る {
