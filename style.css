@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     /* 基本的な文字の扱い */
     line-height: 2.1;
