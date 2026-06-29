@@ -385,7 +385,7 @@ main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
 .ブログの画像 {
     display: block;
     margin: 0 auto;
-    width: 60%;
+    width: 75%;
 }
 
 .ブログの映像 {
