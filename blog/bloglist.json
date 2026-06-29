@@ -1,12 +1,4 @@
 {
-    "2025-10-31.html": {
-        "filename": "2025-10-31.html",
-        "title": "ブログらしきものを作る。",
-        "img": "blog_img/test.png",
-        "summary": "noteが微妙にSNS過ぎてあまり嬉しくないのと、もう少しつぶやき感覚でありながらscrapboxほど簡単ではない手数の環境を手に入れたくなりました。 noteは背景が白すぎる。 構造としては blo...",
-        "date": "2025-10-31",
-        "author": "yimiru"
-    },
     "2025-11-14.html": {
         "filename": "2025-11-14.html",
         "title": "AE向けのXY別軸の桑原(Kuwahara)フィルタ",
@@ -78,6 +70,22 @@
         "summary": "にっけいさんの『psyche』のMVをしました。 アイデアにっけいさんから提案頂いたのは「真っ白な部屋にただ水槽が置かれている画面」でした。 最初は3DCGや実写で水槽をオブジェクトとして用意する予定...",
         "date": "2026-02-20",
         "author": "hazuqu"
+    },
+    "2026-06-29.html": {
+        "filename": "2026-06-17.html",
+        "title": "2026 W/S 日記",
+        "img": "",
+        "summary": "普段Scrapboxで日記を書きつつ、Discordの自サーバーでは客観的に面白そうなことを共有していますが、半年単位でまとめようと思いました。 つくったものたち1月https://x.com/HAZ...",
+        "date": "2026-06-17",
+        "author": "hazuqu"
+    },
+    "2025-10-31.html": {
+        "filename": "2025-10-31.html",
+        "title": "ブログらしきものを作る。",
+        "img": "blog_img/test.png",
+        "summary": "noteが微妙にSNS過ぎてあまり嬉しくないのと、もう少しつぶやき感覚でありながらscrapboxほど簡単ではない手数の環境を手に入れたくなりました。 noteは背景が白すぎる。 構造としては blo...",
+        "date": "2025-10-31",
+        "author": "yimiru"
     },
     "2026-04-02.html": {
         "filename": "2026-04-02.html",

@@ -131,9 +131,6 @@ id=hazuqu
             // 中央揃え構文 [c 内容]
             html_body = html_body.replace(/\[c\s+([^\]]+)\]/g, '<div class="コメント文字">$1</div>');
 
-            // ブログカード構文 [blog ファイル名]
-            html_body = html_body.replace(/\[blog\s+((?:https?:\/\/ideoaves\.github\.io\/blog\/)?[\w-]+\.html)\]/g, '<a class="ブログカード" href="$1"><div class="ブログのサムネイル"><img alt="" src=""></div><div class="ブログのタイトル"><h2>ブログタイトル</h2></div><div class="ブログの投稿時間">日付</div><div class="ブログの最初">要約文...</div></a>');
-
             // リンク構文 [テキスト URL]
             html_body = html_body.replace(/\[([^\]\[]+?)\s+([^\]\s]+)\]/g, '<a href="$2">$1</a>');
 

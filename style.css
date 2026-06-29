@@ -70,7 +70,7 @@ body::after {
 }
 
 .横に狭い分類 {
-    max-width: 1000px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -92,7 +92,7 @@ a[href]:has(img) {
 
 a[href],
 .コピー！ {
-    background-color: #0000EE;
+    background-color: #5555EE;
     border-radius: 20px;
     color: #FFF;
     padding: 2px 5px;
@@ -172,6 +172,7 @@ a[href]:visited {
     margin: 10px;
     padding: 10px;
     background-color: #e0e0e0;
+    outline: 1px solid #000;
     border-radius: 20px;
     font-size: 1rem;
     font-weight: normal;
