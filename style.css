@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     /* 基本的な文字の扱い */
     line-height: 2.1;
@@ -172,7 +172,6 @@ a[href]:visited {
     margin: 10px;
     padding: 10px;
     background-color: #e0e0e0;
-    outline: 1px solid #000;
     border-radius: 20px;
     font-size: 1rem;
     font-weight: normal;
@@ -190,7 +189,7 @@ a[href]:visited {
 }
 
 .カーソルを:focus-within span {
-    background-color: #e0e0e0;
+    background-color: #ffffff;
     border-radius: 20px;
     text-decoration: none;
 }
@@ -283,8 +282,14 @@ a.バナー:not(:has(img)) {
 }
 
 /* blogの話 */
+.ブログ {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+}
+
 .ブログの最初 {
-    margin-bottom: 100px;
+    margin-bottom: 40px;
 }
 
 .ブログ div {
@@ -330,8 +335,8 @@ main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
 
 .ブログの投稿時間 {
     text-align: right;
-    margin-bottom: 20px;
     font-style: italic;
+    font-size: 0.8em;
     letter-spacing: 0.2em;
 }
 
@@ -344,7 +349,7 @@ main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
     object-fit: cover;
     border-radius: 20px;
     display: block;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
 }
 
 .ブログのサムネイル img[src=""] {
