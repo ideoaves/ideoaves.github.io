@@ -1,39 +1,72 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ブログプレビュー</title>
+    <title>blog editor ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="ブログのライブエディタ">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+
     <style>
-        #editor-overlay {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            width: 400px;
-            height: 80vh;
-            background: rgba(255, 255, 255, 0.95);
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            z-index: 1000;
+        /* このページ専用のレイアウト。左にtxt構文のエディタ、右に本番と同じ見た目のプレビューを置くよ。 */
+        body {
+            max-width: 1500px;
         }
-        #editor-textarea {
+
+        .エディタ全体 {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .エディタ側 {
+            position: sticky;
+            top: 10px;
+            flex: 0 0 42%;
+        }
+
+        .エディタ側 textarea {
             width: 100%;
-            height: 100%;
+            height: calc(100vh - 40px);
+            box-sizing: border-box;
             padding: 15px;
             border: none;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.6;
+            outline: 1px solid #000;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            font-family: inherit;
+            font-size: inherit;
+            line-height: 1.8;
             resize: none;
-            outline: none;
-            border-radius: 6px;
-            box-sizing: border-box;
         }
-            </style>
+
+        .プレビュー側 {
+            flex: 1;
+            min-width: 0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @media screen and (max-width:900px) {
+            .エディタ全体 {
+                flex-direction: column;
+            }
+
+            .エディタ側 {
+                position: static;
+                width: 100%;
+                flex: none;
+            }
+
+            .エディタ側 textarea {
+                height: 40vh;
+            }
+        }
+    </style>
 </head>
+
+
 <body>
     <header>
         <div class="ロゴ"></div>
@@ -41,153 +74,301 @@
     </header>
 
     <main>
-        <div class="横に狭い分類">
-            <div id="preview-content">
-                <div class="承認欲求">
-                    <div class="heart">♥<span class="乱数"></span></div>
-                    <div class="up">⤴<span class="乱数"></span></div>
+        <div class="エディタ全体">
+            <div class="エディタ側">
+                <textarea id="入力" spellcheck="false" placeholder="1行目はタイトル。2行目にid=著者。あとは本文。"></textarea>
+            </div>
+
+            <div class="プレビュー側">
+                <div class="横に狭い分類">
+                    <div id="プレビュー"></div>
+                    <div class="承認欲求">
+                        <div class="heart">♥<span class="乱数"></span></div>
+                        <div class="up">⤴<span class="乱数"></span></div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <div id="editor-overlay">
-        <textarea id="editor" class="editor-textarea" style="width: 100%; height: 100%;">title
-id=hazuqu
-本文</textarea>
-    </div>
-
-    <script src="JS.js"></script>
-
+    <script async src="https://platform.twitter.com/widgets.js"></script>
     <script>
-        // build.pyの変換ロジックをJavaScriptで再現
-        function convertMarkdownToHtml(text) {
-            let html_body = text;
-            
-            // ```で囲まれたコードブロックを保護
-            const blocks = [];
-            html_body = html_body.replace(/^```[ \t]*$\n((?:(?!^```[ \t]*$)[\s\S])+?)^```[ \t]*$/gm, (match, inner) => {
-                blocks.push(inner);
-                return `__BLOCK_${blocks.length-1}__`;
-            });
+        /* ここからbuild_v2.pyの変換ロジックをJavaScriptに移植したものだよ。
+           Pythonを変更したら、こちらも同じように変更すること。 */
 
-            // 見出し変換と目次生成
-            const toc = [];
-            html_body = html_body.replace(/^(#{1,3})\s+(.+?)(?:\r?\n|$)/gm, (match, hashes, title) => {
-                const level = hashes.length;
-                const anchor = title.replace(/\W+/g, '-');
-                if (level <= 2) {
-                    toc.push({ level, title, anchor });
-                }
-                return `<h${level} id="${anchor}">${title}</h${level}>`;
-            });
-
-            // 目次HTMLを先頭に追加
-            if (toc.length > 3) {
-                let toc_html = '<div class="目次"><h4>目次</h4>';
-                toc.forEach(item => {
-                    const cls = item.level === 2 ? ' class="h2"' : '';
-                    toc_html += `<a href="#${item.anchor}"${cls}>${item.title}</a><br>`;
-                });
-                toc_html += '</div>\n';
-                html_body = toc_html + html_body;
-            }
-
-            // 注釈構文 <本文{注釈}>
-            html_body = html_body.replace(/<([^>{]+)\{([^}]+)\}>/g, '<span class="カーソルを"><span>$1</span><span>$2</span></span>');
-
-            // 画像構文 [i ファイル名]
-            html_body = html_body.replace(/\[i\s+([^\]]+)\]/g, (match, imagePath) => {
-                const src = imagePath.startsWith('http') ? imagePath : `blog_img/${imagePath}`;
-                if (imagePath.toLowerCase().match(/\.(mp4|webm|mov)$/)) {
-                    return `<video class="ブログの映像" src="${src}" controls loop><\/video>`;
-                } else {
-                    return `<img alt="" class="ブログの画像" src="${src}" \/>`;
-                }
-            });
-
-            // 小さい文字構文 [s 文字]
-            html_body = html_body.replace(/\[s\s+([^\]]+)\]/g, '<span class="小さい文字">$1</span>');
-
-            // 箇条書き構文 [- 内容]
-            html_body = html_body.replace(/\[-\s*([^\[\]]+?)\s*\]/g, '<span class="箇条書き">$1</span>');
-
-            // 引用構文 [> 内容] - ネスト対応
-            const processNestedLinksInQuotes = (text) => {
-                const tempText = text.replace(/\n/g, '__NEWLINE__');
-                const result = tempText.replace(/\[>\s+((?:[^\[\]]|\[[^\]]*\])*)\]/g, (match, content) => {
-                    const processedContent = content
-                        .replace(/__NEWLINE__/g, '\n')
-                        .replace(/\[([^\]\[]+?)\s+([^\]\s]+)\]/g, '<a href="$2">$1</a>')
-                        .replace(/\[([^\]\s]+)\]/g, '<a href="$1">$1</a>');
-                    return `<div class="引用"><span>${processedContent}</span></div>`;
-                });
-                return result.replace(/__NEWLINE__/g, '\n');
-            };
-            
-            html_body = processNestedLinksInQuotes(html_body);
-            html_body = html_body.replace(/\[>\s+([^\]]+)\]/g, '<div class="引用"><span>$1</span></div>');
-
-            // 中央揃え構文 [c 内容]
-            html_body = html_body.replace(/\[c\s+([^\]]+)\]/g, '<div class="コメント文字">$1</div>');
-
-            // リンク構文 [テキスト URL]
-            html_body = html_body.replace(/\[([^\]\[]+?)\s+([^\]\s]+)\]/g, '<a href="$2">$1</a>');
-
-            // リンク構文 [URL]
-            html_body = html_body.replace(/\[([^\]\s]+)\]/g, '<a href="$1">$1</a>');
-
-            // YouTube埋め込み
-            html_body = html_body.replace(/(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)([^&\s\?]+)(?:[^\s]*)?/g, '<iframe src="https:\/\/www.youtube.com\/embed\/$1" allow="picture-in-picture" allowfullscreen><\/iframe>');
-
-            // Twitter埋め込み
-            html_body = html_body.replace(/https:\/\/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+)[^\s]*/g, '<blockquote class="twitter-tweet"><a href="https:\/\/twitter.com\/$1\/status\/$2"><\/a><\/blockquote><script async src="https:\/\/platform.twitter.com\/widgets.js"><\/script>');
-
-            // 改行を<br>に変換
-            html_body = html_body.replace(/\r\n|\r|\n/g, '<br>\n');
-
-            // コードブロックを復元
-            blocks.forEach((block, i) => {
-                html_body = html_body.replace(`__BLOCK_${i}__`, `<pre><code>${block}<\/code><\/pre>`);
-            });
-
-            return html_body;
+        // 見出しのテキストから目次用のアンカー文字列を作るよ。（Pythonの \W+ → '-' と同じ挙動）
+        function anchorize(title) {
+            return title.replace(/[^\p{L}\p{N}_]+/gu, "-");
         }
 
-        // リアルタイムプレビュー更新
-        const editor = document.getElementById('editor');
-        const previewContent = document.getElementById('preview-content');
+        // [ ] で囲まれたインライン構文をHTMLに変換するよ。深さを数えて対応する"]"を探し、中身を再帰処理する。
+        function processInline(text, topLevel = true) {
+            let result = "";
+            let i = 0;
+            const n = text.length;
+            while (i < n) {
+                if (text[i] === "[") {
+                    let depth = 1;
+                    let j = i + 1;
+                    while (j < n && depth > 0) {
+                        if (text[j] === "[") depth++;
+                        else if (text[j] === "]") depth--;
+                        j++;
+                    }
+                    if (depth === 0) {
+                        result += convertBracket(text.slice(i + 1, j - 1), topLevel);
+                        i = j;
+                        continue;
+                    }
+                }
+                result += text[i];
+                i++;
+            }
+            return result;
+        }
 
-        function updatePreview() {
-            const text = editor.value;
-            
-            if (text.trim()) {
-                // id=著者名 の記述を探して、著者IDを取得
-                const idMatch = text.match(/^id=(.*)$/m);
-                const authorId = idMatch ? idMatch[1].trim() : '';
-                
-                // 著者IDの記述を本文から削除し、タイトル行と本文に分割
-                const textWithoutId = text.replace(/^id=.*\r?\n?/m, '').trim();
-                const lines = textWithoutId.split('\n');
-                const titleLine = lines[0] ? lines[0].replace(/^#+\s*/, '').trim() : 'タイトルなし';
-                const bodyText = lines.slice(1).join('\n');
-                const bodyHtml = convertMarkdownToHtml(bodyText);
-                
-                // 著者情報があればHTMLに追加
-                const authorHtml = authorId ? `<div class="作った人たち">${authorId}</div>\n` : '';
-                
-                previewContent.innerHTML = `<h1>${titleLine}</h1>\n${authorHtml}${bodyHtml}\n<div class="承認欲求">\n                    <div class="heart">♥<span class="乱数"></span></div>\n                    <div class="up">⤴<span class="乱数"></span></div>\n                </div>`;
+        // topLevelがfalse（他の[...]構文の中）のときはYouTube/Twitterの埋め込み変換をしないよ。
+        function convertBracket(content, topLevel = true) {
+            if (content.startsWith("i ")) {
+                const filename = content.slice(2).trim();
+                return `<img alt="" class="ブログの画像" src="blog_img/${filename}">`;
+            }
+
+            if (content.startsWith("s ")) {
+                return `<span class="小さい文字">${processInline(content.slice(2).trim(), false)}</span>`;
+            }
+
+            if (content.startsWith("> ")) {
+                return `<span class="引用"><span>${processInline(content.slice(2).trim(), false)}</span></span>`;
+            }
+
+            if (content.startsWith("c ")) {
+                return `<span class="コメント文字">${processInline(content.slice(2).trim(), false)}</span>`;
+            }
+
+            const cursorM = content.match(/^(.+?)\s+\{(.+)\}$/s);
+            if (cursorM) {
+                const textA = processInline(cursorM[1], false);
+                const textB = processInline(cursorM[2], false);
+                return `<span class="カーソルを"><span>${textA}</span><span>${textB}</span></span>`;
+            }
+
+            const linkM = content.match(/^(.+?)\s+(\S+)$/s);
+            if (linkM) {
+                return `<a href="${linkM[2]}">${processInline(linkM[1], false)}</a>`;
+            }
+
+            // ここまでで判定できなければ、中身は単独の [URL] として扱うよ。
+            const url = content.trim();
+
+            if (topLevel) {
+                const tweetM = url.match(/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+)/);
+                if (tweetM) {
+                    return `<blockquote class="twitter-tweet"><a href="https://twitter.com/${tweetM[1]}/status/${tweetM[2]}"></a></blockquote>`
+                        + `<script async src="https://platform.twitter.com/widgets.js"><\/script>`;
+                }
+
+                const ytM = url.match(/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)([^&\s?]+)/);
+                if (ytM) {
+                    return `<iframe src="https://www.youtube.com/embed/${ytM[1]}" allow="picture-in-picture" allowfullscreen></iframe>`;
+                }
+            }
+
+            return `<a href="${url}">${url}</a>`;
+        }
+
+        // 記事テキスト全体を、build_v2.pyと同じ手順でHTMLに変換するよ。
+        function convertArticle(text) {
+            const fileLines = text.trim().split(/\r\n|\r|\n/);
+            const titleLine = (fileLines.length && fileLines[0].trim() !== "")
+                ? fileLines[0].trim()
+                : "( U̴̺͎͙̔͆̔n̴͙̦̟͛̾͝t̸̼̘̺͑̽̽i̸̝͖̻͋̿͊t̴͉͎̟͊͒̕l̸̝̞͒̕̕è̴͉̫̫̒̓d̴̙͎̟̓͝͝ )";
+            const restLines = fileLines.slice(1);
+
+            let authorId = "";
+            let bodyLines;
+            if (restLines.length && restLines[0].trim().startsWith("id=")) {
+                authorId = restLines[0].trim().slice(3).trim();
+                bodyLines = restLines.slice(1);
             } else {
-                previewContent.innerHTML = '<div class="承認欲求"><div class="heart">♥<span class="乱数"></span></div><div class="up">⤴<span class="乱数"></span></div></div>';
+                bodyLines = restLines;
+            }
+
+            const blocks = [];
+            const toc = [];
+            let paragraphBuf = [];
+            const bulletStack = [];
+            const bulletRoots = [];
+            const tableBuf = []; // テーブル行を集めるよ。各要素は [isHeader, cells]。
+
+            function closeParagraph() {
+                if (paragraphBuf.length) {
+                    let processed = processInline(paragraphBuf.join("\n"));
+                    processed = processed.replace(/\r\n|\r|\n/g, "<br>\n");
+                    // 画像やTwitter埋め込みはブロック要素なので、直後の<br>は二重改行になる。例外的に取り除くよ。
+                    processed = processed.replace(
+                        /(<img[^>]*>|<script async src="https:\/\/platform\.twitter\.com\/widgets\.js"><\/script>)<br>\n/g,
+                        "$1\n",
+                    );
+                    blocks.push(`<p>${processed}</p>`);
+                    paragraphBuf = [];
+                }
+            }
+
+            function closeBullets(minDepth) {
+                while (bulletStack.length && bulletStack[bulletStack.length - 1].depth >= minDepth) {
+                    const frame = bulletStack.pop();
+                    const childrenHtml = frame.children.length ? `<ul>${frame.children.join("")}</ul>` : "";
+                    const liHtml = `<li>${frame.text}${childrenHtml}</li>`;
+                    if (bulletStack.length) {
+                        bulletStack[bulletStack.length - 1].children.push(liHtml);
+                    } else {
+                        bulletRoots.push(liHtml);
+                    }
+                }
+            }
+
+            function endBulletRun() {
+                closeBullets(0);
+                if (bulletRoots.length) {
+                    blocks.push(`<ul>${bulletRoots.join("")}</ul>`);
+                    bulletRoots.length = 0;
+                }
+            }
+
+            // テーブル行の並びが終わったときに呼ぶ。||で始まる行だけheadにし、それ以外はtbodyに積むよ。
+            function closeTable() {
+                if (tableBuf.length) {
+                    let theadHtml = "";
+                    let tbodyHtml = "";
+                    for (const [isHeader, cells] of tableBuf) {
+                        if (isHeader) {
+                            const rowHtml = cells.map(cell => `<th>${cell}</th>`).join("");
+                            theadHtml += `<thead><tr>${rowHtml}</tr></thead>`;
+                        } else {
+                            const rowHtml = cells.map(cell => `<td>${cell}</td>`).join("");
+                            tbodyHtml += `<tr>${rowHtml}</tr>`;
+                        }
+                    }
+                    blocks.push(`<table>${theadHtml}<tbody>${tbodyHtml}</tbody></table>`);
+                    tableBuf.length = 0;
+                }
+            }
+
+            for (const line of bodyLines) {
+                if (line.trim() === "") {
+                    closeParagraph();
+                    endBulletRun();
+                    closeTable();
+                    continue;
+                }
+
+                const headingM = line.match(/^(#{1,3})\s+(.+)$/);
+                if (headingM) {
+                    closeParagraph();
+                    endBulletRun();
+                    closeTable();
+                    const level = headingM[1].length;
+                    const headingTitle = headingM[2].trim();
+                    const anchor = anchorize(headingTitle);
+                    if (level <= 2) {
+                        toc.push([level, headingTitle, anchor]);
+                    }
+                    blocks.push(`<h${level} id="${anchor}">${processInline(headingTitle)}</h${level}>`);
+                    continue;
+                }
+
+                const bulletM = line.match(/^(\s+)(\S.*)$/);
+                if (bulletM) {
+                    closeParagraph();
+                    closeTable();
+                    const depth = bulletM[1].length;
+                    closeBullets(depth);
+                    bulletStack.push({
+                        depth: depth,
+                        text: processInline(bulletM[2].trim()),
+                        children: [],
+                    });
+                    continue;
+                }
+
+                // テーブル行構文 |セル1  セル2  セル3 （セルは空白2つかタブで区切るよ）。||で始まる行はheadになる。
+                const tableM = line.match(/^\|(\|?)(.*)$/);
+                if (tableM) {
+                    closeParagraph();
+                    endBulletRun();
+                    const isHeader = tableM[1] === "|";
+                    const cells = tableM[2].split(/\t| {2,}/).map(cell => processInline(cell.trim()));
+                    tableBuf.push([isHeader, cells]);
+                    continue;
+                }
+
+                endBulletRun();
+                closeTable();
+                paragraphBuf.push(line);
+            }
+
+            closeParagraph();
+            endBulletRun();
+            closeTable();
+
+            // 見出しが3件より多く集まったら、記事の先頭に目次ブロックを挿入するよ。
+            if (toc.length > 3) {
+                let tocHtml = '<div class="目次"><h4>目次</h4>';
+                for (const [level, tocTitle, anchor] of toc) {
+                    const cls = level === 2 ? ' class="h2"' : "";
+                    tocHtml += `<a href="#${anchor}"${cls}>${tocTitle}</a><br>`;
+                }
+                tocHtml += "</div>";
+                blocks.unshift(tocHtml);
+            }
+
+            const authorHtml = authorId ? `<div class="作った人たち">${authorId}</div>\n` : "";
+            return `<h1>${titleLine}</h1>\n${authorHtml}${blocks.join("\n")}`;
+        }
+
+        /* ここからエディタページの動作だよ。 */
+
+        const 入力 = document.getElementById("入力");
+        const プレビュー = document.getElementById("プレビュー");
+
+        function render() {
+            プレビュー.innerHTML = convertArticle(入力.value);
+
+            // JS.jsが読み込み時にやっている「カーソルを」注釈の初期化を、再描画のたびにやり直すよ。
+            プレビュー.querySelectorAll(".カーソルを").forEach(el => {
+                el.setAttribute("tabindex", "0");
+                const spans = el.querySelectorAll("span");
+                if (spans.length > 1) {
+                    spans[1].classList.add("すると出る");
+                }
+            });
+
+            // Twitter埋め込みがあれば、widgets.jsに描画してもらうよ。
+            if (window.twttr && window.twttr.widgets) {
+                window.twttr.widgets.load(プレビュー);
             }
         }
 
-        // イベントリスナー
-        editor.addEventListener('input', updatePreview);
-        editor.addEventListener('keyup', updatePreview);
+        let timer = null;
+        入力.addEventListener("input", () => {
+            clearTimeout(timer);
+            timer = setTimeout(render, 200);
+        });
 
-        // 初期化
-        updatePreview();
+        // 閉じたり更新したりしても書きかけが消えないよう、localStorageに自動保存するよ。
+        const 保存キー = "blog-preview-draft";
+        入力.addEventListener("input", () => {
+            localStorage.setItem(保存キー, 入力.value);
+        });
+        const 下書き = localStorage.getItem(保存キー);
+        if (下書き) {
+            入力.value = 下書き;
+        }
+        render();
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <script src="../JS.js"></script>
 </body>
+
 </html>
