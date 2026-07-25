@@ -344,31 +344,7 @@ for b in blogs:
 # index.html用のテンプレートを読み込んで、記事一覧部分を今作ったHTMLで置き換えるよ。
 index_html = blogframe_html
 replacement_html = '''
-
-<div class="横に狭い分類">
-    <soan class="チェックボックスたち">
-        <span class="チェックボックス">
-            <input type="checkbox" id="hazuquを表示" checked>
-            <label for="hazuquを表示">hazuqu</label>
-        </span>
-
-        <span class="チェックボックス">
-            <input type="checkbox" id="sianを表示" checked>
-            <label for="sianを表示">思案</label>
-        </span>
-
-        <span class="チェックボックス">
-            <input type="checkbox" id="yimiruを表示" checked>
-            <label for="yimiruを表示">yimiru</label>
-        </span>
-
-        <span class="チェックボックス">
-            <input type="checkbox" id="ideoavesを表示" checked>
-            <label for="ideoavesを表示">ideoaves</label>
-        </span>
-    </span>
-</div>
-<div class="横に狭い分類">
+<div class="横に狭い分類 ブログ群">
 ''' + index_content
 
 index_html = re.sub(

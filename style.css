@@ -293,6 +293,13 @@ a.バナー:not(:has(img)) {
     width: 80%;
 }
 
+.ブログ群 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 20px;
+}
+
 .ブログの最初 {
     margin-bottom: 40px;
 }
@@ -310,32 +317,6 @@ a.バナー:not(:has(img)) {
 
 .ブログ.カード .ブログの最初 {
     margin-bottom: 0;
-}
-
-main:not(:has(#hazuquを表示:checked)) #hazuquの記事 {
-    display: none;
-}
-
-main:not(:has(#sianを表示:checked)) #sianの記事 {
-    display: none;
-}
-
-main:not(:has(#yimiruを表示:checked)) #yimiruの記事 {
-    display: none;
-}
-
-main:not(:has(#ideoavesを表示:checked)) #ideoavesの記事 {
-    display: none;
-}
-
-.チェックボックスたち {
-    display: block;
-    text-align: center;
-    margin: 40px 0;
-}
-
-.チェックボックス {
-    margin: 0 10px;
 }
 
 .ブログの投稿時間 {
@@ -524,6 +505,11 @@ th, td {
 
     .作品 {
         margin-bottom: 20px;
+    }
+
+    .ブログ群 {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
     .ブログの最初 {
