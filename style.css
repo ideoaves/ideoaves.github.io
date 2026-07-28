@@ -290,7 +290,6 @@ a.バナー:not(:has(img)) {
 .ブログ {
     display: block;
     margin: 0 auto;
-    width: 80%;
 }
 
 .ブログ群 {
