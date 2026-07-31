@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    max-width: 700px;
+    max-width: 1200px;
     margin: 0 auto;
     /* 基本的な文字の扱い */
     line-height: 2.1;
@@ -20,6 +20,11 @@ body {
     font-family: "Zen Kaku Gothic New", "Noto Sans SC", sans-serif;
     font-weight: 300;
     font-size: 15px;
+}
+
+main {
+    width: 800px;
+    margin: 0 auto;
 }
 
 img {
@@ -331,6 +336,7 @@ a.バナー:not(:has(img)) {
 
 .ブログのサムネイル img {
     height: 200px;
+    width: 100%;
     object-fit: cover;
     border-radius: 20px;
     display: block;
@@ -423,7 +429,8 @@ thead {
     text-align: left;
 }
 
-th, td {
+th,
+td {
     margin: 0;
     padding: 0 10px;
 }
@@ -476,6 +483,10 @@ th, td {
         padding: 5px;
         margin: 0 auto;
         font-size: 0.8em;
+    }
+
+    main {
+        width: 100%;
     }
 
     .おおきな分類 {
@@ -531,5 +542,32 @@ th, td {
     .ブログの映像 {
         width: 100%;
     }
+}
 
+/* 4K用 */
+
+@media screen and (min-width:2000px) {
+    body {
+        max-width: 2000px;
+    }
+
+    main {
+        width: 1500px;
+    }
+
+    .横に狭い分類 {
+        max-width: 1000px;
+    }
+
+    .ブログ群 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .ブログの画像 {
+        width: 100%;
+    }
+
+    .ブログの映像 {
+        width: 70%;
+    }
 }
