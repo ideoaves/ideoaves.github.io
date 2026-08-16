@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>26年S/A 日記 ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="つくったものたち 初星学園 「歌声は君い...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ideoaves のブログ" href="/blog/rss.xml">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="26年S/A 日記">
+    <meta name="twitter:description" content="つくったものたち 初星学園 「歌声は君い...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+            <div class="横に狭い分類">
+                <h1>26年S/A 日記</h1>
+                <div class="作った人たち">hazuqu</div>
+                <h1 id="つくったものたち">つくったものたち</h1>
+                <h3 id="初星学園-歌声は君いろ-Official-Music-Video">初星学園 「歌声は君いろ」Official Music Video</h3>
+                <p>フラワーボックスをモチーフに紙芝居をしています。<br>
+                <iframe src="https://www.youtube.com/embed/7i27l7uvTd4" allow="picture-in-picture" allowfullscreen></iframe></p>
+                <h3 id="ちゅ-お注射-なみぐる-feat-をとは-somunia">ちゅ、お注射。 / なみぐる feat.をとは somunia</h3>
+                <p>スマホの画面の中で進行する2DMVです。<br>
+                <iframe src="https://www.youtube.com/embed/P1yqH9jwf14" allow="picture-in-picture" allowfullscreen></iframe><br>
+                7月はワンシチュエーション2DMVについて考えていました。カメラを持ち出したりプログラムを描いたりすることで技術的に新規性を作ることは出来るけど、そうではなくてAEやBlenderを使った通常の制作フローの中でもやれることはありませんか、と考えています。具体的には、前述2作の制作フローはすべて一般的な2DMVと同等です。</p>
+                <h3 id="ユメユメ-二度音ウト">ユメユメ - 二度音ウト</h3>
+                <p><iframe src="https://www.youtube.com/embed/fSI3jy6SH0Y" allow="picture-in-picture" allowfullscreen></iframe><br>
+                リミナルスペースをメインに据えネット美学全般をテーマに、ideoavesで折メ思案とともにアニメーションをしました。</p>
+                <p><a href="https://animation.hiroshimafest.org/program/00002074/">ひろしまアニメーションシーズン</a>で特集上映＆ライブ「ボカロ特集：身体の未分化」のキュレーション協力に参加しました。ボカロMVの変遷に寄った部分、特に手法とルックの側面の話をしました。</p>
+                <h2 id="7月">7月</h2>
+                <h3 id="3DGS環境を更新">3DGS環境を更新</h3>
+                <p>LichtFeld StudioとCOLMAPを用いた3D Gaussian Splatting環境を作りました。<br>
+                LichtFeld Studioの自前ビルドがある程度可能そうだったためCMake、Strawberry Perlをインストールして残りはコピペでなんとかしました。ただプラグインのインストールに躓き、uv.exeがインストール時と違う場所を探していたため注意が必要です。<br>
+                また低品質な画像をテストしたかったためRealityscanも導入しました。<br>
+                Blenderを5.1.2にアップグレード。Claudeのコネクタが先月出ていたので接続しました。<br>
+                KIRI EngineのアドオンをBlenderに導入して、その後Claudeを使って点群の操作をしてみました。具体的には点ごとTransformationを操作できるモディファイアを作りました。</p>
+                <h3 id="Discord-bot">Discord bot</h3>
+                <p><a href="https://discord.gg/dcqAR8RyPn">Discordの自鯖</a>に荒らしが来るため、自作のBotに発言歴及びロール付与がある人々に一括で発言ロールをつける機能を用意しました。<br>
+                発現可能なチャンネルも用意して、他のチャンネルも閲覧は可能にしています。技術共有を目的とする中規模サーバーであれば良い塩梅ではないでしょうか。</p>
+                <h3 id="非エンジニアのためのコード公開倫理">非エンジニアのためのコード公開倫理</h3>
+                <p>AIでバイブコーディングしたツールの公開についての倫理を考える。「非エンジニアのためのコード公開倫理」という建付けで</p>
+                <ul><li>１．堅牢性を保証できないならば公開しない。</li><li>２．保守性を保証できないならば無償かつオープンに公開する。</li><li>３．メンテナとユーザーの時間を浪費しない。</li></ul>
+                <p>としました。所謂オープンソース文化でのモラルをもっと強く拡張したもので、<br>
+                私自身の具体例を出せば<br>
+                「ログイン、何らかの送受信を機能として持つツールを公開しない。JSやpythonで作成したローカルな場で動くツールを、コードを容易に閲覧可能でPRの送られないような僻地としての個人サイト用Githubリポジトリに設置する。」<br>
+                という立ち位置です。<br>
+                これをすべての人に適用する事は考えませんが、個人信条として持っていて過不足ない倫理だと考えています。<span class="小さい文字">（少なくとも対応記載のあったバージョンでエラーの出るプラグインを数千円でBoothに置くよりも倫理的であると確信しています。）</span></p>
+                <h3 id="ブログジェネレータの修正">ブログジェネレータの修正</h3>
+                <p>ブログジェネレータの構文を抜本的に見直します。手書きサイトの名残でbrとdivのみを使うhtml構成にしていたのですが、internet 2（RSSとAPIを使ったSNS・ニュースサイト横断サイト。前述の公開倫理により公開していません）を作る過程でできるだけ内容に合ったタグに変えるべきと考え修正に入っています。現在はp段落や入れ子ulの箇条書きを対応させていますがspanにclassを当てている部分は他ページと干渉するため様子見しています。長期的には<a href="https://baku89.com/garden">garden.ooo</a>に移行するため、このサイトは変異するキメラであり続けるでしょう。</p>
+                <h3 id="昭和パンクの調べ物">昭和パンクの調べ物</h3>
+                <ul><li>50年代以降のハッカー文化。cDc、Blue box。</li><li>TRPGの受容、クトゥルフ神話の翻訳本。</li><li>コンピュータアート。Henry Drawing Machine、Michael Noll、Computer Technique Group。</li></ul>
+                <p>もともとは黎明期CGのインプットのつもりでしたが、197Xという数字を見ると私は年表と単語帳を埋め始めてしまいます。ライフワークとして申し分ないのめり込みです。<br>
+                <a href="https://www.kogures.com/hitoshi/history/index.html">IT関連の歴史</a>：1次資料も書いてくれているためインターネット技術の早送りIFのSFについて考えていました。<br>
+                例えば</p>
+                <table><thead><tr><th>date</th><th>events</th><th>base</th></tr></thead><tbody><tr><td>1962/00/00</td><td>佐橋滋 『情報処理産業育成計画』</td><td>なし。</td></tr><tr><td>1963/07/00</td><td>特振法 廃案<span class="小さい文字">（福田通産大臣の後押しもあり、この廃案を機に情報処理産業政策に舵を切った。）</span></td><td>廃案のみ史実。</td></tr><tr><td>1963/09/17</td><td>情報処理産業育成基本方針を閣議決定</td><td>定例閣議のあった日。</td></tr><tr><td>1965/04/01</td><td>公衆電気通信法改正</td><td>なし。1985年に電気通信事業法改正が行われた。</td></tr><tr><td>1981/08/12</td><td>IBM PC 発売</td><td>史実。</td></tr><tr><td>1983/01/01</td><td>ARPANET TCP/IPへ切り替え。 日米規格摩擦の本格化</td><td>史実。ただし日米規格摩擦ではなく通信自由を求める日米通信摩擦であった。</td></tr><tr><td>1985/04/01</td><td>電話自由化</td><td>電気通信事業法改正による通信自由化の日。</td></tr><tr><td>1985/10/00</td><td>MOSS協議</td><td>史実。日米通信摩擦についての内容は異なる。</td></tr><tr><td>1988/00/00</td><td>TCP/IP規格の標準化</td><td>なし。</td></tr></tbody></table>
+                <p>とすると、1985年の通信自由化を20年早めることができ、昭和40年代に法的にはネットワーク網の初期段階を用意するSFができます。</p>
+                <h3 id="その他">その他</h3>
+                <p>相関図エディタをウェブのCanvas描画で作りました。またノードベースのメモ全般のバージョンも考え始めました。<br>
+                ７月は後半1週間は重い頭痛があってほとんどベッドにいました。脳神経外科でMRIを撮ったのですが、今のMRIはミラー越しに映像を楽しめるようになっていて面白かったです。</p>
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+            </div>
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>
