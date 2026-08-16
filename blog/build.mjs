@@ -3,14 +3,11 @@ import path from "node:path";
 import { parseArticle, renderArticleBody, escapeAttr } from "./parser.mjs";
 
 const BLOG_DIR = import.meta.dirname;
-// 型紙は入れ子になっているよ。
 //   frame.html     … ページ全体（head・ヘッダー・main）。<ページの中身> にページ種別ごとの中身が入る
 //   blogframe.html … 記事ページの中身。<ブログの中身> に記事本文が入る
-//   listframe.html … 記事一覧ページの中身。<ブログ一覧> に記事カードが並ぶ
 // ページの種類が増えるときは、frame.html はそのままに ○○frame.html を足していけばいい。
 const FRAME_PATH = path.join(BLOG_DIR, "frame.html");
 const BLOGFRAME_PATH = path.join(BLOG_DIR, "blogframe.html");
-const LISTFRAME_PATH = path.join(BLOG_DIR, "listframe.html");
 const INDEX_PATH = path.join(BLOG_DIR, "index.html");
 const JSON_PATH = path.join(BLOG_DIR, "bloglist.json");
 const RSS_PATH = path.join(BLOG_DIR, "rss.xml");
@@ -20,12 +17,11 @@ const BLOG_URL = `${SITE}/blog/`;
 const BLOG_TITLE = "Ideoaves のブログ";
 const BLOG_DESC = "Ideoavesのブログ";
 
-const ページプレースホルダ = "<ページの中身>";
-const 本文プレースホルダ = "<ブログの中身>";
-const 一覧プレースホルダ = "<ブログ一覧>";
+const PAGE_SLOT = "<ページの中身>";
+const BODY_SLOT = "<ブログの中身>";
+const CARD_LIST_TAG = '<div class="横に狭い分類 ブログ群">';
 
-// このリポジトリのファイルは全部CRLFなので、読むときにLFへ正規化して、書くときにCRLFへ戻すよ。
-// （Pythonのテキストモードと同じ挙動。混ざると差分がファイル全体に出てしまうため。）
+// 読むときにLFへ正規化して、書くときにCRLFへ戻すよ。
 function readText(file) {
   return fs.readFileSync(file, "utf-8").replace(/\r\n|\r/g, "\n");
 }
@@ -47,21 +43,57 @@ function replaceOnce(html, pattern, value) {
   return html.replace(pattern, () => value);
 }
 
+// その位置の行頭の字下げを返すよ。字下げ以外の文字が前にあるときは空文字を返すよ。
+function indentAt(text, at) {
+  const lineStart = text.lastIndexOf("\n", at) + 1;
+  const indent = text.slice(lineStart, at);
+  return /^[ \t]*$/.test(indent) ? indent : "";
+}
+
 // 型紙のプレースホルダを、その行の字下げに合わせて value で置き換えるよ。
-// 1行目は型紙側の字下げに続くので足さない。空行にも足さない。
 function fillSlot(template, placeholder, value) {
   const at = template.indexOf(placeholder);
   if (at === -1) {
     throw new Error(`型紙に ${placeholder} が見つからないよ。`);
   }
-  const 行頭 = template.lastIndexOf("\n", at) + 1;
-  const 字下げ = template.slice(行頭, at);
-  const pad = /^[ \t]*$/.test(字下げ) ? 字下げ : "";
+  const pad = indentAt(template, at);
   const indented = value
     .split("\n")
     .map((line, i) => (i === 0 || line.trim() === "" ? line : pad + line))
     .join("\n");
   return template.split(placeholder).join(indented);
+}
+
+// 開始位置から <div> の入れ子を数えて、対応する </div> の位置を返すよ。
+function findClosingDiv(html, from) {
+  const divTag = /<div\b|<\/div\s*>/g;
+  divTag.lastIndex = from;
+  let depth = 1;
+  let m;
+  while ((m = divTag.exec(html)) !== null) {
+    depth += m[0].startsWith("</") ? -1 : 1;
+    if (depth === 0) return m.index;
+  }
+  throw new Error(`index.html の ${CARD_LIST_TAG} が閉じてないです`);
+}
+
+// index.html のブログ群のdivの中身だけを差し替えるよ。
+function replaceCardList(html, cards) {
+  const at = html.indexOf(CARD_LIST_TAG);
+  if (at === -1) {
+    throw new Error(`index.html に ${CARD_LIST_TAG} が見つからないです`);
+  }
+  const innerStart = at + CARD_LIST_TAG.length;
+  const innerEnd = findClosingDiv(html, innerStart);
+
+  // 開始タグの字下げに合わせて、カードはその1段内側に置くよ。
+  const pad = indentAt(html, at);
+  const inner = cards
+    .split("\n")
+    .map((line) => (line.trim() === "" ? line : pad + "    " + line))
+    .join("\n");
+
+  return html.slice(0, innerStart) + "\n" + inner + "\n" + pad + html.slice(innerEnd);
 }
 
 function setMeta(html, name, value) {
@@ -72,7 +104,6 @@ function setMeta(html, name, value) {
 // テンプレ
 const frameHtml = readText(FRAME_PATH);
 const blogframeHtml = readText(BLOGFRAME_PATH).trimEnd();
-const listframeHtml = readText(LISTFRAME_PATH).trimEnd();
 
 // bloglist.jsonから既存のブログデータを読み込むよ。ファイルがなければ空のオブジェクトで始めるよ。
 let blogsData = {};
@@ -94,8 +125,8 @@ for (const blogFilename of Object.keys(blogsData)) {
 
 // 個別記事のページを、テンプレートに流し込んで組み立てるよ。
 function renderArticlePage(article) {
-  const 記事の中身 = fillSlot(blogframeHtml, 本文プレースホルダ, renderArticleBody(article));
-  let html = fillSlot(frameHtml, ページプレースホルダ, 記事の中身);
+  const articleInner = fillSlot(blogframeHtml, BODY_SLOT, renderArticleBody(article));
+  let html = fillSlot(frameHtml, PAGE_SLOT, articleInner);
 
   html = replaceOnce(
     html,
@@ -116,9 +147,9 @@ const txtFiles = fs
   .sort();
 
 for (const filename of txtFiles) {
-  const hiduke = filename.slice(0, filename.lastIndexOf("."));
-  const outputFilename = `${hiduke}.html`;
-  const dateStr = hiduke.slice(0, 10);
+  const basename = filename.slice(0, filename.lastIndexOf("."));
+  const outputFilename = `${basename}.html`;
+  const dateStr = basename.slice(0, 10);
 
   const text = readText(path.join(BLOG_DIR, filename));
   const article = parseArticle(text);
@@ -133,8 +164,6 @@ for (const filename of txtFiles) {
     date: dateStr,
     author: article.authorId,
   };
-
-  console.log(`  + ${outputFilename}`);
 }
 
 // index.html（記事一覧ページ）の生成
@@ -149,7 +178,7 @@ const cards = blogs
       .filter(Boolean)
       .map((author) => `${author}の記事`)
       .join(" ");
-    // 字下げは listframe.html の <ブログ一覧> の位置に合わせて後から付くので、ここでは付けないよ。
+    // 字下げは index.html のブログ群のdivの位置に合わせて後から付くので、ここでは付けないよ。
     return [
       `<a class="ブログ" id="${escapeAttr(authorIds)}" href="${escapeAttr(b.filename)}">`,
       `    <div class="ブログのサムネイル"><img alt="" src="${escapeAttr(b.img ?? "")}"></div>`,
@@ -163,23 +192,20 @@ const cards = blogs
   })
   .join("\n");
 
-// listframe.html の <ブログ一覧> にカードを並べて、それを frame.html の <ページの中身> に入れるよ。
-const 一覧の中身 = fillSlot(listframeHtml, 一覧プレースホルダ, cards);
-const indexHtml = fillSlot(frameHtml, ページプレースホルダ, 一覧の中身);
-
-writeText(INDEX_PATH, indexHtml);
+// index.html の「ブログ群」のdivの中身だけをカード一覧で入れ替えるよ。ページの他の部分は触らないよ。
+writeText(INDEX_PATH, replaceCardList(readText(INDEX_PATH), cards));
 
 // rss.xmlの生成
 
-const 曜日 = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const 月 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 // "2026-04-02" をRSSのpubDate形式にするよ。
 function rfc822(dateStr) {
   const d = new Date(`${dateStr}T00:00:00Z`);
   if (Number.isNaN(d.getTime())) return "";
   const dd = String(d.getUTCDate()).padStart(2, "0");
-  return `${曜日[d.getUTCDay()]}, ${dd} ${月[d.getUTCMonth()]} ${d.getUTCFullYear()} 00:00:00 +0900`;
+  return `${WEEKDAYS[d.getUTCDay()]}, ${dd} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()} 00:00:00 +0900`;
 }
 
 const items = blogs

@@ -3,12 +3,12 @@ const 無題 = "( U̴̺͎͙̔͆̔n̴͙̦̟͛̾͝t̸̼̘̺͑̽̽i̸̝͖̻͋̿͊t�
 const ツイート埋め込み =
   '<script async src="https://platform.twitter.com/widgets.js"></script>';
 
-// 見出しのテキストから目次用のアンカー文字列を作るよ。（Pythonの \W+ → '-' と同じ挙動）
+// 見出しのテキストから目次用のアンカー文字列を作るよ
 export function anchorize(title) {
   return title.replace(/[^\p{L}\p{N}_]+/gu, "-");
 }
 
-// 属性値に入れる文字列をエスケープするよ。タイトルに " や & が入っても壊れないようにするため。
+// 属性値に入れる文字列をエスケープするよ。
 export function escapeAttr(text) {
   return String(text)
     .replace(/&/g, "&amp;")
@@ -17,8 +17,7 @@ export function escapeAttr(text) {
     .replace(/"/g, "&quot;");
 }
 
-// [ ] で囲まれたインライン構文をHTMLに変換するよ。[> ]や[c ]の中に別の[...]構文がネストすることが
-// あるため、深さを数えながら対応する外側の"]"を探し、中身を再帰的に処理してから外側をラップする。
+// インライン構文をHTMLに変換するよ。
 export function processInline(text, topLevel = true) {
   let result = "";
   let i = 0;
@@ -64,7 +63,6 @@ export function convertBracket(content, topLevel = true) {
     return `<span class="コメント文字">${processInline(content.slice(2).trim(), false)}</span>`;
   }
 
-  // 末尾の \n? は、Pythonの $ が行末の改行1つを許容するのに合わせているよ。
   const cursorM = content.match(/^(.+?)\s+\{(.+)\}\n?$/s);
   if (cursorM) {
     const textA = processInline(cursorM[1], false);
@@ -274,7 +272,7 @@ export function parseArticle(text) {
   };
 }
 
-// 記事本文の見た目部分（h1・著者・本文）を組み立てるよ。ページ全体のテンプレート流し込みはbuild.mjs側の仕事。
+// 記事本文の見た目部分（h1・著者・本文）を組み立てるよ。ページ全体のテンプレート流し込みはbuild.mjsの仕事。
 export function renderArticleBody({ title, authorId, bodyHtml }) {
   const authorHtml = authorId ? `<div class="作った人たち">${authorId}</div>\n` : "";
   return `<h1>${title}</h1>\n${authorHtml}${bodyHtml}`;
