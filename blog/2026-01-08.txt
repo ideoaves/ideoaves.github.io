@@ -1,25 +1,22 @@
 Bongo Kanade　つくった！
 id=sian
-https://x.com/olime_sian/status/2009195569147990149
+[https://twitter.com/olime_sian/status/2009195569147990149]
 デスクトップマスコットを作りました！
-
 ## 使用したボイス
 以下の配信からお借りしています
 [s ｶﾅﾃﾞ～
 【対談】かわいいかわいい後輩の奏さんとお話がしたい #ぽるかなで対談
-<a href="https://www.youtube.com/live/Gcdr_p4lWGc?si=jJqcLud6P5NYjxt7&t=3448">https://www.youtube.com/live/Gcdr_p4lWGc</a>
+[https://www.youtube.com/live/Gcdr_p4lWGc https://www.youtube.com/live/Gcdr_p4lWGc?si=jJqcLud6P5NYjxt7&t=3448]
 ｗｗｗｗｗ / こんにちは～！
 【 Minecraft 】#ホロ鯖サマーパーク 夏だ～～～！！【音乃瀬奏】#hololiveDEV_IS #ReGLOSS
-<a href="https://www.youtube.com/live/wIMR-Gy4_Ss?si=CRTFua_JiYcI98he&t=3829">https://www.youtube.com/live/wIMR-Gy4_Ss</a> <a href="https://www.youtube.com/live/wIMR-Gy4_Ss?si=GYLdN3_wP-XcHTpA&t=212">https://www.youtube.com/live/wIMR-Gy4_Ss</a>
+[https://www.youtube.com/live/wIMR-Gy4_Ss https://www.youtube.com/live/wIMR-Gy4_Ss?si=CRTFua_JiYcI98he&t=3829] [https://www.youtube.com/live/wIMR-Gy4_Ss https://www.youtube.com/live/wIMR-Gy4_Ss?si=GYLdN3_wP-XcHTpA&t=212]
 좋아좋아좋아…
 【縦型歌枠】病み上がりの歌枠【音乃瀬奏】#hololiveDEV_IS #ReGLOSS #shorts
-<a href="https://www.youtube.com/live/7yJEHdZ2qJk?si=O3XDiJm7BdPr5HVo&t=7888">https://www.youtube.com/live/7yJEHdZ2qJk</a>
+[https://www.youtube.com/live/7yJEHdZ2qJk https://www.youtube.com/live/7yJEHdZ2qJk?si=O3XDiJm7BdPr5HVo&t=7888]
 ｗ / やったねぇ！
 【 Liar's Bar 】視聴者参加型！奏の頭脳に勝てるやつ、おりゅー？【音乃瀬奏】#hololiveDEV_IS #ReGLOSS
-<a href="https://www.youtube.com/live/GHAhw8m9lA0?si=YkHppl2SvUXP1t1S&t=1110">https://www.youtube.com/live/GHAhw8m9lA0</a> <a href="https://www.youtube.com/live/GHAhw8m9lA0?si=sZx4EZZ-bmbFynxq&t=5764">https://www.youtube.com/live/GHAhw8m9lA0</a>
- ]
+[https://www.youtube.com/live/GHAhw8m9lA0 https://www.youtube.com/live/GHAhw8m9lA0?si=YkHppl2SvUXP1t1S&t=1110] [https://www.youtube.com/live/GHAhw8m9lA0 https://www.youtube.com/live/GHAhw8m9lA0?si=sZx4EZZ-bmbFynxq&t=5764]]
 実装ははづくさんにおまかせして、私は口パクや衣装差分の絵を描いてます
-
 # 実装
 はづくです。pythonを試す一環で思案のイラストを使ったマスコットを作ってみました。
 python(tkinter)の透過ウィンドウを用いています。
@@ -27,7 +24,7 @@ python(tkinter)の透過ウィンドウを用いています。
 ### カウンタ
 マウスとキーボードをカウントします。
 カウントの値がある量を超えると差分を出せるようにしました。
-現在は<928と2026のタイミング{制作中に正月衣装が登場して入れたいということでしたので、およそ1000単位で等間隔になるよう調整しました}>で別の衣装が出るようにしています。
+現在は[928と2026のタイミング {制作中に正月衣装が登場して入れたいということでしたので、およそ1000単位で等間隔になるよう調整しました}]で別の衣装が出るようにしています。
 ### セリフ
 クリックすると話します。
 思案が自由に音源を追加できるように、voという名前のファイルにmp3を入れるだけで追加削除できます。

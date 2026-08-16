@@ -1,7 +1,3 @@
-/* 独自txt記法をHTMLに変換するパーサだよ。
-   ビルド（build.mjs）とライブエディタ（preview.html）の両方がこのファイルを読むので、
-   ここが唯一の変換ロジックになるよ。ファイルの読み書きはしないこと。 */
-
 const 無題 = "( U̴̺͎͙̔͆̔n̴͙̦̟͛̾͝t̸̼̘̺͑̽̽i̸̝͖̻͋̿͊t̴͉͎̟͊͒̕l̸̝̞͒̕̕è̴͉̫̫̒̓d̴̙͎̟̓͝͝ )";
 
 const ツイート埋め込み =
@@ -132,7 +128,7 @@ export function parseArticle(text) {
       let processed = processInline(paragraphBuf.join("\n"));
       processed = processed.replace(/\r\n|\r|\n/g, "<br>\n");
       // 画像やTwitter埋め込みはCSS/HTMLの既定でブロック要素になり、それ自体が改行を作るため、
-      // 直後の<br>は二重改行になってしまう。例外的にそこだけ<br>を取り除くよ。
+      // 直後の<br>は二重改行になってしまうよ。
       processed = processed.replace(
         /(<img[^>]*>|<script async src="https:\/\/platform\.twitter\.com\/widgets\.js"><\/script>)<br>\n/g,
         "$1\n",
@@ -157,7 +153,6 @@ export function parseArticle(text) {
   }
 
   function endBulletRun() {
-    // 箇条書きの並びが完全に終わったときに呼ぶ。スタックを全部閉じてから、
     // 集まったトップレベルの<li>たちを1つの<ul>にまとめてblocksへ追加するよ。
     closeBullets(0);
     if (bulletRoots.length) {
@@ -279,14 +274,13 @@ export function parseArticle(text) {
   };
 }
 
-// 記事本文の見た目部分（h1・著者・本文）を組み立てるよ。ページ全体のテンプレート流し込みは
-// build.mjs側の仕事で、ライブエディタはこの断片だけを表示するよ。
+// 記事本文の見た目部分（h1・著者・本文）を組み立てるよ。ページ全体のテンプレート流し込みはbuild.mjs側の仕事。
 export function renderArticleBody({ title, authorId, bodyHtml }) {
   const authorHtml = authorId ? `<div class="作った人たち">${authorId}</div>\n` : "";
   return `<h1>${title}</h1>\n${authorHtml}${bodyHtml}`;
 }
 
-// テキストから表示用HTML断片まで一気に作るショートカット。ライブエディタが使うよ。
+// テキストから表示用HTML断片まで一気に作るショトカ。
 export function renderPreview(text) {
   return renderArticleBody(parseArticle(text));
 }

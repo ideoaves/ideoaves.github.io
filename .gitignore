@@ -1,5 +1,7 @@
-# まだ公開しないもの。公開したくなったらこの行を消せばいいよ。
-node_portfolio/
-
-# Claude Code のローカル設定。この環境だけのものなので上げないよ。
 .claude/
+blog/ブログ更新.bat
+blog/html2txt.mjs
+
+
+# まだ公開しないもの。別にいいけども。
+node_portfolio/

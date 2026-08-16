@@ -1,20 +1,13 @@
-/* ブログのビルドスクリプトだよ。`node blog/build.mjs` で走るよ。
-   npmパッケージは一切使わず、Nodeの標準ライブラリだけで動くようにしてあるよ。
-
-   txt記法の変換ロジックはparser.mjsに置いてあって、preview.html（ライブエディタ）も
-   同じファイルを読むよ。記法を変えるときはparser.mjsだけを直せばいいよ。 */
-
 import fs from "node:fs";
 import path from "node:path";
 import { parseArticle, renderArticleBody, escapeAttr } from "./parser.mjs";
 
-// スクリプト自身の場所を基準にするので、どこから実行してもいいよ。
 const BLOG_DIR = import.meta.dirname;
 // 型紙は入れ子になっているよ。
 //   frame.html     … ページ全体（head・ヘッダー・main）。<ページの中身> にページ種別ごとの中身が入る
 //   blogframe.html … 記事ページの中身。<ブログの中身> に記事本文が入る
 //   listframe.html … 記事一覧ページの中身。<ブログ一覧> に記事カードが並ぶ
-// ページの種類が増えるときは、frame.html はそのままに ○○frame.html を足していけばいいよ。
+// ページの種類が増えるときは、frame.html はそのままに ○○frame.html を足していけばいい。
 const FRAME_PATH = path.join(BLOG_DIR, "frame.html");
 const BLOGFRAME_PATH = path.join(BLOG_DIR, "blogframe.html");
 const LISTFRAME_PATH = path.join(BLOG_DIR, "listframe.html");
@@ -41,7 +34,6 @@ function writeText(file, text) {
   fs.writeFileSync(file, text.replace(/\r\n|\r|\n/g, "\r\n"), "utf-8");
 }
 
-// テキストをHTMLの本文として安全に置くためのエスケープだよ。
 function escapeText(text) {
   return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
@@ -77,8 +69,7 @@ function setMeta(html, name, value) {
   return replaceOnce(html, pattern, `<meta name="${name}" content="${escapeAttr(value)}">`);
 }
 
-// --- テンプレート読み込み ---
-
+// テンプレ
 const frameHtml = readText(FRAME_PATH);
 const blogframeHtml = readText(BLOGFRAME_PATH).trimEnd();
 const listframeHtml = readText(LISTFRAME_PATH).trimEnd();
@@ -92,19 +83,17 @@ try {
 }
 
 // jsonに記載されているが、対応する.htmlファイルが存在しない記事の情報を削除するよ。
-// 黙って消えると気づけないので、消したものは報告するよ。
 for (const blogFilename of Object.keys(blogsData)) {
   if (!fs.existsSync(path.join(BLOG_DIR, blogFilename))) {
-    console.warn(`  ! ${blogFilename} のHTMLが無いので、一覧から外したよ。`);
+    console.warn(`  ! ${blogFilename} のHTMLが無いのでjsonから消しました`);
     delete blogsData[blogFilename];
   }
 }
 
-// --- 記事ページの生成 ---
+// 記事ページの生成
 
 // 個別記事のページを、テンプレートに流し込んで組み立てるよ。
 function renderArticlePage(article) {
-  // blogframe.html の <ブログの中身> に記事本文を入れて、それを frame.html の <ページの中身> に入れるよ。
   const 記事の中身 = fillSlot(blogframeHtml, 本文プレースホルダ, renderArticleBody(article));
   let html = fillSlot(frameHtml, ページプレースホルダ, 記事の中身);
 
@@ -148,7 +137,7 @@ for (const filename of txtFiles) {
   console.log(`  + ${outputFilename}`);
 }
 
-// --- index.html（記事一覧ページ）の生成 ---
+// index.html（記事一覧ページ）の生成
 
 // 記事を日付の新しい順に並び替えるよ。
 const blogs = Object.values(blogsData).sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
@@ -180,12 +169,12 @@ const indexHtml = fillSlot(frameHtml, ページプレースホルダ, 一覧の�
 
 writeText(INDEX_PATH, indexHtml);
 
-// --- rss.xmlの生成 ---
+// rss.xmlの生成
 
 const 曜日 = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const 月 = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-// "2026-04-02" をRSSのpubDate形式にするよ。記事に時刻は無いのでJSTの0時として扱うよ。
+// "2026-04-02" をRSSのpubDate形式にするよ。
 function rfc822(dateStr) {
   const d = new Date(`${dateStr}T00:00:00Z`);
   if (Number.isNaN(d.getTime())) return "";
@@ -209,8 +198,7 @@ const items = blogs
   })
   .join("\n");
 
-// lastBuildDateは最新記事の日付にしておくよ。実行時刻にすると、中身が変わっていなくても
-// 毎回gitの差分が出てしまうため。
+// lastBuildDateは最新記事の日付にしておくよ。実行時刻にすると、中身が変わっていなくても毎回gitの差分が出てしまうため。
 const lastBuild = blogs.length ? rfc822(blogs[0].date) : "";
 
 const rss = `<?xml version="1.0" encoding="UTF-8"?>
@@ -229,7 +217,7 @@ ${items}
 
 writeText(RSS_PATH, rss);
 
-// --- 最後に、更新したブログ情報をJSONファイルに保存するよ ---
+// 最後に、更新したブログ情報をJSONファイルに保存するよ
 
 writeText(JSON_PATH, JSON.stringify(blogsData, null, 4) + "\n");
 
