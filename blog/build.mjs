@@ -208,7 +208,11 @@ function rfc822(dateStr) {
   return `${WEEKDAYS[d.getUTCDay()]}, ${dd} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()} 00:00:00 +0900`;
 }
 
-const items = blogs
+// 未来の日付の記事除外。並びが壊れたり先頭に居座ったりして購読側に迷惑をかけるため。
+const todayJST = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+const feedBlogs = blogs.filter((b) => b.date <= todayJST);
+
+const items = feedBlogs
   .map((b) => {
     const url = `${BLOG_URL}${b.filename}`;
     const creator = b.author
@@ -225,7 +229,7 @@ const items = blogs
   .join("\n");
 
 // lastBuildDateは最新記事の日付にしておくよ。実行時刻にすると、中身が変わっていなくても毎回gitの差分が出てしまうため。
-const lastBuild = blogs.length ? rfc822(blogs[0].date) : "";
+const lastBuild = feedBlogs.length ? rfc822(feedBlogs[0].date) : "";
 
 const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
@@ -247,4 +251,6 @@ writeText(RSS_PATH, rss);
 
 writeText(JSON_PATH, JSON.stringify(blogsData, null, 4) + "\n");
 
-console.log(`ブログ更新　いえい。（記事 ${txtFiles.length} 本を変換、一覧 ${blogs.length} 件）`);
+console.log(
+  `ブログ更新　いえい。（記事 ${txtFiles.length} 本を変換、一覧 ${blogs.length} 件、RSS ${feedBlogs.length} 件）`,
+);
