@@ -1,3 +1,4 @@
+# 作業用。
 .claude/
 blog/blog_koushin.bat
 blog/html2txt.mjs
@@ -5,3 +6,5 @@ blog/html2txt.mjs
 
 # まだ公開しないもの。別にいいけども。
 node_portfolio/
+cosmic_standard/
+
