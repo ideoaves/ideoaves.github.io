@@ -8,6 +8,11 @@ export function anchorize(title) {
   return title.replace(/[^\p{L}\p{N}_]+/gu, "-");
 }
 
+// https://... や //... 、/... で始まるものは、blog_img/ の中ではなく外を指しているとみなすよ。
+export function isAbsoluteUrl(src) {
+  return src.startsWith("/") || /^[A-Za-z][A-Za-z0-9+.-]*:/.test(src);
+}
+
 // 属性値に入れる文字列をエスケープするよ。
 export function escapeAttr(text) {
   return String(text)
@@ -15,6 +20,15 @@ export function escapeAttr(text) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+// escapeAttrの逆で、属性値から元の文字列を復元するよ。&amp;を最後に戻すのが大事だよ。
+export function unescapeAttr(text) {
+  return String(text)
+    .replace(/&quot;/g, '"')
+    .replace(/&gt;/g, ">")
+    .replace(/&lt;/g, "<")
+    .replace(/&amp;/g, "&");
 }
 
 // インライン構文をHTMLに変換するよ。
@@ -48,7 +62,9 @@ export function processInline(text, topLevel = true) {
 export function convertBracket(content, topLevel = true) {
   if (content.startsWith("i ")) {
     const filename = content.slice(2).trim();
-    return `<img alt="" class="ブログの画像" src="blog_img/${filename}">`;
+    // 絶対URLならそのまま、ファイル名だけならblog_img/の中を指すよ。
+    const src = isAbsoluteUrl(filename) ? filename : `blog_img/${filename}`;
+    return `<img alt="" class="ブログの画像" src="${escapeAttr(src)}">`;
   }
 
   if (content.startsWith("s ")) {
@@ -61,6 +77,10 @@ export function convertBracket(content, topLevel = true) {
 
   if (content.startsWith("c ")) {
     return `<span class="コメント文字">${processInline(content.slice(2).trim(), false)}</span>`;
+  }
+
+  if (content.startsWith("( ")) {
+    return `<span class="囲い文字">${processInline(content.slice(2).trim(), false)}</span>`;
   }
 
   const cursorM = content.match(/^(.+?)\s+\{(.+)\}\n?$/s);
@@ -249,7 +269,8 @@ export function parseArticle(text) {
 
   // 記事内で最初に見つかった画像をサムネイル用に取得するよ。
   const imgMatch = bodyHtml.match(/<img[^>]+src="([^"]+)"/);
-  const firstImg = imgMatch ? imgMatch[1] : "";
+  // src属性はエスケープ済みなので、URLとして使えるよう元に戻しておくよ。
+  const firstImg = imgMatch ? unescapeAttr(imgMatch[1]) : "";
 
   // HTMLタグなどを取り除いて、記事一覧ページに表示する要約文を生成するよ。
   let summaryText = bodyHtml.replace(/<div class="目次">.*?<\/div>/gs, "");

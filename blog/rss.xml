@@ -5,8 +5,16 @@
         <link>https://ideoaves.github.io/blog/</link>
         <description>Ideoavesのブログ</description>
         <language>ja</language>
-        <lastBuildDate>Mon, 29 Jun 2026 00:00:00 +0900</lastBuildDate>
+        <lastBuildDate>Wed, 19 Aug 2026 00:00:00 +0900</lastBuildDate>
         <atom:link href="https://ideoaves.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>Cosmic Standardを作りました</title>
+            <link>https://ideoaves.github.io/blog/2026-08-19.html</link>
+            <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-08-19.html</guid>
+            <pubDate>Wed, 19 Aug 2026 00:00:00 +0900</pubDate>
+            <dc:creator>hazuqu</dc:creator>
+            <description>共有リンクはこちらです。 Cosmic_Standard 目的 Cosmic StandardはCosmic sansの揺らぎに工業系サンセリフの末端処理を混ぜたフォントです。 HTML Energy...</description>
+        </item>
         <item>
             <title>2026 W/S 日記</title>
             <link>https://ideoaves.github.io/blog/2026-06-29.html</link>

@@ -1,11 +1,12 @@
+//   大変個人用途の雑なビルダーなので、利用をおすすめしません。色々例外処理を想定していないです。
+
 import fs from "node:fs";
 import path from "node:path";
-import { parseArticle, renderArticleBody, escapeAttr } from "./parser.mjs";
+import { parseArticle, renderArticleBody, escapeAttr, isAbsoluteUrl } from "./parser.mjs";
 
 const BLOG_DIR = import.meta.dirname;
 //   frame.html     … ページ全体（head・ヘッダー・main）。<ページの中身> にページ種別ごとの中身が入る
 //   blogframe.html … 記事ページの中身。<ブログの中身> に記事本文が入る
-// ページの種類が増えるときは、frame.html はそのままに ○○frame.html を足していけばいい。
 const FRAME_PATH = path.join(BLOG_DIR, "frame.html");
 const BLOGFRAME_PATH = path.join(BLOG_DIR, "blogframe.html");
 const INDEX_PATH = path.join(BLOG_DIR, "index.html");
@@ -136,7 +137,11 @@ function renderArticlePage(article) {
   html = setMeta(html, "description", article.summary20);
   html = setMeta(html, "twitter:title", article.title);
   html = setMeta(html, "twitter:description", article.summary20);
-  html = setMeta(html, "twitter:image", `${BLOG_URL}${article.firstImg}`);
+  // 外部の画像は絶対URLなので、そのまま使うよ。blog_img/の画像だけサイトのURLを前に付けるよ。
+  const imageUrl = isAbsoluteUrl(article.firstImg)
+    ? article.firstImg
+    : `${BLOG_URL}${article.firstImg}`;
+  html = setMeta(html, "twitter:image", imageUrl);
 
   return html;
 }
@@ -252,5 +257,5 @@ writeText(RSS_PATH, rss);
 writeText(JSON_PATH, JSON.stringify(blogsData, null, 4) + "\n");
 
 console.log(
-  `ブログ更新　いえい。（記事 ${txtFiles.length} 本を変換、一覧 ${blogs.length} 件、RSS ${feedBlogs.length} 件）`,
+  `ブログ更新　いえい。（記事 ${txtFiles.length} 個、一覧 ${blogs.length} 個、RSS ${feedBlogs.length} 個）`,
 );

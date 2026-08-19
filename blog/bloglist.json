@@ -98,9 +98,17 @@
     "2026-12-31.html": {
         "filename": "2026-12-31.html",
         "title": "26年S/A 日記",
-        "img": "",
-        "summary": "つくったものたち 初星学園 「歌声は君いろ」Official Music Video フラワーボックスをモチーフに紙芝居をしています。 ちゅ、お注射。 / なみぐる feat.をとは somunia ...",
+        "img": "blog_img/相関図ジェネ.jpg",
+        "summary": "7月 初星学園 「歌声は君いろ」Official Music Video フラワーボックスをモチーフに紙芝居をしています。 ちゅ、お注射。 / なみぐる feat.をとは somunia スマホの画面...",
         "date": "2026-12-31",
+        "author": "hazuqu"
+    },
+    "2026-08-19.html": {
+        "filename": "2026-08-19.html",
+        "title": "Cosmic Standardを作りました",
+        "img": "",
+        "summary": "共有リンクはこちらです。 Cosmic_Standard 目的 Cosmic StandardはCosmic sansの揺らぎに工業系サンセリフの末端処理を混ぜたフォントです。 HTML Energy...",
+        "date": "2026-08-19",
         "author": "hazuqu"
     }
 }

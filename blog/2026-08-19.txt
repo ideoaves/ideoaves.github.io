@@ -1,0 +1,20 @@
+Cosmic Standardを作りました
+id=hazuqu
+
+共有リンクはこちらです。
+[Cosmic_Standard ../Cosmic_Standard/index.html]
+
+# 目的
+[> Cosmic Standardは<a style="font-family: 'Comic Sans MS';">Cosmic sans</a>の揺らぎに工業系サンセリフの末端処理を混ぜたフォントです。
+HTML Energyの実践においてCosmic sansを選択するモチベーションへの共感があるのですが、IBM PlexのようなIT企業による美学への素朴な興味もあり、そういった微妙な立ち位置を表すIdeoavesのコンセプトフォントとして用意しました。]
+[s Cosmic_Standard/ より]
+今後はロゴとh1, h2の英字だけ、ふにゃふにゃになります。
+
+# 日記
+普段のフォント制作では、映像用での利用のため、svgを投げてttfが帰ってくるだけのツールばかり使っていました。しかし今回はWebサイト向けを志向していたため、細かな調整ができるFontForgeを導入しました。
+### ひっかかった点
+　kerningの設定。GPOSテーブルを使うことで似たグリフを纏めてペア設定できた。
+　　これがかなり楽しく、久々の禅でした。
+　メタデータ上で[( kern  DFLT{dflt} latn{dflt}]を設定しないとフォント書き出しのときにGPOSデータを含めてくれない。
+　エッジに邪魔な点が残っていると、cssでboldがかかったときに輪郭が2重に見える。非常に細いので数pxずらすと消える。エッジの点をSimplyで整える（目視で見えなくてAIに聞いたらAIが消してくれました）。
+それで、カーニング周りはしばらく休憩の時のつまみ作業にしようと思っています。いまも「<a style="font-family: 'Cosmic Standard';">osm</a>」の<a style="font-family: 'Cosmic Standard';">s</a>が気になっていますが、これをもう何十回も繰り返していて、貯めて一気にやったほうが寧ろ速いタイプだろうと思います。
