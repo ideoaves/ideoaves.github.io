@@ -90,6 +90,14 @@ body::after {
 }
 
 /* 文字の話 */
+@font-face {
+    font-family: 'Cosmic Standard';
+    src: url('../Cosmic_Standard/Cosmic-Standard.ttf') format('truetype');
+}
+
+h1, h2 {
+    font-family: "Cosmic Standard", "Zen Kaku Gothic New", "Noto Sans SC", sans-serif;
+}
 
 a[href]:has(img) {
     text-decoration: none;
