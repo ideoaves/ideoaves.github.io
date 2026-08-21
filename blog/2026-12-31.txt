@@ -1,5 +1,6 @@
 26年S/A 日記
 id=hazuqu
+mokuzi=1
 
 # 7月
 ## 初星学園 「歌声は君いろ」Official Music Video

@@ -48,10 +48,15 @@ main {
     margin: 7px;
 }
 
-#sidemenu h5 {
+#sidemenu h2 {
     text-align: center;
     font-size: 100%;
     font-weight: bold;
+    margin: 0;
+}
+
+#sidemenu h2::after {
+    content: none;
 }
 
 #toolbar {
@@ -220,4 +225,9 @@ h2::after, h3::after {
     .photo.big {
         width:auto;
     }
+}
+
+ul.用例 {
+    margin: 0;
+    padding: 0;
 }

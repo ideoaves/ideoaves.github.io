@@ -83,7 +83,7 @@ fetch("/header.html")
 
 document.querySelectorAll('.カーソルを').forEach(el => {
   el.setAttribute('tabindex', '0');
-  const spans = el.querySelectorAll('span');
+  const spans = el.querySelectorAll(':scope > span');
   if (spans.length > 1) {
     spans[1].classList.add('すると出る');
   }

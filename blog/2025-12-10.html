@@ -28,7 +28,7 @@
             <div class="横に狭い分類">
                 <h1>CRTディスプレイの再現</h1>
                 <div class="作った人たち">hazuqu</div>
-                <div class="目次"><h4>目次</h4><a href="#ファイル">ファイル</a><br><a href="#使い方">使い方</a><br><a href="#機能">機能</a><br><a href="#日記">日記</a><br></div>
+                <div class="目次"><h1>目次</h1><a href="#ファイル">ファイル</a><br><a href="#使い方">使い方</a><br><a href="#機能">機能</a><br><a href="#blur" class="h2">blur</a><br><a href="#RGB-" class="h2">RGB %</a><br><a href="#Pixel-size" class="h2">Pixel size</a><br><a href="#Decay" class="h2">Decay</a><br><a href="#Slowmotion" class="h2">Slowmotion</a><br><a href="#-interlace-小文字になってる-今気づきました-OR-Progressive" class="h2">[interlace {小文字になってる！今気づきました}] OR Progressive</a><br><a href="#日記">日記</a><br></div>
                 <p><img alt="" class="ブログの画像" src="blog_img/CRTscan_thum.png"></p>
                 <h1 id="ファイル">ファイル</h1>
                 <p><a href="https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/CRT_scan.fs">CRT_scan.fs</a></p>
@@ -39,22 +39,22 @@
                 またTIMEを使う関係でUse Layer Timeにチェックが点いていないと思います。これは付けてください。<br>
                 またはTIMEを動かしても良いです。Slowmotionより厳密に時間操作できるかも知れませんね。</p>
                 <h1 id="機能">機能</h1>
-                <h3 id="blur">blur</h3>
+                <h2 id="blur">blur</h2>
                 <p>横向きに少しぼかしを入れます。メイン機能ではないのでぼかしすぎると粗が出ます。</p>
-                <h3 id="RGB-">RGB %</h3>
+                <h2 id="RGB-">RGB %</h2>
                 <p>RGBの粒の表示度です。ピクセルが小さくなると実際のモニターやcompの解像度と干渉して変な表示になりますので、Pixel sizeが小さいときにはRGBの％を落としてください</p>
-                <h3 id="Pixel-size">Pixel size</h3>
+                <h2 id="Pixel-size">Pixel size</h2>
                 <p>ドットの大きさです。めちゃくちゃ大きくするとRGBの粒が見えます。<span class="カーソルを"><span>今回は太いビームとしてRGBRGBが光ります</span><span>仕組み上はスリットから3ビーム入って、RGBそれぞれに同時に照射されます。今回はビームを絞りきれていない状態といえます</span></span>。<br>
                 1ストライプのビームにしたいときは<br>
                 <span class="引用"><span class="小さい文字">// R,G,B単体のサブピクセルのサイズ。<br>
                 vec2 RGBdotSize = vec2(pixelScale / 6, pixelScale);</span></span>のpixelScale / 6をpixelScale / 3にするといいです。<br>
                 アパーチャグリルと呼ばれるすだれ状の蛍光体を参照しています。</p>
-                <h3 id="Decay">Decay</h3>
+                <h2 id="Decay">Decay</h2>
                 <p>減衰の速度です。10にすると一切減衰しなくなります。<br>
                 過剰に下げるとSlowmotionで走査の速度を遅らせることなく走査していますよ感がでます。</p>
-                <h3 id="Slowmotion">Slowmotion</h3>
+                <h2 id="Slowmotion">Slowmotion</h2>
                 <p>実時間に対して遅くします。1にするとほぼリアルタイムになりますが、完全に1フレームで1周にすると走査する場所が全くおなじになるため、あえて1ライン程度ずらしています。ゆっくり動く横向きの線が現れます。</p>
-                <h3 id="-interlace-小文字になってる-今気づきました-OR-Progressive"><span class="カーソルを"><span>interlace</span><span>小文字になってる！今気づきました</span></span> OR Progressive</h3>
+                <h2 id="-interlace-小文字になってる-今気づきました-OR-Progressive"><span class="カーソルを"><span>interlace</span><span>小文字になってる！今気づきました</span></span> OR Progressive</h2>
                 <p>プログレッシブも対応です。<br>
                 インターレースが奇数偶数をそれぞれ走査するのに対し、プログレッシブは全行をそのまま走査します。<br>
                 なお速度が2倍になるのでインターレースの技術的メリットは無いです。</p>

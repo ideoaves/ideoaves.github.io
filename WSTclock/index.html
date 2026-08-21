@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,9 +104,9 @@
         }
         const now = new Date();
         now.setHours(hours, minutes, 0, 0);
-          if (now.getTime() > Date.now()) {
-   　　　　　　　 now.setDate(now.getDate() - 1);
-  　　　　　　}
+        if (now.getTime() > Date.now()) {
+            now.setDate(now.getDate() - 1);
+        }
         const unixTimeInMs = now.getTime();
         k.textContent = `${unixTimeInMs}`;
       });
@@ -135,7 +135,7 @@
             <tbody id="schedule-list"></tbody>
         </table>
     </div>
-    <audio id="alarm" src="The Microsoft Sound.wav"></audio>
+    <audio id="alarm" src="The_Microsoft_Sound.wav"></audio>
     <script>
         function closeNotification() {
             const notification = document.getElementById('alert');

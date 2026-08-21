@@ -2,7 +2,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { parseArticle, renderArticleBody, escapeAttr, isAbsoluteUrl } from "./parser.mjs";
+import { txt2html, renderArticleBody, escapeAttr, isAbsoluteUrl } from "./parser.mjs";
 
 const BLOG_DIR = import.meta.dirname;
 //   frame.html     … ページ全体（head・ヘッダー・main）。<ページの中身> にページ種別ごとの中身が入る
@@ -157,7 +157,7 @@ for (const filename of txtFiles) {
   const dateStr = basename.slice(0, 10);
 
   const text = readText(path.join(BLOG_DIR, filename));
-  const article = parseArticle(text);
+  const article = txt2html(text);
 
   writeText(path.join(BLOG_DIR, outputFilename), renderArticlePage(article));
 
@@ -178,20 +178,25 @@ const blogs = Object.values(blogsData).sort((a, b) => (a.date < b.date ? 1 : a.d
 
 const cards = blogs
   .map((b) => {
-    const authorIds = b.author
+    // 著者名は絞り込み用の目印だよ。同じ著者の記事が複数並ぶとidでは重複してしまうので、classにするよ。
+    const authorClasses = b.author
       .split(/\s+/)
       .filter(Boolean)
       .map((author) => `${author}の記事`)
       .join(" ");
+    const cardClasses = authorClasses ? `ブログ ${authorClasses}` : "ブログ";
+    // サムネイルが無い記事にsrcが空のimgを置くとHTMLとして不正なので、imgごと出さないよ。
+    const thumbnail = b.img ? `<img alt="" src="${escapeAttr(b.img)}">` : "";
     // 字下げは index.html のブログ群のdivの位置に合わせて後から付くので、ここでは付けないよ。
     return [
-      `<a class="ブログ" id="${escapeAttr(authorIds)}" href="${escapeAttr(b.filename)}">`,
-      `    <div class="ブログのサムネイル"><img alt="" src="${escapeAttr(b.img ?? "")}"></div>`,
+      `<a class="${escapeAttr(cardClasses)}" href="${escapeAttr(b.filename)}">`,
+      `    <div class="ブログのサムネイル">${thumbnail}</div>`,
       `    <div class="ブログのタイトル">`,
       `        <h2>${b.title}</h2>`,
       `    </div>`,
       `    <div class="ブログの投稿時間">${b.date}</div>`,
-      `    <div class="ブログの最初">${b.summary}<br></div>`,
+      // 画像があるカードは画像で中身を示せるので、書き出しは載せないよ。
+      ...(b.img ? [] : [`    <div class="ブログの最初">${b.summary}<br></div>`]),
       `</a>`,
     ].join("\n");
   })

@@ -8,6 +8,58 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 
+  <style>
+    .デスクトップ {
+      position: fixed;
+      bottom: 200px;
+      right: 200px;
+      text-align: right;
+    }
+
+    .セリフ {
+      font-size: 0.7em;
+      text-align: left;
+    }
+
+    .セリフの引用元 {
+      font-size: 0.4em;
+      color: #666;
+    }
+
+    .吹き出し {
+      position: relative;
+      padding: 14px 14px;
+      margin: 10px;
+      background-color: #ffffff;
+      width: 200px;
+      overflow-wrap: break-word;
+      border-radius: 10px;
+    }
+
+    .吹き出し::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      right: 10%;
+      width: 10px;
+      height: 10px;
+      background-color: #ffffff;
+      rotate: 45deg;
+    }
+
+    .キャラ {
+      width: 70%;
+      position: absolute;
+      right: 0;
+    }
+
+    @media (max-width: 800px) {
+      .デスクトップ {
+        display: none;
+      }
+    }
+  </style>
+
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Ideoaves">
   <meta name="twitter:description" content="表現をしています">
@@ -101,7 +153,7 @@
     </div>
 
     <div class="おおきな分類">
-      <h1>link</h1>
+      <h2>link</h2>
       <div class="SNSへのリンクたち">
         <div class="小さな分類">
           <h3>hazuqu</h3>
@@ -170,57 +222,6 @@
       </address>
     </div>
   </main>
-  <style>
-    .デスクトップ {
-      position: fixed;
-      bottom: 200px;
-      right: 200px;
-      text-align: right;
-    }
-
-    .セリフ {
-      font-size: 0.7em;
-      text-align: left;
-    }
-
-    .セリフの引用元 {
-      font-size: 0.4em;
-      color: #666;
-    }
-
-    .吹き出し {
-      position: relative;
-      padding: 14px 14px;
-      margin: 10px;
-      background-color: #ffffff;
-      width: 200px;
-      overflow-wrap: break-word;
-      border-radius: 10px;
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        right: 10%;
-        width: 10px;
-        height: 10px;
-        background-color: #ffffff;
-        rotate: 45deg;
-      }
-    }
-
-    .キャラ {
-      width: 70%;
-      position: absolute;
-      right: 0;
-    }
-
-    @media (max-width: 800px) {
-      .デスクトップ {
-        display: none;
-      }
-    }
-  </style>
   <div class="デスクトップ">
     <div class="吹き出し">
       <div class="セリフ">
@@ -231,7 +232,6 @@
     <div class="キャラ"><img src="話してる人.png" alt=""></div>
   </div>
 
-  </div>
   <script>
     const serifs = [
       { text: "私はひどく泣き崩れたあと、作ったものをあとで送るといってベランダから飛び降りた。好きなんですね、仕事。", source: "夢日記3" },

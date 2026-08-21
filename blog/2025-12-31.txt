@@ -31,7 +31,7 @@ Twitterのおすすめ欄の焼き増しではないようにしているので�
 ## 映像の仕事
 ディレクションの話にもつながりますが、面白いフォーマットやフローの仕事が多かったです。
 コンテストで受賞した皆様のイラストをめちゃくちゃにするとか
-<iframe src="https://www.youtube.com/embed/ud27TX0XBZM" allow="picture-in-picture" allowfullscreen">
+[https://www.youtube.com/watch?v=ud27TX0XBZM]
 
 ずっと16分割された2DCGとか
 [https://www.youtube.com/watch?v=1moa2h4eQ3M]
@@ -54,12 +54,12 @@ Youtubeでホロライブを見て、どこからか出てきた本を読んで�
 色々なクリエイティブチームと通話し茶々を入れています。]
 # ideoaves各々の動向
 メンバーの総括もしておきます。
-### 木葉はづく
+## 木葉はづく
 [hazuquの制作リストを御覧ください https://hazuqu.github.io/about.html]
-### 折メ思案
+## 折メ思案
  宇推くりあ - H3ロケット打上げ成功1周年のお祝いしよ！！！ (サムネイル)
  ________ - 書留 (動画用イラスト) 
  吉田楓 - 泡沫二进 (ジャケットイラスト) 
  ウソのつきかた - ウソのつづりかた (同人寄稿)
-### ph環yimiru
+## ph環yimiru
  Gradierwerk - 多島海 Vol.1 特集：都市SF (表紙写真)

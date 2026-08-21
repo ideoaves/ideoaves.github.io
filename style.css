@@ -105,14 +105,16 @@ p+table {
     src: url('../Cosmic_Standard/Cosmic-Standard.ttf') format('truetype');
 }
 
-h1, h2 {
+h1,
+h2 {
     font-family: "Cosmic Standard", "Zen Kaku Gothic New", "Noto Sans SC", sans-serif;
 }
 
-a[href]:has(img) {
+a[href]:has(img, div) {
     text-decoration: none;
     border-color: transparent;
     padding: 0;
+    border-radius: 0;
 }
 
 a[href],
@@ -377,16 +379,21 @@ a.バナー:not(:has(img)) {
 }
 
 /* blogの話 */
-.ブログ {
-    display: block;
-    margin: 0 auto;
-}
-
 .ブログ群 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     width: 100%;
     gap: 20px;
+}
+
+.ブログ {
+    display: block;
+    height: 330px;
+    overflow: hidden;
+}
+
+.ブログ h2 {
+    font-size: 1.1em;
 }
 
 .ブログの最初 {
@@ -428,12 +435,6 @@ a.バナー:not(:has(img)) {
     margin: 0 0 10px 0;
 }
 
-.ブログのサムネイル img[src=""] {
-    height: 0;
-    margin: 0;
-}
-
-
 .目次 {
     display: inline-block;
     border-radius: 20px;
@@ -442,8 +443,8 @@ a.バナー:not(:has(img)) {
     margin-bottom: 20px;
 }
 
-.目次 .h2 {
-    margin-left: 50px;
+.目次 h1 {
+    font-size: 1.4em;
 }
 
 .目次 a {
@@ -536,11 +537,6 @@ a.バナー:not(:has(img)) {
         margin-bottom: 20px;
     }
 
-    .ブログ群 {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
     .ブログの最初 {
         margin-bottom: 20px;
     }
@@ -578,10 +574,6 @@ a.バナー:not(:has(img)) {
         max-width: 1000px;
     }
 
-    .ブログ群 {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-    
     .ブログの画像 {
         width: 80%;
     }

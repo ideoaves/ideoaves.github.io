@@ -1,177 +1,161 @@
-const 無題 = "( U̴̺͎͙̔͆̔n̴͙̦̟͛̾͝t̸̼̘̺͑̽̽i̸̝͖̻͋̿͊t̴͉͎̟͊͒̕l̸̝̞͒̕̕è̴͉̫̫̒̓d̴̙͎̟̓͝͝ )";
-
-const ツイート埋め込み =
-  '<script async src="https://platform.twitter.com/widgets.js"></script>';
-
-// 見出しのテキストから目次用のアンカー文字列を作るよ
-export function anchorize(title) {
-  return title.replace(/[^\p{L}\p{N}_]+/gu, "-");
+export function escapeAttr(text) {
+  return String(text)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
 }
 
-// https://... や //... 、/... で始まるものは、blog_img/ の中ではなく外を指しているとみなすよ。
 export function isAbsoluteUrl(src) {
   return src.startsWith("/") || /^[A-Za-z][A-Za-z0-9+.-]*:/.test(src);
 }
 
-// 属性値に入れる文字列をエスケープするよ。
-export function escapeAttr(text) {
-  return String(text)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
-// escapeAttrの逆で、属性値から元の文字列を復元するよ。&amp;を最後に戻すのが大事だよ。
-export function unescapeAttr(text) {
-  return String(text)
-    .replace(/&quot;/g, '"')
-    .replace(/&gt;/g, ">")
-    .replace(/&lt;/g, "<")
-    .replace(/&amp;/g, "&");
-}
-
-// インライン構文をHTMLに変換するよ。
-export function processInline(text, topLevel = true) {
-  let result = "";
-  let i = 0;
-  const n = text.length;
-  while (i < n) {
-    if (text[i] === "[") {
-      let depth = 1;
-      let j = i + 1;
-      while (j < n && depth > 0) {
-        if (text[j] === "[") depth++;
-        else if (text[j] === "]") depth--;
-        j++;
-      }
+function splitBlocks(html) {
+  const ブロック要素 = "blockquote|figure|table|pre|div|ul|ol|h1|h2|h3|h4|h5|h6|p";
+  const 開始タグ = new RegExp(`<(${ブロック要素})(?=[\\s/>])`, "i");
+  const parts = [];
+  let rest = html;
+  let m;
+  while ((m = rest.match(開始タグ)) !== null) {
+    const tagRe = new RegExp(`<${m[1]}(?=[\\s/>])|</${m[1]}\\s*>`, "gi");
+    tagRe.lastIndex = m.index;
+    let depth = 0;
+    let end = rest.length;
+    for (const t of rest.matchAll(tagRe)) {
+      depth += t[0][1] === "/" ? -1 : 1;
       if (depth === 0) {
-        result += convertBracket(text.slice(i + 1, j - 1), topLevel);
-        i = j;
-        continue;
+        end = t.index + t[0].length;
+        break;
       }
     }
-    result += text[i];
-    i++;
+    const trailingScript = rest.slice(end).match(/^<script\b[^>]*><\/script>/);
+    if (trailingScript) end += trailingScript[0].length;
+    parts.push({ text: rest.slice(0, m.index) }, { block: rest.slice(m.index, end) });
+    rest = rest.slice(end);
   }
-  return result;
+  parts.push({ text: rest });
+  return parts;
 }
 
-// topLevelは、この[...]が本文に直接書かれたもの（true）か、他の[...]構文の中にネストしたもの（false）かを表すよ。
-// YouTube/Twitterの埋め込みは、注釈や引用などにネストした状態だとうまく表示できないため、トップレベルのときだけ行う。
-export function convertBracket(content, topLevel = true) {
+export function processInline(text, topLevel = true) {
+  const at = text.indexOf("[");
+  if (at === -1) return text;
+
+  let depth = 1;
+  let end = at + 1;
+  for (; end < text.length && depth > 0; end++) {
+    if (text[end] === "[") depth++;
+    else if (text[end] === "]") depth--;
+  }
+  if (depth > 0) return text.slice(0, at + 1) + processInline(text.slice(at + 1), topLevel);
+
+  return (
+    text.slice(0, at) +
+    markdown(text.slice(at + 1, end - 1), topLevel) +
+    processInline(text.slice(end), topLevel)
+  );
+}
+
+export function markdown(content, topLevel = true) {
+  const 囲み文字 = {
+    "s": "小さい文字",
+    ">": "引用",
+    "c": "コメント文字",
+    "(": "囲い文字",
+  };
+
+  const inner = content.slice(2).trim();
+
   if (content.startsWith("i ")) {
-    const filename = content.slice(2).trim();
-    // 絶対URLならそのまま、ファイル名だけならblog_img/の中を指すよ。
-    const src = isAbsoluteUrl(filename) ? filename : `blog_img/${filename}`;
+    const src = isAbsoluteUrl(inner) ? inner : `blog_img/${inner}`;
     return `<img alt="" class="ブログの画像" src="${escapeAttr(src)}">`;
   }
 
-  if (content.startsWith("s ")) {
-    return `<span class="小さい文字">${processInline(content.slice(2).trim(), false)}</span>`;
+  const deco = 囲み文字[content[0]];
+  if (deco && content[1] === " ") {
+    return `<span class="${deco}">${processInline(inner, false)}</span>`;
   }
 
-  if (content.startsWith("> ")) {
-    return `<span class="引用">${processInline(content.slice(2).trim(), false)}</span>`;
+  let m;
+  if ((m = content.match(/^(.+?)\s+\{(.+)\}\n?$/s))) {
+    const クリック = processInline(m[1], false);
+    const 注釈 = processInline(m[2], false);
+    return `<span class="カーソルを"><span>${クリック}</span><span>${注釈}</span></span>`;
   }
 
-  if (content.startsWith("c ")) {
-    return `<span class="コメント文字">${processInline(content.slice(2).trim(), false)}</span>`;
+  if ((m = content.match(/^(.+?)\s+(\S+)\n?$/s))) {
+    return `<a href="${m[2]}">${processInline(m[1], false)}</a>`;
   }
 
-  if (content.startsWith("( ")) {
-    return `<span class="囲い文字">${processInline(content.slice(2).trim(), false)}</span>`;
-  }
-
-  const cursorM = content.match(/^(.+?)\s+\{(.+)\}\n?$/s);
-  if (cursorM) {
-    const textA = processInline(cursorM[1], false);
-    const textB = processInline(cursorM[2], false);
-    return `<span class="カーソルを"><span>${textA}</span><span>${textB}</span></span>`;
-  }
-
-  const linkM = content.match(/^(.+?)\s+(\S+)\n?$/s);
-  if (linkM) {
-    return `<a href="${linkM[2]}">${processInline(linkM[1], false)}</a>`;
-  }
-
-  // ここまでで判定できなければ、中身は単独の [URL] として扱うよ。
   const url = content.trim();
 
   if (topLevel) {
-    const tweetM = url.match(/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+)/);
-    if (tweetM) {
+    if ((m = url.match(/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+)/))) {
       return (
-        `<blockquote class="twitter-tweet"><a href="https://twitter.com/${tweetM[1]}/status/${tweetM[2]}"></a></blockquote>` +
-        ツイート埋め込み
+        `<blockquote class="twitter-tweet"><a href="https://twitter.com/${m[1]}/status/${m[2]}"></a></blockquote>` +
+        '<script async src="https://platform.twitter.com/widgets.js"></script>'
       );
     }
 
-    const ytM = url.match(/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)([^&\s?]+)/);
-    if (ytM) {
-      return `<iframe src="https://www.youtube.com/embed/${ytM[1]}" allow="picture-in-picture" allowfullscreen></iframe>`;
+    if ((m = url.match(/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)([^&\s?]+)/))) {
+      return `<iframe src="https://www.youtube.com/embed/${m[1]}" allow="picture-in-picture" allowfullscreen></iframe>`;
     }
   }
 
   return `<a href="${url}">${url}</a>`;
 }
 
-// 記事テキスト1本を解析して、本文HTMLと付随情報を返すよ。
-export function parseArticle(text) {
-  // Pythonのstrip()+splitlines()に合わせて、空文字のときは行なしとして扱うよ。
+export function txt2html(text) {
   const trimmed = text.trim();
-  const fileLines = trimmed === "" ? [] : trimmed.split(/\r\n|\r|\n/);
-  const title = fileLines.length ? fileLines[0].trim() : 無題;
-  const restLines = fileLines.slice(1);
+  const 行 = trimmed === "" ? [] : trimmed.split(/\r\n|\r|\n/);
+  const title = 行.length ? 行[0].trim() : "無題";
 
-  let authorId = "";
-  let bodyLines;
-  if (restLines.length && restLines[0].trim().startsWith("id=")) {
-    authorId = restLines[0].trim().slice(3).trim();
-    bodyLines = restLines.slice(1);
-  } else {
-    bodyLines = restLines;
+  // 設定行。
+  const config = { id: "", mokuzi: "2" };
+  let i = 1;
+  for (; i < 行.length; i++) {
+    const m = 行[i].trim().match(/^(id|mokuzi)=(.*)$/);
+    if (!m) break;
+    config[m[1]] = m[2].trim();
   }
+  const authorId = config.id;
+  const tocDepth = Number(config.mokuzi) || 0;
 
-  // 本文を段落・見出し・箇条書き・テーブルのブロックに分解し、それぞれHTMLに変換していくよ。
   const blocks = [];
   const toc = [];
+  const usedAnchors = new Set();
   let paragraphBuf = [];
-  const bulletStack = []; // 箇条書きのネストを深さで管理するスタック。各フレームは<li>1個分。
-  const bulletRoots = []; // 現在の箇条書きの並びで、親を持たないトップレベルの<li>を集めるよ。
-  const tableBuf = []; // テーブル行を集めるよ。各要素は [isHeader, cells]。
+  const bulletStack = [];
+  const bulletRoots = [];
+  const tableBuf = [];
 
   function closeParagraph() {
-    if (paragraphBuf.length) {
-      let processed = processInline(paragraphBuf.join("\n"));
-      processed = processed.replace(/\r\n|\r|\n/g, "<br>\n");
-      // 画像やTwitter埋め込みはCSS/HTMLの既定でブロック要素になり、それ自体が改行を作るため、
-      // 直後の<br>は二重改行になってしまうよ。
-      processed = processed.replace(
-        /(<img[^>]*>|<script async src="https:\/\/platform\.twitter\.com\/widgets\.js"><\/script>)<br>\n/g,
-        "$1\n",
-      );
-      blocks.push(`<p>${processed}</p>`);
-      paragraphBuf = [];
+    if (!paragraphBuf.length) return;
+    const html = processInline(paragraphBuf.join("\n"))
+      .replace(/\r\n|\r|\n/g, "<br>\n")
+      .replace(/(<img[^>]*>)<br>\n/g, "$1\n");
+
+    for (const part of splitBlocks(html)) {
+      if (part.block !== undefined) {
+        blocks.push(part.block);
+        continue;
+      }
+      const text = part.text.replace(/^(?:\s|<br>)+/, "").replace(/(?:\s|<br>)+$/, "");
+      if (text !== "") blocks.push(`<p>${text}</p>`);
     }
+    paragraphBuf = [];
   }
 
   function closeBullets(minDepth) {
-    // 深さがminDepth以上のフレームを閉じて<li>にし、親フレーム（なければbulletRoots）に積んでいくよ。
     while (bulletStack.length && bulletStack[bulletStack.length - 1].depth >= minDepth) {
       const frame = bulletStack.pop();
-      const childrenHtml = frame.children.length ? `<ul>${frame.children.join("")}</ul>` : "";
-      const liHtml = `<li>${frame.text}${childrenHtml}</li>`;
-      if (bulletStack.length) {
-        bulletStack[bulletStack.length - 1].children.push(liHtml);
-      } else {
-        bulletRoots.push(liHtml);
-      }
+      const html = `<li>${frame.text}${frame.children.length ? `<ul>${frame.children.join("")}</ul>` : ""}</li>`;
+      if (bulletStack.length) bulletStack[bulletStack.length - 1].children.push(html);
+      else bulletRoots.push(html);
     }
   }
 
   function endBulletRun() {
-    // 集まったトップレベルの<li>たちを1つの<ul>にまとめてblocksへ追加するよ。
     closeBullets(0);
     if (bulletRoots.length) {
       blocks.push(`<ul>${bulletRoots.join("")}</ul>`);
@@ -180,106 +164,96 @@ export function parseArticle(text) {
   }
 
   function closeTable() {
-    // テーブル行の並びが終わったときに呼ぶ。||で始まる行だけheadにし、それ以外はtbodyに積むよ。
-    if (tableBuf.length) {
-      let theadHtml = "";
-      let tbodyHtml = "";
-      for (const [isHeader, cells] of tableBuf) {
-        if (isHeader) {
-          theadHtml += `<thead><tr>${cells.map((c) => `<th>${c}</th>`).join("")}</tr></thead>`;
-        } else {
-          tbodyHtml += `<tr>${cells.map((c) => `<td>${c}</td>`).join("")}</tr>`;
-        }
-      }
-      blocks.push(`<table>${theadHtml}<tbody>${tbodyHtml}</tbody></table>`);
-      tableBuf.length = 0;
+    if (!tableBuf.length) return;
+    let thead = "";
+    let tbody = "";
+    for (const [isHeader, cells] of tableBuf) {
+      if (isHeader) thead += `<thead><tr>${cells.map((c) => `<th>${c}</th>`).join("")}</tr></thead>`;
+      else tbody += `<tr>${cells.map((c) => `<td>${c}</td>`).join("")}</tr>`;
     }
+    blocks.push(`<table>${thead}<tbody>${tbody}</tbody></table>`);
+    tableBuf.length = 0;
   }
 
-  for (const line of bodyLines) {
+  function close(keep) {
+    if (keep !== "paragraph") closeParagraph();
+    if (keep !== "bullets") endBulletRun();
+    if (keep !== "table") closeTable();
+  }
+
+  for (const line of 行.slice(i)) {
     if (line.trim() === "") {
-      closeParagraph();
-      endBulletRun();
-      closeTable();
+      close();
       continue;
     }
 
-    const headingM = line.match(/^(#{1,3})\s+(.+)$/);
-    if (headingM) {
-      closeParagraph();
-      endBulletRun();
-      closeTable();
-      const level = headingM[1].length;
-      const headingTitle = headingM[2].trim();
-      const anchor = anchorize(headingTitle);
-      if (level <= 2) {
-        // h1とh2のみを目次に追加するよ。
-        toc.push([level, headingTitle, anchor]);
-      }
-      blocks.push(`<h${level} id="${anchor}">${processInline(headingTitle)}</h${level}>`);
+    let m;
+    if ((m = line.match(/^(#{1,3})\s+(.+)$/))) {
+      close();
+      const level = m[1].length;
+      const 見出し = m[2].trim();
+      const base = 見出し.replace(/[^\p{L}\p{N}_]+/gu, "-") || "見出し";
+      let anchor = base;
+      for (let n = 2; usedAnchors.has(anchor); n++) anchor = `${base}-${n}`;
+      usedAnchors.add(anchor);
+
+      // 目次を付けるかどうかは見出しの総数で決めるので、深さに関わらず全部集めておくよ。
+      toc.push([level, 見出し, anchor]);
+      blocks.push(`<h${level} id="${anchor}">${processInline(見出し)}</h${level}>`);
       continue;
     }
 
-    const bulletM = line.match(/^(\s+)(\S.*)$/);
-    if (bulletM) {
-      closeParagraph();
-      closeTable();
-      const depth = bulletM[1].length;
+    if ((m = line.match(/^(\s+)(\S.*)$/))) {
+      close("bullets");
+      const depth = m[1].length;
       closeBullets(depth);
-      bulletStack.push({
-        depth,
-        text: processInline(bulletM[2].trim()),
-        children: [],
-      });
+      bulletStack.push({ depth, text: processInline(m[2].trim()), children: [] });
       continue;
     }
 
-    // テーブル行構文 |セル1  セル2  セル3 （セルは空白2つかタブで区切るよ）。||で始まる行はheadになる。
-    const tableM = line.match(/^\|(\|?)(.*)$/);
-    if (tableM) {
-      closeParagraph();
-      endBulletRun();
-      const isHeader = tableM[1] === "|";
-      const cells = tableM[2].split(/\t| {2,}/).map((cell) => processInline(cell.trim()));
-      tableBuf.push([isHeader, cells]);
+    if ((m = line.match(/^\|(\|?)(.*)$/))) {
+      close("table");
+      tableBuf.push([m[1] === "|", m[2].split(/\t| {2,}/).map((c) => processInline(c.trim()))]);
       continue;
     }
 
-    endBulletRun();
-    closeTable();
+    close("paragraph");
     paragraphBuf.push(line);
   }
 
-  closeParagraph();
-  endBulletRun();
-  closeTable();
+  close();
 
-  // 見出しが3件より多く集まったら、記事の先頭に目次ブロックを挿入するよ。
-  if (toc.length > 3) {
-    let tocHtml = '<div class="目次"><h4>目次</h4>';
-    for (const [level, tocTitle, anchor] of toc) {
-      const cls = level === 2 ? ' class="h2"' : "";
-      tocHtml += `<a href="#${anchor}"${cls}>${tocTitle}</a><br>`;
-    }
-    tocHtml += "</div>";
-    blocks.unshift(tocHtml);
+  // 目次
+  const 項目 = toc
+    .filter(([level]) => level <= tocDepth)
+    .map(([level, 見出し, anchor]) => {
+      return `<a href="#${anchor}"${level > 1 ? ` class="h${level}"` : ""}>${見出し}</a><br>`;
+    })
+    .join("");
+  if (toc.filter(([level]) => level <= 2).length > 3 && 項目 !== "") {
+    blocks.unshift(`<div class="目次"><h1>目次</h1>${項目}</div>`);
   }
 
   const bodyHtml = blocks.join("\n");
 
-  // 記事内で最初に見つかった画像をサムネイル用に取得するよ。
-  const imgMatch = bodyHtml.match(/<img[^>]+src="([^"]+)"/);
-  // src属性はエスケープ済みなので、URLとして使えるよう元に戻しておくよ。
-  const firstImg = imgMatch ? unescapeAttr(imgMatch[1]) : "";
+  // 最初の画像をサムネイル用に取得するよ。
+  const 画像 = bodyHtml.match(/<img[^>]+src="([^"]+)"/);
+  const firstImg = 画像
+    ? 画像[1]
+        .replaceAll("&quot;", '"')
+        .replaceAll("&gt;", ">")
+        .replaceAll("&lt;", "<")
+        .replaceAll("&amp;", "&")
+    : "";
 
-  // HTMLタグなどを取り除いて、記事一覧ページに表示する要約文を生成するよ。
-  let summaryText = bodyHtml.replace(/<div class="目次">.*?<\/div>/gs, "");
-  summaryText = summaryText.replace(
-    /<span class="カーソルを"[^>]*><span>(.*?)<\/span>.*?<\/span>/gs,
-    "$1",
-  );
-  summaryText = summaryText.replace(/<[^>]+>/g, "").trim();
-  summaryText = summaryText.replace(/\s+/g, " ");
+  // 要約文
+  const summaryText = bodyHtml
+    .replace(/<div class="目次">.*?<\/div>/gs, "")
+    .replace(/<span class="カーソルを"[^>]*><span>(.*?)<\/span>.*?<\/span>/gs, "$1")
+    .replace(/<[^>]+>/g, "")
+    .trim()
+    .replace(/\s+/g, " ");
+  const 切り詰め = (n) => (summaryText.length > n ? summaryText.slice(0, n) + "..." : summaryText);
 
   return {
     title,
@@ -288,18 +262,16 @@ export function parseArticle(text) {
     toc,
     firstImg,
     summaryText,
-    summary20: summaryText.length > 20 ? summaryText.slice(0, 20) + "..." : summaryText,
-    summary100: summaryText.length > 100 ? summaryText.slice(0, 100) + "..." : summaryText,
+    summary20: 切り詰め(20),
+    summary100: 切り詰め(100),
   };
 }
 
-// 記事本文の見た目部分（h1・著者・本文）を組み立てるよ。ページ全体のテンプレート流し込みはbuild.mjsの仕事。
 export function renderArticleBody({ title, authorId, bodyHtml }) {
   const authorHtml = authorId ? `<div class="作った人たち">${authorId}</div>\n` : "";
   return `<h1>${title}</h1>\n${authorHtml}${bodyHtml}`;
 }
 
-// テキストから表示用HTML断片まで一気に作るショトカ。
 export function renderPreview(text) {
-  return renderArticleBody(parseArticle(text));
+  return renderArticleBody(txt2html(text));
 }
