@@ -447,6 +447,13 @@ a.バナー:not(:has(img)) {
     font-size: 1.4em;
 }
 
+.目次 .h2 {
+    margin-left: 20px;
+}
+.目次 .h3 {
+    margin-left: 40px;
+}
+
 .目次 a {
     text-decoration: none;
     border-color: transparent;
