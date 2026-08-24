@@ -1,6 +1,6 @@
-2026 W/S 日記
+26年 前期 日記
 id=hazuqu
-mokuzi=1
+mokuzi=2 long
 
 [i shizuoka_kisei.png]
 普段Scrapboxで日記を書いていて、せっかくなので半年単位でまとめて公開しようと思いました。
