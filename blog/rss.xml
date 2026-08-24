@@ -5,8 +5,16 @@
         <link>https://ideoaves.github.io/blog/</link>
         <description>Ideoavesのブログ</description>
         <language>ja</language>
-        <lastBuildDate>Wed, 19 Aug 2026 00:00:00 +0900</lastBuildDate>
+        <lastBuildDate>Mon, 24 Aug 2026 00:00:00 +0900</lastBuildDate>
         <atom:link href="https://ideoaves.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>ノードポートフォリオ</title>
+            <link>https://ideoaves.github.io/blog/2026-08-24.html</link>
+            <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-08-24.html</guid>
+            <pubDate>Mon, 24 Aug 2026 00:00:00 +0900</pubDate>
+            <dc:creator>hazuqu</dc:creator>
+            <description>リファレンスや影響、関連性に重きを置いたポートフォリオです。ノードをクリックすると、直接関連のあるノードを強調します。 今回は私hazuquの自主制作を軸に置く場所として用意しました。 ノードポートフ...</description>
+        </item>
         <item>
             <title>Cosmic Standardを作りました</title>
             <link>https://ideoaves.github.io/blog/2026-08-19.html</link>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ノードポートフォリオ ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="リファレンスや影響、関連性に重きを置いた...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ideoaves のブログ" href="/blog/rss.xml">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ノードポートフォリオ">
+    <meta name="twitter:description" content="リファレンスや影響、関連性に重きを置いた...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/blog_img/nodePortfolio.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+            <div class="横に狭い分類">
+                <h1>ノードポートフォリオ</h1>
+                <div class="作った人たち">hazuqu</div>
+                <p><img alt="" class="ブログの画像" src="blog_img/nodePortfolio.png">
+                リファレンスや影響、関連性に重きを置いたポートフォリオです。ノードをクリックすると、直接関連のあるノードを強調します。<br>
+                今回は私hazuquの自主制作を軸に置く場所として用意しました。<br>
+                <a href="https://hazuqu.github.io/node_portfolio/">ノードポートフォリオ</a></p>
+                <h1 id="面白そうな点">面白そうな点</h1>
+                <p>自身の作品のオリジナリティの喧伝ではなく、過剰に文脈の則りやリファレンスを主張することになります。<br>
+                理想的な量のノードが集まったときに、技術/アイデアメモのノードに対して組み合わせを想起しやすいこと、必要のないアイデアや既にある作品を確認できることで、今後の制作の方針の助けになりそうです。</p>
+                <p>Obsidianによる無限キャンバス用の仕様JSON Canvasを利用しています。Obsidianを始めいくつか編集ソフトがあります。<br>
+                人のポートフォリオに勝手に自作品を繋げられたら面白いです。（ちなみに同階層img内の映像/画像ファイルはすべて私個人のものですそうでないならYoutube等を貼っています）</p>
+                <h2 id="欠点">欠点</h2>
+                <p>ポートフォリオとしての体裁とノードの繋がりの見やすさがトレードオフです。<br>
+                横にメディウム、縦にタイムラインを考えていましたが、あまりに離れている時は近づけるしかないですね。またタイムコードから位置を作ろうとした場合にリファレンスと自作品の時代・発表ペースがかけ離れているので、今回は縦位置も手動で調整としています。</p>
+                <p>構成</p>
+                <ul><li><a href="https://github.com/ideoaves/ideoaves.github.io/blob/main/node_portfolio/nodes.canvas">nodes.canvas</a>: ノードデータの大本のJSONです。</li><li><a href="https://github.com/ideoaves/ideoaves.github.io/blob/main/node_portfolio/nodes.js">nodes.js</a>: nodes.canvasからhtmlに変換するjsです。<div class="nodeField"></div>の中に組み立てます。</li></ul>
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+            </div>
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>
