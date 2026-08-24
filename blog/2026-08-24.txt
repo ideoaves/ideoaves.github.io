@@ -17,5 +17,5 @@ Obsidianによる無限キャンバス用の仕様JSON Canvasを利用してい�
 横にメディウム、縦にタイムラインを考えていましたが、あまりに離れている時は近づけるしかないですね。またタイムコードから位置を作ろうとした場合にリファレンスと自作品の時代・発表ペースがかけ離れているので、今回は縦位置も手動で調整としています。
 
 構成
- [nodes.canvas https://github.com/ideoaves/ideoaves.github.io/blob/main/node_portfolio/nodes.canvas]: ノードデータの大本のJSONです。
- [nodes.js https://github.com/ideoaves/ideoaves.github.io/blob/main/node_portfolio/nodes.js]: nodes.canvasからhtmlに変換するjsです。<div class="nodeField"></div>の中に組み立てます。
+ [nodes.canvas https://github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.canvas]: ノードデータの大本のJSONです。
+ [nodes.js https://github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.js]: nodes.canvasからhtmlに変換するjsです。<div class="nodeField"></div>の中に組み立てます。
