@@ -56,6 +56,7 @@ export function processInline(text, topLevel = true) {
   );
 }
 
+// 分節単位の変換 [c ]
 export function markdown(content, topLevel = true) {
   const 囲み文字 = {
     "s": "小さい文字",
@@ -66,9 +67,13 @@ export function markdown(content, topLevel = true) {
 
   const inner = content.slice(2).trim();
 
-  if (content.startsWith("i ")) {
-    const src = isAbsoluteUrl(inner) ? inner : `blog_img/${inner}`;
-    return `<img alt="" class="ブログの画像" src="${escapeAttr(src)}">`;
+  // [i 画像ファイル名] または [ithum 画像ファイル名]
+  const 画像記法 = content.match(/^(i|ithum)\s+(.+)$/s);
+  if (画像記法) {
+    const imgFile = 画像記法[2].trim();
+    const src = isAbsoluteUrl(imgFile) ? imgFile : `blog_img/${imgFile}`;
+    const imageORthum = 画像記法[1] === "ithum" ? "ブログの画像 サムネイル" : "ブログの画像";
+    return `<img alt="" class="${imageORthum}" src="${escapeAttr(src)}">`;
   }
 
   const deco = 囲み文字[content[0]];
@@ -76,6 +81,7 @@ export function markdown(content, topLevel = true) {
     return `<span class="${deco}">${processInline(inner, false)}</span>`;
   }
 
+  //カーソルを合わせると注釈が出るやつ [ {}]
   let m;
   if ((m = content.match(/^(.+?)\s+\{(.+)\}\n?$/s))) {
     const クリック = processInline(m[1], false);
@@ -89,6 +95,7 @@ export function markdown(content, topLevel = true) {
 
   const url = content.trim();
 
+  //埋め込みとそうじゃないリンク [http 文字]
   if (topLevel) {
     if ((m = url.match(/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+)/))) {
       return (
@@ -105,6 +112,7 @@ export function markdown(content, topLevel = true) {
   return `<a href="${url}">${url}</a>`;
 }
 
+// 文章単位の変換
 export function txt2html(text) {
   const trimmed = text.trim();
   const 行 = trimmed === "" ? [] : trimmed.split(/\r\n|\r|\n/);
@@ -242,8 +250,9 @@ export function txt2html(text) {
 
   const bodyHtml = blocks.join("\n");
 
-  // 最初の画像をサムネイル用に取得するよ。
-  const 画像 = bodyHtml.match(/<img[^>]+src="([^"]+)"/);
+  const 画像 =
+    bodyHtml.match(/<img[^>]+class="[^"]*サムネイル[^"]*"[^>]+src="([^"]+)"/) ||
+    bodyHtml.match(/<img[^>]+src="([^"]+)"/);
   const firstImg = 画像
     ? 画像[1]
         .replaceAll("&quot;", '"')
