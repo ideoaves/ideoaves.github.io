@@ -1,9 +1,10 @@
 # 作業用。
 .claude/
+node_portfolio/.obsidian/
 blog/blog_koushin.bat
 blog/html2txt.mjs
+blog/preview.html
 
 
 # まだ公開しないもの。別にいいけども。
-node_portfolio/
 

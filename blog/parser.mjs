@@ -119,7 +119,9 @@ export function txt2html(text) {
     config[m[1]] = m[2].trim();
   }
   const authorId = config.id;
-  const tocDepth = Number(config.mokuzi) || 0;
+  const [mokuziDepth, ...mokuziFlags] = config.mokuzi.split(/\s+/);
+  const tocDepth = Number(mokuziDepth) || 0;
+  const tocHorizontal = mokuziFlags.includes("long");
 
   const blocks = [];
   const toc = [];
@@ -197,7 +199,6 @@ export function txt2html(text) {
       for (let n = 2; usedAnchors.has(anchor); n++) anchor = `${base}-${n}`;
       usedAnchors.add(anchor);
 
-      // 目次を付けるかどうかは見出しの総数で決めるので、深さに関わらず全部集めておくよ。
       toc.push([level, 見出し, anchor]);
       blocks.push(`<h${level} id="${anchor}">${processInline(見出し)}</h${level}>`);
       continue;
@@ -224,10 +225,15 @@ export function txt2html(text) {
   close();
 
   // 目次
-  const 項目 = toc
-    .filter(([level]) => level <= tocDepth)
-    .map(([level, 見出し, anchor]) => {
-      return `<a href="#${anchor}"${level > 1 ? ` class="h${level}"` : ""}>${見出し}</a><br>`;
+  const tocItems = toc.filter(([level]) => level <= tocDepth);
+  const isHorizontal = (level) => tocHorizontal && level > 1;
+  const 項目 = tocItems
+    .map(([level, 見出し, anchor], n) => {
+      const horizontal = isHorizontal(level);
+      const classes = [horizontal ? "横向き目次" : "", level > 1 ? `h${level}` : ""].filter(Boolean);
+      const attr = classes.length ? ` class="${classes.join(" ")}"` : "";
+      const leadingBreak = !horizontal && n > 0 && isHorizontal(tocItems[n - 1][0]) ? "<br>" : "";
+      return `${leadingBreak}<a href="#${anchor}"${attr}>${見出し}</a>${horizontal ? "" : "<br>"}`;
     })
     .join("");
   if (toc.filter(([level]) => level <= 2).length > 3 && 項目 !== "") {

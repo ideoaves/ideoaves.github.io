@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ノード型ポートフォリオ ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="リファレンスや影響、関連性に重きを置いたポートフォリオです。">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ノード型ポートフォリオ ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )">
+    <meta name="twitter:description" content="リファレンスや影響、関連性に重きを置いたポートフォリオです。">
+    <meta name="twitter:image" content="https://ideoaves.github.io/icon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <style>
+        main {
+            width: 100%;
+        }
+
+        .nodeField p {
+            margin: 0;
+        }
+
+        .nodeField {
+            position: relative;
+            overflow: hidden;
+            touch-action: none;
+            overscroll-behavior: none;
+            cursor: grab;
+            margin: 10px;
+            border: 1px solid #ffffff;
+            height: calc(100vh - 100px);
+        }
+
+        .nodeField h2 {
+            font-family: "Zen Kaku Gothic New", "Noto Sans SC", sans-serif;
+        }
+
+        .nodeField.掴み中 {
+            cursor: grabbing;
+            user-select: none;
+        }
+
+        .キャンバス {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 0 0;
+            will-change: transform;
+        }
+
+        .nodeField.掴み中 .キャンバス {
+            pointer-events: none;
+        }
+
+        .ノード {
+            position: absolute;
+            width: 250px;
+            height: auto;
+            padding: 10px;
+            outline: 3px solid #999;
+            background-color: #e0e0e0cc;
+            border-radius: 10px;
+            cursor: grab;
+            user-select: none;
+            overflow-wrap: anywhere;
+        }
+
+        .ノード.半透明,
+        .エッジ層 g.半透明 {
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .ノード.焦点 {
+            cursor: auto;
+            user-select: text;
+        }
+
+        .ノード.赤色 {
+            outline-color: #000;
+        }
+
+        video,
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .動画 {
+            position: relative;
+            background-color: #000;
+            cursor: pointer;
+        }
+
+        .動画 img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .動画 iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .日付 {
+            text-align: right;
+            font-size: 0.6em;
+        }
+
+        .エッジ層 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .エッジ層 path {
+            fill: none;
+            stroke: #000;
+            stroke-width: 3px;
+        }
+
+        .エッジ層 marker path {
+            fill: #000;
+            stroke: none;
+        }
+
+        .エッジ層 .ラベル {
+            width: fit-content;
+            max-width: 200px;
+            margin: 0 auto;
+            padding: 0 4px;
+            background: #e0e0e0;
+            text-align: center;
+            pointer-events: auto;
+            user-select: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+        <div class="ちゅうくらいの分類">
+            <h1>ノード型ポートフォリオ</h1>
+            <p>
+                リファレンスや影響、関連性に重きを置いたポートフォリオです。ノードをクリックすると、直接関連のあるノードを強調します。<br>
+                今回は私hazuquの自主制作を軸に置く場所として用意しました。
+            </p>
+            <details>
+                <summary><a class="囲い文字">詳細</a></summary>
+                <h2 id="面白そうな点">面白そうな点</h2>
+                <p>
+                    自身の作品のオリジナリティの喧伝ではなく、過剰に文脈の則りやリファレンスを主張することになります。<br>
+                    理想的な量のノードが集まったときに、技術/アイデアメモのノードに対して組み合わせを想起しやすいこと、必要のないアイデアや既にある作品を確認できることで、今後の制作の方針の助けになりそうです。<br>
+                    <br>
+                    Obsidianによる無限キャンバス用の仕様<a href="https://jsoncanvas.org/">JSON
+                        Canvas</a>を利用しています。Obsidianを始めいくつか編集ソフトがあります。<br>
+                    人のポートフォリオに勝手に自作品を繋げられたら面白いです。（ちなみに同階層img内の映像/画像ファイルはすべて<span
+                        class="カーソルを"><span>私個人のものです</span><span>そうでないならYoutube等を貼っています</span></span>）
+                </p>
+                <h2 id="面白そうな点">欠点</h2>
+                <p>
+                    ポートフォリオとしての体裁とノードの繋がりの見やすさがトレードオフです。<br>
+                    横にメディウム、縦にタイムラインを考えていましたが、あまりに離れている時は近づけるしかないですね。またタイムコードから位置を作ろうとした場合にリファレンスと自作品の時代・発表ペースがかけ離れているので、今回は縦位置も手動で調整としています。
+                </p>
+                <h2>構成</h2>
+                <ul>
+                    <li><a href="nodes.canvas">nodes.canvas</a>: ノードデータの大本のJSONです。</li>
+                    <li><a href="nodes.js">nodes.js</a>: nodes.canvasからhtmlに変換するjsです。<span class="囲い文字">&lt;div
+                            class="nodeField"&gt;&lt;/div&gt;</span>の中に組み立てます。</li>
+                </ul>
+            </details>
+            <div class="nodeField"></div>
+        </div>
+    </main>
+    <script src="../JS.js"></script>
+    <script src="nodes.js"></script>
+</body>
+
+</html>
