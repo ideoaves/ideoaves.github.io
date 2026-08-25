@@ -11,11 +11,11 @@ id=hazuqu
 理想的な量のノードが集まったときに、技術/アイデアメモのノードに対して組み合わせを想起しやすいこと、必要のないアイデアや既にある作品を確認できることで、今後の制作の方針の助けになりそうです。
 
 Obsidianによる無限キャンバス用の仕様JSON Canvasを利用しています。Obsidianを始めいくつか編集ソフトがあります。
-人のポートフォリオに勝手に自作品を繋げられたら面白いです。（ちなみに同階層img内の映像/画像ファイルはすべて私個人のものですそうでないならYoutube等を貼っています）
+人のポートフォリオに勝手に自作品を繋げられたら面白いです。（ちなみに同階層img内の映像/画像ファイルはすべて私個人のものです、そうでないならYoutube等を貼っています）
 ## 欠点
 ポートフォリオとしての体裁とノードの繋がりの見やすさがトレードオフです。
 横にメディウム、縦にタイムラインを考えていましたが、あまりに離れている時は近づけるしかないですね。またタイムコードから位置を作ろうとした場合にリファレンスと自作品の時代・発表ペースがかけ離れているので、今回は縦位置も手動で調整としています。
 
 構成
  [nodes.canvas https://github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.canvas]: ノードデータの大本のJSONです。
- [nodes.js https://github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.js]: nodes.canvasからhtmlに変換するjsです。<div class="nodeField"></div>の中に組み立てます。
+ [nodes.js https://github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.js]: nodes.canvasからhtmlに変換するjsです。div class="nodeField"の中に組み立てます。
