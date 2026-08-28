@@ -2,13 +2,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@330&family=Zen+Kaku+Gothic+New&display=swap');
 
+/* 汎用設定 */
+:root {
+    --背景色: #e0e0e0;
+    --黒: #000;
+    --白: #FFF;
+    --ハイライト: oklch(45% 0.4 265);
+    --ra: 20px;
+}
+
 * {
     margin: 0px;
     padding: 0px;
 }
 
 html {
-    background-color: #e0e0e0;
+    background-color: var(--背景色);
 }
 
 body {
@@ -39,8 +48,8 @@ iframe {
 }
 
 ::selection {
-    color: #FFF;
-    background-color: #000;
+    color: var(--白);
+    background-color: var(--黒);
 }
 
 /* ぼかし */
@@ -119,8 +128,9 @@ a[href]:has(img, div) {
 
 a[href],
 .コピー！ {
-    border: 1px solid #0000ff;
-    border-radius: 20px;
+    color: var(--ハイライト);
+    border: 1px solid var(--ハイライト);
+    border-radius: var(--ra);
     padding: 2px 5px;
 }
 
@@ -133,7 +143,7 @@ a[href]:visited {
 }
 
 .SNSへのリンクたち a[href] {
-    color: #FFF;
+    color: var(--白);
 }
 
 /* 文字装飾の話 */
@@ -158,16 +168,30 @@ a[href]:visited {
     letter-spacing: 4px;
 }
 
+.下線 {
+    text-decoration: underline var(--ハイライト);
+}
+
+.つなぐ線 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+    fill: none;
+    stroke: var(--ハイライト);
+}
+
 .囲い文字 {
     border: 1px solid;
-    border-radius: 20px;
+    border-radius: var(--ra);
     padding: 2px 5px;
     margin: 0 5px;
 }
 
 .引用 {
-    border-radius: 20px;
-    outline: 1px solid #000;
+    border-radius: var(--ra);
+    outline: 1px solid var(--黒);
     padding: 5px 20px;
     margin-right: 10px;
     -webkit-box-decoration-break: clone;
@@ -176,8 +200,8 @@ a[href]:visited {
 
 .箇条書き {
     display: inline-block;
-    border-radius: 20px;
-    outline: 1px solid #000;
+    border-radius: var(--ra);
+    outline: 1px solid var(--黒);
     padding: 0 10px;
 }
 
@@ -207,9 +231,9 @@ ul:not(ul ul)::before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    border-radius: 15px;
-    border: 1px solid #000;
-    mask: linear-gradient(to left, transparent calc(100% - 15px), #000 15px);
+    border-radius: calc(var(--ra) - 5px);
+    border: 1px solid var(--黒);
+    mask: linear-gradient(to left, transparent calc(100% - 15px), var(--黒) 15px);
     pointer-events: none;
 }
 
@@ -233,8 +257,8 @@ ul ul ul li::before {
 
 table {
     border-spacing: 0;
-    border-radius: 20px;
-    border: 1px solid #000;
+    border-radius: var(--ra);
+    border: 1px solid var(--黒);
     padding: 10px;
 }
 
@@ -278,8 +302,8 @@ td {
     width: 250px;
     margin: 10px;
     padding: 10px;
-    background-color: #e0e0e0;
-    border-radius: 20px;
+    background-color: var(--背景色);
+    border-radius: var(--ra);
     font-size: 0.8rem;
     font-weight: normal;
 }
@@ -288,7 +312,7 @@ td {
     display: inline-block;
     position: relative;
     cursor: help;
-    text-decoration: underline white;
+    text-decoration: underline var(--白);
 }
 
 .カーソルを:focus-within .すると出る {
@@ -296,8 +320,8 @@ td {
 }
 
 .カーソルを:focus-within span {
-    background-color: #ffffff;
-    border-radius: 20px;
+    background-color: var(--白);
+    border-radius: var(--ra);
     text-decoration: none;
 }
 
@@ -319,14 +343,13 @@ td {
 }
 
 .人 {
-    background-color: var(--back-color);
     position: absolute;
     z-index: 1;
-    border-radius: 20px;
+    border-radius: var(--ra);
     padding: 2px 5px;
     max-height: 4em;
     max-width: 10em;
-    background-color: #FFF;
+    background-color: var(--白);
     overflow: hidden;
 }
 
@@ -364,7 +387,7 @@ a.バナー:not(:has(img)) {
 }
 
 .作品 img {
-    border-radius: 20px;
+    border-radius: var(--ra);
     display: block;
     width: 50%;
     margin: 0 0 20px 0;
@@ -411,7 +434,7 @@ a.バナー:not(:has(img)) {
 }
 
 .ブログ div {
-    color: #000;
+    color: var(--黒);
 }
 
 /* ここだけブログカードの話 */
@@ -433,22 +456,22 @@ a.バナー:not(:has(img)) {
 }
 
 .ブログ:hover {
-    filter: drop-shadow(0 0 100px #FFF);
+    filter: drop-shadow(0 0 100px var(--白));
 }
 
 .ブログのサムネイル img {
     height: 200px;
     width: 100%;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: var(--ra);
     display: block;
     margin: 0 0 10px 0;
 }
 
 .目次 {
     display: inline-block;
-    border-radius: 20px;
-    outline: 1px solid #000;
+    border-radius: var(--ra);
+    outline: 1px solid var(--黒);
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -468,14 +491,14 @@ a.バナー:not(:has(img)) {
 .目次 a {
     text-decoration: none;
     border-color: transparent;
-    border-radius: 20px;
+    border-radius: var(--ra);
     padding: 5px 20px;
-    color: #000;
+    color: var(--黒);
     line-height: 1.3em;
 }
 
 .目次 a:hover {
-    border-color: #000;
+    border-color: var(--黒);
 }
 
 .目次 .横向き目次 {
@@ -539,10 +562,6 @@ a.バナー:not(:has(img)) {
 
     .おおきな分類 {
         padding: 20px 0;
-    }
-
-    .カーソルを {
-        text-decoration: underline #e0e0e080;
     }
 
     /* indexの話 */

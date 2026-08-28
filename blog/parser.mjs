@@ -76,6 +76,14 @@ export function markdown(content, topLevel = true) {
     return `<img alt="" class="${imageORthum}" src="${escapeAttr(src)}">`;
   }
 
+  // [l 文字]で下線。[l1 文字]と[t1 文字]は同じ番号どうしを線で結ぶよ
+  const lineMark = content.match(/^(l\d*|t\d+)\s+(.+)$/s);
+  if (lineMark) {
+    const cls = lineMark[1][0] === "l" ? "下線" : "線の先";
+    const number = lineMark[1].slice(1);
+    return `<span class="${cls}"${number ? ` data-線="${number}"` : ""}>${processInline(lineMark[2], false)}</span>`;
+  }
+
   const deco = 囲み文字[content[0]];
   if (deco && content[1] === " ") {
     return `<span class="${deco}">${processInline(inner, false)}</span>`;

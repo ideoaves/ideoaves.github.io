@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ノードとかCMSとかを考える ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="プログラミング経験問わず、CMSを自作し...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ideoaves のブログ" href="/blog/rss.xml">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ノードとかCMSとかを考える">
+    <meta name="twitter:description" content="プログラミング経験問わず、CMSを自作し...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+            <div class="横に狭い分類">
+                <h1>ノードとかCMSとかを考える</h1>
+                <p><span class="引用">プログラミング経験問わず、CMSを自作し始めている気配があります。このページを読んだ方もぜひ。</span>-<a href="https://baku89.com/ja/garden/series">Garden.oooのシリーズ機能</a></p>
+                <ul><li>たのしそう</li></ul>
+                <p>というわけで現在進行系で進めます。変な書き方や一貫性のない文章があった時は、つまりそこで機能の追加があったということです。</p>
+                <h1 id="現状整理">現状整理</h1>
+                <h2 id="使えそうなもの">使えそうなもの</h2>
+                <ul><li><span class="囲い文字">css</span>は結構満足していて、<span class="囲い文字">パーサー</span>もそのままで良さそう。</li><li><span class="囲い文字">ビルダー</span>は元々pythonでtxtをhtmlに変換する形にしていて、手打ちhtmlの延長のままでいたい思いがあった。<ul><li>しかし結局管理のためにjsonの<span class="囲い文字">記事リスト</span>もできてしまった。<ul><li>ブログ同士のリンクを作ることは出来ないがこのjsonを使えばすぐできそう。</li></ul></li><li>結局ビルダー越しにしかサイト編集をしていないので今ならもっと良い方法に出来る。</li></ul></li><li>関係ないが<a href="2026-08-24.html">JSON Canvasのウェブサイト化をしてくれるjs</a>が居るのでノードグラフでの可視化はすぐ出来る。</li></ul>
+                <p>意外とそれっぽいものはすぐできそう？</p>
+                <h2 id="個人的に欲しいこと">個人的に欲しいこと</h2>
+                <p>そもそもブレインストーミングは<span class="下線" data-線="0"><span class="カーソルを"><span>Scrapboxで事足りている</span><span>私が四角形のタイヤを作っても仕方なさそうだし、たのしそう以外に作る意味はそこまでない</span></span></span>…</p>
+                <ul><li>タイトル単位のリンク</li><li>非公開、限定公開機能（Github pagesでは無理）</li><li>エセマークダウンを色々作れると嬉しい。<ul><li>文字を形状でしか見ていないので装飾が増えれば増えるほど私は文を覚える。</li></ul></li><li>ノードで表示する方法、<a href="https://strata.orito-itsuki.graphics/introduction-to-hyperstrata/">Hyperstrata</a>とか<a href="https://aratanagara.com/intertex/">Intertex</a><ul><li><span class="下線" data-線="2">圏論的な考え方</span>よりも、脳内空間はいつもブラーのかかった集合構造を取っているのでそっちに寄せたい。</li><li><span class="線の先" data-線="0">ただ</span>、自分が作ったscrapboxをノードで見せられた（<a href="https://noetheca.github.io/aesthetics/">美学 | noetheca</a>）時にかなりアイデアが出た。その記事群の構造が向いているのもあるけれど、普段のScrapbox利用レベルの弱いリンク網でもノードグラフ化は効果的。<ul><li><span class="線の先" data-線="2">文章にコンバートした時点で情報の構造はノード様になるでしょう</span></li></ul></li></ul></li><li><span class="線の先" data-線="1">グループ機能</span>を復権してもいい。別に並列であることが常に正しいわけではない。</li></ul>
+                <p>一旦ここでブログリストのjsonで出来ることを考えてみる<a class="書き途中"></a></p>
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+            </div>
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>

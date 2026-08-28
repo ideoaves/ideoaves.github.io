@@ -89,6 +89,44 @@ document.querySelectorAll('.カーソルを').forEach(el => {
   }
 });
 
+/* lNの下線の左端から行間へ降り、左の余白を通ってtNの直前へ線を引きます */
+
+const layer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+layer.setAttribute('class', 'つなぐ線');
+document.body.appendChild(layer);
+
+function redrawLines() {
+  layer.style.width = document.documentElement.scrollWidth + 'px';
+  layer.style.height = document.documentElement.scrollHeight + 'px';
+  layer.replaceChildren();
+  const pairs = [...document.querySelectorAll('.下線[data-線]')].flatMap(from =>
+    [...document.querySelectorAll(`.線の先[data-線="${from.getAttribute('data-線')}"]`)]
+      .map(to => [from, to]));
+  for (const [from, to] of pairs) {
+    const a = from.getClientRects()[0] ?? from.getBoundingClientRect();
+    const b = to.getClientRects()[0] ?? to.getBoundingClientRect();
+    const style = getComputedStyle(from);
+    const startX = a.left + scrollX;
+    const startY = a.bottom - 3 + scrollY;
+    const endX = b.left + scrollX - 10;
+    const endY = b.top + b.height / 2 + scrollY + 1;
+    const laneY = a.top + (parseFloat(style.lineHeight) + parseFloat(style.fontSize)) / 2 + scrollY + 4;
+    const radi = 15;
+    const railX = Math.min(startX - radi, endX) - 15;
+    const down = Math.sign(endY - laneY) || 1;
+    const r = Math.max(0, Math.min(radi,
+      Math.abs(endY - laneY) / 2, startX - radi - railX, endX - railX));
+    const curve = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    curve.setAttribute('d',
+      `M ${startX} ${startY} Q ${startX} ${laneY} ${startX - radi} ${laneY}` +
+      ` H ${railX + r} Q ${railX} ${laneY} ${railX} ${laneY + r * down}` +
+      ` V ${endY - r * down} Q ${railX} ${endY} ${railX + r} ${endY} H ${endX}`);
+    layer.appendChild(curve);
+  }
+}
+new ResizeObserver(redrawLines).observe(document.body);
+window.addEventListener('resize', redrawLines);
+
 /* codeをコピーします */
 
 document.querySelectorAll('code').forEach(el => {

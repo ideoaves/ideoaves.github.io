@@ -5,8 +5,15 @@
         <link>https://ideoaves.github.io/blog/</link>
         <description>Ideoavesのブログ</description>
         <language>ja</language>
-        <lastBuildDate>Mon, 24 Aug 2026 00:00:00 +0900</lastBuildDate>
+        <lastBuildDate>Fri, 28 Aug 2026 00:00:00 +0900</lastBuildDate>
         <atom:link href="https://ideoaves.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>ノードとかCMSとかを考える</title>
+            <link>https://ideoaves.github.io/blog/2026-08-28.html</link>
+            <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-08-28.html</guid>
+            <pubDate>Fri, 28 Aug 2026 00:00:00 +0900</pubDate>
+            <description>プログラミング経験問わず、CMSを自作し始めている気配があります。このページを読んだ方もぜひ。-Garden.oooのシリーズ機能 たのしそう というわけで現在進行系で進めます。変な書き方や一貫性のな...</description>
+        </item>
         <item>
             <title>ノードポートフォリオ</title>
             <link>https://ideoaves.github.io/blog/2026-08-24.html</link>
