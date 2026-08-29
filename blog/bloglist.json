@@ -1,130 +1,273 @@
 {
     "2025-11-14.html": {
         "filename": "2025-11-14.html",
+        "txt": "2025-11-14.txt",
         "title": "AE向けのXY別軸の桑原(Kuwahara)フィルタ",
-        "img": "blog_img/kuwahara_prev.gif",
+        "img": "",
         "summary": "映像を作りました こういう映像を作りました。手書き感の演出としてKuwaharaフィルタを使う予定でしたが、既存エフェクトプラグインでは応用できなさそうなことと、実装に関してすでに計算式を入手できて簡...",
         "date": "2025-11-14",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/kuwahara.fs",
+            "https://github.com/baku89/ISF4AE"
+        ]
     },
     "2025-12-10.html": {
         "filename": "2025-12-10.html",
+        "txt": "2025-12-10.txt",
         "title": "CRTディスプレイの再現",
         "img": "blog_img/CRTscan_thum.png",
         "summary": "ファイル CRT_scan.fs 使い方 ISF4AEを使ってください。詳しくは AE向けのXY別軸の桑原(Kuwahara)フィルタ にあります。 またTIMEを使う関係でUse Layer Tim...",
         "date": "2025-12-10",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/CRT_scan.fs",
+            "AE向けのXY別軸の桑原(Kuwahara)フィルタ"
+        ]
     },
     "2025-12-30.html": {
         "filename": "2025-12-30.html",
+        "txt": "2025-12-30.txt",
         "title": "ポートフォリオの逆",
         "img": "blog_img/sche1.png",
         "summary": "PCの操作系統を監視してビジュアライズするツールを用意しました。 いつも起動時に動き始めるpyファイルがあり、私の生活を少しだけ雑にしてくれるのですが、その機能の一つです。 構造 pyでPCの状態をみ...",
         "date": "2025-12-30",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "https://twitter.com/kensuu/status/2003012829914501378"
+        ]
     },
     "2025-12-31.html": {
         "filename": "2025-12-31.html",
+        "txt": "2025-12-31.txt",
         "title": "年の報告2025",
         "img": "blog_img/November.png",
         "summary": "2025年お疲れ様でした 木葉はづくです。 今年は全体的に外側に出過ぎて徘徊している気分でした。ちょっと遠すぎるかもです。 もうすこし内側に行きたいですね。 ともかく、良いお年を。 今年した新しいこと...",
         "date": "2025-12-31",
-        "author": "hazuqu ideoaves"
+        "author": "hazuqu ideoaves",
+        "links": [
+            "https://discord.gg/dcqAR8RyPn",
+            "https://x.com/search?q=GOLDDISC%20CDs",
+            "https://hazuqu.github.io/about.html"
+        ]
     },
     "2026-01-05.html": {
         "filename": "2026-01-05.html",
+        "txt": "2026-01-05.txt",
         "title": "資料画像を軽く整理するツール",
         "img": "blog_img/image_org.jpg",
         "summary": "目的 Scrapbox主体で貯めている60-70年代の国内の様子について、画像のリンク切れや集積の難しさの問題があり、 またローカルではエクスプローラーのファイル分けと既存のタグつけツールの煩雑さの問...",
         "date": "2026-01-05",
-        "author": "yimiru"
+        "author": "yimiru",
+        "links": []
     },
     "2026-01-08.html": {
         "filename": "2026-01-08.html",
+        "txt": "2026-01-08.txt",
         "title": "Bongo Kanade　つくった！",
         "img": "",
         "summary": "デスクトップマスコットを作りました！ 使用したボイス 以下の配信からお借りしています ｶﾅﾃﾞ～ 【対談】かわいいかわいい後輩の奏さんとお話がしたい #ぽるかなで対談 https://www.yout...",
         "date": "2026-01-08",
-        "author": "sian"
+        "author": "sian",
+        "links": [
+            "https://www.youtube.com/live/Gcdr_p4lWGc?si=jJqcLud6P5NYjxt7&t=3448",
+            "https://www.youtube.com/live/wIMR-Gy4_Ss?si=CRTFua_JiYcI98he&t=3829",
+            "https://www.youtube.com/live/wIMR-Gy4_Ss?si=GYLdN3_wP-XcHTpA&t=212",
+            "https://www.youtube.com/live/7yJEHdZ2qJk?si=O3XDiJm7BdPr5HVo&t=7888",
+            "https://www.youtube.com/live/GHAhw8m9lA0?si=YkHppl2SvUXP1t1S&t=1110",
+            "https://www.youtube.com/live/GHAhw8m9lA0?si=sZx4EZZ-bmbFynxq&t=5764",
+            "https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/bongo_kanade/bongo.py"
+        ]
     },
     "2026-01-19.html": {
         "filename": "2026-01-19.html",
+        "txt": "2026-01-19.txt",
         "title": "生活VJ",
         "img": "blog_img/seikatsuVJ.png",
         "summary": "作り方 コンセプト 友人のendenさんに生活coreという美学を提唱されたところから、ビジュアル面のコンセプト制作が始まりました。 商店街や団地、公園のような時代の進歩から取り残されゆっくりと衰退す...",
         "date": "2026-01-19",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "https://x.com/enden_nix",
+            "https://enden-kpc.hatenablog.com/entry/seikatsu-core",
+            "https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/seikatsu_VJ",
+            "https://melodynade.com/",
+            "https://x.com/dj_xaneiro",
+            "https://synapserack.com/"
+        ]
     },
     "2026-02-08.html": {
         "filename": "2026-02-08.html",
+        "txt": "2026-02-08.txt",
         "title": "美学ウィキというCosenseプロジェクトを作りました",
         "img": "blog_img/bigakuWiki.jpg",
         "summary": "これはなに？ ここです。 美学ウィキ プロジェクト内にプロジェクトの説明と、美学ミームそのものの簡単な説明のページがピン留めされています。 簡単に説明すると、インターネット美学ミームというものがありま...",
         "date": "2026-02-08",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "https://scrapbox.io/AestheticsWiki/"
+        ]
     },
     "2026-02-20.html": {
         "filename": "2026-02-20.html",
+        "txt": "2026-02-20.txt",
         "title": "水槽越しにモニターを撮る。",
         "img": "blog_img/psy_1.png",
         "summary": "にっけいさんの『psyche』のMVをしました。 アイデア にっけいさんから提案頂いたのは「真っ白な部屋にただ水槽が置かれている画面」でした。 最初は3DCGや実写で水槽をオブジェクトとして用意する予...",
         "date": "2026-02-20",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "https://x.com/2r96/status/1945876636500627766"
+        ]
     },
     "2026-06-29.html": {
         "filename": "2026-06-29.html",
+        "txt": "2026-06-29.txt",
         "title": "26年 前期 日記",
         "img": "blog_img/shizuoka_kisei.png",
         "summary": "普段Scrapboxで日記を書いていて、せっかくなので半年単位でまとめて公開しようと思いました。 つくったものたち 1月 去年から文字PVをする際に歌詞の印象と文字の位置・方向を体系にして楽になろうと...",
         "date": "2026-06-29",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "https://hazuqu.github.io/p5/4.html",
+            "https://x.com/search?q=%23Harmony0118%20&src=typed_query",
+            "生活VJ",
+            "資料画像を軽く整理するツール",
+            "美学ウィキというCosenseプロジェクトを作りました",
+            "https://www.instagram.com/rejectedinpeace/",
+            "水槽越しにモニターを撮る。",
+            "https://editor.p5js.org/IDEOAVES/sketches/dyT0WRDsF",
+            "https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/ランダムフリーズ.jsx",
+            "https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/制御自動追加.jsx",
+            "https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/歌詞書き換え.jsx",
+            "私のした26年エイプリルフールの解説",
+            "https://hazuqu.github.io/p5/6.html",
+            "Bongo Kanade　つくった！",
+            "https://x.com/YAMAotonozei/status/2042258237261819934",
+            "https://x.com/ryufurusawa/status/2046176744823246920",
+            "https://hazuqu.github.io/p5/7.html",
+            "https://discord.gg/dcqAR8RyPn",
+            "http://www.chez-tomo.com/ginza/",
+            "https://agedoridori.jimdofree.com/gensogakusho/",
+            "https://u.muroran-it.ac.jp/hlc/2011/03Kirikoshi.pdf",
+            "https://individuality.jp/dialogue_corpus.html",
+            "https://github.com/hiroyuki-komatsu/tomoe_data",
+            "https://gallica.bnf.fr/ark:/12148/btv1b86095803",
+            "https://ideoaves.github.io/CrossTimeline/",
+            "https://note.com/anon_press/n/n9ae641d0201d?sub_rt=share_pb",
+            "https://www.youtube.com/watch?v=LvZYwaQlJsg",
+            "https://www.soumu.go.jp/soutsu/kanto/bc/shogai/miwake/tv_rec_03.html",
+            "https://www.avartifactatlas.com/",
+            "https://vt.tiktok.com/ZSusv7c1r/",
+            "https://pressingwebshop.com/collections/luv-code",
+            "https://www.agem.jp/item/search.html",
+            "https://www.instagram.com/faithtokyo/?hl=ja",
+            "https://www.acrotokyo.com/c/reflem",
+            "https://labs.sense-studios.com/threebody/index.html",
+            "https://www.ap-i.net/skychart/en/start",
+            "https://typpo.github.io/spacekit/",
+            "https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img//auto_camera.py",
+            "https://potatoland.org/",
+            "https://x.com/hashtag/%E5%BF%97%E5%B2%90%E5%8D%8A%E5%B3%B6%E9%96%8B%E7%99%BA%E5%B1%80?src=hashtag_click"
+        ]
     },
     "2025-10-31.html": {
         "filename": "2025-10-31.html",
+        "txt": "2025-10-31.txt",
         "title": "ブログらしきものを作る。",
         "img": "blog_img/test.png",
         "summary": "noteが微妙にSNS過ぎてあまり嬉しくないのと、もう少しつぶやき感覚でありながらscrapboxほど簡単ではない手数の環境を手に入れたくなりました。 noteは背景が白すぎる。 構造としては blo...",
         "date": "2025-10-31",
-        "author": "yimiru"
+        "author": "yimiru",
+        "links": []
     },
     "2026-04-02.html": {
         "filename": "2026-04-02.html",
+        "txt": "2026-04-02.txt",
         "title": "私のした26年エイプリルフールの解説",
         "img": "blog_img/Aprilfool.jpg",
         "summary": "目的 例年エイプリルフールには名前がVTuberすぎるためにVTuber活動をしているのですが、 昨今個人サイトの数が増えてきた肌感があり、その発展形の一つとして『00年代歴史改変IFのSF』を試すこ...",
         "date": "2026-04-02",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "https://websitemap.sakura.ne.jp/index.html",
+            "http://blog.livedoor.jp/sakuraba_izl/",
+            "https://www.nic.ad.jp/timeline/",
+            "https://www.soumu.go.jp/johotsusintokei/whitepaper/index.html",
+            "https://blinkies.cafe/",
+            "https://www.glitter-graphics.com/",
+            "https://note.com/ideoaves2/n/nba3b1877c57c?app_launch=false",
+            "https://ideoaves.github.io/CrossTimeline/",
+            "https://note.com/ideoaves2/n/n0135f3436a7d",
+            "http://ja.scp-wiki.net/groups-of-interest-jp",
+            "http://ja.scp-wiki.net/2th-goi-contest-hub5"
+        ]
     },
     "2026-08-19.html": {
         "filename": "2026-08-19.html",
+        "txt": "2026-08-19.txt",
         "title": "Cosmic Standardを作りました",
         "img": "",
         "summary": "共有リンクはこちらです。 Cosmic_Standard 目的 Cosmic StandardはCosmic sansの揺らぎに工業系サンセリフの末端処理を混ぜたフォントです。 HTML Energy...",
         "date": "2026-08-19",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "../Cosmic_Standard/index.html"
+        ]
     },
     "2026-08-31.html": {
         "filename": "2026-08-31.html",
+        "txt": "2026-08-31.txt",
         "title": "26年 7・8月 日記",
         "img": "https://pbs.twimg.com/media/HPMYA8WbAAEEa9R?format=jpg&name=900x900",
         "summary": "7月 MV作った 7月はワンシチュエーション2DMVについて考えていました。カメラを持ち出したりプログラムを描いたりすることで技術的に新規性を作ることは出来るけど、そうではなくてAEやBlenderを...",
         "date": "2026-08-31",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "https://www.youtube.com/watch?v=7i27l7uvTd4",
+            "https://www.youtube.com/watch?v=P1yqH9jwf14",
+            "https://www.kogures.com/hitoshi/history/index.html",
+            "https://www.youtube.com/watch?v=UCd6Sw4P8Xk",
+            "https://animation.hiroshimafest.org/program/00002074/",
+            "https://www.youtube.com/watch?v=lJkgdThcBEU",
+            "https://www.youtube.com/watch?v=C0gNRRjyQZk",
+            "https://x.com/hiro___016016/status/2088158680550138286",
+            "https://ideoaves.github.io/blog/rss",
+            "/Cosmic_Standard/",
+            "https://scrapbox.io/video-plugin-archive/%E6%98%A0%E5%83%8F%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%BE%E3%81%A8%E3%82%81",
+            "ノードポートフォリオ"
+        ]
     },
     "2026-08-24.html": {
         "filename": "2026-08-24.html",
+        "txt": "2026-08-24.txt",
         "title": "ノードポートフォリオ",
         "img": "blog_img/nodePortfolio.png",
         "summary": "リファレンスや影響、関連性に重きを置いたポートフォリオです。ノードをクリックすると、直接関連のあるノードを強調します。 今回は私hazuquの自主制作を軸に置く場所として用意しました。 ノードポートフ...",
         "date": "2026-08-24",
-        "author": "hazuqu"
+        "author": "hazuqu",
+        "links": [
+            "https://hazuqu.github.io/node_portfolio/",
+            "https://github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.canvas",
+            "https://github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.js"
+        ]
     },
     "2026-08-28.html": {
         "filename": "2026-08-28.html",
+        "txt": "2026-08-28.txt",
         "title": "ノードとかCMSとかを考える",
         "img": "",
         "summary": "プログラミング経験問わず、CMSを自作し始めている気配があります。このページを読んだ方もぜひ。-Garden.oooのシリーズ機能 たのしそう というわけで現在進行系で進めます。変な書き方や一貫性のな...",
         "date": "2026-08-28",
-        "author": ""
+        "author": "",
+        "links": [
+            "https://baku89.com/ja/garden/series",
+            "ノードポートフォリオ",
+            "https://strata.orito-itsuki.graphics/introduction-to-hyperstrata/",
+            "https://aratanagara.com/intertex/",
+            "https://noetheca.github.io/aesthetics/",
+            "ブログらしきものを作る。",
+            "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html#_ai_disclosure"
+        ]
     }
 }

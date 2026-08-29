@@ -1,3 +1,5 @@
+// L2 Human Understood
+
 export function escapeAttr(text) {
   return String(text)
     .replaceAll("&", "&amp;")
@@ -6,37 +8,34 @@ export function escapeAttr(text) {
     .replaceAll('"', "&quot;");
 }
 
+const collected = { images: [], links: [], articleLinks: [] };
+
+// URLパスの判定機能
 export function isAbsoluteUrl(src) {
   return src.startsWith("/") || /^[A-Za-z][A-Za-z0-9+.-]*:/.test(src);
 }
 
-function splitBlocks(html) {
-  const ブロック要素 = "blockquote|figure|table|pre|div|ul|ol|h1|h2|h3|h4|h5|h6|p";
-  const 開始タグ = new RegExp(`<(${ブロック要素})(?=[\\s/>])`, "i");
-  const parts = [];
-  let rest = html;
-  let m;
-  while ((m = rest.match(開始タグ)) !== null) {
-    const tagRe = new RegExp(`<${m[1]}(?=[\\s/>])|</${m[1]}\\s*>`, "gi");
-    tagRe.lastIndex = m.index;
-    let depth = 0;
-    let end = rest.length;
-    for (const t of rest.matchAll(tagRe)) {
-      depth += t[0][1] === "/" ? -1 : 1;
-      if (depth === 0) {
-        end = t.index + t[0].length;
-        break;
-      }
-    }
-    const trailingScript = rest.slice(end).match(/^<script\b[^>]*><\/script>/);
-    if (trailingScript) end += trailingScript[0].length;
-    parts.push({ text: rest.slice(0, m.index) }, { block: rest.slice(m.index, end) });
-    rest = rest.slice(end);
-  }
-  parts.push({ text: rest });
-  return parts;
+// ブログタイトル判定機能
+export function isLinkTarget(text) {
+  return (
+    isAbsoluteUrl(text) ||
+    text.startsWith("./") ||
+    text.startsWith("../") ||
+    /\.html?([#?]|$)/.test(text)
+  );
 }
 
+// [ラベル タイトル]を分ける機能。
+export function splitLabel(text, titles) {
+  if (titles.has(text)) return ["", text];
+  for (const m of text.matchAll(/\s+/g)) {
+    const node = text.slice(m.index + m[0].length);
+    if (titles.has(node)) return [text.slice(0, m.index), node];
+  }
+  return ["", text];
+}
+
+// []を抜き出す機能
 export function processInline(text, topLevel = true) {
   const at = text.indexOf("[");
   if (at === -1) return text;
@@ -56,7 +55,7 @@ export function processInline(text, topLevel = true) {
   );
 }
 
-// 分節単位の変換 [c ]
+// []の記法を判定する。
 export function markdown(content, topLevel = true) {
   const 囲み文字 = {
     "s": "小さい文字",
@@ -72,8 +71,9 @@ export function markdown(content, topLevel = true) {
   if (画像記法) {
     const imgFile = 画像記法[2].trim();
     const src = isAbsoluteUrl(imgFile) ? imgFile : `blog_img/${imgFile}`;
-    const imageORthum = 画像記法[1] === "ithum" ? "ブログの画像 サムネイル" : "ブログの画像";
-    return `<img alt="" class="${imageORthum}" src="${escapeAttr(src)}">`;
+    const thumb = 画像記法[1] === "ithum";
+    collected.images.push({ src, thumb });
+    return `<img alt="" class="ブログの画像${thumb ? " サムネイル" : ""}" src="${escapeAttr(src)}">`;
   }
 
   // [l 文字]で下線。[l1 文字]と[t1 文字]は同じ番号どうしを線で結ぶよ
@@ -97,11 +97,18 @@ export function markdown(content, topLevel = true) {
     return `<span class="カーソルを"><span>${クリック}</span><span>${注釈}</span></span>`;
   }
 
-  if ((m = content.match(/^(.+?)\s+(\S+)\n?$/s))) {
-    return `<a href="${m[2]}">${processInline(m[1], false)}</a>`;
+  if ((m = content.match(/^(.+?)\s+(\S+)\n?$/s)) && isLinkTarget(m[2])) {
+    collected.links.push(m[2]);
+    return `<a class="外部リンク" href="${m[2]}">${processInline(m[1], false)}</a>`;
   }
 
   const url = content.trim();
+
+  // [タイトル]で記事へのリンク。build.mjsへ
+  if (!isLinkTarget(url)) {
+    collected.links.push(url);
+    return `<a class="記事リンク" data-記事="${collected.articleLinks.push(url) - 1}">${url}</a>`;
+  }
 
   //埋め込みとそうじゃないリンク [http 文字]
   if (topLevel) {
@@ -117,11 +124,16 @@ export function markdown(content, topLevel = true) {
     }
   }
 
-  return `<a href="${url}">${url}</a>`;
+  collected.links.push(url);
+  return `<a class="外部リンク" href="${url}">${url}</a>`;
 }
 
-// 文章単位の変換
+// 記事生成。でかい。
 export function txt2html(text) {
+  collected.images.length = 0;
+  collected.links.length = 0;
+  collected.articleLinks.length = 0;
+
   const trimmed = text.trim();
   const 行 = trimmed === "" ? [] : trimmed.split(/\r\n|\r|\n/);
   const title = 行.length ? 行[0].trim() : "無題";
@@ -147,23 +159,7 @@ export function txt2html(text) {
   const bulletRoots = [];
   const tableBuf = [];
 
-  function closeParagraph() {
-    if (!paragraphBuf.length) return;
-    const html = processInline(paragraphBuf.join("\n"))
-      .replace(/\r\n|\r|\n/g, "<br>\n")
-      .replace(/(<img[^>]*>)<br>\n/g, "$1\n");
-
-    for (const part of splitBlocks(html)) {
-      if (part.block !== undefined) {
-        blocks.push(part.block);
-        continue;
-      }
-      const text = part.text.replace(/^(?:\s|<br>)+/, "").replace(/(?:\s|<br>)+$/, "");
-      if (text !== "") blocks.push(`<p>${text}</p>`);
-    }
-    paragraphBuf = [];
-  }
-
+  // 箇条書きを閉じる
   function closeBullets(minDepth) {
     while (bulletStack.length && bulletStack[bulletStack.length - 1].depth >= minDepth) {
       const frame = bulletStack.pop();
@@ -173,30 +169,58 @@ export function txt2html(text) {
     }
   }
 
-  function endBulletRun() {
-    closeBullets(0);
-    if (bulletRoots.length) {
-      blocks.push(`<ul>${bulletRoots.join("")}</ul>`);
-      bulletRoots.length = 0;
-    }
-  }
-
-  function closeTable() {
-    if (!tableBuf.length) return;
-    let thead = "";
-    let tbody = "";
-    for (const [isHeader, cells] of tableBuf) {
-      if (isHeader) thead += `<thead><tr>${cells.map((c) => `<th>${c}</th>`).join("")}</tr></thead>`;
-      else tbody += `<tr>${cells.map((c) => `<td>${c}</td>`).join("")}</tr>`;
-    }
-    blocks.push(`<table>${thead}<tbody>${tbody}</tbody></table>`);
-    tableBuf.length = 0;
-  }
-
+  // 溜めてある段落・箇条書き・テーブルを閉じる
   function close(keep) {
-    if (keep !== "paragraph") closeParagraph();
-    if (keep !== "bullets") endBulletRun();
-    if (keep !== "table") closeTable();
+    if (keep !== "paragraph" && paragraphBuf.length) {
+      const html = processInline(paragraphBuf.join("\n"))
+        .replace(/\r\n|\r|\n/g, "<br>\n")
+        .replace(/(<img[^>]*>)<br>\n/g, "$1\n");
+
+      const 開始タグ = /<(blockquote|figure|table|pre|div|ul|ol|h1|h2|h3|h4|h5|h6|p)(?=[\s/>])/i;
+      const parts = [];
+      let rest = html;
+      let m;
+      while ((m = rest.match(開始タグ)) !== null) {
+        const タグたち = rest.slice(m.index).matchAll(new RegExp(`<${m[1]}(?=[\\s/>])|</${m[1]}\\s*>`, "gi"));
+        let depth = 0;
+        const 閉じ = [...タグたち].find((t) => (depth += t[0][1] === "/" ? -1 : 1) === 0);
+        let end = 閉じ ? m.index + 閉じ.index + 閉じ[0].length : rest.length;
+        const trailingScript = rest.slice(end).match(/^<script\b[^>]*><\/script>/);
+        if (trailingScript) end += trailingScript[0].length;
+        parts.push({ text: rest.slice(0, m.index) }, { block: rest.slice(m.index, end) });
+        rest = rest.slice(end);
+      }
+      parts.push({ text: rest });
+
+      for (const part of parts) {
+        if (part.block !== undefined) {
+          blocks.push(part.block);
+          continue;
+        }
+        const text = part.text.replace(/^(?:\s|<br>)+/, "").replace(/(?:\s|<br>)+$/, "");
+        if (text !== "") blocks.push(`<p>${text}</p>`);
+      }
+      paragraphBuf = [];
+    }
+
+    if (keep !== "bullets") {
+      closeBullets(0);
+      if (bulletRoots.length) {
+        blocks.push(`<ul>${bulletRoots.join("")}</ul>`);
+        bulletRoots.length = 0;
+      }
+    }
+
+    if (keep !== "table" && tableBuf.length) {
+      let thead = "";
+      let tbody = "";
+      for (const [isHeader, cells] of tableBuf) {
+        if (isHeader) thead += `<thead><tr>${cells.map((c) => `<th>${c}</th>`).join("")}</tr></thead>`;
+        else tbody += `<tr>${cells.map((c) => `<td>${c}</td>`).join("")}</tr>`;
+      }
+      blocks.push(`<table>${thead}<tbody>${tbody}</tbody></table>`);
+      tableBuf.length = 0;
+    }
   }
 
   for (const line of 行.slice(i)) {
@@ -258,35 +282,14 @@ export function txt2html(text) {
 
   const bodyHtml = blocks.join("\n");
 
-  const 画像 =
-    bodyHtml.match(/<img[^>]+class="[^"]*サムネイル[^"]*"[^>]+src="([^"]+)"/) ||
-    bodyHtml.match(/<img[^>]+src="([^"]+)"/);
-  const firstImg = 画像
-    ? 画像[1]
-        .replaceAll("&quot;", '"')
-        .replaceAll("&gt;", ">")
-        .replaceAll("&lt;", "<")
-        .replaceAll("&amp;", "&")
-    : "";
-
-  // 要約文
-  const summaryText = bodyHtml
-    .replace(/<div class="目次">.*?<\/div>/gs, "")
-    .replace(/<span class="カーソルを"[^>]*><span>(.*?)<\/span>.*?<\/span>/gs, "$1")
-    .replace(/<[^>]+>/g, "")
-    .trim()
-    .replace(/\s+/g, " ");
-  const 切り詰め = (n) => (summaryText.length > n ? summaryText.slice(0, n) + "..." : summaryText);
-
+  // この記事に出てきた画像とリンク。
   return {
     title,
     authorId,
     bodyHtml,
-    toc,
-    firstImg,
-    summaryText,
-    summary20: 切り詰め(20),
-    summary100: 切り詰め(100),
+    images: [...collected.images],
+    links: [...new Set(collected.links)],
+    articleLinks: [...collected.articleLinks],
   };
 }
 

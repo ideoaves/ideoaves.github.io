@@ -8,6 +8,7 @@
     --黒: #000;
     --白: #FFF;
     --ハイライト: oklch(45% 0.4 265);
+    --ページなし: #6e6e6e;
     --ra: 20px;
 }
 
@@ -135,10 +136,12 @@ a[href],
 }
 
 a[href]:active {
+    color: #fe0000;
     border-color: #fe0000;
 }
 
 a[href]:visited {
+    color: #551b8c;
     border-color: #551b8c;
 }
 
@@ -234,7 +237,6 @@ ul:not(ul ul)::before {
     border-radius: calc(var(--ra) - 5px);
     border: 1px solid var(--黒);
     mask: linear-gradient(to left, transparent calc(100% - 15px), var(--黒) 15px);
-    pointer-events: none;
 }
 
 ul li {
@@ -437,17 +439,6 @@ a.バナー:not(:has(img)) {
     color: var(--黒);
 }
 
-/* ここだけブログカードの話 */
-.ブログ.カード {
-    display: block;
-    margin: 0 auto;
-    width: 80%;
-}
-
-.ブログ.カード .ブログの最初 {
-    margin-bottom: 0;
-}
-
 .ブログの投稿時間 {
     text-align: right;
     font-style: italic;
@@ -524,6 +515,38 @@ a.バナー:not(:has(img)) {
 
 .twitter-tweet {
     margin: 0 auto;
+}
+
+/* ここだけ関連記事の話 */
+.関連記事 {
+    margin-top: 50px;
+    padding: 10px;
+    position: relative;
+}
+.関連記事::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: calc(var(--ra) - 5px);
+    border: 1px solid var(--黒);
+    mask: linear-gradient(to top, transparent calc(100% - 15px), var(--黒) 15px);
+}
+
+.関連記事 div {
+    margin-bottom: 10px;
+}
+
+.関連記事 a[href] {
+    margin-right: 5px;
+}
+
+.空リンク[href] {
+    color: var(--ページなし);
+    border-color: var(--ページなし);
 }
 
 .承認欲求 {
