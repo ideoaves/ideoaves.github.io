@@ -3,7 +3,7 @@ id=hazuqu
 # 映像を作りました
 [https://www.youtube.com/watch?v=3Vjw2ZhSXE0]
 こういう映像を作りました。手書き感の演出としてKuwaharaフィルタを使う予定でしたが、既存エフェクトプラグインでは応用できなさそうなことと、実装に関してすでに計算式を入手できて簡単なためISFでシェーダを書いてみました。
-<img alt src="blog_img/kuwahara_prev.gif">
+[i kuwahara_prev.gif]
 ここからダウンロードできます。
 [kuwahara.fs https://github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/kuwahara.fs]
 # AftereffectsでISFを使う
