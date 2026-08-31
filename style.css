@@ -540,6 +540,24 @@ a.バナー:not(:has(img)) {
     margin-bottom: 10px;
 }
 
+.inリンク {
+    text-align: left;
+}
+.inリンク::after {
+    content: "→";
+    margin-left: 5px;
+}
+.outリンク {
+    text-align: right;
+}
+.outリンク::before {
+    content: "→";
+    margin-right: 5px;
+}
+.sameリンク {
+    text-align: center;
+}
+
 .関連記事 a[href] {
     margin-right: 5px;
 }
