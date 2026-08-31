@@ -149,6 +149,10 @@ a[href]:visited {
     color: var(--白);
 }
 
+.目次 a[href] {
+    color: var(--黒);
+}
+
 /* 文字装飾の話 */
 
 .コメント文字 {
