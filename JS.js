@@ -155,3 +155,63 @@ document.querySelectorAll('.承認欲求 div').forEach(div => {
     span.textContent = Number(span.textContent) + 1;
   });
 });
+
+
+/* 関連記事 */
+
+const relatedBox = document.querySelector('.関連記事');
+
+const linkTitle = document.querySelector('.リンクのタイトル');
+if (linkTitle) {
+  const title = new URLSearchParams(location.search).get('t') ?? '';
+  linkTitle.textContent = title;
+  document.title = `${title} ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )`;
+  relatedBox.dataset.記事 = title;
+}
+
+function articleLink(title, file) {
+  const a = document.createElement('a');
+  a.className = file ? '記事リンク' : '記事リンク 空リンク';
+  a.href = file ? file.replace(/[%#?\s]/g, c => encodeURIComponent(c)) : `link.html?t=${encodeURIComponent(title)}`;
+  a.textContent = title;
+  return a;
+}
+
+if (relatedBox) {
+  fetch('/blog/bloglist.json').then(res => res.json()).then(list => {
+    const entries = Object.values(list);
+    const node = relatedBox.dataset.記事;
+    const titleToFile = new Map(entries.map(b => [b.title, b.filename]));
+    const dateOf = new Map(entries.map(b => [b.title, b.date]));
+    const outLinks = new Map(entries.map(b => [b.title, b.links ?? []]));
+
+    const inbound = new Set(entries.filter(b => (b.links ?? []).includes(node)).map(b => b.title));
+    const outbound = new Set(outLinks.get(node) ?? []);
+    const siblings = new Set();
+    for (const [title, targets] of outLinks) {
+      if (title === node || inbound.has(title) || outbound.has(title)) continue;
+      if (targets.some(to => outbound.has(to))) siblings.add(title);
+    }
+
+    const group = (titles, cls) => {
+      const sorted = [...titles].filter(t => t !== node).sort((a, b) => {
+        const fa = titleToFile.get(a);
+        const fb = titleToFile.get(b);
+        if (fa && fb) return dateOf.get(a) < dateOf.get(b) ? 1 : -1;
+        if (fa || fb) return fa ? -1 : 1;
+        return a < b ? -1 : 1;
+      });
+      if (!sorted.length) return null;
+      const div = document.createElement('div');
+      div.className = cls;
+      for (const t of sorted) div.appendChild(articleLink(t, titleToFile.get(t)));
+      return div;
+    };
+
+    for (const div of [group(inbound, 'inリンク'), group(outbound, 'outリンク'), group(siblings, 'sameリンク')]) {
+      if (div) relatedBox.appendChild(div);
+    }
+    if (relatedBox.children.length) relatedBox.hidden = false;
+    else relatedBox.remove();
+  });
+}

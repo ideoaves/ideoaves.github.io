@@ -1,9 +1,12 @@
 # 作業用。
 .claude/
-blog/blog_koushin.bat
+.obsidian/
+ブログ更新.bat
 blog/html2txt.mjs
-blog/preview.html
-
+# md
+*.md
+!README.md
 
 # まだ公開しないもの。別にいいけども。
+
 

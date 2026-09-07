@@ -91,15 +91,6 @@ body::after {
     margin: 0 auto;
 }
 
-p {
-    margin-bottom: 1.3em;
-}
-
-p+ul,
-p+table {
-    margin-top: -1em;
-}
-
 
 /* イメージの話 */
 
@@ -118,6 +109,7 @@ p+table {
 h1,
 h2 {
     font-family: "Cosmic Standard", "Zen Kaku Gothic New", "Noto Sans SC", sans-serif;
+    margin-top: 1.3em;
 }
 
 a[href]:has(img, div) {
@@ -509,6 +501,8 @@ a.バナー:not(:has(img)) {
     display: block;
     margin: 0 auto;
     width: 75%;
+    max-height: 500px;
+    object-fit: contain;
 }
 
 .ブログの映像 {

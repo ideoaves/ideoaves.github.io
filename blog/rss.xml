@@ -5,13 +5,22 @@
         <link>https://ideoaves.github.io/blog/</link>
         <description>Ideoavesのブログ</description>
         <language>ja</language>
-        <lastBuildDate>Fri, 28 Aug 2026 00:00:00 +0900</lastBuildDate>
+        <lastBuildDate>Mon, 31 Aug 2026 00:00:00 +0900</lastBuildDate>
         <atom:link href="https://ideoaves.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>26年7,8月 日記</title>
+            <link>https://ideoaves.github.io/blog/2026-08-31.html</link>
+            <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-08-31.html</guid>
+            <pubDate>Mon, 31 Aug 2026 00:00:00 +0900</pubDate>
+            <書いた人>
+            <description>7月 MV作った 7月はワンシチュエーション2DMVについて考えていました。カメラを持ち出したりプログラムを描いたりすることで技術的に新規性を作ることは出来るけど、そうではなくてAEやBlenderを...</description>
+        </item>
         <item>
             <title>ノードとかCMSとかを考える</title>
             <link>https://ideoaves.github.io/blog/2026-08-28.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-08-28.html</guid>
             <pubDate>Fri, 28 Aug 2026 00:00:00 +0900</pubDate>
+            <書いた人>
             <description>プログラミング経験問わず、CMSを自作し始めている気配があります。このページを読んだ方もぜひ。-Garden.oooのシリーズ機能 たのしそう というわけで現在進行系で進めます。変な書き方や一貫性のな...</description>
         </item>
         <item>
@@ -19,7 +28,7 @@
             <link>https://ideoaves.github.io/blog/2026-08-24.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-08-24.html</guid>
             <pubDate>Mon, 24 Aug 2026 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu</dc:creator>
+            <書いた人>
             <description>リファレンスや影響、関連性に重きを置いたポートフォリオです。ノードをクリックすると、直接関連のあるノードを強調します。 今回は私hazuquの自主制作を軸に置く場所として用意しました。 ノードポートフ...</description>
         </item>
         <item>
@@ -27,15 +36,15 @@
             <link>https://ideoaves.github.io/blog/2026-08-19.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-08-19.html</guid>
             <pubDate>Wed, 19 Aug 2026 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu</dc:creator>
+            <書いた人>
             <description>共有リンクはこちらです。 Cosmic_Standard 目的 Cosmic StandardはCosmic sansの揺らぎに工業系サンセリフの末端処理を混ぜたフォントです。 HTML Energy...</description>
         </item>
         <item>
-            <title>26年 前期 日記</title>
+            <title>26年前期 日記</title>
             <link>https://ideoaves.github.io/blog/2026-06-29.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-06-29.html</guid>
             <pubDate>Mon, 29 Jun 2026 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu</dc:creator>
+            <書いた人>
             <description>普段Scrapboxで日記を書いていて、せっかくなので半年単位でまとめて公開しようと思いました。 つくったものたち 1月 去年から文字PVをする際に歌詞の印象と文字の位置・方向を体系にして楽になろうと...</description>
         </item>
         <item>
@@ -43,7 +52,7 @@
             <link>https://ideoaves.github.io/blog/2026-04-02.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-04-02.html</guid>
             <pubDate>Thu, 02 Apr 2026 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu</dc:creator>
+            <書いた人>
             <description>目的 例年エイプリルフールには名前がVTuberすぎるためにVTuber活動をしているのですが、 昨今個人サイトの数が増えてきた肌感があり、その発展形の一つとして『00年代歴史改変IFのSF』を試すこ...</description>
         </item>
         <item>
@@ -51,7 +60,7 @@
             <link>https://ideoaves.github.io/blog/2026-02-20.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-02-20.html</guid>
             <pubDate>Fri, 20 Feb 2026 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu</dc:creator>
+            <書いた人>
             <description>にっけいさんの『psyche』のMVをしました。 アイデア にっけいさんから提案頂いたのは「真っ白な部屋にただ水槽が置かれている画面」でした。 最初は3DCGや実写で水槽をオブジェクトとして用意する予...</description>
         </item>
         <item>
@@ -59,7 +68,7 @@
             <link>https://ideoaves.github.io/blog/2026-02-08.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-02-08.html</guid>
             <pubDate>Sun, 08 Feb 2026 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu</dc:creator>
+            <書いた人>
             <description>これはなに？ ここです。 美学ウィキ プロジェクト内にプロジェクトの説明と、美学ミームそのものの簡単な説明のページがピン留めされています。 簡単に説明すると、インターネット美学ミームというものがありま...</description>
         </item>
         <item>
@@ -67,7 +76,7 @@
             <link>https://ideoaves.github.io/blog/2026-01-19.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-01-19.html</guid>
             <pubDate>Mon, 19 Jan 2026 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu</dc:creator>
+            <書いた人>
             <description>作り方 コンセプト 友人のendenさんに生活coreという美学を提唱されたところから、ビジュアル面のコンセプト制作が始まりました。 商店街や団地、公園のような時代の進歩から取り残されゆっくりと衰退す...</description>
         </item>
         <item>
@@ -75,7 +84,7 @@
             <link>https://ideoaves.github.io/blog/2026-01-08.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-01-08.html</guid>
             <pubDate>Thu, 08 Jan 2026 00:00:00 +0900</pubDate>
-            <dc:creator>sian</dc:creator>
+            <書いた人>
             <description>デスクトップマスコットを作りました！ 使用したボイス 以下の配信からお借りしています ｶﾅﾃﾞ～ 【対談】かわいいかわいい後輩の奏さんとお話がしたい #ぽるかなで対談 https://www.yout...</description>
         </item>
         <item>
@@ -83,15 +92,15 @@
             <link>https://ideoaves.github.io/blog/2026-01-05.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-01-05.html</guid>
             <pubDate>Mon, 05 Jan 2026 00:00:00 +0900</pubDate>
-            <dc:creator>yimiru</dc:creator>
+            <書いた人>
             <description>目的 Scrapbox主体で貯めている60-70年代の国内の様子について、画像のリンク切れや集積の難しさの問題があり、 またローカルではエクスプローラーのファイル分けと既存のタグつけツールの煩雑さの問...</description>
         </item>
         <item>
-            <title>年の報告2025</title>
+            <title>25年 日記</title>
             <link>https://ideoaves.github.io/blog/2025-12-31.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2025-12-31.html</guid>
             <pubDate>Wed, 31 Dec 2025 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu ideoaves</dc:creator>
+            <書いた人>
             <description>2025年お疲れ様でした 木葉はづくです。 今年は全体的に外側に出過ぎて徘徊している気分でした。ちょっと遠すぎるかもです。 もうすこし内側に行きたいですね。 ともかく、良いお年を。 今年した新しいこと...</description>
         </item>
         <item>
@@ -99,7 +108,7 @@
             <link>https://ideoaves.github.io/blog/2025-12-30.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2025-12-30.html</guid>
             <pubDate>Tue, 30 Dec 2025 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu</dc:creator>
+            <書いた人>
             <description>PCの操作系統を監視してビジュアライズするツールを用意しました。 いつも起動時に動き始めるpyファイルがあり、私の生活を少しだけ雑にしてくれるのですが、その機能の一つです。 構造 pyでPCの状態をみ...</description>
         </item>
         <item>
@@ -107,7 +116,7 @@
             <link>https://ideoaves.github.io/blog/2025-12-10.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2025-12-10.html</guid>
             <pubDate>Wed, 10 Dec 2025 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu</dc:creator>
+            <書いた人>
             <description>ファイル CRT_scan.fs 使い方 ISF4AEを使ってください。詳しくは AE向けのXY別軸の桑原(Kuwahara)フィルタ にあります。 またTIMEを使う関係でUse Layer Tim...</description>
         </item>
         <item>
@@ -115,7 +124,7 @@
             <link>https://ideoaves.github.io/blog/2025-11-14.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2025-11-14.html</guid>
             <pubDate>Fri, 14 Nov 2025 00:00:00 +0900</pubDate>
-            <dc:creator>hazuqu</dc:creator>
+            <書いた人>
             <description>映像を作りました こういう映像を作りました。手書き感の演出としてKuwaharaフィルタを使う予定でしたが、既存エフェクトプラグインでは応用できなさそうなことと、実装に関してすでに計算式を入手できて簡...</description>
         </item>
         <item>
@@ -123,7 +132,7 @@
             <link>https://ideoaves.github.io/blog/2025-10-31.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2025-10-31.html</guid>
             <pubDate>Fri, 31 Oct 2025 00:00:00 +0900</pubDate>
-            <dc:creator>yimiru</dc:creator>
+            <書いた人>
             <description>noteが微妙にSNS過ぎてあまり嬉しくないのと、もう少しつぶやき感覚でありながらscrapboxほど簡単ではない手数の環境を手に入れたくなりました。 noteは背景が白すぎる。 構造としては blo...</description>
         </item>
     </channel>

@@ -8,7 +8,7 @@ export function escapeAttr(text) {
     .replaceAll('"', "&quot;");
 }
 
-const collected = { images: [], links: [], articleLinks: [] };
+const collected = { images: [], links: [] };
 
 // URLパスの判定機能
 export function isAbsoluteUrl(src) {
@@ -25,20 +25,24 @@ export function isLinkTarget(text) {
   );
 }
 
-// [ラベル タイトル]を分ける機能。
-export function splitLabel(text, titles) {
-  if (titles.has(text)) return ["", text];
-  for (const m of text.matchAll(/\s+/g)) {
-    const node = text.slice(m.index + m[0].length);
-    if (titles.has(node)) return [text.slice(0, m.index), node];
-  }
-  return ["", text];
+// [[タイトル]]と[[タイトル|ラベル]]の中身。行き先のURLはbuild.mjsが後から入れる
+function articleLink(inner) {
+  const bar = inner.indexOf("|");
+  const node = (bar === -1 ? inner : inner.slice(0, bar)).trim();
+  const label = bar === -1 ? node : inner.slice(bar + 1).trim();
+  collected.links.push(node);
+  return `<a class="記事リンク" data-記事="${escapeAttr(node)}">${label}</a>`;
 }
 
 // []を抜き出す機能
 export function processInline(text, topLevel = true) {
   const at = text.indexOf("[");
   if (at === -1) return text;
+
+  const close = text[at + 1] === "[" ? text.indexOf("]]", at + 2) : -1;
+  if (close !== -1) {
+    return text.slice(0, at) + articleLink(text.slice(at + 2, close)) + processInline(text.slice(close + 2), topLevel);
+  }
 
   let depth = 1;
   let end = at + 1;
@@ -57,7 +61,7 @@ export function processInline(text, topLevel = true) {
 
 // []の記法を判定する。
 export function markdown(content, topLevel = true) {
-  const 囲み文字 = {
+  const wrapClasses = {
     "s": "小さい文字",
     ">": "引用",
     "c": "コメント文字",
@@ -67,11 +71,11 @@ export function markdown(content, topLevel = true) {
   const inner = content.slice(2).trim();
 
   // [i 画像ファイル名] または [ithum 画像ファイル名]
-  const 画像記法 = content.match(/^(i|ithum)\s+(.+)$/s);
-  if (画像記法) {
-    const imgFile = 画像記法[2].trim();
+  const imageMatch = content.match(/^(i|ithum)\s+(.+)$/s);
+  if (imageMatch) {
+    const imgFile = imageMatch[2].trim();
     const src = isAbsoluteUrl(imgFile) ? imgFile : `blog_img/${imgFile}`;
-    const thumb = 画像記法[1] === "ithum";
+    const thumb = imageMatch[1] === "ithum";
     collected.images.push({ src, thumb });
     return `<img alt="" class="ブログの画像${thumb ? " サムネイル" : ""}" src="${escapeAttr(src)}">`;
   }
@@ -84,7 +88,8 @@ export function markdown(content, topLevel = true) {
     return `<span class="${cls}"${number ? ` data-線="${number}"` : ""}>${processInline(lineMark[2], false)}</span>`;
   }
 
-  const deco = 囲み文字[content[0]];
+  // [deco ]
+  const deco = wrapClasses[content[0]];
   if (deco && content[1] === " ") {
     return `<span class="${deco}">${processInline(inner, false)}</span>`;
   }
@@ -92,25 +97,19 @@ export function markdown(content, topLevel = true) {
   //カーソルを合わせると注釈が出るやつ [ {}]
   let m;
   if ((m = content.match(/^(.+?)\s+\{(.+)\}\n?$/s))) {
-    const クリック = processInline(m[1], false);
-    const 注釈 = processInline(m[2], false);
-    return `<span class="カーソルを"><span>${クリック}</span><span>${注釈}</span></span>`;
+    const label = processInline(m[1], false);
+    const note = processInline(m[2], false);
+    return `<span class="カーソルを"><span>${label}</span><span>${note}</span></span>`;
   }
 
+  // [url 文字]
   if ((m = content.match(/^(.+?)\s+(\S+)\n?$/s)) && isLinkTarget(m[2])) {
-    collected.links.push(m[2]);
-    return `<a class="外部リンク" href="${m[2]}">${processInline(m[1], false)}</a>`;
+    return `<a href="${m[2]}">${processInline(m[1], false)}</a>`;
   }
-
+  // [url]
   const url = content.trim();
-
-  // [タイトル]で記事へのリンク。build.mjsへ
-  if (!isLinkTarget(url)) {
-    collected.links.push(url);
-    return `<a class="記事リンク" data-記事="${collected.articleLinks.push(url) - 1}">${url}</a>`;
-  }
-
-  //埋め込みとそうじゃないリンク [http 文字]
+  if (!isLinkTarget(url)) return `[${content}]`;
+  //埋め込み
   if (topLevel) {
     if ((m = url.match(/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+)/))) {
       return (
@@ -118,31 +117,29 @@ export function markdown(content, topLevel = true) {
         '<script async src="https://platform.twitter.com/widgets.js"></script>'
       );
     }
-
     if ((m = url.match(/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)([^&\s?]+)/))) {
       return `<iframe src="https://www.youtube.com/embed/${m[1]}" allow="picture-in-picture" allowfullscreen></iframe>`;
     }
   }
-
-  collected.links.push(url);
-  return `<a class="外部リンク" href="${url}">${url}</a>`;
+  return `<a href="${url}">${url}</a>`;
 }
 
 // 記事生成。でかい。
-export function txt2html(text) {
+export function txt2html(text, hasTitle = true) {
   collected.images.length = 0;
   collected.links.length = 0;
-  collected.articleLinks.length = 0;
 
-  const trimmed = text.trim();
-  const 行 = trimmed === "" ? [] : trimmed.split(/\r\n|\r|\n/);
-  const title = 行.length ? 行[0].trim() : "無題";
+  // ページは1行目から生HTMLが始まるので、字下げを消さないように前の改行だけ落とす
+  const trimmed = hasTitle ? text.trim() : text.replace(/^\n+/, "").replace(/\s+$/, "");
+  const lines = trimmed === "" ? [] : trimmed.split(/\r\n|\r|\n/);
+  // 記事は1行目がタイトル。ページは枠側がタイトルを持つので消費しない
+  const title = hasTitle ? (lines.length ? lines[0].trim() : "無題") : "";
 
   // 設定行。
   const config = { id: "", mokuzi: "2" };
-  let i = 1;
-  for (; i < 行.length; i++) {
-    const m = 行[i].trim().match(/^(id|mokuzi)=(.*)$/);
+  let i = hasTitle ? 1 : 0;
+  for (; i < lines.length; i++) {
+    const m = lines[i].trim().match(/^(id|mokuzi)=(.*)$/);
     if (!m) break;
     config[m[1]] = m[2].trim();
   }
@@ -176,15 +173,15 @@ export function txt2html(text) {
         .replace(/\r\n|\r|\n/g, "<br>\n")
         .replace(/(<img[^>]*>)<br>\n/g, "$1\n");
 
-      const 開始タグ = /<(blockquote|figure|table|pre|div|ul|ol|h1|h2|h3|h4|h5|h6|p)(?=[\s/>])/i;
+      const blockOpen = /<(blockquote|figure|table|pre|div|ul|ol|h1|h2|h3|h4|h5|h6|p)(?=[\s/>])/i;
       const parts = [];
       let rest = html;
       let m;
-      while ((m = rest.match(開始タグ)) !== null) {
-        const タグたち = rest.slice(m.index).matchAll(new RegExp(`<${m[1]}(?=[\\s/>])|</${m[1]}\\s*>`, "gi"));
+      while ((m = rest.match(blockOpen)) !== null) {
+        const tags = rest.slice(m.index).matchAll(new RegExp(`<${m[1]}(?=[\\s/>])|</${m[1]}\\s*>`, "gi"));
         let depth = 0;
-        const 閉じ = [...タグたち].find((t) => (depth += t[0][1] === "/" ? -1 : 1) === 0);
-        let end = 閉じ ? m.index + 閉じ.index + 閉じ[0].length : rest.length;
+        const closer = [...tags].find((t) => (depth += t[0][1] === "/" ? -1 : 1) === 0);
+        let end = closer ? m.index + closer.index + closer[0].length : rest.length;
         const trailingScript = rest.slice(end).match(/^<script\b[^>]*><\/script>/);
         if (trailingScript) end += trailingScript[0].length;
         parts.push({ text: rest.slice(0, m.index) }, { block: rest.slice(m.index, end) });
@@ -223,9 +220,46 @@ export function txt2html(text) {
     }
   }
 
-  for (const line of 行.slice(i)) {
+  const voidTag = /^(br|img|meta|link|hr|input|source|col|area)$/i;
+  const rawBuf = [];
+  let rawTag = "";
+  let rawDepth = 0;
+
+  // その行でタグがいくつ開いて閉じたかを数える
+  function countTag(line, tag) {
+    const opened = line.match(new RegExp(`<${tag}(?=[\\s/>])`, "gi"))?.length ?? 0;
+    const closed = line.match(new RegExp(`</${tag}\\s*>`, "gi"))?.length ?? 0;
+    return opened - closed;
+  }
+
+  // 生HTMLの1行を溜めて、開いたタグが閉じきったら1つのブロックにする
+  function pushRaw(line) {
+    rawBuf.push(line);
+    rawDepth += countTag(line, rawTag);
+    if (rawDepth > 0) return;
+    blocks.push(rawBuf.join("\n"));
+    rawBuf.length = 0;
+  }
+
+  for (const line of lines.slice(i)) {
+    if (rawBuf.length) {
+      pushRaw(line);
+      continue;
+    }
+
     if (line.trim() === "") {
       close();
+      continue;
+    }
+
+    // 字下げした行頭のタグは箇条書きと紛らわしいので、閉じるまで生HTMLとして通す
+    let raw;
+    if ((raw = line.match(/^\s+<([a-zA-Z][a-zA-Z0-9]*)/))) {
+      close();
+      rawTag = raw[1];
+      rawDepth = 0;
+      if (voidTag.test(rawTag)) blocks.push(line);
+      else pushRaw(line);
       continue;
     }
 
@@ -233,14 +267,14 @@ export function txt2html(text) {
     if ((m = line.match(/^(#{1,3})\s+(.+)$/))) {
       close();
       const level = m[1].length;
-      const 見出し = m[2].trim();
-      const base = 見出し.replace(/[^\p{L}\p{N}_]+/gu, "-") || "見出し";
+      const heading = m[2].trim();
+      const base = heading.replace(/[^\p{L}\p{N}_]+/gu, "-") || "見出し";
       let anchor = base;
       for (let n = 2; usedAnchors.has(anchor); n++) anchor = `${base}-${n}`;
       usedAnchors.add(anchor);
 
-      toc.push([level, 見出し, anchor]);
-      blocks.push(`<h${level} id="${anchor}">${processInline(見出し)}</h${level}>`);
+      toc.push([level, heading, anchor]);
+      blocks.push(`<h${level} id="${anchor}">${processInline(heading)}</h${level}>`);
       continue;
     }
 
@@ -262,22 +296,23 @@ export function txt2html(text) {
     paragraphBuf.push(line);
   }
 
+  if (rawBuf.length) blocks.push(rawBuf.join("\n"));
   close();
 
   // 目次
   const tocItems = toc.filter(([level]) => level <= tocDepth);
   const isHorizontal = (level) => tocHorizontal && level > 1;
-  const 項目 = tocItems
-    .map(([level, 見出し, anchor], n) => {
+  const tocHtml = tocItems
+    .map(([level, heading, anchor], n) => {
       const horizontal = isHorizontal(level);
       const classes = [horizontal ? "横向き目次" : "", level > 1 ? `h${level}` : ""].filter(Boolean);
       const attr = classes.length ? ` class="${classes.join(" ")}"` : "";
       const leadingBreak = !horizontal && n > 0 && isHorizontal(tocItems[n - 1][0]) ? "<br>" : "";
-      return `${leadingBreak}<a href="#${anchor}"${attr}>${見出し}</a>${horizontal ? "" : "<br>"}`;
+      return `${leadingBreak}<a href="#${anchor}"${attr}>${heading}</a>${horizontal ? "" : "<br>"}`;
     })
     .join("");
-  if (toc.filter(([level]) => level <= 2).length > 3 && 項目 !== "") {
-    blocks.unshift(`<div class="目次"><h1>目次</h1>${項目}</div>`);
+  if (toc.filter(([level]) => level <= 2).length > 3 && tocHtml !== "") {
+    blocks.unshift(`<div class="目次"><h1>目次</h1>${tocHtml}</div>`);
   }
 
   const bodyHtml = blocks.join("\n");
@@ -289,7 +324,6 @@ export function txt2html(text) {
     bodyHtml,
     images: [...collected.images],
     links: [...new Set(collected.links)],
-    articleLinks: [...collected.articleLinks],
   };
 }
 
