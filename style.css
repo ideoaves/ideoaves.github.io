@@ -91,6 +91,10 @@ body::after {
     margin: 0 auto;
 }
 
+p {
+    margin: 1.5em 0;
+}
+
 
 /* イメージの話 */
 
@@ -148,6 +152,7 @@ a[href]:visited {
 /* 文字装飾の話 */
 
 .コメント文字 {
+    display: block;
     text-align: center;
     line-height: 1.5rem;
     font-size: 0.7em;
@@ -164,7 +169,6 @@ a[href]:visited {
 
 .太い文字 {
     font-weight: bold;
-    letter-spacing: 4px;
 }
 
 .下線 {

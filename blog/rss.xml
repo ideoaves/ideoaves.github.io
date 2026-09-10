@@ -5,10 +5,18 @@
         <link>https://ideoaves.github.io/blog/</link>
         <description>Ideoavesのブログ</description>
         <language>ja</language>
-        <lastBuildDate>Mon, 31 Aug 2026 00:00:00 +0900</lastBuildDate>
+        <lastBuildDate>Thu, 10 Sep 2026 00:00:00 +0900</lastBuildDate>
         <atom:link href="https://ideoaves.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
         <item>
-            <title>26年7,8月 日記</title>
+            <title>私的美学ミーム史</title>
+            <link>https://ideoaves.github.io/blog/2026-09-10.html</link>
+            <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-09-10.html</guid>
+            <pubDate>Thu, 10 Sep 2026 00:00:00 +0900</pubDate>
+            <書いた人>
+            <description>美学ウィキというScrapboxを作って半年が経ちました。想定の数倍の反応と参加者とともに編集を続けられていて有り難い限りです。 ある程度の規模の制作でメイキングを作るのと同様に、このScrapbox...</description>
+        </item>
+        <item>
+            <title>26年夏 日記</title>
             <link>https://ideoaves.github.io/blog/2026-08-31.html</link>
             <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-08-31.html</guid>
             <pubDate>Mon, 31 Aug 2026 00:00:00 +0900</pubDate>

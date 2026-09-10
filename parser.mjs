@@ -63,6 +63,7 @@ export function processInline(text, topLevel = true) {
 export function markdown(content, topLevel = true) {
   const wrapClasses = {
     "s": "小さい文字",
+    "b": "太い文字",
     ">": "引用",
     "c": "コメント文字",
     "(": "囲い文字",
