@@ -203,6 +203,7 @@ export function build() {
             date: a.date,
             author: a.parsed.authorId,
             links: a.parsed.links,
+            urls: a.parsed.urls,
         };
     }
 

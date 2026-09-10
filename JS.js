@@ -184,13 +184,16 @@ if (relatedBox) {
     const titleToFile = new Map(entries.map(b => [b.title, b.filename]));
     const dateOf = new Map(entries.map(b => [b.title, b.date]));
     const outLinks = new Map(entries.map(b => [b.title, b.links ?? []]));
+    const outUrls = new Map(entries.map(b => [b.title, b.urls ?? []]));
 
     const inbound = new Set(entries.filter(b => (b.links ?? []).includes(node)).map(b => b.title));
     const outbound = new Set(outLinks.get(node) ?? []);
+    const nodeUrls = new Set(outUrls.get(node) ?? []);
     const siblings = new Set();
     for (const [title, targets] of outLinks) {
       if (title === node || inbound.has(title) || outbound.has(title)) continue;
-      if (targets.some(to => outbound.has(to))) siblings.add(title);
+      const shared = targets.some(to => outbound.has(to)) || outUrls.get(title).some(url => nodeUrls.has(url));
+      if (shared) siblings.add(title);
     }
 
     const group = (titles, cls) => {

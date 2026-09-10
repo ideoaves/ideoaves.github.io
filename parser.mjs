@@ -8,7 +8,7 @@ export function escapeAttr(text) {
     .replaceAll('"', "&quot;");
 }
 
-const collected = { images: [], links: [] };
+const collected = { images: [], links: [], urls: [] };
 
 // URLパスの判定機能
 export function isAbsoluteUrl(src) {
@@ -59,6 +59,14 @@ export function processInline(text, topLevel = true) {
   );
 }
 
+// リンク先URLを記事の比較用に纏める
+function collectUrl(url) {
+  const bare = url.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/[/?&]+$/, "");
+  const slash = bare.indexOf("/");
+  collected.urls.push(slash === -1 ? bare.toLowerCase() : bare.slice(0, slash).toLowerCase() + bare.slice(slash));
+  return url;
+}
+
 // []の記法を判定する。
 export function markdown(content, topLevel = true) {
   const wrapClasses = {
@@ -105,11 +113,12 @@ export function markdown(content, topLevel = true) {
 
   // [url 文字]
   if ((m = content.match(/^(.+?)\s+(\S+)\n?$/s)) && isLinkTarget(m[2])) {
-    return `<a href="${m[2]}">${processInline(m[1], false)}</a>`;
+    return `<a href="${collectUrl(m[2])}">${processInline(m[1], false)}</a>`;
   }
   // [url]
   const url = content.trim();
   if (!isLinkTarget(url)) return `[${content}]`;
+  collectUrl(url);
   //埋め込み
   if (topLevel) {
     if ((m = url.match(/(?:x|twitter)\.com\/([A-Za-z0-9_]+)\/status\/(\d+)/))) {
@@ -129,6 +138,7 @@ export function markdown(content, topLevel = true) {
 export function txt2html(text, hasTitle = true) {
   collected.images.length = 0;
   collected.links.length = 0;
+  collected.urls.length = 0;
 
   // ページは1行目から生HTMLが始まるので、字下げを消さないように前の改行だけ落とす
   const trimmed = hasTitle ? text.trim() : text.replace(/^\n+/, "").replace(/\s+$/, "");
@@ -325,6 +335,7 @@ export function txt2html(text, hasTitle = true) {
     bodyHtml,
     images: [...collected.images],
     links: [...new Set(collected.links)],
+    urls: [...new Set(collected.urls)],
   };
 }
 

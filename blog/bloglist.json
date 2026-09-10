@@ -7,7 +7,11 @@
         "summary": "noteが微妙にSNS過ぎてあまり嬉しくないのと、もう少しつぶやき感覚でありながらscrapboxほど簡単ではない手数の環境を手に入れたくなりました。 noteは背景が白すぎる。 構造としては blo...",
         "date": "2025-10-31",
         "author": "yimiru",
-        "links": []
+        "links": [],
+        "urls": [
+            "youtube.com/watch?v=NctffbWZ23w",
+            "twitter.com/Ph_wa_Yimiru/status/1984168244425715913"
+        ]
     },
     "2025-11-14.html": {
         "filename": "2025-11-14.html",
@@ -17,7 +21,12 @@
         "summary": "映像を作りました こういう映像を作りました。手書き感の演出としてKuwaharaフィルタを使う予定でしたが、既存エフェクトプラグインでは応用できなさそうなことと、実装に関してすでに計算式を入手できて簡...",
         "date": "2025-11-14",
         "author": "hazuqu",
-        "links": []
+        "links": [],
+        "urls": [
+            "youtube.com/watch?v=3Vjw2ZhSXE0",
+            "github.com/hazuqu/hazuqu.github.io/blob/main/tools/kuwahara.fs",
+            "github.com/baku89/ISF4AE"
+        ]
     },
     "2025-12-10.html": {
         "filename": "2025-12-10.html",
@@ -29,6 +38,9 @@
         "author": "hazuqu",
         "links": [
             "AE向けのXY別軸の桑原(Kuwahara)フィルタ"
+        ],
+        "urls": [
+            "github.com/hazuqu/hazuqu.github.io/blob/main/tools/CRT_scan.fs"
         ]
     },
     "2025-12-30.html": {
@@ -39,7 +51,10 @@
         "summary": "PCの操作系統を監視してビジュアライズするツールを用意しました。 いつも起動時に動き始めるpyファイルがあり、私の生活を少しだけ雑にしてくれるのですが、その機能の一つです。 構造 pyでPCの状態をみ...",
         "date": "2025-12-30",
         "author": "hazuqu",
-        "links": []
+        "links": [],
+        "urls": [
+            "twitter.com/kensuu/status/2003012829914501378"
+        ]
     },
     "2025-12-31.html": {
         "filename": "2025-12-31.html",
@@ -49,7 +64,17 @@
         "summary": "2025年お疲れ様でした 木葉はづくです。 今年は全体的に外側に出過ぎて徘徊している気分でした。ちょっと遠すぎるかもです。 もうすこし内側に行きたいですね。 ともかく、良いお年を。 今年した新しいこと...",
         "date": "2025-12-31",
         "author": "hazuqu ideoaves",
-        "links": []
+        "links": [],
+        "urls": [
+            "discord.gg/dcqAR8RyPn",
+            "youtube.com/watch?v=DY66cyRWQW8",
+            "twitter.com/HAZUQU/status/1998300078818332782",
+            "youtube.com/watch?v=ud27TX0XBZM",
+            "youtube.com/watch?v=1moa2h4eQ3M",
+            "youtube.com/watch?v=-6P17fTp8FQ",
+            "x.com/search?q=GOLDDISC%20CDs",
+            "hazuqu.github.io/about.html"
+        ]
     },
     "2026-01-05.html": {
         "filename": "2026-01-05.html",
@@ -59,7 +84,8 @@
         "summary": "目的 Scrapbox主体で貯めている60-70年代の国内の様子について、画像のリンク切れや集積の難しさの問題があり、 またローカルではエクスプローラーのファイル分けと既存のタグつけツールの煩雑さの問...",
         "date": "2026-01-05",
         "author": "yimiru",
-        "links": []
+        "links": [],
+        "urls": []
     },
     "2026-01-08.html": {
         "filename": "2026-01-08.html",
@@ -69,7 +95,17 @@
         "summary": "デスクトップマスコットを作りました！ 使用したボイス 以下の配信からお借りしています ｶﾅﾃﾞ～ 【対談】かわいいかわいい後輩の奏さんとお話がしたい #ぽるかなで対談 https://www.yout...",
         "date": "2026-01-08",
         "author": "sian",
-        "links": []
+        "links": [],
+        "urls": [
+            "twitter.com/olime_sian/status/2009195569147990149",
+            "youtube.com/live/Gcdr_p4lWGc?si=jJqcLud6P5NYjxt7&t=3448",
+            "youtube.com/live/wIMR-Gy4_Ss?si=CRTFua_JiYcI98he&t=3829",
+            "youtube.com/live/wIMR-Gy4_Ss?si=GYLdN3_wP-XcHTpA&t=212",
+            "youtube.com/live/7yJEHdZ2qJk?si=O3XDiJm7BdPr5HVo&t=7888",
+            "youtube.com/live/GHAhw8m9lA0?si=YkHppl2SvUXP1t1S&t=1110",
+            "youtube.com/live/GHAhw8m9lA0?si=sZx4EZZ-bmbFynxq&t=5764",
+            "github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/bongo_kanade/bongo.py"
+        ]
     },
     "2026-01-19.html": {
         "filename": "2026-01-19.html",
@@ -79,7 +115,16 @@
         "summary": "作り方 コンセプト 友人のendenさんに生活coreという美学を提唱されたところから、ビジュアル面のコンセプト制作が始まりました。 商店街や団地、公園のような時代の進歩から取り残されゆっくりと衰退す...",
         "date": "2026-01-19",
         "author": "hazuqu",
-        "links": []
+        "links": [],
+        "urls": [
+            "twitter.com/HAZUQU/status/2012923463032549593",
+            "x.com/enden_nix",
+            "enden-kpc.hatenablog.com/entry/seikatsu-core",
+            "github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/seikatsu_VJ",
+            "melodynade.com",
+            "x.com/dj_xaneiro",
+            "synapserack.com"
+        ]
     },
     "2026-02-08.html": {
         "filename": "2026-02-08.html",
@@ -89,7 +134,10 @@
         "summary": "これはなに？ ここです。 美学ウィキ プロジェクト内にプロジェクトの説明と、美学ミームそのものの簡単な説明のページがピン留めされています。 簡単に説明すると、インターネット美学ミームというものがありま...",
         "date": "2026-02-08",
         "author": "hazuqu",
-        "links": []
+        "links": [],
+        "urls": [
+            "scrapbox.io/AestheticsWiki"
+        ]
     },
     "2026-02-20.html": {
         "filename": "2026-02-20.html",
@@ -99,7 +147,11 @@
         "summary": "にっけいさんの『psyche』のMVをしました。 アイデア にっけいさんから提案頂いたのは「真っ白な部屋にただ水槽が置かれている画面」でした。 最初は3DCGや実写で水槽をオブジェクトとして用意する予...",
         "date": "2026-02-20",
         "author": "hazuqu",
-        "links": []
+        "links": [],
+        "urls": [
+            "twitter.com/n_k_kei/status/2024861601828909524",
+            "x.com/2r96/status/1945876636500627766"
+        ]
     },
     "2026-04-02.html": {
         "filename": "2026-04-02.html",
@@ -109,7 +161,20 @@
         "summary": "目的 例年エイプリルフールには名前がVTuberすぎるためにVTuber活動をしているのですが、 昨今個人サイトの数が増えてきた肌感があり、その発展形の一つとして『00年代歴史改変IFのSF』を試すこ...",
         "date": "2026-04-02",
         "author": "hazuqu",
-        "links": []
+        "links": [],
+        "urls": [
+            "websitemap.sakura.ne.jp/index.html",
+            "blog.livedoor.jp/sakuraba_izl",
+            "nic.ad.jp/timeline",
+            "soumu.go.jp/johotsusintokei/whitepaper/index.html",
+            "blinkies.cafe",
+            "glitter-graphics.com",
+            "note.com/ideoaves2/n/nba3b1877c57c?app_launch=false",
+            "ideoaves.github.io/CrossTimeline",
+            "note.com/ideoaves2/n/n0135f3436a7d",
+            "ja.scp-wiki.net/groups-of-interest-jp",
+            "ja.scp-wiki.net/2th-goi-contest-hub5"
+        ]
     },
     "2026-06-29.html": {
         "filename": "2026-06-29.html",
@@ -126,6 +191,51 @@
             "水槽越しにモニターを撮る。",
             "私のした26年エイプリルフールの解説",
             "Bongo Kanade　つくった！"
+        ],
+        "urls": [
+            "twitter.com/HAZUQU/status/2007040187763998918",
+            "hazuqu.github.io/p5/4.html",
+            "x.com/search?q=%23Harmony0118%20&src=typed_query",
+            "instagram.com/rejectedinpeace",
+            "youtube.com/watch?v=UHSyTR4EN9g",
+            "youtube.com/watch?v=uViZVI1ycns",
+            "youtube.com/watch?v=wndHqz3n2GQ",
+            "editor.p5js.org/IDEOAVES/sketches/dyT0WRDsF",
+            "github.com/hazuqu/hazuqu.github.io/blob/main/tools/ランダムフリーズ.jsx",
+            "github.com/hazuqu/hazuqu.github.io/blob/main/tools/制御自動追加.jsx",
+            "github.com/hazuqu/hazuqu.github.io/blob/main/tools/歌詞書き換え.jsx",
+            "youtube.com/watch?v=fMw6qU-DCwQ",
+            "youtube.com/watch?v=JiuTyDdtedo",
+            "hazuqu.github.io/p5/6.html",
+            "x.com/YAMAotonozei/status/2042258237261819934",
+            "twitter.com/HAZUQU/status/2057075764974268668",
+            "youtube.com/watch?v=sg56VJlR7jw",
+            "x.com/ryufurusawa/status/2046176744823246920",
+            "twitter.com/HAZUQU/status/2066573488127939013",
+            "hazuqu.github.io/p5/7.html",
+            "discord.gg/dcqAR8RyPn",
+            "chez-tomo.com/ginza",
+            "agedoridori.jimdofree.com/gensogakusho",
+            "u.muroran-it.ac.jp/hlc/2011/03Kirikoshi.pdf",
+            "individuality.jp/dialogue_corpus.html",
+            "github.com/hiroyuki-komatsu/tomoe_data",
+            "gallica.bnf.fr/ark:/12148/btv1b86095803",
+            "ideoaves.github.io/CrossTimeline",
+            "note.com/anon_press/n/n9ae641d0201d?sub_rt=share_pb",
+            "youtube.com/watch?v=LvZYwaQlJsg",
+            "soumu.go.jp/soutsu/kanto/bc/shogai/miwake/tv_rec_03.html",
+            "avartifactatlas.com",
+            "vt.tiktok.com/ZSusv7c1r",
+            "pressingwebshop.com/collections/luv-code",
+            "agem.jp/item/search.html",
+            "instagram.com/faithtokyo/?hl=ja",
+            "acrotokyo.com/c/reflem",
+            "labs.sense-studios.com/threebody/index.html",
+            "ap-i.net/skychart/en/start",
+            "typpo.github.io/spacekit",
+            "github.com/hazuqu/hazuqu.github.io/blob/main/tools/auto_camera.py",
+            "potatoland.org",
+            "x.com/hashtag/%E5%BF%97%E5%B2%90%E5%8D%8A%E5%B3%B6%E9%96%8B%E7%99%BA%E5%B1%80?src=hashtag_click"
         ]
     },
     "2026-08-19.html": {
@@ -136,7 +246,10 @@
         "summary": "共有リンクはこちらです。 Cosmic_Standard 目的 Cosmic StandardはCosmic sansの揺らぎに工業系サンセリフの末端処理を混ぜたフォントです。 HTML Energy...",
         "date": "2026-08-19",
         "author": "hazuqu",
-        "links": []
+        "links": [],
+        "urls": [
+            "../Cosmic_Standard/index.html"
+        ]
     },
     "2026-08-24.html": {
         "filename": "2026-08-24.html",
@@ -146,7 +259,12 @@
         "summary": "リファレンスや影響、関連性に重きを置いたポートフォリオです。ノードをクリックすると、直接関連のあるノードを強調します。 今回は私hazuquの自主制作を軸に置く場所として用意しました。 ノードポートフ...",
         "date": "2026-08-24",
         "author": "hazuqu",
-        "links": []
+        "links": [],
+        "urls": [
+            "hazuqu.github.io/node_portfolio",
+            "github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.canvas",
+            "github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.js"
+        ]
     },
     "2026-08-28.html": {
         "filename": "2026-08-28.html",
@@ -160,6 +278,14 @@
             "ノードポートフォリオ",
             "ブログらしきものを作る。",
             "存在しないページ"
+        ],
+        "urls": [
+            "baku89.com/ja/garden/series",
+            "strata.orito-itsuki.graphics/introduction-to-hyperstrata",
+            "aratanagara.com/intertex",
+            "noetheca.github.io/aesthetics",
+            "spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html#_ai_disclosure",
+            "scrapbox.io/lookdev/Lookdev_%2350%E3%80%8E%E3%82%A4%E3%83%B3%E3%83%87%E3%83%9A%E3%83%B3%E3%83%87%E3%83%B3%E3%83%88%E3%83%BB%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%8D%E4%B8%96%E7%95%8C%E3%80%81%E3%81%82%E3%81%A8AI%E3%82%84VR%E3%81%A8%E3%81%8B%E3%80%8F"
         ]
     },
     "2026-08-31.html": {
@@ -173,6 +299,25 @@
         "links": [
             "ノードポートフォリオ",
             "ノードとかCMSとかを考える"
+        ],
+        "urls": [
+            "youtube.com/watch?v=7i27l7uvTd4",
+            "youtube.com/watch?v=P1yqH9jwf14",
+            "youtube.com/watch?v=fSI3jy6SH0Y",
+            "kogures.com/hitoshi/history/index.html",
+            "youtube.com/watch?v=gdKTeKuVqjQ",
+            "youtube.com/watch?v=wtrIPf4ex88",
+            "youtube.com/watch?v=UCd6Sw4P8Xk",
+            "animation.hiroshimafest.org/program/00002074",
+            "youtube.com/watch?v=lJkgdThcBEU",
+            "youtube.com/watch?v=C0gNRRjyQZk",
+            "x.com/hiro___016016/status/2088158680550138286",
+            "ideoaves.github.io/blog/rss",
+            "/Cosmic_Standard",
+            "scrapbox.io/video-plugin-archive/%E6%98%A0%E5%83%8F%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%BE%E3%81%A8%E3%82%81",
+            "scrapbox.io/lookdev/Lookdev_%2350%E3%80%8E%E3%82%A4%E3%83%B3%E3%83%87%E3%83%9A%E3%83%B3%E3%83%87%E3%83%B3%E3%83%88%E3%83%BB%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%8D%E4%B8%96%E7%95%8C%E3%80%81%E3%81%82%E3%81%A8AI%E3%82%84VR%E3%81%A8%E3%81%8B%E3%80%8F",
+            "github.com/Aodaruma/aod-AE-plugin",
+            "hazuqu.github.io/more_works.html"
         ]
     },
     "2026-09-10.html": {
@@ -183,6 +328,27 @@
         "summary": "美学ウィキというScrapboxを作って半年が経ちました。想定の数倍の反応と参加者とともに編集を続けられていて有り難い限りです。 ある程度の規模の制作でメイキングを作るのと同様に、このScrapbox...",
         "date": "2026-09-10",
         "author": "hazuqu",
-        "links": []
+        "links": [],
+        "urls": [
+            "scrapbox.io/AestheticsWiki",
+            "aesthetics.fandom.com/wiki/Aesthetics_Wiki",
+            "ja.wikipedia.org/wiki/%E3%83%B4%E3%82%A7%E3%82%A4%E3%83%91%E3%83%BC%E3%82%A6%E3%82%A7%E3%82%A4%E3%83%B4",
+            "youtu.be/y8-6QPEes1k?si=kYA17Xm_FFfonXMW",
+            "youtube.com/watch?v=xUwJWv38FpY",
+            "grimoire-jp.com/blogs/fashion-colum/mizuirokaiwai?srsltid=AfmBOopk6rWK_IdwfPvuslEGKPW_Z3aRpV8bzJ7-d6cMwj-h8Jk4mFQs",
+            "shinsho-plus.shueisha.co.jp/column/kaiwai_minzoku_gaku/32998",
+            "scrapbox.io/AestheticsWiki/Webcore",
+            "youtube.com/watch?v=DY66cyRWQW8",
+            "note.com/ideoaves2/n/nb947a50437d7",
+            "aesthetics.fandom.com/wiki/Technozen",
+            "enden-kpc.hatenablog.com/entry/seikatsu-core",
+            "ja.wikipedia.org/wiki/%E3%83%AA%E3%83%9F%E3%83%8A%E3%83%AB%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9",
+            "scrapbox.io/AestheticsWiki/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E9%A2%A8%E6%99%AF%E7%B3%BB%E6%A6%82%E5%BF%B5",
+            "web.archive.org/web/20220628205537/https://fairypage.com/2021/02/17/i-spoke-too-soon-the-fact-of-my-creating-the-aesthetics-wiki-has-vanished-into-dust-what-is-an-aesthetic-anyway",
+            "itsnicethat.com/articles/elizabeth-goodspeed-whats-in-a-name-categorising-aesthetics-creative-industry-190526",
+            "x.com/cari_institute/status/2066326740948181129?s=46",
+            "x.com/rintarofuse/status/2033847882596634889?s=20",
+            "scrapbox.io/projects/AestheticsWiki/invitations/c635ad840f033dcb87e56c6702a2a9e1"
+        ]
     }
 }
