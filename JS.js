@@ -192,8 +192,7 @@ if (relatedBox) {
     const siblings = new Set();
     for (const [title, targets] of outLinks) {
       if (title === node || inbound.has(title) || outbound.has(title)) continue;
-      const shared = targets.some(to => outbound.has(to)) || outUrls.get(title).some(url => nodeUrls.has(url));
-      if (shared) siblings.add(title);
+      if (targets.some(to => outbound.has(to)) || outUrls.get(title).some(url => nodeUrls.has(url))) siblings.add(title);
     }
 
     const group = (titles, cls) => {

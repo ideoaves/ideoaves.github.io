@@ -177,6 +177,23 @@ export function txt2html(text, hasTitle = true) {
     }
   }
 
+  // 引用段落
+  function splitQuotes(lines, parts = []) {
+    function chunk(ls, n = 0, depth = 0) {
+      if (!ls[0].startsWith('<span class="引用">')) return 0;
+      const next = depth + countTag(ls[n], "span");
+      if (next > 0) return n + 1 < ls.length ? chunk(ls, n + 1, next) : 0;
+      return ls[n].endsWith("</span>") ? n + 1 : 0;
+    }
+
+    if (!lines.length) return parts;
+    const quote = chunk(lines);
+    const next = quote || lines.findIndex((_, n) => n > 0 && chunk(lines.slice(n)));
+    const end = next === -1 ? lines.length : next;
+    parts.push(lines.slice(0, end).join("<br>\n"));
+    return splitQuotes(lines.slice(end), parts);
+  }
+
   // 溜めてある段落・箇条書き・テーブルを閉じる
   function close(keep) {
     if (keep !== "paragraph" && paragraphBuf.length) {
@@ -206,7 +223,7 @@ export function txt2html(text, hasTitle = true) {
           continue;
         }
         const text = part.text.replace(/^(?:\s|<br>)+/, "").replace(/(?:\s|<br>)+$/, "");
-        if (text !== "") blocks.push(`<p>${text}</p>`);
+        for (const chunk of splitQuotes(text.split("<br>\n"))) blocks.push(`<p>${chunk}</p>`);
       }
       paragraphBuf = [];
     }
@@ -322,9 +339,11 @@ export function txt2html(text, hasTitle = true) {
       return `${leadingBreak}<a href="#${anchor}"${attr}>${heading}</a>${horizontal ? "" : "<br>"}`;
     })
     .join("");
-  if (toc.filter(([level]) => level <= 2).length > 3 && tocHtml !== "") {
-    blocks.unshift(`<div class="目次"><h1>目次</h1>${tocHtml}</div>`);
-  }
+  // 目次はmdに書いた中身の外に出すので、本文と分けて返す
+  const tocBlock =
+    toc.filter(([level]) => level <= 2).length > 3 && tocHtml !== ""
+      ? `<div class="目次"><h1>目次</h1>${tocHtml}</div>\n`
+      : "";
 
   const bodyHtml = blocks.join("\n");
 
@@ -332,6 +351,7 @@ export function txt2html(text, hasTitle = true) {
   return {
     title,
     authorId,
+    tocBlock,
     bodyHtml,
     images: [...collected.images],
     links: [...new Set(collected.links)],
@@ -339,9 +359,9 @@ export function txt2html(text, hasTitle = true) {
   };
 }
 
-export function renderArticleBody({ title, authorId, bodyHtml }) {
+export function renderArticleBody({ title, authorId, tocBlock, bodyHtml }) {
   const authorHtml = authorId ? `<div class="作った人たち">${authorId}</div>\n` : "";
-  return `<h1>${title}</h1>\n${authorHtml}${bodyHtml}`;
+  return `<h1>${title}</h1>\n${authorHtml}${tocBlock}<div class="ブログ本文">\n${bodyHtml}\n</div>`;
 }
 
 export function renderPreview(text) {

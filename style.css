@@ -192,26 +192,22 @@ a[href]:visited {
     margin: 0 5px;
 }
 
+p:has(.引用) {
+    margin: 0.8em 0;
+    width: calc(100% - 9px);
+}
+
 .引用 {
     border-radius: var(--ra);
     outline: 1px solid var(--黒);
     outline-offset: 3px;
-    padding: 5px 20px;
-    margin-right: 10px;
+    padding: 5px 10px;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
 
-/* 嬉しさ：特定のinline要素が並ぶ時に少し開ける書き方を見つけた！ */
-.引用 + br + .引用::before {
-    content: "";
-    display: inline-block;
-    margin-top: 2.2em;
-}
-
 .引用 .引用 {
-    outline-offset: -3px;
-    padding: 7px 22px;
+    outline-offset: -1px;
 }
 
 .箇条書き {
@@ -538,6 +534,7 @@ a.バナー:not(:has(img)) {
     padding: 10px;
     position: relative;
 }
+
 .関連記事::before {
     content: "";
     position: absolute;
@@ -558,17 +555,21 @@ a.バナー:not(:has(img)) {
 .inリンク {
     text-align: left;
 }
+
 .inリンク::after {
     content: "→";
     margin-left: 5px;
 }
+
 .outリンク {
     text-align: right;
 }
+
 .outリンク::before {
     content: "→";
     margin-right: 5px;
 }
+
 .sameリンク {
     text-align: center;
 }
