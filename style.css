@@ -25,11 +25,11 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     /* 基本的な文字の扱い */
-    line-height: 2.1;
+    line-height: 2;
     line-break: strict;
     font-family: "Zen Kaku Gothic New", "Noto Sans SC", sans-serif;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 main {
@@ -195,10 +195,23 @@ a[href]:visited {
 .引用 {
     border-radius: var(--ra);
     outline: 1px solid var(--黒);
+    outline-offset: 3px;
     padding: 5px 20px;
     margin-right: 10px;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
+}
+
+/* 嬉しさ：特定のinline要素が並ぶ時に少し開ける書き方を見つけた！ */
+.引用 + br + .引用::before {
+    content: "";
+    display: inline-block;
+    margin-top: 2.2em;
+}
+
+.引用 .引用 {
+    outline-offset: -3px;
+    padding: 7px 22px;
 }
 
 .箇条書き {
