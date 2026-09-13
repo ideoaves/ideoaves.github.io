@@ -5,8 +5,16 @@
         <link>https://ideoaves.github.io/blog/</link>
         <description>Ideoavesのブログ</description>
         <language>ja</language>
-        <lastBuildDate>Thu, 10 Sep 2026 00:00:00 +0900</lastBuildDate>
+        <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0900</lastBuildDate>
         <atom:link href="https://ideoaves.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>「AI Blue」</title>
+            <link>https://ideoaves.github.io/blog/2026-09-13.html</link>
+            <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-09-13.html</guid>
+            <pubDate>Sun, 13 Sep 2026 00:00:00 +0900</pubDate>
+            <書いた人>
+            <description>AI Blue AIが作った、ありがちなWebデザインを解剖する。 AI Blueとは、AIによって生成されたWeb UIやデザインにしばしば見られる、 暗い青を基調とした視覚表現と、過剰に細分化され...</description>
+        </item>
         <item>
             <title>私的美学ミーム史</title>
             <link>https://ideoaves.github.io/blog/2026-09-10.html</link>

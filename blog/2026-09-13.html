@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>「AI Blue」 ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="AI Blue AIが作った、ありがちな...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ideoaves のブログ" href="/blog/rss.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="「AI Blue」">
+    <meta name="twitter:description" content="AI Blue AIが作った、ありがちな...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <style>
+        body {
+            --bg: #080d16;
+            --text: #fff;
+            --muted: #8998ad;
+            --blue: #668cff;
+            --cyan: #69d9ff;
+            --orange: #ff9b5c;
+            margin: 0 auto;
+            padding: 60px 0;
+            overflow: hidden;
+            background:
+              radial-gradient(circle at 15% 10%, rgb(102 140 255 / .1), transparent 30%),
+              radial-gradient(circle at 85% 90%, rgb(255 155 92 / .06), transparent 30%),
+              var(--bg);
+            color: var(--text);
+          }
+
+          .ai-blue {
+            font-family: "Yu Gothic", Meiryo, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+          }
+
+          .ai-blue::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+              linear-gradient(90deg, transparent 49.9%, rgb(255 255 255 / .025) 50%, transparent 50.1%),
+              linear-gradient(transparent 49.9%, rgb(255 255 255 / .025) 50%, transparent 50.1%);
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, black, transparent 70%);
+          }
+
+          .ai-blue > * {
+            position: relative;
+          }
+
+          .ai-blue h1 {
+            margin: 0;
+            color: #f0f5ff;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            letter-spacing: -.04em;
+            font-family: "Yu Gothic", Meiryo, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+          }
+
+          .ai-blue h2 {
+            margin: 8px 0 20px;
+            color: var(--cyan);
+            font-size: 1rem;
+            font-weight: normal;
+            letter-spacing: .02em;
+            font-family: "Yu Gothic", Meiryo, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+          }
+
+          .ai-blue > p {
+            max-width: 720px;
+            margin: 0 0 50px;
+            color: var(--text);
+            line-height: 1.9;
+          }
+
+          .ai-blue-features {
+            display: flex;
+            gap: 30px;
+          }
+
+          .ai-blue-features article {
+            flex: 1;
+            min-width: 0;
+          }
+
+          .ai-blue .number {
+            display: inline-block;
+            margin-bottom: 16px;
+            padding: 5px 9px;
+            border: 1px solid;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: .75rem;
+            font-weight: bold;
+            letter-spacing: .08em;
+          }
+
+          .ai-blue-features article:nth-child(1) .number {
+            color: var(--blue);
+            border-color: rgb(102 140 255 / .5);
+            background: rgb(102 140 255 / .08);
+            box-shadow: 0 0 20px rgb(102 140 255 / .08);
+          }
+
+          .ai-blue-features article:nth-child(2) .number {
+            color: var(--cyan);
+            border-color: rgb(105 217 255 / .5);
+            background: rgb(105 217 255 / .08);
+            box-shadow: 0 0 20px rgb(105 217 255 / .08);
+          }
+
+          .ai-blue-features article:nth-child(3) .number {
+            color: var(--orange);
+            border-color: rgb(255 155 92 / .5);
+            background: rgb(255 155 92 / .08);
+            box-shadow: 0 0 20px rgb(255 155 92 / .08);
+          }
+
+          .ai-blue h3 {
+            margin: 0 0 20px;
+            color: #e8f0ff;
+            font-size: 1.2rem;
+            font-weight: 500;
+          }
+
+          .ai-blue h3::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 1px;
+            margin-top: 10px;
+            background: currentColor;
+            opacity: .5;
+          }
+
+          .ai-blue-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          .ai-blue-list p {
+            margin: 0;
+            padding: 14px 16px;
+            border: 1px solid;
+            border-radius: 6px;
+            color: var(--text);
+            line-height: 1.7;
+            transition: transform .2s, background .2s;
+          }
+
+          .ai-blue-list p:hover {
+            transform: translateX(4px);
+          }
+
+          .ai-blue-features article:nth-child(1) .ai-blue-list p {
+            border-color: rgb(102 140 255 / .3);
+            background: rgb(102 140 255 / .07);
+          }
+
+          .ai-blue-features article:nth-child(1) .ai-blue-list p:hover {
+            background: rgb(102 140 255 / .12);
+          }
+
+          .ai-blue-features article:nth-child(2) .ai-blue-list p {
+            border-color: rgb(105 217 255 / .3);
+            background: rgb(105 217 255 / .07);
+          }
+
+          .ai-blue-features article:nth-child(2) .ai-blue-list p:hover {
+            background: rgb(105 217 255 / .12);
+          }
+
+          .ai-blue-features article:nth-child(3) .ai-blue-list p {
+            border-color: rgb(255 155 92 / .3);
+            background: rgb(255 155 92 / .07);
+          }
+
+          .ai-blue-features article:nth-child(3) .ai-blue-list p:hover {
+            background: rgb(255 155 92 / .12);
+          }
+
+          @media (max-width: 700px) {
+            .ai-blue {
+              padding: 40px 20px;
+            }
+
+            .ai-blue-features {
+              flex-direction: column;
+              gap: 40px;
+            }
+          }
+      </style>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+            <div class="横に狭い分類">
+                <h1>「AI Blue」</h1>
+                <div class="作った人たち">hazuqu yimiru</div>
+                <div class="ブログ本文">
+                <p><section class="ai-blue"></p>
+                　<h1>AI Blue</h1>
+                  <h2>AIが作った、ありがちなWebデザインを解剖する。</h2>
+                  <p>
+                    AI Blueとは、AIによって生成されたWeb UIやデザインにしばしば見られる、
+                    暗い青を基調とした視覚表現と、過剰に細分化されたCSS設計の傾向を指す。
+                    単一の色やデザイン様式ではなく、色・形状・コード構造に共通して現れる
+                    「AIらしい無難さ」と「局所的な最適化」の組み合わせである。
+                    ちなみに「AI Blue」とは勝手に私個人が使っている造語です。
+                  </p>
+                  <div class="ai-blue-features">
+                    <article>
+                      <span class="number">01</span>
+                      <h3>Color</h3>
+                      <div class="ai-blue-list">
+                        <p>色相220°明度20%近辺（暗い青）でグラーデーションする背景色。</p>
+                        <p>0.0X単位のアルファ。特にborderとbackgroundで同色のアルファ違いを入れる。</p>
+                        <p>透明度を付与されたり明度70%あたりにされた小さい文字。</p>
+                      </div>
+                    </article>
+
+                    <article>
+                      <span class="number">02</span>
+                      <h3>Design</h3>
+                      <div class="ai-blue-list">
+                        <p>ウィンドウごとに12pxや14pxのようにバラバラの値が入るborder-radius等。</p>
+                        <p>buttonやinputの横に長文で書かれる説明。</p>
+                        <p>gradationなどを応用した初歩的なCSS芸の欠如。</p>
+                      </div>
+                    </article>
+
+                    <article>
+                      <span class="number">03</span>
+                      <h3>Class / Selector</h3>
+                      <div class="ai-blue-list">
+                        <p>同じように見えるdivにそれぞれ付与されるclass。</p>
+                        <p>非効率なセレクタ。</p>
+                      </div>
+                    </article>
+                  </div>
+                <p></section></p>
+                <h2 id="気持ち-">気持ち。</h2>
+                <p>正直なところ、視覚優位の人間としてこの景色になると文字をほぼ読まなくなります。<br>
+                このパロディはほぼすべての文章を私が手書きしていますが、それでも読む気がでないというか、頭に入ってこないです。</p>
+                <p>もし貴方がAI生成コンテンツを共有しようと考えている場合、CSSについて是非調整してほしいです。想像以上にデザインが認知負荷を起こしている可能性があります。</p>
+                </div>
+                <div class="関連記事" data-記事="「AI Blue」" hidden></div>
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+            </div>
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>

@@ -169,6 +169,7 @@ export function build() {
                 filename,
                 title: filename.slice(0, -3),
                 date: String(data["日付"] ?? ""),
+                head: data.head,
                 text: config.map((line) => line + "\n").join("") + content.trim(),
             };
         })
@@ -234,6 +235,7 @@ export function build() {
             renderPage(inner, {
                 title: a.title,
                 description: summarize(bodyHtml, 20),
+                head: a.head,
                 image: isAbsoluteUrl(cover) ? cover : `${BLOG_URL}${cover}`,
                 rss: true,
             }),
