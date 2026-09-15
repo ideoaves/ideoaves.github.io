@@ -11,7 +11,8 @@
         "urls": [
             "youtube.com/watch?v=NctffbWZ23w",
             "twitter.com/Ph_wa_Yimiru/status/1984168244425715913"
-        ]
+        ],
+        "private": false
     },
     "2025-11-14.html": {
         "filename": "2025-11-14.html",
@@ -26,7 +27,8 @@
             "youtube.com/watch?v=3Vjw2ZhSXE0",
             "github.com/hazuqu/hazuqu.github.io/blob/main/tools/kuwahara.fs",
             "github.com/baku89/ISF4AE"
-        ]
+        ],
+        "private": false
     },
     "2025-12-10.html": {
         "filename": "2025-12-10.html",
@@ -41,7 +43,8 @@
         ],
         "urls": [
             "github.com/hazuqu/hazuqu.github.io/blob/main/tools/CRT_scan.fs"
-        ]
+        ],
+        "private": false
     },
     "2025-12-30.html": {
         "filename": "2025-12-30.html",
@@ -54,7 +57,8 @@
         "links": [],
         "urls": [
             "twitter.com/kensuu/status/2003012829914501378"
-        ]
+        ],
+        "private": false
     },
     "2025-12-31.html": {
         "filename": "2025-12-31.html",
@@ -74,7 +78,8 @@
             "youtube.com/watch?v=-6P17fTp8FQ",
             "x.com/search?q=GOLDDISC%20CDs",
             "hazuqu.github.io/about.html"
-        ]
+        ],
+        "private": false
     },
     "2026-01-05.html": {
         "filename": "2026-01-05.html",
@@ -85,7 +90,8 @@
         "date": "2026-01-05",
         "author": "yimiru",
         "links": [],
-        "urls": []
+        "urls": [],
+        "private": false
     },
     "2026-01-08.html": {
         "filename": "2026-01-08.html",
@@ -105,7 +111,8 @@
             "youtube.com/live/GHAhw8m9lA0?si=YkHppl2SvUXP1t1S&t=1110",
             "youtube.com/live/GHAhw8m9lA0?si=sZx4EZZ-bmbFynxq&t=5764",
             "github.com/ideoaves/ideoaves.github.io/blob/main/blog/blog_img/bongo_kanade/bongo.py"
-        ]
+        ],
+        "private": false
     },
     "2026-01-19.html": {
         "filename": "2026-01-19.html",
@@ -124,7 +131,8 @@
             "melodynade.com",
             "x.com/dj_xaneiro",
             "synapserack.com"
-        ]
+        ],
+        "private": false
     },
     "2026-02-08.html": {
         "filename": "2026-02-08.html",
@@ -137,7 +145,8 @@
         "links": [],
         "urls": [
             "scrapbox.io/AestheticsWiki"
-        ]
+        ],
+        "private": false
     },
     "2026-02-20.html": {
         "filename": "2026-02-20.html",
@@ -151,7 +160,8 @@
         "urls": [
             "twitter.com/n_k_kei/status/2024861601828909524",
             "x.com/2r96/status/1945876636500627766"
-        ]
+        ],
+        "private": false
     },
     "2026-04-02.html": {
         "filename": "2026-04-02.html",
@@ -174,7 +184,8 @@
             "note.com/ideoaves2/n/n0135f3436a7d",
             "ja.scp-wiki.net/groups-of-interest-jp",
             "ja.scp-wiki.net/2th-goi-contest-hub5"
-        ]
+        ],
+        "private": false
     },
     "2026-06-29.html": {
         "filename": "2026-06-29.html",
@@ -236,7 +247,8 @@
             "github.com/hazuqu/hazuqu.github.io/blob/main/tools/auto_camera.py",
             "potatoland.org",
             "x.com/hashtag/%E5%BF%97%E5%B2%90%E5%8D%8A%E5%B3%B6%E9%96%8B%E7%99%BA%E5%B1%80?src=hashtag_click"
-        ]
+        ],
+        "private": false
     },
     "2026-08-19.html": {
         "filename": "2026-08-19.html",
@@ -249,7 +261,8 @@
         "links": [],
         "urls": [
             "../Cosmic_Standard/index.html"
-        ]
+        ],
+        "private": false
     },
     "2026-08-24.html": {
         "filename": "2026-08-24.html",
@@ -264,7 +277,8 @@
             "hazuqu.github.io/node_portfolio",
             "github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.canvas",
             "github.com/hazuqu/hazuqu.github.io/blob/main/node_portfolio/nodes.js"
-        ]
+        ],
+        "private": false
     },
     "2026-08-28.html": {
         "filename": "2026-08-28.html",
@@ -286,7 +300,8 @@
             "noetheca.github.io/aesthetics",
             "spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html#_ai_disclosure",
             "scrapbox.io/lookdev/Lookdev_%2350%E3%80%8E%E3%82%A4%E3%83%B3%E3%83%87%E3%83%9A%E3%83%B3%E3%83%87%E3%83%B3%E3%83%88%E3%83%BB%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%8D%E4%B8%96%E7%95%8C%E3%80%81%E3%81%82%E3%81%A8AI%E3%82%84VR%E3%81%A8%E3%81%8B%E3%80%8F"
-        ]
+        ],
+        "private": false
     },
     "2026-08-31.html": {
         "filename": "2026-08-31.html",
@@ -318,7 +333,8 @@
             "scrapbox.io/lookdev/Lookdev_%2350%E3%80%8E%E3%82%A4%E3%83%B3%E3%83%87%E3%83%9A%E3%83%B3%E3%83%87%E3%83%B3%E3%83%88%E3%83%BB%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%8D%E4%B8%96%E7%95%8C%E3%80%81%E3%81%82%E3%81%A8AI%E3%82%84VR%E3%81%A8%E3%81%8B%E3%80%8F",
             "github.com/Aodaruma/aod-AE-plugin",
             "hazuqu.github.io/more_works.html"
-        ]
+        ],
+        "private": false
     },
     "2026-09-10.html": {
         "filename": "2026-09-10.html",
@@ -349,7 +365,8 @@
             "x.com/cari_institute/status/2066326740948181129?s=46",
             "x.com/rintarofuse/status/2033847882596634889?s=20",
             "scrapbox.io/projects/AestheticsWiki/invitations/c635ad840f033dcb87e56c6702a2a9e1"
-        ]
+        ],
+        "private": false
     },
     "2026-09-13.html": {
         "filename": "2026-09-13.html",
@@ -360,6 +377,69 @@
         "date": "2026-09-13",
         "author": "hazuqu yimiru",
         "links": [],
-        "urls": []
+        "urls": [],
+        "private": false
+    },
+    "2026-09-15.html": {
+        "filename": "2026-09-15.html",
+        "md": "1枚絵MVについて.md",
+        "title": "1枚絵MVについて",
+        "img": "",
+        "summary": "この記事はプライベート公開中です 1枚絵MVの定義 「1枚絵MV」で検索するとボカロオリジナル曲MVや「歌ってみた」MVを指す傾向にある。[1][2] MV作家間でも同様のジャンルを「1枚絵MV」と呼...",
+        "date": "2026-09-15",
+        "author": "",
+        "links": [],
+        "urls": [
+            "youtube.com/watch?v=7WryveKlyX8",
+            "typesinc.com/media/2026/01/09/mv-tsukurikata",
+            "soundhouse.co.jp/contents/column/index?post=3602&srsltid=AfmBOoqqc2fvL_1_d2yWH8dYRdSKtLbxCUAsuEV-S4NDFSkqxCqkf9Ts",
+            "note.com/kagehito_muji/n/nd9200501d645",
+            "note.com/koike_maple/n/n14f2402fa55e",
+            "realsound.jp/2023/07/post-1370943.html",
+            "gdr.jagda.or.jp/articles/77",
+            "nicovideo.jp/watch/sm1715919",
+            "nicovideo.jp/watch/sm3645817",
+            "youtube.com/watch?v=DnLFVUi3oOU",
+            "note.com/sasakiyusuke/n/ncf1b04224ea5",
+            "youtube.com/watch?v=EMGyiiTC7sg",
+            "youtube.com/watch?v=HswIHVN5D4o",
+            "youtube.com/watch?v=cm-l2h6GB8Q",
+            "youtube.com/watch?v=e1xCOsgWG0M",
+            "scrapbox.io/frog96lab/%E3%82%AD%E3%83%A3%E3%83%A9%E3%81%AE%E4%B8%80%E6%9E%9A%E7%B5%B5%E3%81%A7%E6%98%A0%E5%83%8F%E3%81%8C%E6%A7%8B%E6%88%90%E3%81%95%E3%82%8C%E3%82%8B%E3%83%9C%E3%82%AB%E3%83%AD%E6%9B%B2(%E3%81%A8%E3%81%9D%E3%81%AE%E6%AD%8C%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F)",
+            "youtube.com/watch?v=adGhT_-JbZI",
+            "youtube.com/watch?v=gHx5hGtQkks",
+            "youtube.com/watch?v=XqKbuEDvaf8",
+            "windvirtual.booth.pm/items/7695259",
+            "youtube.com/watch?v=NasyGUeNMTs",
+            "youtube.com/watch?v=sPE9vVOWjUE",
+            "youtube.com/watch?v=xxUikIXYGdw",
+            "youtube.com/watch?v=AeB6SOvka44",
+            "youtube.com/watch?v=nkXjqlojjE4",
+            "youtube.com/watch?v=nP5mhWX2i0Q",
+            "youtube.com/watch?v=3cqV5BKJHyk",
+            "youtube.com/watch?v=SnkUxyMoR5s",
+            "youtube.com/watch?v=y6TGSY9Zll0",
+            "youtube.com/watch?v=e7VK3pne8N4",
+            "youtube.com/watch?v=sTcvNTQS86s",
+            "youtu.be/2hz0lhAs0Kg?si=8wkT9eZCT4JhhJK5",
+            "youtu.be/lqTS5eaEhbI?si=O55mKKXZd1zTlVNk",
+            "youtu.be/F7iqxHOth58?si=Tg0DHwvHnNQ1WC2X",
+            "youtube.com/playlist?list=PLiFNg5fXiX32G3fNBC7U02t19zVkHAmdD",
+            "youtube.com/watch?v=8m1cUgLepmY",
+            "youtu.be/9kZ6MPqj9Tg",
+            "youtube.com/watch?v=T1GK55fsIhw",
+            "youtube.com/watch?v=Sq5Dj0U06vQ",
+            "youtube.com/watch?v=4thcMKIMBYE",
+            "youtube.com/watch?v=6JEdJWwcIyk",
+            "youtube.com/watch?v=19y8YTbvri8",
+            "scrapbox.io/AestheticsWiki/Animation_meme",
+            "youtube.com/watch?v=bN5AgS7qz0U",
+            "yorukura-anime.com",
+            "youtu.be/tpWIK6D-yVM",
+            "yell-movie2024.com",
+            "sh-anime.shochiku.co.jp/pjsekai-movie",
+            "youtube.com/watch?v=h3djT-YfSDQ"
+        ],
+        "private": true
     }
 }

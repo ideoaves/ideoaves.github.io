@@ -13,6 +13,7 @@ const SITE = "https://ideoaves.github.io";
 const BLOG_URL = `${SITE}/blog/`;
 const BLOG_TITLE = "Ideoaves のブログ";
 const UNTITLED = /^(無題のファイル|Untitled)( \d+)?\.md$/;
+const PRIVATE_NOTICE = "[> この記事はプライベート公開中です]\n\n";
 
 // parser.mjsを読み直す
 let txt2html, renderArticleBody, escapeAttr, isAbsoluteUrl;
@@ -159,9 +160,10 @@ export function build() {
             if (!readFrontMatter(raw)[0]["日付"]) {
                 raw = stampDate(file, raw);
                 writeText(file, raw);
-                console.log(`  ${filename}: 日付とhideを書き足し。hideを消すと書き出します`);
+                console.log(`  ${filename}: 日付とhideを書き足し。hideを消すと書き出`);
             }
             const [data, content] = readFrontMatter(raw);
+            const isPrivate = data.hide === "private";
             const config = [];
             if (data.id) config.push(`id=${data.id}`);
             if (data.mokuzi !== undefined) config.push(`mokuzi=${data.mokuzi}`);
@@ -171,8 +173,8 @@ export function build() {
                 date: String(data["日付"] ?? ""),
                 head: data.head,
                 hide: data.hide === true,
-                private: data.hide === "private",
-                text: config.map((line) => line + "\n").join("") + content.trim(),
+                private: isPrivate,
+                text: config.map((line) => line + "\n").join("") + (isPrivate ? PRIVATE_NOTICE : "") + content.trim(),
             };
         });
 
