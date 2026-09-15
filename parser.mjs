@@ -8,7 +8,7 @@ export function escapeAttr(text) {
     .replaceAll('"', "&quot;");
 }
 
-const collected = { images: [], links: [], urls: [] };
+const collected = { images: [], links: [], urls: [], refs: [] };
 
 // URLパスの判定機能
 export function isAbsoluteUrl(src) {
@@ -89,6 +89,13 @@ export function markdown(content, topLevel = true) {
     return `<img alt="" class="ブログの画像${thumb ? " サムネイル" : ""}" src="${escapeAttr(src)}">`;
   }
 
+  // [r 注釈]。本文には番号だけ出して、中身は段落の下にまとめる
+  const refMark = content.match(/^r\s+(.+)$/s);
+  if (refMark) {
+    collected.refs.push(processInline(refMark[1], false));
+    return `<span class="上付き文字">[${collected.refs.length}]</span>`;
+  }
+
   // [l 文字]で下線。[l1 文字]と[t1 文字]は同じ番号どうしを線で結ぶよ
   const lineMark = content.match(/^(l\d*|t\d+)\s+(.+)$/s);
   if (lineMark) {
@@ -139,6 +146,7 @@ export function txt2html(text, hasTitle = true) {
   collected.images.length = 0;
   collected.links.length = 0;
   collected.urls.length = 0;
+  collected.refs.length = 0;
 
   // ページは1行目から生HTMLが始まるので、字下げを消さないように前の改行だけ落とす
   const trimmed = hasTitle ? text.trim() : text.replace(/^\n+/, "").replace(/\s+$/, "");
@@ -199,7 +207,7 @@ export function txt2html(text, hasTitle = true) {
     if (keep !== "paragraph" && paragraphBuf.length) {
       const html = processInline(paragraphBuf.join("\n"))
         .replace(/\r\n|\r|\n/g, "<br>\n")
-        .replace(/(<img[^>]*>)<br>\n/g, "$1\n");
+        .replace(/(<img[^>]*>|<\/iframe>|<\/script>)<br>\n/g, "$1\n");
 
       const blockOpen = /<(blockquote|figure|table|pre|div|ul|ol|h1|h2|h3|h4|h5|h6|p)(?=[\s/>])/i;
       const parts = [];
@@ -224,6 +232,11 @@ export function txt2html(text, hasTitle = true) {
         }
         const text = part.text.replace(/^(?:\s|<br>)+/, "").replace(/(?:\s|<br>)+$/, "");
         for (const chunk of splitQuotes(text.split("<br>\n"))) blocks.push(`<p>${chunk}</p>`);
+      }
+      // その段落で出た[r ]を小さい文字で羅列する
+      if (collected.refs.length) {
+        blocks.push(`<p class="小さい文字">${collected.refs.map((ref, n) => `${n + 1}. ${ref}`).join("<br>")}</p>`);
+        collected.refs.length = 0;
       }
       paragraphBuf = [];
     }

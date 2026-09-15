@@ -7,6 +7,7 @@ const ROOT = import.meta.dirname;
 const BLOG_DIR = path.join(ROOT, "blog");
 const templatesDir = path.join(ROOT, "_includes");
 const JSON_PATH = path.join(BLOG_DIR, "bloglist.json");
+const GITIGNORE_PATH = path.join(ROOT, ".gitignore");
 
 const SITE = "https://ideoaves.github.io";
 const BLOG_URL = `${SITE}/blog/`;
@@ -82,7 +83,7 @@ function readFrontMatter(text) {
 function stampDate(file, raw) {
     const stat = fs.statSync(file);
     const created = new Date((stat.birthtimeMs || stat.mtimeMs) + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
-    const line = `日付: "${created}"\n`;
+    const line = `日付: "${created}"\n` + (/^hide:/m.test(raw) ? "" : "hide: true\n");
     const end = raw.startsWith("---\n") ? raw.indexOf("\n---\n", 4) : -1;
     if (end === -1) return `---\n${line}---\n\n${raw}`;
     const head = raw.slice(4, end + 1);
@@ -158,10 +159,9 @@ export function build() {
             if (!readFrontMatter(raw)[0]["日付"]) {
                 raw = stampDate(file, raw);
                 writeText(file, raw);
-                console.log(`  ${filename}: 日付を書き足し`);
+                console.log(`  ${filename}: 日付とhideを書き足し。hideを消すと書き出します`);
             }
             const [data, content] = readFrontMatter(raw);
-            if (data.hide) return null;
             const config = [];
             if (data.id) config.push(`id=${data.id}`);
             if (data.mokuzi !== undefined) config.push(`mokuzi=${data.mokuzi}`);
@@ -170,10 +170,11 @@ export function build() {
                 title: filename.slice(0, -3),
                 date: String(data["日付"] ?? ""),
                 head: data.head,
+                hide: data.hide === true,
+                private: data.hide === "private",
                 text: config.map((line) => line + "\n").join("") + content.trim(),
             };
-        })
-        .filter(Boolean);
+        });
 
     // 日付の順に
     articles.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
@@ -195,6 +196,7 @@ export function build() {
     // json更新
     const list = {};
     for (const a of articles) {
+        if (a.hide) continue;
         list[a.outputFilename] = {
             filename: a.outputFilename,
             md: a.filename,
@@ -205,6 +207,7 @@ export function build() {
             author: a.parsed.authorId,
             links: a.parsed.links,
             urls: a.parsed.urls,
+            private: a.private,
         };
     }
 
@@ -253,7 +256,7 @@ export function build() {
     );
 
     // 新しい順の一覧とRSS。未来の日付はRSSに出さない, 並びが壊れて購読側に迷惑をかけるため。
-    const sorted = Object.values(list).sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+    const sorted = Object.values(list).filter((b) => !b.private).sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
     const todayJST = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
     const cards = sorted
         .map((b) => {
@@ -297,6 +300,12 @@ export function build() {
     writeText(path.join(BLOG_DIR, "rss.xml"), rss);
 
     writeText(JSON_PATH, JSON.stringify(list, null, 4) + "\n");
+
+    // hideの記事はHTMLは作り、gitには載せない
+    const MARK = "# hide記事";
+    const drafts = articles.filter((a) => a.hide).map((a) => `blog/${a.outputFilename}`);
+    const kept = readText(GITIGNORE_PATH).split(MARK)[0].replace(/\s+$/, "");
+    writeText(GITIGNORE_PATH, drafts.length ? `${kept}\n\n${MARK}\n${drafts.join("\n")}\n` : `${kept}\n`);
 
     // ファイル名をURLに。フォルダの中のmdも同じ場所
     function findPages(dir = "") {

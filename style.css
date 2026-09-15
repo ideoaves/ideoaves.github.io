@@ -163,6 +163,11 @@ a[href]:visited {
     font-size: 0.7em;
 }
 
+.上付き文字 {
+    vertical-align: super;
+    font-size: 0.7em;
+}
+
 .中央に揃う文字 {
     text-align: center;
 }

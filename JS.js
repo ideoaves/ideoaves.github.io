@@ -179,7 +179,7 @@ function articleLink(title, file) {
 
 if (relatedBox) {
   fetch('/blog/bloglist.json').then(res => res.json()).then(list => {
-    const entries = Object.values(list);
+    const entries = Object.values(list).filter(b => !b.private);
     const node = relatedBox.dataset.記事;
     const titleToFile = new Map(entries.map(b => [b.title, b.filename]));
     const dateOf = new Map(entries.map(b => [b.title, b.date]));

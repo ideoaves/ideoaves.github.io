@@ -10,3 +10,6 @@ blog/html2txt.mjs
 # まだ公開しないもの。別にいいけども。
 prev.png
 
+# hide記事
+blog/2026-09-06.html
+blog/2026-09-15.html
