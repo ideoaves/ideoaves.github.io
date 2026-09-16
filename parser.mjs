@@ -233,9 +233,12 @@ export function txt2html(text, hasTitle = true) {
         const text = part.text.replace(/^(?:\s|<br>)+/, "").replace(/(?:\s|<br>)+$/, "");
         for (const chunk of splitQuotes(text.split("<br>\n"))) blocks.push(`<p>${chunk}</p>`);
       }
-      // その段落で出た[r ]を小さい文字で羅列する
+      // [r ]を段落の最後に入れる
       if (collected.refs.length) {
-        blocks.push(`<p class="小さい文字">${collected.refs.map((ref, n) => `${n + 1}. ${ref}`).join("<br>")}</p>`);
+        const refs = `<span class="小さい文字">${collected.refs.map((ref, n) => `${n + 1}. ${ref}`).join("<br>")}</span>`;
+        const last = blocks.length - 1;
+        if (blocks[last]?.endsWith("</p>")) blocks[last] = `${blocks[last].slice(0, -4)}<br>${refs}</p>`;
+        else blocks.push(`<p>${refs}</p>`);
         collected.refs.length = 0;
       }
       paragraphBuf = [];

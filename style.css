@@ -91,8 +91,9 @@ body::after {
     margin: 0 auto;
 }
 
-p {
-    margin: 1.5em 0;
+p,
+ul {
+    margin-bottom: 1.8em;
 }
 
 
@@ -139,6 +140,11 @@ a[href]:active {
 a[href]:visited {
     color: #551b8c;
     border-color: #551b8c;
+}
+
+a[href].目立たないリンク {
+    border-color: transparent;
+    padding: 0;
 }
 
 .SNSへのリンクたち a[href] {
