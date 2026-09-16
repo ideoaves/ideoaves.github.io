@@ -375,9 +375,9 @@ export function txt2html(text, hasTitle = true) {
   };
 }
 
-export function renderArticleBody({ title, authorId, tocBlock, bodyHtml }) {
+export function renderArticleBody({ title, authorId, tocBlock, bodyHtml, notice = "" }) {
   const authorHtml = authorId ? `<div class="作った人たち">${authorId}</div>\n` : "";
-  return `<h1>${title}</h1>\n${authorHtml}${tocBlock}<div class="ブログ本文">\n${bodyHtml}\n</div>`;
+  return `<h1>${title}</h1>\n${authorHtml}${notice}${tocBlock}<div class="ブログ本文">\n${bodyHtml}\n</div>`;
 }
 
 export function renderPreview(text) {

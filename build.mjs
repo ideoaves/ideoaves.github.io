@@ -13,7 +13,7 @@ const SITE = "https://ideoaves.github.io";
 const BLOG_URL = `${SITE}/blog/`;
 const BLOG_TITLE = "Ideoaves のブログ";
 const UNTITLED = /^(無題のファイル|Untitled)( \d+)?\.md$/;
-const PRIVATE_NOTICE = "[> この記事はプライベート公開中です]\n\n";
+const PRIVATE_NOTICE = '<p><span class="引用">この記事はプライベート公開中です</span></p>\n';
 
 // parser.mjsを読み直す
 let txt2html, renderArticleBody, escapeAttr, isAbsoluteUrl;
@@ -174,7 +174,7 @@ export function build() {
                 head: data.head,
                 hide: data.hide === true,
                 private: isPrivate,
-                text: config.map((line) => line + "\n").join("") + (isPrivate ? PRIVATE_NOTICE : "") + content.trim(),
+                text: config.map((line) => line + "\n").join("") + content.trim(),
             };
         });
 
@@ -231,7 +231,11 @@ export function build() {
         );
         const cover = coverImage(a.parsed.images);
         const inner = fillSlot(
-            fillSlot(template("blogframe.html").trimEnd(), "<ブログの中身>", renderArticleBody({ ...a.parsed, title: a.title, bodyHtml })),
+            fillSlot(
+                template("blogframe.html").trimEnd(),
+                "<ブログの中身>",
+                renderArticleBody({ ...a.parsed, title: a.title, bodyHtml, notice: a.private ? PRIVATE_NOTICE : "" }),
+            ),
             "<記事のタイトル>",
             escapeAttr(a.title),
         );
