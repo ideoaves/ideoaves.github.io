@@ -5,8 +5,16 @@
         <link>https://ideoaves.github.io/blog/</link>
         <description>Ideoavesのブログ</description>
         <language>ja</language>
-        <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0900</lastBuildDate>
+        <lastBuildDate>Tue, 15 Sep 2026 00:00:00 +0900</lastBuildDate>
         <atom:link href="https://ideoaves.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>1枚絵MV史の試論</title>
+            <link>https://ideoaves.github.io/blog/2026-09-15.html</link>
+            <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-09-15.html</guid>
+            <pubDate>Tue, 15 Sep 2026 00:00:00 +0900</pubDate>
+            <書いた人>
+            <description>1枚絵MVの定義 「1枚絵MV」で検索するとボカロオリジナル曲MVや「歌ってみた」MVを指す傾向にある。[1][2] MV作家間でも同様のジャンルを「1枚絵MV」と呼称する。[3] また技術的な側面で...</description>
+        </item>
         <item>
             <title>「AI Blue」</title>
             <link>https://ideoaves.github.io/blog/2026-09-13.html</link>
