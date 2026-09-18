@@ -135,6 +135,7 @@ export function markdown(content, topLevel = true) {
       );
     }
     if ((m = url.match(/^(?:https:\/\/www\.youtube\.com\/watch\?v=|https:\/\/youtu\.be\/)([^&\s?]+)/))) {
+      collected.images.push({ src: `https://img.youtube.com/vi/${m[1]}/hqdefault.jpg`, thumb: false, video: true });
       return `<iframe src="https://www.youtube.com/embed/${m[1]}" allow="picture-in-picture" allowfullscreen></iframe>`;
     }
   }

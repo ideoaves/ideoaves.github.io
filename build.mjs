@@ -92,9 +92,9 @@ function stampDate(file, raw) {
     return raw.slice(0, 4) + filled + raw.slice(end + 1);
 }
 
-// [ithum ] OR 最初の画像をサムネとする
+// [ithum ] OR 最初の画像をサムネとする。画像がなければYouTubeのサムネを使う
 function coverImage(images) {
-    return (images.find((img) => img.thumb) ?? images[0])?.src ?? "";
+    return (images.find((img) => img.thumb) ?? images.find((img) => !img.video) ?? images[0])?.src ?? "";
 }
 
 // 冒頭n文字ぶんのサマリー
@@ -130,7 +130,7 @@ function renderPage(inner, meta) {
     html = fillSlot(html, "<タイトル>", meta.title ? escapeAttr(meta.title) + " " : "");
     html = fillSlot(html, "<説明>", escapeAttr(meta.description ?? ""));
     html = fillSlot(html, "<SNSのタイトル>", escapeAttr(meta.title || "Ideoaves"));
-    html = fillSlot(html, "<画像>", escapeAttr(meta.image ?? `${SITE}/img/icon.png`));
+    html = fillSlot(html, "<画像>", escapeAttr(meta.image || `${SITE}/img/icon.png`));
     html = fillSlot(html, "<ロゴclass>", meta.bigLogo ? "大きな ロゴ" : "ロゴ");
     html = fillSlot(html, "<headの追加>", meta.head ?? "");
     html = fillSlot(
@@ -245,7 +245,7 @@ export function build() {
                 title: a.title,
                 description: summarize(bodyHtml, 20),
                 head: a.head,
-                image: isAbsoluteUrl(cover) ? cover : `${BLOG_URL}${cover}`,
+                image: !cover || isAbsoluteUrl(cover) ? cover : `${BLOG_URL}${cover}`,
                 rss: true,
             }),
         );
