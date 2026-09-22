@@ -60,6 +60,10 @@
             background: linear-gradient(to top, var(--midColor), rgba(153, 153, 153, 0));
         }
 
+        .薄い線 {
+            opacity: 0.2;
+        }
+
         .dot {
             position: absolute;
             width: 5px;
@@ -224,288 +228,203 @@
     <div class="timeline" id="timeline"></div>
 
     <script>
-        let timelineData = {};
-        let yearPixel = 100;
+        const yearPixel = 100;
+        const minYears = 3;
+        const hidePoints = 5;
+        const tagOrder = ['政治', '世相', '事件', '学生', '運動', '技術', 'コンピュータ', 'インターネット', '天文', '建築', '芸術', '音楽', 'ファッション', 'サブ'];
+
+        let timelineData = [];
         let isCompactView = false;
 
-        // 日付をパースして数値に変換する関数
+        // 日付をパースして数値に変換する
         function parseDate(dateStr) {
             const parts = dateStr.split('/');
-            const year = parseInt(parts[0]) || 0;
-            const month = parseInt(parts[1]) || 0;
-            const day = parseInt(parts[2]) || 0;
-
-            return { year, month, day };
+            return {
+                year: parseInt(parts[0]) || 0,
+                month: parseInt(parts[1]) || 0,
+                day: parseInt(parts[2]) || 0
+            };
         }
 
-        // 日付をY座標に変換する関数
+        // 2つの日付を比べる
+        function compareDate(a, b) {
+            return (a.year - b.year) || (a.month - b.month) || (a.day - b.day);
+        }
+
+        // 日付をY座標に変換する
         function dateToYPosition(dateObj, index) {
             if (isCompactView) {
                 return index * 20 + 20;
-            } else {
-                // 時間的に正しい表示
-                const yearOffset = (dateObj.year - 1943) * yearPixel;
-                let monthOffset = 0;
-                let dayOffset = 0;
-
-                if (dateObj.month > 0) {
-                    monthOffset = (dateObj.month - 1) * (yearPixel / 12);
-                }
-                if (dateObj.day > 0) {
-                    dayOffset = (dateObj.day - 1) * ((yearPixel / 12) / 30);
-                }
-
-                return (yearOffset + monthOffset + dayOffset) + index * 14;
             }
+            const yearOffset = (dateObj.year - 1943) * yearPixel;
+            const monthOffset = dateObj.month > 0 ? (dateObj.month - 1) * (yearPixel / 12) : 0;
+            const dayOffset = dateObj.day > 0 ? (dateObj.day - 1) * (yearPixel / 12 / 30) : 0;
+            return yearOffset + monthOffset + dayOffset + index * 14;
         }
 
-        // end_dateに対応するイベントのY位置を見つける関数
-        function findEventPositionByDate(targetDate, currentIndex, currentTags = []) {
-            const sortedData = [...timelineData].sort((a, b) => {
-                const dateA = parseDate(a.sort_date);
-                const dateB = parseDate(b.sort_date);
-
-                if (dateA.year !== dateB.year) return dateA.year - dateB.year;
-                if (dateA.month !== dateB.month) return dateA.month - dateB.month;
-                return dateA.day - dateB.day;
-            });
-
-            // 同じタグを持つイベントを優先して探す
-            let matchingEvents = [];
-            let otherEvents = [];
-
-            for (let i = 0; i < sortedData.length; i++) {
-                const data = sortedData[i];
-                if (data.date === targetDate) {
-                    const eventTags = data.tag.split(',').map(tag => tag.trim());
-                    const hasCommonTag = currentTags.some(tag => eventTags.includes(tag));
-
-                    if (hasCommonTag) {
-                        matchingEvents.push({ data, index: i });
-                    } else {
-                        otherEvents.push({ data, index: i });
-                    }
-                }
-            }
-
-            // 同じタグを持つイベントを優先、なければ最初のイベントを使用
-            const targetEvent = matchingEvents.length > 0 ? matchingEvents[0] : otherEvents[0];
-
-            if (targetEvent) {
-                const dateObj = parseDate(targetEvent.data.sort_date);
-                if (dateObj) {
-                    return dateToYPosition(dateObj, targetEvent.index);
-                }
-            }
-            return null;
-        }
-
+        // タグ名を横位置に変換する
         function getTagPosition(tag) {
-            const tags = ['政治', '世相', '事件', '学生', '運動', '技術', 'コンピュータ', 'インターネット', '天文', '建築', '芸術', '音楽', 'ファッション', 'サブ'];
-            const index = tags.indexOf(tag);
+            const index = tagOrder.indexOf(tag);
             return index >= 0 ? (index * 150) + 70 : 70;
         }
 
-        // イベントを作成する関数
-        function createEvent(eventDate, data, index) {
+        // タグ文字列を配列にする
+        function tagsOf(data) {
+            return data.tag.split(',').map(tag => tag.trim());
+        }
+
+        // 期間の両端に置くマーカー円を追加
+        function addDot(element, faint) {
+            if (!element) return;
+
+            const found = element.querySelector('.dot');
+            if (found) {
+                if (!faint) found.classList.remove('薄い線');
+                return;
+            }
+
+            const dot = document.createElement('div');
+            dot.className = faint ? 'dot 薄い線' : 'dot';
+            element.appendChild(dot);
+        }
+
+        // 線の終端を求める
+        function endPointOf(token, view) {
+            const target = view.dataById.get(token);
+            if (target) {
+                return {
+                    y: view.positions.get(token),
+                    index: view.indexById.get(token),
+                    tags: tagsOf(target),
+                    date: parseDate(target.sort_date)
+                };
+            }
+
+            const date = parseDate(token);
+            const index = view.sorted.filter(data =>
+                compareDate(parseDate(data.sort_date), date) <= 0).length;
+            return { y: dateToYPosition(date, index), index: index, tags: null, date: date };
+        }
+
+        // 線を薄くするか判定
+        function isFaint(from, end, view) {
+            const a = parseDate(from.sort_date);
+            const years = Math.abs((end.date.year + end.date.month / 12) - (a.year + a.month / 12));
+            if (years <= minYears) return false;
+
+            const shared = end.tags ? tagsOf(from).filter(tag => end.tags.indexOf(tag) >= 0) : [];
+            const lineTags = shared.length > 0 ? shared : tagsOf(from);
+
+            const fromIndex = view.indexById.get(from.id);
+            const between = view.sorted.slice(Math.min(fromIndex, end.index) + 1, Math.max(fromIndex, end.index));
+
+            return between.filter(data =>
+                tagsOf(data).some(tag => lineTags.indexOf(tag) >= 0)).length >= hidePoints;
+        }
+
+        // イベントの見出し
+        function createEvent(data, view) {
             const event = document.createElement('div');
             event.className = 'event';
+            event.style.top = view.positions.get(data.id) + 'px';
 
-            const dateObj = parseDate(data.sort_date);
-            const yPosition = dateToYPosition(dateObj, index);
-
-            event.style.top = yPosition + 'px';
-
-            const tags = data.tag.split(',').map(tag => tag.trim());
-            let xPos = 0;
-
-            if (tags.length === 1) {
-                xPos = getTagPosition(tags[0]);
-            } else if (tags.length === 2) {
-                const pos1 = getTagPosition(tags[0]);
-                const pos2 = getTagPosition(tags[1]);
-                xPos = pos1 + ((pos2 - pos1) * 0.8);
+            const tags = tagsOf(data);
+            let xPos = getTagPosition(tags[0]);
+            if (tags.length > 1) {
+                xPos += (getTagPosition(tags[1]) - xPos) * 0.8;
             }
-
             event.style.left = xPos + 'px';
 
-            // 日付表示
             const dateSpan = document.createElement('span');
             dateSpan.className = 'event-date';
-
-            if (eventDate) {
-                const parts = eventDate.split('/');
-                if (parts[2] === '00') {
-                    if (parts[1] === '00') {
-                        dateSpan.textContent = parts[0];
-                    } else {
-                        dateSpan.textContent = parts[0] + '/' + parts[1];
-                    }
-                } else {
-                    dateSpan.textContent = eventDate;
-                }
-            }
+            const parts = data.date.split('/');
+            dateSpan.textContent = parts[2] !== '00' ? data.date
+                : parts[1] !== '00' ? parts[0] + '/' + parts[1]
+                    : parts[0];
 
             const titleSpan = document.createElement('span');
             titleSpan.className = 'event-title';
-            titleSpan.textContent = data['event-title'];
+            titleSpan.textContent = data.title;
 
             event.appendChild(dateSpan);
             event.appendChild(titleSpan);
-
-            //end_dateまで線を引くよ
-            if (data.end_date && data.end_date !== '') {
-                // マーカー円を描画
-                const marker = document.createElement('div');
-                marker.className = 'dot';
-                event.appendChild(marker);
-
-                // カンマ区切りで複数指定されている場合を処理
-                const endDates = data.end_date.split(',').map(s => s.trim());
-
-                endDates.forEach(endDate => {
-                    if (endDate === 'cont') {
-                        // contの場合
-                        const line = document.createElement('div');
-                        line.className = 'event-line-cont';
-                        event.appendChild(line);
-                    } else if (endDate === 'fin') {
-                        // finの場合
-                        const line = document.createElement('div');
-                        line.className = 'event-line-fin';
-                        event.appendChild(line);
-                    } else {
-                        // 日付指定の場合
-                        const currentTags = data.tag.split(',').map(tag => tag.trim());
-                        const endYPosition = findEventPositionByDate(endDate, index, currentTags);
-                        if (endYPosition !== null) {
-                            const lineHeight = (endYPosition - yPosition) + 8;
-
-                            const line = document.createElement('div');
-                            line.className = 'event-line';
-                            line.style.height = lineHeight + 'px';
-                            event.appendChild(line);
-                        }
-                    }
-                });
-            }
-
             return event;
         }
 
-        // タイムラインを描画する関数
+        // タイムライン
         function renderTimeline() {
             const timeline = document.getElementById('timeline');
             timeline.innerHTML = '';
 
-            const sortedData = [...timelineData].sort((a, b) => {
-                const dateA = parseDate(a.sort_date);
-                const dateB = parseDate(b.sort_date);
+            const sorted = [...timelineData].sort((a, b) =>
+                compareDate(parseDate(a.sort_date), parseDate(b.sort_date)));
 
-                if (!dateA) return 1;
-                if (!dateB) return -1;
-
-                if (dateA.year !== dateB.year) return dateA.year - dateB.year;
-                if (dateA.month !== dateB.month) return dateA.month - dateB.month;
-                return dateA.day - dateB.day;
+            // 線の終端をidで引けるよう、先に全イベントの位置を確定させる
+            const view = { sorted: sorted, positions: new Map(), indexById: new Map(), dataById: new Map() };
+            sorted.forEach((data, index) => {
+                view.positions.set(data.id, dateToYPosition(parseDate(data.sort_date), index));
+                view.indexById.set(data.id, index);
+                view.dataById.set(data.id, data);
             });
 
+            const elements = new Map();
             let currentYear = null;
 
-            sortedData.forEach((data, index) => {
-                const dateObj = parseDate(data.sort_date);
-
-                // 年が変わったら年ラベルを追加
-                if (dateObj && dateObj.year !== currentYear) {
-                    currentYear = dateObj.year;
+            sorted.forEach((data, index) => {
+                const year = parseDate(data.sort_date).year;
+                if (year !== currentYear) {
+                    currentYear = year;
                     const yearLabel = document.createElement('div');
                     yearLabel.className = 'year-label';
-                    yearLabel.textContent = currentYear;
-                    const yearStartObj = { year: currentYear, month: 0, day: 0 };
-                    const yearStartYPosition = dateToYPosition(yearStartObj, index);
-                    yearLabel.style.top = yearStartYPosition + 'px';
-
+                    yearLabel.textContent = year;
+                    yearLabel.style.top = dateToYPosition({ year: year, month: 0, day: 0 }, index) + 'px';
                     timeline.appendChild(yearLabel);
                 }
 
-                const event = createEvent(data.date, data, index);
-                if (event) {
-                    timeline.appendChild(event);
-                }
+                const event = createEvent(data, view);
+                elements.set(data.id, event);
+                timeline.appendChild(event);
             });
 
-            const lastDate = parseDate(sortedData[sortedData.length - 1].sort_date);
-            if (lastDate) {
-                const maxY = dateToYPosition(lastDate, sortedData.length - 1) + 100;
-                timeline.style.height = maxY + 'px';
-            }
+            timeline.style.height = (view.positions.get(sorted[sorted.length - 1].id) + 100) + 'px';
 
-            // すべてのイベント描画完了後に、end_dateで指定された先のイベントにマーカーを追加
-            const allEvents = document.querySelectorAll('.event');
-            allEvents.forEach(event => {
-                const dateSpan = event.querySelector('.event-date');
-                if (dateSpan) {
-                    const eventDate = dateSpan.textContent;
-                    // 表示形式とデータ形式の両方でマッチングを試みる
-                    const eventData = sortedData.find(data => {
-                        return data.date === eventDate ||
-                            (data.date.endsWith('/00/00') && data.date.split('/')[0] === eventDate) ||
-                            (data.date.endsWith('/00') && data.date.split('/').slice(0, 2).join('/') === eventDate);
-                    });
-                    if (eventData && eventData.end_date) {
-                        const endDates = eventData.end_date.split(',').map(s => s.trim());
-                        endDates.forEach(endDate => {
-                            if (endDate.includes('/')) {
-                                // 先のイベントにマーカー円を描画
-                                const endEventElements = document.querySelectorAll('.event');
-                                endEventElements.forEach(el => {
-                                    const endDateSpan = el.querySelector('.event-date');
-                                    if (endDateSpan && endDateSpan.textContent === endDate) {
-                                        // 既にマーカーがあるかチェック
-                                        if (!el.querySelector('.dot')) {
-                                            const endMarker = document.createElement('div');
-                                            endMarker.className = 'dot';
-                                            el.appendChild(endMarker);
-                                        }
-                                    }
-                                });
-                            }
-                        });
-                    }
-                }
+            sorted.forEach(data => {
+                data.end_date.forEach(token => drawLine(data, token, view, elements));
             });
         }
 
-        // 表示コントロールを設定
-        function setupViewControl() {
-            const checkbox = document.getElementById('viewMode');
+        // end_dateの1件を線として描く
+        function drawLine(data, token, view, elements) {
+            const start = elements.get(data.id);
+            const line = document.createElement('div');
 
-            checkbox.addEventListener('change', function () {
+            if (token === 'cont' || token === 'fin') {
+                line.className = 'event-line-' + token;
+                start.appendChild(line);
+                addDot(start, false);
+                return;
+            }
+
+            const end = endPointOf(token, view);
+            const faint = isFaint(data, end, view);
+            line.className = faint ? 'event-line 薄い線' : 'event-line';
+            line.style.height = (end.y - view.positions.get(data.id) + 8) + 'px';
+
+            start.appendChild(line);
+            addDot(start, faint);
+            addDot(elements.get(token), faint);
+        }
+
+        // JSONデータを読み込む
+        async function loadTimelineData() {
+            const response = await fetch('timeline.json');
+            timelineData = await response.json();
+
+            renderTimeline();
+            document.getElementById('viewMode').addEventListener('change', function () {
                 isCompactView = this.checked;
                 renderTimeline();
             });
-        }
-
-        // JSONデータを読み込む関数
-        async function loadTimelineData() {
-            const response = await fetch('timeline.json');
-            const jsonData = await response.json();
-
-            // timeline_2.json形式に対応：配列形式に変換して同じ日付の複数イベントに対応
-            timelineData = [];
-            for (const [eventTitle, value] of Object.entries(jsonData)) {
-                timelineData.push({
-                    date: value.date,
-                    sort_date: value.sort_date,
-                    'event-title': eventTitle,
-                    tag: value.tag,
-                    end_date: value.end_date || "",
-                    to_date: value.to_date || ""
-                });
-            }
-
-            renderTimeline();
-            setupViewControl();
         }
 
         document.addEventListener('DOMContentLoaded', loadTimelineData);
