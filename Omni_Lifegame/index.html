@@ -120,11 +120,21 @@
     const RANGES = [];
     for (let lo = 0; lo < K; lo++) for (let hi = lo; hi < K; hi++) RANGES.push({ lo, hi, empty: false, g: lo });
     RANGES.push({ lo: 0, hi: -1, empty: true, g: 9 });
-    const digits = r => { let s = ""; for (let i = r.lo; i <= r.hi; i++) s += i; return s; };
+    const exclude = { b: 0, s: 0 };
+    const digits = (r, ex) => { let s = ""; for (let i = r.lo; i <= r.hi; i++) if (!(ex >> i & 1)) s += i; return s; };
     const colX = si => si * PX + RANGES[si].g * GAP;
     const rowY = bi => (R - 1 - bi) * PY + (9 - RANGES[bi].g) * GAP;
-    const ruleStr = (bi, si) => "b" + digits(RANGES[bi]) + "s" + digits(RANGES[si]);
-    const nameOf = (bi, si) => NAMED["B" + digits(RANGES[bi]) + "/S" + digits(RANGES[si])];
+    const ruleStr = (bi, si) => "b" + digits(RANGES[bi], exclude.b) + "s" + digits(RANGES[si], exclude.s);
+    const nameOf = (bi, si) => NAMED["B" + digits(RANGES[bi], exclude.b) + "/S" + digits(RANGES[si], exclude.s)];
+    const BTN_MAX = 7;
+    const GRID_H = rowY(0) + TILE;
+    // noneの外側に1帯だけ置く、その数字を抜くボタン。頭の数字が同じマルチバースの幅に合わせる。[軸, 数字, x, y, 幅, 高さ]
+    const buttons = [];
+    for (let n = 1; n <= BTN_MAX; n++) {
+      const head = RANGES.findIndex(r => r.lo === n), tail = head + (K - n) - 1;
+      buttons.push(["s", n, colX(head), -PY, colX(tail) + TILE - colX(head), TILE]);
+      buttons.push(["b", n, colX(R - 1) + PX, rowY(tail), TILE, rowY(head) + TILE - rowY(tail)]);
+    }
 
     const glc = document.getElementById("gl");
     const gl = glc.getContext("webgl2", { antialias: false, alpha: false });
@@ -136,10 +146,11 @@
       for (int i = 0; i < 9; i++) { int n = 9 - lo; if (k < n) break; k -= n; lo++; }
       return ivec2(lo, lo + k);
     }
-    int maskOf(int id){
+    uniform int uExB, uExS;
+    int maskOf(int id, int ex){
       ivec2 r = rangeOf(id);
       if (r.y < r.x) return 0;
-      return ((1 << (r.y + 1)) - 1) & ~((1 << r.x) - 1);
+      return (((1 << (r.y + 1)) - 1) & ~((1 << r.x) - 1)) & ~ex;
     }
     int stat(sampler2D s, ivec2 t){ return int(texelFetch(s, t, 0).r * 255.0 + 0.5); }
     `;
@@ -162,7 +173,7 @@
         ivec2 q = base + ((l + ivec2(dx, dy) + 64) % 64);
         c += texelFetch(uCur, q, 0).r > 0.5 ? 1 : 0;
       }
-      int m = me > 0.5 ? maskOf(tile.x) : maskOf(tile.y);
+      int m = me > 0.5 ? maskOf(tile.x, uExS) : maskOf(tile.y, uExB);
       o = vec4(((m >> c) & 1) == 1 ? 1.0 : 0.0);
     }`;
 
@@ -187,7 +198,7 @@
         if (n != c) same = false;
         if (n != p) sameP = false;
       }
-      bool b0 = (maskOf(t.y) & 1) == 1;
+      bool b0 = (maskOf(t.y, uExB) & 1) == 1;
       if (pop == 0 && !b0) s = 3;
       else if (same) s = 1;
       else if (sameP && uGen >= 2) s = 2;
@@ -246,12 +257,27 @@
     gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 1, 1]), gl.STATIC_DRAW);
     let loc = gl.getAttribLocation(P_SHOW.p, "aCorner"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    const inst = new Float32Array(R * R * 4);
-    for (let bi = 0, k = 0; bi < R; bi++) for (let si = 0; si < R; si++, k += 4) inst.set([colX(si), rowY(bi), si, bi], k);
-    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-    gl.bufferData(gl.ARRAY_BUFFER, inst, gl.STATIC_DRAW);
+    const inst = new Float32Array(R * R * 4), instBuf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, instBuf);
+    gl.bufferData(gl.ARRAY_BUFFER, inst, gl.DYNAMIC_DRAW);
     loc = gl.getAttribLocation(P_SHOW.p, "aTile"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 4, gl.FLOAT, false, 0, 0); gl.vertexAttribDivisor(loc, 1);
     gl.bindVertexArray(null);
+
+    // 抜いた数字が端にある行や列は縮めた先と中身が同じになるので描かない
+    const shown = { b: new Uint8Array(R), s: new Uint8Array(R) };
+    let instCount = 0;
+    function markShown() {
+      for (const k of ["b", "s"]) for (let i = 0; i < R; i++) {
+        const r = RANGES[i];
+        shown[k][i] = r.empty || !((exclude[k] >> r.lo | exclude[k] >> r.hi) & 1) ? 1 : 0;
+      }
+      let at = 0;
+      for (let bi = 0; bi < R; bi++) for (let si = 0; si < R; si++)
+        if (shown.b[bi] && shown.s[si]) { inst.set([colX(si), rowY(bi), si, bi], at); at += 4; }
+      instCount = at / 4;
+      gl.bindBuffer(gl.ARRAY_BUFFER, instBuf);
+      gl.bufferSubData(gl.ARRAY_BUFFER, 0, inst.subarray(0, at));
+    }
 
     function mkTex(w, h, internal, format, mip) {
       const t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
@@ -299,6 +325,7 @@
       gl.bindFramebuffer(gl.FRAMEBUFFER, next.fb); gl.viewport(0, 0, W, W);
       bindTex(0, cur); bindTex(1, sCur);
       gl.uniform1i(P_STEP.u.uCur, 0); gl.uniform1i(P_STEP.u.uStat, 1);
+      gl.uniform1i(P_STEP.u.uExB, exclude.b); gl.uniform1i(P_STEP.u.uExS, exclude.s);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       const check = (gen + 1) % STAT_EVERY === 0;
       if (check) {
@@ -306,7 +333,7 @@
         gl.bindFramebuffer(gl.FRAMEBUFFER, sNext.fb); gl.viewport(0, 0, R, R);
         bindTex(0, next); bindTex(1, cur); bindTex(2, prev); bindTex(3, sCur);
         gl.uniform1i(P_STAT.u.uNext, 0); gl.uniform1i(P_STAT.u.uCur, 1); gl.uniform1i(P_STAT.u.uPrev, 2); gl.uniform1i(P_STAT.u.uStat, 3);
-        gl.uniform1i(P_STAT.u.uGen, gen + 1);
+        gl.uniform1i(P_STAT.u.uGen, gen + 1); gl.uniform1i(P_STAT.u.uExB, exclude.b);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       }
       gl.bindFramebuffer(gl.FRAMEBUFFER, null);
@@ -336,11 +363,11 @@
     }
     function fitView() {
       const mL = 110, mB = 110, mT = 12, mR = 12;
-      const gw = colX(R - 1) + TILE, gh = rowY(0) + TILE;
+      const gw = colX(R - 1) + PX + TILE, gh = GRID_H + PY;
       const aw = cw - mL - mR, ah = ch - mT - mB;
       view.z = Math.min(aw / gw, ah / gh);
       view.x = mL + (aw - gw * view.z) / 2;
-      view.y = mT + (ah - gh * view.z) / 2;
+      view.y = mT + (ah - gh * view.z) / 2 + PY * view.z;
       labelsDirty = true;
     }
     function drawGL() {
@@ -355,17 +382,15 @@
       gl.uniform2f(u.uView, view.x, view.y); gl.uniform2f(u.uSize, cw, ch); gl.uniform1f(u.uZ, view.z);
       gl.uniform3fv(u.uLive, rgb.live); gl.uniform3fv(u.uDead, rgb.dead); gl.uniform3fv(u.uStill, rgb.still);
       gl.uniform3fv(u.uBlink, rgb.blink); gl.uniform3fv(u.uGone, rgb.gone);
-      gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, R * R);
+      gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, instCount);
     }
     const FONT_SIZE = 11, FONT = `italic ${FONT_SIZE}px 'IBM Plex Mono', monospace`, LH = Math.round(FONT_SIZE * 1.2);
-    const NAMED_TILES = [];
-    for (let bi = 0; bi < R; bi++) for (let si = 0; si < R; si++) { const n = nameOf(bi, si); if (n) NAMED_TILES.push([bi, si, n]); }
     function drawLabels() {
       const ctx = lctx, z = view.z;
       ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, lc.width, lc.height);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.textBaseline = "top";
-      const rng = r => r.empty ? " none" : digits(r);
+      const rng = (r, ex) => digits(r, ex) || " none";
       const sx = x => Math.round(x * z + view.x), sy = y => Math.round(y * z + view.y);
 
       ctx.font = FONT; ctx.textAlign = "left";
@@ -373,16 +398,18 @@
       if (showRule) {
         ctx.fillStyle = css.ink;
         for (let bi = 0; bi < R; bi++) {
-          const y = sy(rowY(bi) + TILE) + 2; if (y > ch || y + free < 0) continue;
+          const y = sy(rowY(bi) + TILE) + 2; if (!shown.b[bi] || y > ch || y + free < 0) continue;
           for (let si = 0; si < R; si++) {
-            const x = sx(colX(si)); if (x > cw || x + PX * z < 0) continue;
+            const x = sx(colX(si)); if (!shown.s[si] || x > cw || x + PX * z < 0) continue;
             const rule = ruleStr(bi, si);
             if (ctx.measureText(rule).width <= pitchW) ctx.fillText(rule, x, y);
           }
         }
       }
       const placed = [];
-      for (const [bi, si, name] of NAMED_TILES) {
+      for (let bi = 0; bi < R; bi++) for (let si = 0; si < R; si++) {
+        const name = shown.b[bi] && shown.s[si] ? nameOf(bi, si) : null;
+        if (!name) continue;
         const tx = sx(colX(si)), tb = sy(rowY(bi) + TILE);
         const w = Math.ceil(ctx.measureText(name).width) + 4;
         const y0 = tb + 2 + (showRule ? LH : 0);
@@ -400,21 +427,21 @@
 
       ctx.font = FONT;
       const gx0 = sx(colX(0)), gy1 = sy(rowY(0) + TILE);
-      let bw = 0; for (const r of RANGES) bw = Math.max(bw, ctx.measureText("b" + rng(r)).width);
+      let bw = 0; for (let i = 0; i < R; i++) if (shown.b[i]) bw = Math.max(bw, ctx.measureText("b" + rng(RANGES[i], exclude.b)).width);
       const bx = Math.max(gx0 - 6, Math.ceil(bw) + 4);
       ctx.textAlign = "right";
       for (let bi = 0; bi < R; bi++) {
-        const y = sy(rowY(bi) + TILE / 2) - 4; if (y < -LH || y > ch) continue;
-        const t = "b" + rng(RANGES[bi]), w = Math.ceil(ctx.measureText(t).width);
+        const y = sy(rowY(bi) + TILE / 2) - 4; if (!shown.b[bi] || y < -LH || y > ch) continue;
+        const t = "b" + rng(RANGES[bi], exclude.b), w = Math.ceil(ctx.measureText(t).width);
         ctx.fillStyle = css.bg; ctx.fillRect(bx - w - 2, y - 1, w + 4, LH + 1);
         ctx.fillStyle = css.ink; ctx.fillText(t, bx, y);
       }
-      let sw = 0; for (const r of RANGES) sw = Math.max(sw, ctx.measureText("s" + rng(r)).width);
+      let sw = 0; for (let i = 0; i < R; i++) if (shown.s[i]) sw = Math.max(sw, ctx.measureText("s" + rng(RANGES[i], exclude.s)).width);
       const used = showRule ? LH * 2 + 4 : LH + 4;
       const by = Math.min(gy1 + used + 6, ch - Math.ceil(sw) - 4);
       for (let si = 0; si < R; si++) {
-        const x = sx(colX(si) + TILE / 2) + 4; if (x < -LH || x > cw + LH) continue;
-        const t = "s" + rng(RANGES[si]), w = Math.ceil(ctx.measureText(t).width);
+        const x = sx(colX(si) + TILE / 2) + 4; if (!shown.s[si] || x < -LH || x > cw + LH) continue;
+        const t = "s" + rng(RANGES[si], exclude.s), w = Math.ceil(ctx.measureText(t).width);
         ctx.save(); ctx.translate(x, by); ctx.rotate(Math.PI / 2);
         ctx.textAlign = "left";
         ctx.fillStyle = css.bg; ctx.fillRect(-2, -1, w + 4, LH + 1);
@@ -422,13 +449,28 @@
         ctx.restore();
       }
 
+      ctx.lineWidth = 1; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.font = `italic ${Math.max(9, Math.round(TILE * z * 0.6))}px 'IBM Plex Mono', monospace`;
+      for (const [axis, n, x, y, w, h] of buttons) {
+        const x0 = sx(x), y0 = sy(y), x1 = sx(x + w), y1 = sy(y + h);
+        if (x1 < 0 || y1 < 0 || x0 > cw || y0 > ch) continue;
+        ctx.strokeStyle = ctx.fillStyle = exclude[axis] >> n & 1 ? css.dead : css.ink;
+        ctx.strokeRect(x0 + 0.5, y0 + 0.5, x1 - x0 - 1, y1 - y0 - 1);
+        ctx.fillText(n, Math.min(Math.max((x0 + x1) / 2, 14), cw - 14), Math.min(Math.max((y0 + y1) / 2, 14), ch - 14));
+      }
+
       labelsDirty = false;
+    }
+
+    function hitButton(mx, my) {
+      const wx = (mx - view.x) / view.z, wy = (my - view.y) / view.z;
+      return buttons.find(([, , x, y, w, h]) => wx >= x && wx < x + w && wy >= y && wy < y + h) ?? null;
     }
 
     function hitTile(mx, my) {
       const wx = (mx - view.x) / view.z, wy = (my - view.y) / view.z;
-      const si = RANGES.findIndex((_, i) => wx >= colX(i) && wx < colX(i) + TILE);
-      const bi = RANGES.findIndex((_, i) => wy >= rowY(i) && wy < rowY(i) + PY - 10);
+      const si = RANGES.findIndex((_, i) => shown.s[i] && wx >= colX(i) && wx < colX(i) + TILE);
+      const bi = RANGES.findIndex((_, i) => shown.b[i] && wy >= rowY(i) && wy < rowY(i) + PY - 10);
       return si < 0 || bi < 0 ? null : [bi, si];
     }
     function zoomAt(sx, sy, f) {
@@ -438,16 +480,57 @@
     }
     // リダイレクトない場合ここに追記してください。結構あるので…
     const WIKI_EXCEPT = {
+      "B0123478/S34678": "OCA:InverseLife",
+      "B01356/S012345": "OCA:Wickstretcher_And_The_Parasites",
+      "B014/S2": "List_of_Life-like_rules",
+      "B028/S0124": "OCA:Invertamaze",
+      "B08/S4": "List_of_Life-like_rules",
       "B1/S012345678": "OCA:H-trees",
+      "B1/S014567": "List_of_Life-like_rules",
       "B1/S1": "Gnarl",
+      "B1/S134567": "List_of_Life-like_rules",
+      "B12678/S15678": "List_of_Life-like_rules",
+      "B1357/S02468": "OCA:Fredkin",
+      "B1358/S0247": "List_of_Life-like_rules",
+      "B3/S0248": "OCA:Star_Trek",
+      "B3/S123678": "List_of_Life-like_rules",
+      "B3/S1237": "OCA:SnowLife",
+      "B3/S124": "OCA:Corrosion_of_Conformity",
+      "B3/S128": "OCA:EightFlock",
+      "B3/S245678": "OCA:Shoots_and_Roots",
       "B3/S4567": "OCA:Lifeguard_2",
       "B3/S45678": "OCA:Coral",
       "B34/S456": "OCA:Bacteria",
+      "B345/S0456": "List_of_Life-like_rules",
       "B345/S2": "OCA:Blinkers",
       "B345/S4567": "OCA:Assimilation",
-      "B5678/S45678": "OCA:Vote",
+      "B34568/S15678": "List_of_Life-like_rules",
+      "B35/S234578": "OCA:Land_Rush",
+      "B3567/S15678": "OCA:Bugs",
+      "B35678/S34567": "List_of_Life-like_rules",
+      "B35678/S4678": "OCA:Holstein",
+      "B3578/S24678": "OCA:Geology",
+      "B36/S12": "OCA:HighFlock",
+      "B36/S128": "List_of_Life-like_rules",
+      "B36/S234578": "OCA:Land_Rush_2",
+      "B36/S238": "List_of_Life-like_rules",
+      "B367/S125678": "List_of_Life-like_rules",
+      "B367/S23": "List_of_Life-like_rules",
+      "B368/S128": "LowFlockDeath",
+      "B368/S236": "List_of_Life-like_rules",
+      "B37/S12": "DryFlock",
+      "B37/S1234": "OCA:Mazectric_with_Mice",
+      "B37/S12345": "OCA:Maze_with_Mice",
+      "B38/S012345678": "List_of_Life-like_rules",
+      "B38/S12": "OCA:Pedestrian_Flock",
+      "B38/S128": "HoneyFlock",
       "B45/S12345": "List_of_Life-like_rules",
+      "B45/S1235": "List_of_Life-like_rules",
       "B45678/S5678": "List_of_Life-like_rules",
+      "B4678/S35678": "OCA:Vote_4/5",
+      "B48/S234": "List_of_Life-like_rules",
+      "B56/S14568": "OCA:Rings_'n'_Slugs",
+      "B5678/S45678": "OCA:Vote",
     };
     const DRAG_SLOP = 5;
     (function () {
@@ -457,7 +540,7 @@
       el.addEventListener("dblclick", e => { if (!hitTile(e.clientX, e.clientY)) fitView(); });
       let moved = 0, lastOpen = 0;
       el.addEventListener("pointerdown", e => { el.setPointerCapture(e.pointerId); pts.set(e.pointerId, pos(e)); moved = 0; el.classList.add("dragging"); });
-      el.addEventListener("mousemove", e => { if (!pts.size) el.style.cursor = hitTile(e.clientX, e.clientY) ? "pointer" : "grab"; });
+      el.addEventListener("mousemove", e => { if (!pts.size) el.style.cursor = hitTile(e.clientX, e.clientY) || hitButton(e.clientX, e.clientY) ? "pointer" : "grab"; });
       el.addEventListener("pointermove", e => {
         if (!pts.has(e.pointerId)) return;
         const p = pos(e), old = pts.get(e.pointerId);
@@ -470,10 +553,13 @@
         }
       });
       const up = e => {
-        const h = e.type === "pointerup" && pts.size === 1 && moved < DRAG_SLOP ? hitTile(e.clientX, e.clientY) : null;
+        const tap = e.type === "pointerup" && pts.size === 1 && moved < DRAG_SLOP;
+        const btn = tap ? hitButton(e.clientX, e.clientY) : null;
+        if (btn) { exclude[btn[0]] ^= 1 << btn[1]; markShown(); cycle = 0; reset(); labelsDirty = true; }
+        const h = tap && !btn ? hitTile(e.clientX, e.clientY) : null;
         if (h && performance.now() - lastOpen > 500) {
           lastOpen = performance.now();
-          const key = "B" + digits(RANGES[h[0]]) + "/S" + digits(RANGES[h[1]]);
+          const key = "B" + digits(RANGES[h[0]], exclude.b) + "/S" + digits(RANGES[h[1]], exclude.s);
           window.open(nameOf(h[0], h[1]) ? "https://conwaylife.com/wiki/" + (WIKI_EXCEPT[key] || key) : "https://catagolue.hatsya.com/census/" + ruleStr(h[0], h[1]), "_blank", "noopener");
         }
         pts.delete(e.pointerId); if (pts.size < 2) pinch = 0; if (!pts.size) el.classList.remove("dragging");
@@ -484,7 +570,7 @@
 
     let seedStr = "1", cycle = 0;
     function readSeed() { seedStr = new URLSearchParams(location.hash.slice(1)).get("seed") || "1"; }
-    readSeed(); resize(); fitView(); reset();
+    markShown(); readSeed(); resize(); fitView(); reset();
     window.addEventListener("resize", resize);
     window.addEventListener("hashchange", () => { readSeed(); cycle = 0; reset(); });
     document.fonts.load(FONT).then(() => labelsDirty = true);
