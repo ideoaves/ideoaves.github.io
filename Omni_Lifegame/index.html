@@ -128,7 +128,6 @@
     const nameOf = (bi, si) => NAMED["B" + digits(RANGES[bi], exclude.b) + "/S" + digits(RANGES[si], exclude.s)];
     const BTN_MAX = 7;
     const GRID_H = rowY(0) + TILE;
-    // noneの外側に1帯だけ置く、その数字を抜くボタン。頭の数字が同じマルチバースの幅に合わせる。[軸, 数字, x, y, 幅, 高さ]
     const buttons = [];
     for (let n = 1; n <= BTN_MAX; n++) {
       const head = RANGES.findIndex(r => r.lo === n), tail = head + (K - n) - 1;
@@ -263,7 +262,6 @@
     loc = gl.getAttribLocation(P_SHOW.p, "aTile"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 4, gl.FLOAT, false, 0, 0); gl.vertexAttribDivisor(loc, 1);
     gl.bindVertexArray(null);
 
-    // 抜いた数字が端にある行や列は縮めた先と中身が同じになるので描かない
     const shown = { b: new Uint8Array(R), s: new Uint8Array(R) };
     let instCount = 0;
     function markShown() {
