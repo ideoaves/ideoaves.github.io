@@ -127,7 +127,6 @@
     const ruleStr = (bi, si) => "b" + digits(RANGES[bi], exclude.b) + "s" + digits(RANGES[si], exclude.s);
     const nameOf = (bi, si) => NAMED["B" + digits(RANGES[bi], exclude.b) + "/S" + digits(RANGES[si], exclude.s)];
     const BTN_MAX = 7;
-    const GRID_H = rowY(0) + TILE;
     const buttons = [];
     for (let n = 1; n <= BTN_MAX; n++) {
       const head = RANGES.findIndex(r => r.lo === n), tail = head + (K - n) - 1;
@@ -359,15 +358,6 @@
       lc.width = Math.round(cw * dpr); lc.height = Math.round(ch * dpr);
       labelsDirty = true;
     }
-    function fitView() {
-      const mL = 110, mB = 110, mT = 12, mR = 12;
-      const gw = colX(R - 1) + PX + TILE, gh = GRID_H + PY;
-      const aw = cw - mL - mR, ah = ch - mT - mB;
-      view.z = Math.min(aw / gw, ah / gh);
-      view.x = mL + (aw - gw * view.z) / 2;
-      view.y = mT + (ah - gh * view.z) / 2 + PY * view.z;
-      labelsDirty = true;
-    }
     function drawGL() {
       gl.bindFramebuffer(gl.FRAMEBUFFER, null);
       gl.viewport(0, 0, glc.width, glc.height);
@@ -535,7 +525,6 @@
       const el = lc, pts = new Map(); let pinch = 0;
       const pos = e => [e.clientX, e.clientY];
       el.addEventListener("wheel", e => { e.preventDefault(); zoomAt(e.clientX, e.clientY, Math.exp(-e.deltaY * 0.0015)); }, { passive: false });
-      el.addEventListener("dblclick", e => { if (!hitTile(e.clientX, e.clientY)) fitView(); });
       let moved = 0, lastOpen = 0;
       el.addEventListener("pointerdown", e => { el.setPointerCapture(e.pointerId); pts.set(e.pointerId, pos(e)); moved = 0; el.classList.add("dragging"); });
       el.addEventListener("mousemove", e => { if (!pts.size) el.style.cursor = hitTile(e.clientX, e.clientY) || hitButton(e.clientX, e.clientY) ? "pointer" : "grab"; });
@@ -563,12 +552,21 @@
         pts.delete(e.pointerId); if (pts.size < 2) pinch = 0; if (!pts.size) el.classList.remove("dragging");
       };
       el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up);
-      window.addEventListener("keydown", e => { if (e.key === "0") fitView(); });
     })();
 
     let seedStr = "1", cycle = 0;
     function readSeed() { seedStr = new URLSearchParams(location.hash.slice(1)).get("seed") || "1"; }
-    markShown(); readSeed(); resize(); fitView(); reset();
+    markShown(); readSeed(); resize();
+    // 開いたときの表示。ボタンの帯まで画面に収める
+    {
+      const mL = 110, mB = 110, mT = 12, mR = 12;
+      const gw = colX(R - 1) + PX + TILE, gh = rowY(0) + TILE + PY;
+      const aw = cw - mL - mR, ah = ch - mT - mB;
+      view.z = Math.min(aw / gw, ah / gh);
+      view.x = mL + (aw - gw * view.z) / 2;
+      view.y = mT + (ah - gh * view.z) / 2 + PY * view.z;
+    }
+    reset();
     window.addEventListener("resize", resize);
     window.addEventListener("hashchange", () => { readSeed(); cycle = 0; reset(); });
     document.fonts.load(FONT).then(() => labelsDirty = true);
