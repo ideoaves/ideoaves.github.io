@@ -42,7 +42,6 @@
       display: block;
     }
 
-
     .info {
       position: fixed;
       top: 10px;
@@ -64,6 +63,7 @@
     }
     .info h1 {
       font-size: 1em;
+      width: fit-content;
     }
 
     #labels {
@@ -83,7 +83,8 @@
     <p>
       <a href="https://www.youtube.com/watch?v=QK_KZv-YyOc">The Conway Multiverse</a>の描写を大いに参考にしてGLSLで実装した表です。<br>
       命名は<a href="https://conwaylife.com">https://conwaylife.com</a>を参考にしています。クリックするとWikiに飛びます。<br>
-      配色は次の通り：<a style="background: var(--gone); color: white;">死んだ宇宙</a>、<a style="background: var(--still); color: white;">停止した宇宙</a>、<a style="background: var(--blink); color: black;">ループする宇宙</a>
+      配色は次の通り：<a style="background: var(--gone); color: white;">死んだ宇宙</a>、<a style="background: var(--still); color: white;">停止した宇宙</a>、<a style="background: var(--blink); color: black;">ループする宇宙</a><br>
+      数字ボタンを押すとそのボタンを除いた表になります。
     </p>
   </div>
   <canvas id="gl"></canvas>
@@ -264,9 +265,13 @@
     const shown = { b: new Uint8Array(R), s: new Uint8Array(R) };
     let instCount = 0;
     function markShown() {
-      for (const k of ["b", "s"]) for (let i = 0; i < R; i++) {
-        const r = RANGES[i];
-        shown[k][i] = r.empty || !((exclude[k] >> r.lo | exclude[k] >> r.hi) & 1) ? 1 : 0;
+      for (const k of ["b", "s"]) {
+        const ex = exclude[k];
+        for (let i = 0; i < R; i++) {
+          const r = RANGES[i];
+          const span = r.empty ? 0 : ((1 << (r.hi + 1)) - 1) & ~((1 << r.lo) - 1);
+          shown[k][i] = !ex || (span & ex && !((ex >> r.lo | ex >> r.hi) & 1)) ? 1 : 0;
+        }
       }
       let at = 0;
       for (let bi = 0; bi < R; bi++) for (let si = 0; si < R; si++)
@@ -415,7 +420,7 @@
 
       ctx.font = FONT;
       const gx0 = sx(colX(0)), gy1 = sy(rowY(0) + TILE);
-      let bw = 0; for (let i = 0; i < R; i++) if (shown.b[i]) bw = Math.max(bw, ctx.measureText("b" + rng(RANGES[i], exclude.b)).width);
+      let bw = 0; for (const r of RANGES) bw = Math.max(bw, ctx.measureText("b" + rng(r, 0)).width);
       const bx = Math.max(gx0 - 6, Math.ceil(bw) + 4);
       ctx.textAlign = "right";
       for (let bi = 0; bi < R; bi++) {
@@ -424,7 +429,7 @@
         ctx.fillStyle = css.bg; ctx.fillRect(bx - w - 2, y - 1, w + 4, LH + 1);
         ctx.fillStyle = css.ink; ctx.fillText(t, bx, y);
       }
-      let sw = 0; for (let i = 0; i < R; i++) if (shown.s[i]) sw = Math.max(sw, ctx.measureText("s" + rng(RANGES[i], exclude.s)).width);
+      let sw = 0; for (const r of RANGES) sw = Math.max(sw, ctx.measureText("s" + rng(r, 0)).width);
       const used = showRule ? LH * 2 + 4 : LH + 4;
       const by = Math.min(gy1 + used + 6, ch - Math.ceil(sw) - 4);
       for (let si = 0; si < R; si++) {
@@ -556,8 +561,14 @@
 
     let seedStr = "1", cycle = 0;
     function readSeed() { seedStr = new URLSearchParams(location.hash.slice(1)).get("seed") || "1"; }
+    {
+      const note = document.querySelector(".info p");
+      document.querySelector(".info").addEventListener("click", e => {
+        if (!e.target.closest("a")) note.style.display = note.style.display ? "" : "none";
+      });
+    }
+
     markShown(); readSeed(); resize();
-    // 開いたときの表示。ボタンの帯まで画面に収める
     {
       const mL = 110, mB = 110, mT = 12, mR = 12;
       const gw = colX(R - 1) + PX + TILE, gh = rowY(0) + TILE + PY;
