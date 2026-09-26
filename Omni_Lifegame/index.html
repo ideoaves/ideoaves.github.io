@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Omniverse Lifegame</title>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Omniverse Lifegame">
+  <meta name="twitter:description" content="ライフゲームのルールごとの宇宙をGLSLで並べて描く表です。">
+  <meta name="twitter:image" content="https://ideoaves.github.io/Omni_Lifegame/thum.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --ink: #FFFFFF;
+      --dead: #646464;
+      --live: #FFFFFF;
+      --still: #0000FF;
+      --blink: #FFFF00;
+      --gone: #FF0000;
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "IBM Plex Mono", monospace;
+      font-style: italic;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+
+    .info {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      color: white;
+      font-style: normal;
+    }
+    .info > * {
+      width: fit-content;
+      background: var(--bg);
+      font-size: 11px;
+      font-weight: normal;
+    }
+    .info a {
+      color: white;
+      background: var(--dead);
+      line-height: 1.2;
+    }
+    .info h1 {
+      font-size: 1em;
+    }
+
+    #labels {
+      touch-action: none;
+      cursor: grab;
+    }
+
+    #labels.dragging {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="info">
+    <h1>Omniverse Lifegame</h1>
+    <p>
+      <a href="https://www.youtube.com/watch?v=QK_KZv-YyOc">The Conway Multiverse</a>の描写を大いに参考にしてGLSLで実装した表です。<br>
+      命名は<a href="https://conwaylife.com">https://conwaylife.com</a>を参考にしています。クリックするとWikiに飛びます。<br>
+      配色は次の通り：<a style="background: var(--gone); color: white;">死んだ宇宙</a>、<a style="background: var(--still); color: white;">停止した宇宙</a>、<a style="background: var(--blink); color: black;">ループする宇宙</a>
+    </p>
+  </div>
+  <canvas id="gl"></canvas>
+  <canvas id="labels"></canvas>
+  <script>
+    const NAMED = {
+      "B0123478/S01234678": "AntiLife", "B0123478/S34678": "InverseLife", "B01356/S012345": "Wickstretcher And The Parasites",
+      "B014/S2": "Oils", "B028/S0124": "Invertamaze", "B08/S4": "Neon Blobs", "B1/S012345678": "H-trees", "B1/S014567": "Fuzz",
+      "B1/S1": "Gnarl", "B1/S134567": "Snakeskin", "B12678/S15678": "Solid islands grow amongst static", "B1357/S1357": "Replicator",
+      "B1357/S02468": "Fredkin", "B1358/S0247": "Feux", "B2/S": "Seeds", "B2/S0": "Live Free or Die", "B234/S": "Serviettes",
+      "B25678/S5678": "Iceballs", "B3/S012345678": "Life without death", "B3/S023": "DotLife", "B3/S0248": "Star Trek", "B3/S12": "Flock",
+      "B3/S1234": "Mazectric", "B3/S12345": "Maze", "B3/S123678": "Magnezones", "B3/S1237": "SnowLife", "B3/S124": "Corrosion of Conformity",
+      "B3/S128": "EightFlock", "B3/S13": "LowLife", "B3/S23": "Conway's Life", "B3/S238": "EightLife", "B3/S245678": "Shoots and Roots",
+      "B3/S4567": "Lifeguard 2", "B3/S45678": "Coral", "B34/S34": "3-4 Life", "B34/S35": "Dance", "B34/S456": "Bacteria",
+      "B345/S0456": "Never happy", "B345/S2": "Blinkers", "B345/S4567": "Assimilation", "B345/S5": "Long Life",
+      "B34568/S15678": "Spiral and polygonal growth", "B3457/S4568": "Gems", "B34578/S456": "Gems Minor", "B35/S23": "Grounded Life",
+      "B35/S234578": "Land Rush", "B3567/S15678": "Bugs", "B35678/S34567": "Cheerios", "B35678/S4678": "Holstein", "B35678/S5678": "Diamoeba",
+      "B357/S1358": "Amoeba", "B357/S238": "Pseudo Life", "B3578/S24678": "Geology", "B36/S12": "HighFlock", "B36/S125": "2×2",
+      "B36/S128": "IronFlock", "B36/S23": "HighLife", "B36/S234578": "Land Rush 2", "B36/S235": "Blinker Life", "B36/S238": "IronLife",
+      "B36/S245": "sqrt replicator rule", "B367/S125678": "Slow Blob", "B367/S23": "DrighLife", "B3678/S1258": "2×2 2",
+      "B3678/S135678": "Castles", "B3678/S235678": "Stains", "B3678/S34678": "Day & Night", "B368/S128": "LowFlockDeath",
+      "B368/S236": "Life SkyHigh", "B368/S238": "LowDeath", "B368/S245": "Morley", "B37/S012345678": "DryLife without Death",
+      "B37/S12": "DryFlock", "B37/S1234": "Mazectric with Mice", "B37/S12345": "Maze with Mice", "B37/S23": "DryLife",
+      "B378/S012345678": "Plow World", "B378/S235678": "Coagulations", "B38/S012345678": "Pedestrian Life without Death",
+      "B38/S12": "Pedestrian Flock", "B38/S128": "HoneyFlock", "B38/S23": "Pedestrian Life", "B38/S238": "HoneyLife",
+      "B45/S12345": "Electrified Maze", "B45/S1235": "Oscillators Rule", "B45678/S2345": "Walled cities", "B45678/S5678": "Majority",
+      "B4678/S35678": "Vote 4/5", "B48/S234": "Lifeguard 1", "B56/S14568": "Rings 'n' Slugs", "B5678/S45678": "Vote"
+    };
+
+    const N = 64, K = 9, R = 46, W = R * N, SEED_SIZE = 32, FPS = 12;
+    const RESET_GEN = 256;
+    const STAT_EVERY = 8;
+    const TILE = 64, LABEL = 30, PX = 76, PY = TILE + LABEL + 10, GAP = 28;
+    const RANGES = [];
+    for (let lo = 0; lo < K; lo++) for (let hi = lo; hi < K; hi++) RANGES.push({ lo, hi, empty: false, g: lo });
+    RANGES.push({ lo: 0, hi: -1, empty: true, g: 9 });
+    const digits = r => { let s = ""; for (let i = r.lo; i <= r.hi; i++) s += i; return s; };
+    const colX = si => si * PX + RANGES[si].g * GAP;
+    const rowY = bi => (R - 1 - bi) * PY + (9 - RANGES[bi].g) * GAP;
+    const ruleStr = (bi, si) => "b" + digits(RANGES[bi]) + "s" + digits(RANGES[si]);
+    const nameOf = (bi, si) => NAMED["B" + digits(RANGES[bi]) + "/S" + digits(RANGES[si])];
+
+    const glc = document.getElementById("gl");
+    const gl = glc.getContext("webgl2", { antialias: false, alpha: false });
+
+    const RULE_GLSL = `
+    ivec2 rangeOf(int id){
+      if (id >= 45) return ivec2(0, -1);
+      int lo = 0, k = id;
+      for (int i = 0; i < 9; i++) { int n = 9 - lo; if (k < n) break; k -= n; lo++; }
+      return ivec2(lo, lo + k);
+    }
+    int maskOf(int id){
+      ivec2 r = rangeOf(id);
+      if (r.y < r.x) return 0;
+      return ((1 << (r.y + 1)) - 1) & ~((1 << r.x) - 1);
+    }
+    int stat(sampler2D s, ivec2 t){ return int(texelFetch(s, t, 0).r * 255.0 + 0.5); }
+    `;
+    const VS_FULL = `#version 300 es
+    in vec2 aPos; void main(){ gl_Position = vec4(aPos, 0.0, 1.0); }`;
+
+    const FS_STEP = `#version 300 es
+    precision highp float; precision highp int;
+    uniform sampler2D uCur, uStat;
+    out vec4 o;
+    ${RULE_GLSL}
+    void main(){
+      ivec2 p = ivec2(gl_FragCoord.xy), tile = p / 64, l = p - tile * 64, base = tile * 64;
+      float me = texelFetch(uCur, p, 0).r;
+      int st = stat(uStat, tile);
+      if (st == 1 || st == 3) { o = vec4(me); return; }
+      int c = 0;
+      for (int dy = -1; dy <= 1; dy++) for (int dx = -1; dx <= 1; dx++) {
+        if (dx == 0 && dy == 0) continue;
+        ivec2 q = base + ((l + ivec2(dx, dy) + 64) % 64);
+        c += texelFetch(uCur, q, 0).r > 0.5 ? 1 : 0;
+      }
+      int m = me > 0.5 ? maskOf(tile.x) : maskOf(tile.y);
+      o = vec4(((m >> c) & 1) == 1 ? 1.0 : 0.0);
+    }`;
+
+    const FS_STAT = `#version 300 es
+    precision highp float; precision highp int;
+    uniform sampler2D uNext, uCur, uPrev, uStat;
+    uniform int uGen;
+    out vec4 o;
+    ${RULE_GLSL}
+    void main(){
+      ivec2 t = ivec2(gl_FragCoord.xy);
+      int s = stat(uStat, t);
+      if (s != 0) { o = vec4(float(s) / 255.0); return; }
+      ivec2 base = t * 64;
+      bool same = true, sameP = true; int pop = 0;
+      for (int y = 0; y < 64; y++) for (int x = 0; x < 64; x++) {
+        ivec2 q = base + ivec2(x, y);
+        bool n = texelFetch(uNext, q, 0).r > 0.5;
+        bool c = texelFetch(uCur, q, 0).r > 0.5;
+        bool p = texelFetch(uPrev, q, 0).r > 0.5;
+        if (n) pop++;
+        if (n != c) same = false;
+        if (n != p) sameP = false;
+      }
+      bool b0 = (maskOf(t.y) & 1) == 1;
+      if (pop == 0 && !b0) s = 3;
+      else if (same) s = 1;
+      else if (sameP && uGen >= 2) s = 2;
+      o = vec4(float(s) / 255.0);
+    }`;
+
+    const VS_SHOW = `#version 300 es
+    in vec2 aCorner; in vec4 aTile;
+    uniform vec2 uView, uSize; uniform float uZ;
+    out vec2 vLocal; flat out ivec2 vTile;
+    void main(){
+      vec2 w = aTile.xy + aCorner * 64.0;
+      vec2 c = (w * uZ + uView) / uSize * 2.0 - 1.0;
+      gl_Position = vec4(c.x, -c.y, 0.0, 1.0);
+      vLocal = aCorner * 64.0; vTile = ivec2(aTile.zw);
+    }`;
+    const FS_SHOW = `#version 300 es
+    precision highp float; precision highp int;
+    uniform sampler2D uCells, uStat;
+    uniform vec3 uLive, uDead, uStill, uBlink, uGone;
+    uniform float uZ;
+    in vec2 vLocal; flat in ivec2 vTile;
+    out vec4 o;
+    void main(){
+      float v = texture(uCells, (vec2(vTile * 64) + vLocal) / ${W}.0).r;
+      int s = int(texelFetch(uStat, vTile, 0).r * 255.0 + 0.5);
+      vec3 bg = s == 1 ? uStill : s == 2 ? uBlink : s == 3 ? uGone : uDead;
+      float px = min(vLocal.x, 64.0 - vLocal.x), py = min(vLocal.y, 64.0 - vLocal.y);
+      float edge = min(px, py) * uZ;
+      float bw = min(2.0, 64.0 * uZ * 0.2);
+      float e = 1.0 - smoothstep(bw - 0.5, bw + 0.5, edge);
+      o = vec4(mix(mix(bg, uLive, v), bg, e), 1.0);
+    }`;
+
+    function compile(vs, fs) {
+      const mk = (type, src) => {
+        const sh = gl.createShader(type); gl.shaderSource(sh, src); gl.compileShader(sh);
+        if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(sh)); return sh;
+      };
+      const p = gl.createProgram();
+      gl.attachShader(p, mk(gl.VERTEX_SHADER, vs)); gl.attachShader(p, mk(gl.FRAGMENT_SHADER, fs));
+      gl.linkProgram(p);
+      if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+      const u = {}; const n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
+      for (let i = 0; i < n; i++) { const name = gl.getActiveUniform(p, i).name; u[name] = gl.getUniformLocation(p, name); }
+      return { p, u };
+    }
+    const P_STEP = compile(VS_FULL, FS_STEP), P_STAT = compile(VS_FULL, FS_STAT), P_SHOW = compile(VS_SHOW, FS_SHOW);
+
+    const vaoFull = gl.createVertexArray(); gl.bindVertexArray(vaoFull);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    for (const P of [P_STEP, P_STAT]) { const loc = gl.getAttribLocation(P.p, "aPos"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0); }
+
+    const vaoShow = gl.createVertexArray(); gl.bindVertexArray(vaoShow);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 1, 1]), gl.STATIC_DRAW);
+    let loc = gl.getAttribLocation(P_SHOW.p, "aCorner"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const inst = new Float32Array(R * R * 4);
+    for (let bi = 0, k = 0; bi < R; bi++) for (let si = 0; si < R; si++, k += 4) inst.set([colX(si), rowY(bi), si, bi], k);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, inst, gl.STATIC_DRAW);
+    loc = gl.getAttribLocation(P_SHOW.p, "aTile"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 4, gl.FLOAT, false, 0, 0); gl.vertexAttribDivisor(loc, 1);
+    gl.bindVertexArray(null);
+
+    function mkTex(w, h, internal, format, mip) {
+      const t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
+      const levels = mip ? Math.floor(Math.log2(Math.max(w, h))) + 1 : 1;
+      gl.texStorage2D(gl.TEXTURE_2D, levels, internal, w, h);
+      for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, mip ? gl.LINEAR_MIPMAP_LINEAR : gl.NEAREST], [gl.TEXTURE_MAG_FILTER, gl.NEAREST], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v);
+      const fb = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+      gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, t, 0);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      return { t, fb, w, h, format };
+    }
+    let cells = [0, 1, 2].map(() => mkTex(W, W, gl.R8, gl.RED, true));
+    let stats = [0, 1].map(() => mkTex(R, R, gl.RGBA8, gl.RGBA));
+    let gen = 0;
+
+    function upload(tex, data) {
+      gl.bindTexture(gl.TEXTURE_2D, tex.t);
+      gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+      gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, tex.w, tex.h, tex.format, gl.UNSIGNED_BYTE, data);
+    }
+    function reset() {
+      let h = 2166136261 >>> 0;
+      for (const c of seedStr) { h ^= c.codePointAt(0); h = Math.imul(h, 16777619); }
+      let a = h + cycle | 0;
+      const rnd = () => { a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+      const pat = new Uint8Array(N * N), o = N / 2 - SEED_SIZE / 2;
+      for (let y = 0; y < SEED_SIZE; y++) for (let x = 0; x < SEED_SIZE; x++) pat[(o + y) * N + o + x] = rnd() < 0.5 ? 255 : 0;
+      const init = new Uint8Array(W * W), blank = new Uint8Array(W * W);
+      for (let bi = 0; bi < R; bi++) for (let si = 0; si < R; si++)
+        for (let y = 0; y < N; y++) init.set(pat.subarray(y * N, y * N + N), (bi * N + y) * W + si * N);
+      upload(cells[0], blank); upload(cells[1], init); upload(cells[2], blank);
+      const z = new Uint8Array(R * R * 4);
+      upload(stats[0], z); upload(stats[1], z);
+      mip(cells[1]);
+      glDirty = true;
+      gen = 0;
+    }
+    function mip(tex) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex.t); gl.generateMipmap(gl.TEXTURE_2D); }
+    function bindTex(unit, tex) { gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, tex.t); }
+
+    function stepGen() {
+      const [prev, cur, next] = cells, [sCur, sNext] = stats;
+      gl.bindVertexArray(vaoFull);
+      gl.useProgram(P_STEP.p);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, next.fb); gl.viewport(0, 0, W, W);
+      bindTex(0, cur); bindTex(1, sCur);
+      gl.uniform1i(P_STEP.u.uCur, 0); gl.uniform1i(P_STEP.u.uStat, 1);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      const check = (gen + 1) % STAT_EVERY === 0;
+      if (check) {
+        gl.useProgram(P_STAT.p);
+        gl.bindFramebuffer(gl.FRAMEBUFFER, sNext.fb); gl.viewport(0, 0, R, R);
+        bindTex(0, next); bindTex(1, cur); bindTex(2, prev); bindTex(3, sCur);
+        gl.uniform1i(P_STAT.u.uNext, 0); gl.uniform1i(P_STAT.u.uCur, 1); gl.uniform1i(P_STAT.u.uPrev, 2); gl.uniform1i(P_STAT.u.uStat, 3);
+        gl.uniform1i(P_STAT.u.uGen, gen + 1);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+      }
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      cells = [cur, next, prev];
+      if (check) stats = [sNext, sCur];
+      glDirty = true;
+      mip(next);
+      gen++;
+    }
+
+    const css = {}, rgb = {};
+    const cs = getComputedStyle(document.documentElement);
+    for (const k of ["bg", "ink", "dead", "live", "still", "blink", "gone"]) {
+      css[k] = cs.getPropertyValue("--" + k).trim();
+      rgb[k] = [1, 3, 5].map(i => parseInt(css[k].substr(i, 2), 16) / 255);
+    }
+
+    const lc = document.getElementById("labels"), lctx = lc.getContext("2d");
+    const view = { z: 0.1, x: 0, y: 0 };
+    let cw = 0, ch = 0, dpr = 1, labelsDirty = true, glDirty = true;
+    function resize() {
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      cw = window.innerWidth; ch = window.innerHeight;
+      glc.width = Math.round(cw * dpr); glc.height = Math.round(ch * dpr);
+      lc.width = Math.round(cw * dpr); lc.height = Math.round(ch * dpr);
+      labelsDirty = true;
+    }
+    function fitView() {
+      const mL = 110, mB = 110, mT = 12, mR = 12;
+      const gw = colX(R - 1) + TILE, gh = rowY(0) + TILE;
+      const aw = cw - mL - mR, ah = ch - mT - mB;
+      view.z = Math.min(aw / gw, ah / gh);
+      view.x = mL + (aw - gw * view.z) / 2;
+      view.y = mT + (ah - gh * view.z) / 2;
+      labelsDirty = true;
+    }
+    function drawGL() {
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      gl.viewport(0, 0, glc.width, glc.height);
+      gl.clearColor(...rgb.bg, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.useProgram(P_SHOW.p);
+      gl.bindVertexArray(vaoShow);
+      bindTex(0, cells[1]); bindTex(1, stats[0]);
+      const u = P_SHOW.u;
+      gl.uniform1i(u.uCells, 0); gl.uniform1i(u.uStat, 1);
+      gl.uniform2f(u.uView, view.x, view.y); gl.uniform2f(u.uSize, cw, ch); gl.uniform1f(u.uZ, view.z);
+      gl.uniform3fv(u.uLive, rgb.live); gl.uniform3fv(u.uDead, rgb.dead); gl.uniform3fv(u.uStill, rgb.still);
+      gl.uniform3fv(u.uBlink, rgb.blink); gl.uniform3fv(u.uGone, rgb.gone);
+      gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, R * R);
+    }
+    const FONT_SIZE = 11, FONT = `italic ${FONT_SIZE}px 'IBM Plex Mono', monospace`, LH = Math.round(FONT_SIZE * 1.2);
+    const NAMED_TILES = [];
+    for (let bi = 0; bi < R; bi++) for (let si = 0; si < R; si++) { const n = nameOf(bi, si); if (n) NAMED_TILES.push([bi, si, n]); }
+    function drawLabels() {
+      const ctx = lctx, z = view.z;
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, lc.width, lc.height);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.textBaseline = "top";
+      const rng = r => r.empty ? " none" : digits(r);
+      const sx = x => Math.round(x * z + view.x), sy = y => Math.round(y * z + view.y);
+
+      ctx.font = FONT; ctx.textAlign = "left";
+      const pitchW = PX * z - 2, free = (PY - TILE) * z, showRule = free >= LH;
+      if (showRule) {
+        ctx.fillStyle = css.ink;
+        for (let bi = 0; bi < R; bi++) {
+          const y = sy(rowY(bi) + TILE) + 2; if (y > ch || y + free < 0) continue;
+          for (let si = 0; si < R; si++) {
+            const x = sx(colX(si)); if (x > cw || x + PX * z < 0) continue;
+            const rule = ruleStr(bi, si);
+            if (ctx.measureText(rule).width <= pitchW) ctx.fillText(rule, x, y);
+          }
+        }
+      }
+      const placed = [];
+      for (const [bi, si, name] of NAMED_TILES) {
+        const tx = sx(colX(si)), tb = sy(rowY(bi) + TILE);
+        const w = Math.ceil(ctx.measureText(name).width) + 4;
+        const y0 = tb + 2 + (showRule ? LH : 0);
+        let y = y0;
+        if (tx > cw || tx + w < 0 || y > ch) continue;
+        for (let tries = 0; tries < 40; tries++) {
+          if (!placed.some(r => tx < r.x + r.w && tx + w > r.x && y < r.y + LH && y + LH > r.y)) break;
+          y += LH;
+        }
+        placed.push({ x: tx, y, w });
+        if (y > y0) { ctx.fillStyle = css.ink; ctx.fillRect(tx, tb, 1, y - tb); }
+        ctx.fillStyle = css.bg; ctx.fillRect(tx, y - 1, w, LH);
+        ctx.fillStyle = css.ink; ctx.fillText(name, tx + 2, y);
+      }
+
+      ctx.font = FONT;
+      const gx0 = sx(colX(0)), gy1 = sy(rowY(0) + TILE);
+      let bw = 0; for (const r of RANGES) bw = Math.max(bw, ctx.measureText("b" + rng(r)).width);
+      const bx = Math.max(gx0 - 6, Math.ceil(bw) + 4);
+      ctx.textAlign = "right";
+      for (let bi = 0; bi < R; bi++) {
+        const y = sy(rowY(bi) + TILE / 2) - 4; if (y < -LH || y > ch) continue;
+        const t = "b" + rng(RANGES[bi]), w = Math.ceil(ctx.measureText(t).width);
+        ctx.fillStyle = css.bg; ctx.fillRect(bx - w - 2, y - 1, w + 4, LH + 1);
+        ctx.fillStyle = css.ink; ctx.fillText(t, bx, y);
+      }
+      let sw = 0; for (const r of RANGES) sw = Math.max(sw, ctx.measureText("s" + rng(r)).width);
+      const used = showRule ? LH * 2 + 4 : LH + 4;
+      const by = Math.min(gy1 + used + 6, ch - Math.ceil(sw) - 4);
+      for (let si = 0; si < R; si++) {
+        const x = sx(colX(si) + TILE / 2) + 4; if (x < -LH || x > cw + LH) continue;
+        const t = "s" + rng(RANGES[si]), w = Math.ceil(ctx.measureText(t).width);
+        ctx.save(); ctx.translate(x, by); ctx.rotate(Math.PI / 2);
+        ctx.textAlign = "left";
+        ctx.fillStyle = css.bg; ctx.fillRect(-2, -1, w + 4, LH + 1);
+        ctx.fillStyle = css.ink; ctx.fillText(t, 0, 0);
+        ctx.restore();
+      }
+
+      labelsDirty = false;
+    }
+
+    function hitTile(mx, my) {
+      const wx = (mx - view.x) / view.z, wy = (my - view.y) / view.z;
+      const si = RANGES.findIndex((_, i) => wx >= colX(i) && wx < colX(i) + TILE);
+      const bi = RANGES.findIndex((_, i) => wy >= rowY(i) && wy < rowY(i) + PY - 10);
+      return si < 0 || bi < 0 ? null : [bi, si];
+    }
+    function zoomAt(sx, sy, f) {
+      const nz = Math.min(12, Math.max(0.03, view.z * f));
+      view.x = sx - (sx - view.x) * (nz / view.z); view.y = sy - (sy - view.y) * (nz / view.z); view.z = nz;
+      labelsDirty = true;
+    }
+    // リダイレクトない場合ここに追記してください。結構あるので…
+    const WIKI_EXCEPT = {
+      "B1/S012345678": "OCA:H-trees",
+      "B1/S1": "Gnarl",
+      "B3/S4567": "OCA:Lifeguard_2",
+      "B3/S45678": "OCA:Coral",
+      "B34/S456": "OCA:Bacteria",
+      "B345/S2": "OCA:Blinkers",
+      "B345/S4567": "OCA:Assimilation",
+      "B5678/S45678": "OCA:Vote",
+      "B45/S12345": "List_of_Life-like_rules",
+      "B45678/S5678": "List_of_Life-like_rules",
+    };
+    const DRAG_SLOP = 5;
+    (function () {
+      const el = lc, pts = new Map(); let pinch = 0;
+      const pos = e => [e.clientX, e.clientY];
+      el.addEventListener("wheel", e => { e.preventDefault(); zoomAt(e.clientX, e.clientY, Math.exp(-e.deltaY * 0.0015)); }, { passive: false });
+      el.addEventListener("dblclick", e => { if (!hitTile(e.clientX, e.clientY)) fitView(); });
+      let moved = 0, lastOpen = 0;
+      el.addEventListener("pointerdown", e => { el.setPointerCapture(e.pointerId); pts.set(e.pointerId, pos(e)); moved = 0; el.classList.add("dragging"); });
+      el.addEventListener("mousemove", e => { if (!pts.size) el.style.cursor = hitTile(e.clientX, e.clientY) ? "pointer" : "grab"; });
+      el.addEventListener("pointermove", e => {
+        if (!pts.has(e.pointerId)) return;
+        const p = pos(e), old = pts.get(e.pointerId);
+        if (pts.size === 1) { view.x += p[0] - old[0]; view.y += p[1] - old[1]; moved += Math.abs(p[0] - old[0]) + Math.abs(p[1] - old[1]); labelsDirty = true; }
+        pts.set(e.pointerId, p);
+        if (pts.size === 2) {
+          const [a, b] = [...pts.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+          if (pinch) zoomAt((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, d / pinch);
+          pinch = d; moved += 100;
+        }
+      });
+      const up = e => {
+        const h = e.type === "pointerup" && pts.size === 1 && moved < DRAG_SLOP ? hitTile(e.clientX, e.clientY) : null;
+        if (h && performance.now() - lastOpen > 500) {
+          lastOpen = performance.now();
+          const key = "B" + digits(RANGES[h[0]]) + "/S" + digits(RANGES[h[1]]);
+          window.open(nameOf(h[0], h[1]) ? "https://conwaylife.com/wiki/" + (WIKI_EXCEPT[key] || key) : "https://catagolue.hatsya.com/census/" + ruleStr(h[0], h[1]), "_blank", "noopener");
+        }
+        pts.delete(e.pointerId); if (pts.size < 2) pinch = 0; if (!pts.size) el.classList.remove("dragging");
+      };
+      el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up);
+      window.addEventListener("keydown", e => { if (e.key === "0") fitView(); });
+    })();
+
+    let seedStr = "1", cycle = 0;
+    function readSeed() { seedStr = new URLSearchParams(location.hash.slice(1)).get("seed") || "1"; }
+    readSeed(); resize(); fitView(); reset();
+    window.addEventListener("resize", resize);
+    window.addEventListener("hashchange", () => { readSeed(); cycle = 0; reset(); });
+    document.fonts.load(FONT).then(() => labelsDirty = true);
+
+    let last = 0;
+    function frame(t) {
+      if (t - last >= 1000 / FPS) { last = t; if (gen >= RESET_GEN) { cycle++; reset(); } else stepGen(); }
+      if (glDirty || labelsDirty) { drawGL(); glDirty = false; }
+      if (labelsDirty) drawLabels();
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  </script>
+</body>
+
+</html>
