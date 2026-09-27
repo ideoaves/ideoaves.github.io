@@ -127,12 +127,12 @@
     const rowY = bi => (R - 1 - bi) * PY + (9 - RANGES[bi].g) * GAP;
     const ruleStr = (bi, si) => "b" + digits(RANGES[bi], exclude.b) + "s" + digits(RANGES[si], exclude.s);
     const nameOf = (bi, si) => NAMED["B" + digits(RANGES[bi], exclude.b) + "/S" + digits(RANGES[si], exclude.s)];
-    const BTN_MAX = 7;
+    const BTN_MAX = 7, BAR = TILE * 2;
     const buttons = [];
     for (let n = 1; n <= BTN_MAX; n++) {
       const head = RANGES.findIndex(r => r.lo === n), tail = head + (K - n) - 1;
-      buttons.push(["s", n, colX(head), -PY, colX(tail) + TILE - colX(head), TILE]);
-      buttons.push(["b", n, colX(R - 1) + PX, rowY(tail), TILE, rowY(head) + TILE - rowY(tail)]);
+      buttons.push(["s", n, colX(head), -PY - TILE, colX(tail) + TILE - colX(head), BAR]);
+      buttons.push(["b", n, colX(R - 1) + PY, rowY(tail), BAR, rowY(head) + TILE - rowY(tail)]);
     }
 
     const glc = document.getElementById("gl");
@@ -571,11 +571,11 @@
     markShown(); readSeed(); resize();
     {
       const mL = 110, mB = 110, mT = 12, mR = 12;
-      const gw = colX(R - 1) + PX + TILE, gh = rowY(0) + TILE + PY;
+      const gw = colX(R - 1) + PY + BAR, gh = rowY(0) + TILE + PY + TILE;
       const aw = cw - mL - mR, ah = ch - mT - mB;
       view.z = Math.min(aw / gw, ah / gh);
       view.x = mL + (aw - gw * view.z) / 2;
-      view.y = mT + (ah - gh * view.z) / 2 + PY * view.z;
+      view.y = mT + (ah - gh * view.z) / 2 + (PY + TILE) * view.z;
     }
     reset();
     window.addEventListener("resize", resize);
