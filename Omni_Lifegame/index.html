@@ -552,7 +552,7 @@
         if (h && performance.now() - lastOpen > 500) {
           lastOpen = performance.now();
           const key = "B" + digits(RANGES[h[0]], exclude.b) + "/S" + digits(RANGES[h[1]], exclude.s);
-          window.open(nameOf(h[0], h[1]) ? "https://conwaylife.com/wiki/" + (WIKI_EXCEPT[key] || key) : "https://catagolue.hatsya.com/census/" + ruleStr(h[0], h[1]), "_blank", "noopener");
+          window.open(nameOf(h[0], h[1]) ? "https://conwaylife.com/wiki/" + (WIKI_EXCEPT[key] || key) : "https://catagolue.hatsya.com/census/" + ruleStr(h[0], h[1]) + "/C1", "_blank", "noopener");
         }
         pts.delete(e.pointerId); if (pts.size < 2) pinch = 0; if (!pts.size) el.classList.remove("dragging");
       };
