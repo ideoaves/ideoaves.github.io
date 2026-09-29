@@ -16,10 +16,10 @@ const UNTITLED = /^(無題のファイル|Untitled)( \d+)?\.md$/;
 const PRIVATE_NOTICE = '<p><span class="引用">この記事はプライベート公開中です</span></p>\n';
 
 // parser.mjsを読み直す
-let txt2html, renderArticleBody, escapeAttr, isAbsoluteUrl;
+let txt2html, renderArticleBody, escapeAttr, isAbsoluteUrl, plainText;
 async function loadParser() {
     const url = pathToFileURL(path.join(ROOT, "parser.mjs")).href;
-    ({ txt2html, renderArticleBody, escapeAttr, isAbsoluteUrl } = await import(`${url}?${Date.now()}`));
+    ({ txt2html, renderArticleBody, escapeAttr, isAbsoluteUrl, plainText } = await import(`${url}?${Date.now()}`));
 }
 
 // CRLFとLF変換たちの装置
@@ -99,10 +99,7 @@ function coverImage(images) {
 
 // 冒頭n文字ぶんのサマリー
 function summarize(bodyHtml, n) {
-    const text = bodyHtml
-        .replace(/<div class="目次">.*?<\/div>/gs, "")
-        .replace(/<span class="カーソルを"[^>]*><span>(.*?)<\/span>.*?<\/span>/gs, "$1")
-        .replace(/<[^>]+>/g, "")
+    const text = plainText(bodyHtml.replace(/<div class="目次">.*?<\/div>/gs, ""))
         .trim()
         .replace(/\s+/g, " ");
     return text.length > n ? text.slice(0, n) + "..." : text;

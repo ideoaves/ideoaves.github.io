@@ -142,6 +142,13 @@ export function markdown(content, topLevel = true) {
   return `<a href="${url}">${url}</a>`;
 }
 
+// 本文以外で使う文字だけの版。{}の注釈は落とす
+export function plainText(html) {
+  return html
+    .replace(/<span class="カーソルを"[^>]*><span>(.*?)<\/span>.*?<\/span>/gs, "$1")
+    .replace(/<[^>]*>/g, "");
+}
+
 // 記事生成。でかい。
 export function txt2html(text, hasTitle = true) {
   collected.images.length = 0;
@@ -312,14 +319,16 @@ export function txt2html(text, hasTitle = true) {
     if ((m = line.match(/^(#{1,3})\s+(.+)$/))) {
       close();
       const level = m[1].length;
-      const heading = m[2].trim();
+      const html = processInline(m[2].trim());
+      // 見出しの中のリンクや装飾は落として文字だけ使う
+      const heading = plainText(html);
       const base = heading.replace(/[^\p{L}\p{N}_]+/gu, "-") || "見出し";
       let anchor = base;
       for (let n = 2; usedAnchors.has(anchor); n++) anchor = `${base}-${n}`;
       usedAnchors.add(anchor);
 
       toc.push([level, heading, anchor]);
-      blocks.push(`<h${level} id="${anchor}">${processInline(heading)}</h${level}>`);
+      blocks.push(`<h${level} id="${anchor}">${html}</h${level}>`);
       continue;
     }
 
