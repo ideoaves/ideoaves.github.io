@@ -45,7 +45,10 @@
 
         .event-line {
             top: var(--dotP);
-            background: var(--midColor);
+            overflow: visible;
+            fill: none;
+            stroke: var(--midColor);
+            stroke-width: 3px;
         }
 
         .event-line-cont {
@@ -90,6 +93,12 @@
             background-color: hsla(0, 0%, 100%, 0.5);
             font-weight: 500;
             color: #333;
+        }
+
+        .メモ {
+            margin-left: 8px;
+            font-size: 0.8em;
+            color: var(--midColor);
         }
 
         .year-label {
@@ -231,6 +240,8 @@
         const yearPixel = 100;
         const minYears = 3;
         const hidePoints = 5;
+        const arcBend = -0.08;
+        const arcMax = 40;
         const tagOrder = ['政治', '世相', '事件', '学生', '運動', '技術', 'コンピュータ', 'インターネット', '天文', '建築', '芸術', '音楽', 'ファッション', 'サブ'];
 
         let timelineData = [];
@@ -348,6 +359,18 @@
 
             event.appendChild(dateSpan);
             event.appendChild(titleSpan);
+
+            if (data.memo) {
+                const isLink = data.memo.startsWith('https:');
+                const memo = document.createElement(isLink ? 'a' : 'span');
+                memo.className = 'メモ';
+                memo.textContent = data.memo;
+                if (isLink) {
+                    memo.href = data.memo;
+                    memo.target = '_blank';
+                }
+                event.appendChild(memo);
+            }
             return event;
         }
 
@@ -396,9 +419,8 @@
         // end_dateの1件を線として描く
         function drawLine(data, token, view, elements) {
             const start = elements.get(data.id);
-            const line = document.createElement('div');
-
             if (token === 'cont' || token === 'fin') {
+                const line = document.createElement('div');
                 line.className = 'event-line-' + token;
                 start.appendChild(line);
                 addDot(start, false);
@@ -407,10 +429,17 @@
 
             const end = endPointOf(token, view);
             const faint = isFaint(data, end, view);
-            line.className = faint ? 'event-line 薄い線' : 'event-line';
-            line.style.height = (end.y - view.positions.get(data.id) + 8) + 'px';
+            const height = end.y - view.positions.get(data.id) + 8;
+            const bend = Math.sign(arcBend) * Math.min(Math.abs(height * arcBend), arcMax);
 
-            start.appendChild(line);
+            const arc = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            arc.setAttribute('class', faint ? 'event-line 薄い線' : 'event-line');
+            arc.style.height = height + 'px';
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', `M 1.5 0 Q ${1.5 + bend * 2} ${height / 2} 1.5 ${height}`);
+            arc.appendChild(path);
+
+            start.appendChild(arc);
             addDot(start, faint);
             addDot(elements.get(token), faint);
         }

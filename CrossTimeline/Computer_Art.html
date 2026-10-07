@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>横断年表(コンピュータアート版)</title>
+    <style>
+        :root {
+            --lineP: 95px;
+            --dotP: 8px;
+            --midColor: #999;
+        }
+
+        body {
+            margin: 20px;
+            font-family: 'IBM Plex Sans JP', sans-serif;
+            background-color: white;
+        }
+
+        h1 {
+            color: #333;
+            margin: 0;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .event {
+            position: absolute;
+            white-space: nowrap;
+            font-size: 13px;
+        }
+
+        .event-line,
+        .event-line-cont,
+        .event-line-fin {
+            position: absolute;
+            left: var(--lineP);
+            width: 3px;
+            z-index: -1;
+        }
+
+        .event-line {
+            top: var(--dotP);
+            overflow: visible;
+            fill: none;
+            stroke: var(--midColor);
+            stroke-width: 3px;
+        }
+
+        .event-line-cont {
+            top: var(--dotP);
+            height: 100px;
+            background: linear-gradient(to bottom, var(--midColor), rgba(153, 153, 153, 0));
+        }
+
+        .event-line-fin {
+            bottom: var(--dotP);
+            height: 120px;
+            background: linear-gradient(to top, var(--midColor), rgba(153, 153, 153, 0));
+        }
+
+        .薄い線 {
+            opacity: 0.2;
+        }
+
+        .dot {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid var(--midColor);
+            left: calc(var(--lineP) - 3.5px);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .event-date {
+            display: inline-block;
+            width: 80px;
+            margin-right: 20px;
+            text-align: right;
+            color: #666;
+        }
+
+        .event-title {
+            margin-left: 10px;
+            background-color: hsla(0, 0%, 100%, 0.5);
+            font-weight: 500;
+            color: #333;
+        }
+
+        .メモ {
+            margin-left: 8px;
+            font-size: 0.8em;
+            color: var(--midColor);
+        }
+
+        .year-label {
+            position: absolute;
+            left: 0;
+            color: var(--midColor);
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        #toggle-source {
+            display: none;
+        }
+
+        .出典 {
+            display: none;
+            font-size: 8px;
+        }
+
+        #toggle-source:checked+.出典ボタン+.出典 {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>横断年表(コンピュータアート版)</h1>
+    themassage.jpで行われた<a href="https://themassage.jp/archives/21311">hasaqui連載</a>を中心にした個人的なメモです。（参考資料にはならないと思います）<br>
+    <label><input type="checkbox" id="viewMode">時間距離⇔等間隔</label>
+
+    <div class="timeline" id="timeline"></div>
+
+    <script>
+        const yearPixel = 60;
+        const minYears = 3;
+        const hidePoints = 5;
+        const arcBend = -0.08;
+        const arcMax = 40;
+        const tagOrder = [
+            "製品科学研究所",
+            "出原栄一・河口洋一郎",
+            "川野洋",
+            "渡辺茂研究室・C.B.A.",
+            "CTG／幸村真佐男",
+            "端山貢明",
+            "山田学・月尾嘉男",
+            "磯崎新",
+            "宇佐美圭司・高松次郎",
+            "雑誌"
+        ];
+
+        let timelineData = [];
+        let isCompactView = false;
+
+        // 日付をパースして数値に変換する
+        function parseDate(dateStr) {
+            const parts = dateStr.split('/');
+            return {
+                year: parseInt(parts[0]) || 0,
+                month: parseInt(parts[1]) || 0,
+                day: parseInt(parts[2]) || 0
+            };
+        }
+
+        // 2つの日付を比べる
+        function compareDate(a, b) {
+            return (a.year - b.year) || (a.month - b.month) || (a.day - b.day);
+        }
+
+        // 日付をY座標に変換する
+        function dateToYPosition(dateObj, index) {
+            if (isCompactView) {
+                return index * 20 + 20;
+            }
+            const yearOffset = (dateObj.year - 1960) * yearPixel;
+            const monthOffset = dateObj.month > 0 ? (dateObj.month - 1) * (yearPixel / 12) : 0;
+            const dayOffset = dateObj.day > 0 ? (dateObj.day - 1) * (yearPixel / 12 / 30) : 0;
+            return yearOffset + monthOffset + dayOffset + index * 14;
+        }
+
+        // タグ名を横位置に変換する
+        function getTagPosition(tag) {
+            const index = tagOrder.indexOf(tag);
+            return index >= 0 ? (index * 150) + 70 : 70;
+        }
+
+        // タグ文字列を配列にする
+        function tagsOf(data) {
+            return data.tag.split(',').map(tag => tag.trim());
+        }
+
+        // 期間の両端に置くマーカー円を追加
+        function addDot(element, faint) {
+            if (!element) return;
+
+            const found = element.querySelector('.dot');
+            if (found) {
+                if (!faint) found.classList.remove('薄い線');
+                return;
+            }
+
+            const dot = document.createElement('div');
+            dot.className = faint ? 'dot 薄い線' : 'dot';
+            element.appendChild(dot);
+        }
+
+        // 線の終端を求める
+        function endPointOf(token, view) {
+            const target = view.dataById.get(token);
+            if (target) {
+                return {
+                    y: view.positions.get(token),
+                    index: view.indexById.get(token),
+                    tags: tagsOf(target),
+                    date: parseDate(target.sort_date)
+                };
+            }
+
+            const date = parseDate(token);
+            const index = view.sorted.filter(data =>
+                compareDate(parseDate(data.sort_date), date) <= 0).length;
+            return { y: dateToYPosition(date, index), index: index, tags: null, date: date };
+        }
+
+        // 線を薄くするか判定
+        function isFaint(from, end, view) {
+            const a = parseDate(from.sort_date);
+            const years = Math.abs((end.date.year + end.date.month / 12) - (a.year + a.month / 12));
+            if (years <= minYears) return false;
+
+            const shared = end.tags ? tagsOf(from).filter(tag => end.tags.indexOf(tag) >= 0) : [];
+            const lineTags = shared.length > 0 ? shared : tagsOf(from);
+
+            const fromIndex = view.indexById.get(from.id);
+            const between = view.sorted.slice(Math.min(fromIndex, end.index) + 1, Math.max(fromIndex, end.index));
+
+            return between.filter(data =>
+                tagsOf(data).some(tag => lineTags.indexOf(tag) >= 0)).length >= hidePoints;
+        }
+
+        // イベントの見出し
+        function createEvent(data, view) {
+            const event = document.createElement('div');
+            event.className = 'event';
+            event.style.top = view.positions.get(data.id) + 'px';
+
+            const tags = tagsOf(data);
+            let xPos = getTagPosition(tags[0]);
+            if (tags.length > 1) {
+                xPos += (getTagPosition(tags[1]) - xPos) * 0.8;
+            }
+            event.style.left = xPos + 'px';
+
+            const dateSpan = document.createElement('span');
+            dateSpan.className = 'event-date';
+            const parts = data.date.split('/');
+            dateSpan.textContent = parts[2] !== '00' ? data.date
+                : parts[1] !== '00' ? parts[0] + '/' + parts[1]
+                    : parts[0];
+
+            const titleSpan = document.createElement('span');
+            titleSpan.className = 'event-title';
+            titleSpan.textContent = data.title;
+
+            event.appendChild(dateSpan);
+            event.appendChild(titleSpan);
+
+            if (data.memo) {
+                const isLink = data.memo.startsWith('https:');
+                const memo = document.createElement(isLink ? 'a' : 'span');
+                memo.className = 'メモ';
+                memo.textContent = data.memo;
+                if (isLink) {
+                    memo.href = data.memo;
+                    memo.target = '_blank';
+                }
+                event.appendChild(memo);
+            }
+            return event;
+        }
+
+        // タイムライン
+        function renderTimeline() {
+            const timeline = document.getElementById('timeline');
+            timeline.innerHTML = '';
+
+            const sorted = [...timelineData].sort((a, b) =>
+                compareDate(parseDate(a.sort_date), parseDate(b.sort_date)));
+
+            // 線の終端をidで引けるよう、先に全イベントの位置を確定させる
+            const view = { sorted: sorted, positions: new Map(), indexById: new Map(), dataById: new Map() };
+            sorted.forEach((data, index) => {
+                view.positions.set(data.id, dateToYPosition(parseDate(data.sort_date), index));
+                view.indexById.set(data.id, index);
+                view.dataById.set(data.id, data);
+            });
+
+            const elements = new Map();
+            let currentYear = null;
+
+            sorted.forEach((data, index) => {
+                const year = parseDate(data.sort_date).year;
+                if (year !== currentYear) {
+                    currentYear = year;
+                    const yearLabel = document.createElement('div');
+                    yearLabel.className = 'year-label';
+                    yearLabel.textContent = year;
+                    yearLabel.style.top = dateToYPosition({ year: year, month: 0, day: 0 }, index) + 'px';
+                    timeline.appendChild(yearLabel);
+                }
+
+                const event = createEvent(data, view);
+                elements.set(data.id, event);
+                timeline.appendChild(event);
+            });
+
+            timeline.style.height = (view.positions.get(sorted[sorted.length - 1].id) + 100) + 'px';
+
+            sorted.forEach(data => {
+                data.end_date.forEach(token => drawLine(data, token, view, elements));
+            });
+        }
+
+        // end_dateの1件を線として描く
+        function drawLine(data, token, view, elements) {
+            const start = elements.get(data.id);
+            if (token === 'cont' || token === 'fin') {
+                const line = document.createElement('div');
+                line.className = 'event-line-' + token;
+                start.appendChild(line);
+                addDot(start, false);
+                return;
+            }
+
+            const end = endPointOf(token, view);
+            const endElement = elements.get(token);
+            const faint = isFaint(data, end, view);
+            const height = end.y - view.positions.get(data.id) + 8;
+            const bend = Math.sign(arcBend) * Math.min(Math.abs(height * arcBend), arcMax) * 4 / 3;
+            const endX = 1.5 + (endElement ? parseFloat(endElement.style.left) - parseFloat(start.style.left) : 0);
+
+            const arc = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            arc.setAttribute('class', faint ? 'event-line 薄い線' : 'event-line');
+            arc.style.height = height + 'px';
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', `M 1.5 0 C ${1.5 + bend} ${height / 2} ${endX + bend} ${height / 2} ${endX} ${height}`);
+            arc.appendChild(path);
+
+            start.appendChild(arc);
+            addDot(start, faint);
+            addDot(endElement, faint);
+        }
+
+        // JSONデータを読み込む
+        async function loadTimelineData() {
+            const response = await fetch('Computer_Art_TL.json');
+            timelineData = await response.json();
+
+            renderTimeline();
+            document.getElementById('viewMode').addEventListener('change', function () {
+                isCompactView = this.checked;
+                renderTimeline();
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadTimelineData);
+    </script>
+</body>
+
+</html>
