@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Font Map ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+  <meta name="description" content="Font Mapはグリフの類似度でプロットするサイトです。">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Font Map">
+  <meta name="twitter:description" content="Font Mapはグリフの類似度でプロットするサイトです。">
+  <style>
+    #操作盤 {
+      background-color: #1a1a1a;
+      color: #fff;
+      padding: 12px;
+      margin: 10px;
+      width: 300px;
+      position: relative;
+      z-index: 2;
+    }
+    #操作盤 h1, p {
+      margin: 0;
+    }
+
+    #操作盤 input[type=text] {
+      display: block;
+      padding: 2px;
+      margin: 2px 2px 10px;
+      width: 150px;
+    }
+
+    #操作盤 button {
+      background-color: #666666;
+      color: #fff;
+      padding: 4px 12px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    #地図 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+    }
+
+    #詳細 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      max-width: calc(100% - 20px);
+      background: #eee;
+      padding: 12px;
+      pointer-events: none;
+      display: none;
+      overflow: hidden;
+    }
+
+    #詳細名 {
+      pointer-events: auto;
+      user-select: text;
+      cursor: text;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #詳細見本 {
+      display: block;
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="操作盤">
+    <h1>Font Map</h1>
+    <p>グリフの類似度でプロットするサイトです。</p>
+    プレビュー: <input type="text" id="見本文字">
+    <input type="range" id="文字サイズ" min="20" max="50" step="1"><br>
+    <button id="更新">更新</button>
+    <span id="状態"></span>
+  </div>
+  <canvas id="地図"></canvas>
+  <div id="詳細">
+    <div id="詳細名"></div><canvas id="詳細見本"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/umap-js@1.4.0/lib/umap-js.min.js"></script>
+  <script>
+    const TEXT = {
+      copied: name => `${name} をコピーしました`,
+      defaultSample: 'あア',
+      loadingList: 'フォント一覧を取得してます',
+      fileProgress: (i, n) => `File ${i} / ${n}`,
+      summary: (count, pending, failed) => `${count} Font${pending ? `（未解析 ${pending}）` : ''}${failed ? `／解析失敗 ${failed}` : ''}`,
+      error: message => `エラー: ${message}`,
+    };
+
+    const WEIGHTS = { typical: 2.5, stem: 2.5, weight: 2, contrast: 2, corner: 1.5, curve: 1, complexity: 1, direction: 1, proportion: 0.7 };
+    const CORNER_DEG = 25;
+    const SHORT_SEGMENT = 0.02;
+    const THICKNESS_SAMPLES = 120;
+    const DIR_BINS = 8;
+    const SAMPLE_PX = 20;
+    const UMAP_NEIGHBORS = 15;
+    const UMAP_MIN_DIST = 0.08;
+    const UMAP_REPULSION = 0.3;
+    const STEPS_PER_FRAME = 5;
+    const FILE_BATCH = 4;
+    const NEIGHBOR_COUNT = 15;
+    const PROBE_FALLBACKS = ['MS Gothic', 'MS Mincho'];
+    const FEATURE_SETS = ['AQRwsy', 'アあ令笙'];
+    const DETAIL_H = 78;
+
+    const CACHE_VERSION = 3;
+
+    const $ = id => document.getElementById(id);
+    const bounds = values => values.reduce(([lo, hi], v) => [Math.min(lo, v), Math.max(hi, v)], [Infinity, -Infinity]);
+    $('見本文字').value = TEXT.defaultSample;
+    const canvas = $('地図');
+    const ctx = canvas.getContext('2d');
+    const fonts = [];
+    const vectors = [];
+    const view = { scale: 1, ox: 0, oy: 0 };
+    let hover = -1, selected = -1, neighbors = [], umapRun = 0;
+    $('文字サイズ').value = localStorage.getItem('samplePx') || SAMPLE_PX;
+    let thumbH = $('文字サイズ').value / 0.7;
+
+    async function cacheStore(mode, run) {
+      const db = await new Promise((resolve, reject) => {
+        const req = indexedDB.open('font-map', 1);
+        req.onupgradeneeded = () => req.result.createObjectStore('cache');
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+      const t = db.transaction('cache', mode);
+      const req = run(t.objectStore('cache'));
+      return new Promise((resolve, reject) => {
+        t.oncomplete = () => resolve(req.result);
+        t.onerror = () => reject(t.error);
+      });
+    }
+
+    function parseFont(buffer, postscriptName) {
+      const dv = new DataView(buffer);
+      if (dv.getUint32(0) !== 0x74746366) return [opentype.parse(buffer, { lowMemory: true }), buffer];
+      const parsed = Array.from({ length: dv.getUint32(8) }, (_, k) => {
+        const offset = dv.getUint32(12 + k * 4);
+        const copy = buffer.slice(0);
+        new Uint8Array(copy).set(new Uint8Array(buffer, offset, 12 + dv.getUint16(offset + 4) * 16), 0);
+        return [opentype.parse(copy, { lowMemory: true }), copy];
+      });
+      return parsed.find(([f]) => f.names.postScriptName && f.names.postScriptName.en === postscriptName) || parsed[0];
+    }
+
+    function readDict(bytes, i, end) {
+      const dict = {};
+      let ops = [];
+      const real = () => {
+        let s = '';
+        for (; ;) {
+          const v = bytes[i++];
+          for (const n of [v >> 4, v & 15]) {
+            if (n === 15) return parseFloat(s);
+            s += n < 10 ? n : ['.', 'E', 'E-', '', '-'][n - 10];
+          }
+        }
+      };
+      while (i < end) {
+        const b = bytes[i++];
+        if (b <= 21) { dict[b === 12 ? 1200 + bytes[i++] : b] = ops; ops = []; }
+        else if (b === 28) { ops.push(((bytes[i] << 8 | bytes[i + 1]) << 16) >> 16); i += 2; }
+        else if (b === 29) { ops.push(bytes[i] << 24 | bytes[i + 1] << 16 | bytes[i + 2] << 8 | bytes[i + 3]); i += 4; }
+        else if (b === 30) ops.push(real());
+        else if (b <= 246) ops.push(b - 139);
+        else if (b <= 250) ops.push((b - 247) * 256 + bytes[i++] + 108);
+        else if (b <= 254) ops.push(-(b - 251) * 256 - bytes[i++] - 108);
+      }
+      return dict;
+    }
+
+    function cffStems(font, buffer) {
+      const cff = font.tables.cff, dv = new DataView(buffer);
+      const record = Array.from({ length: dv.getUint16(4) }, (_, k) => 12 + k * 16).find(r => String.fromCharCode(...new Uint8Array(buffer, r, 4)) === 'CFF ');
+      if (!cff || record === undefined) return null;
+      const base = dv.getUint32(record + 8), bytes = new Uint8Array(buffer);
+      return (cff.topDict._fdArray || [cff.topDict]).map(d => {
+        const [size, offset] = d.private || [0, 0];
+        const p = readDict(bytes, base + offset, base + offset + size);
+        return [p[10] && p[10][0], p[11] && p[11][0]].map(v => v / font.unitsPerEm);
+      });
+    }
+
+    const bezier = (pts, t) => pts.length === 1 ? pts[0] : bezier(pts.slice(1).map((p, i) => [pts[i][0] + (p[0] - pts[i][0]) * t, pts[i][1] + (p[1] - pts[i][1]) * t]), t);
+
+    function outlineFromPath(pathData) {
+      const contours = [];
+      let cur, start, prev;
+      for (const c of pathData.commands) {
+        if (c.type === 'M') { cur = []; contours.push(cur); start = prev = [c.x, c.y]; continue; }
+        if (c.type === 'Z') {
+          if (prev[0] !== start[0] || prev[1] !== start[1]) cur.push({ curve: false, ctrl: [prev, start] });
+          prev = start;
+          continue;
+        }
+        const p = [c.x, c.y];
+        if (c.type === 'L' && p[0] === prev[0] && p[1] === prev[1]) continue;
+        cur.push({ curve: c.type !== 'L', ctrl: c.type === 'L' ? [prev, p] : c.type === 'Q' ? [prev, [c.x1, c.y1], p] : [prev, [c.x1, c.y1], [c.x2, c.y2], p] });
+        prev = p;
+      }
+      return contours.filter(c => c.length);
+    }
+
+    function tangent(ctrl, atEnd) {
+      const pts = atEnd ? [...ctrl].reverse() : ctrl;
+      const q = pts.find(p => p[0] !== pts[0][0] || p[1] !== pts[0][1]) || pts[0];
+      return atEnd ? [pts[0][0] - q[0], pts[0][1] - q[1]] : [q[0] - pts[0][0], q[1] - pts[0][1]];
+    }
+
+    function thickness(edges, perimeter) {
+      const eps = 1e-4;
+      const inside = (px, py) => edges.reduce((w, [x0, y0, x1, y1]) => {
+        const cross = (x1 - x0) * (py - y0) - (px - x0) * (y1 - y0);
+        return y0 <= py ? (y1 > py && cross > 0 ? w + 1 : w) : (y1 <= py && cross < 0 ? w - 1 : w);
+      }, 0) !== 0;
+      const ray = (ox, oy, nx, ny) => edges.reduce((best, [x0, y0, x1, y1]) => {
+        const ex = x1 - x0, ey = y1 - y0, den = nx * ey - ny * ex;
+        if (!den) return best;
+        const t = ((x0 - ox) * ey - (y0 - oy) * ex) / den, s = ((x0 - ox) * ny - (y0 - oy) * nx) / den;
+        return t > eps && s >= 0 && s <= 1 && t < best ? t : best;
+      }, Infinity);
+      const step = perimeter / THICKNESS_SAMPLES, widths = [];
+      let carry = step / 2;
+      for (const [x0, y0, x1, y1] of edges) {
+        const l = Math.hypot(x1 - x0, y1 - y0);
+        let d = carry;
+        for (; d < l; d += step) {
+          const px = x0 + (x1 - x0) * d / l, py = y0 + (y1 - y0) * d / l;
+          let nx = -(y1 - y0) / l, ny = (x1 - x0) / l;
+          if (!inside(px + nx * eps, py + ny * eps)) { nx = -nx; ny = -ny; }
+          const t = ray(px, py, nx, ny);
+          if (t < Infinity) widths.push(t);
+        }
+        carry = d - l;
+      }
+      widths.sort((p, q) => p - q);
+      const pct = r => widths[Math.min(widths.length - 1, (widths.length * r) | 0)] || 1e-3;
+      return [pct(0.5), Math.log(pct(0.8) / pct(0.2)), pct(0.9) / pct(0.5)];
+    }
+
+    function measureGlyph(contours, advance, stem) {
+      const FLATTEN_STEPS = 8;
+      const segs = [].concat(...contours);
+      const edges = [], dir = new Array(DIR_BINS).fill(0), cornerHist = [0, 0, 0, 0];
+      let area = 0, perimeter = 0, curveLen = 0, shortCount = 0, corners = 0, cornerSum = 0;
+      let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+      contours.forEach(contour => contour.forEach((s, k) => {
+        const pts = s.curve ? Array.from({ length: FLATTEN_STEPS + 1 }, (_, j) => bezier(s.ctrl, j / FLATTEN_STEPS)) : s.ctrl;
+        let len = 0;
+        for (let j = 1; j < pts.length; j++) {
+          const [x0, y0] = pts[j - 1], [x1, y1] = pts[j], l = Math.hypot(x1 - x0, y1 - y0);
+          minX = Math.min(minX, x1); maxX = Math.max(maxX, x1); minY = Math.min(minY, y1); maxY = Math.max(maxY, y1);
+          if (!l) continue;
+          len += l;
+          area += x0 * y1 - x1 * y0;
+          edges.push([x0, y0, x1, y1]);
+          dir[Math.min(DIR_BINS - 1, ((Math.atan2(y1 - y0, x1 - x0) + Math.PI) % Math.PI) / Math.PI * DIR_BINS | 0)] += l;
+        }
+        perimeter += len;
+        if (s.curve) curveLen += len;
+        if (len < SHORT_SEGMENT) shortCount++;
+        const [ax, ay] = tangent(s.ctrl, true), [bx, by] = tangent(contour[(k + 1) % contour.length].ctrl, false);
+        const turn = Math.acos(Math.max(-1, Math.min(1, (ax * bx + ay * by) / (Math.hypot(ax, ay) * Math.hypot(bx, by) || 1)))) * 180 / Math.PI;
+        if (turn <= CORNER_DEG) return;
+        corners++;
+        cornerSum += turn;
+        cornerHist[Math.min(3, ((turn - CORNER_DEG) / (180 - CORNER_DEG) * 4) | 0)]++;
+      }));
+      const th = thickness(edges, perimeter);
+      return {
+        stem: [stem[0], stem[1], Math.log(stem[1] / stem[0])],
+        weight: [Math.abs(area) / perimeter, th[0]],
+        contrast: [th[1], th[2]],
+        corner: [corners, corners ? cornerSum / corners : 0, ...cornerHist.map(c => c / (corners || 1))],
+        curve: [curveLen / perimeter, segs.filter(s => s.curve).length / segs.length],
+        complexity: [contours.length, segs.length, shortCount / segs.length],
+        direction: dir.map(d => d / perimeter),
+        proportion: [(maxX - minX) / (maxY - minY), advance, -minY, maxY],
+      };
+    }
+
+    function toPath2D(contours) {
+      const p2 = new Path2D();
+      contours.forEach(contour => contour.forEach((seg, k) => {
+        const [a, ...rest] = seg.ctrl;
+        if (!k) p2.moveTo(a[0], a[1]);
+        if (rest.length === 3) p2.bezierCurveTo(rest[0][0], rest[0][1], rest[1][0], rest[1][1], rest[2][0], rest[2][1]);
+        else if (rest.length === 2) p2.quadraticCurveTo(rest[0][0], rest[0][1], rest[1][0], rest[1][1]);
+        else p2.lineTo(rest[0][0], rest[0][1]);
+      }));
+      return p2;
+    }
+
+    const RASTER_SIZE = 16;
+    const rasterCtx = new OffscreenCanvas(RASTER_SIZE, RASTER_SIZE).getContext('2d', { willReadFrequently: true });
+
+    function rasterize(contours) {
+      const pts = [].concat(...contours.map(c => [].concat(...c.map(s => s.ctrl))));
+      const [minX, maxX] = bounds(pts.map(p => p[0])), [minY, maxY] = bounds(pts.map(p => p[1]));
+      const s = (RASTER_SIZE - 2) / Math.max(maxX - minX, maxY - minY, 1e-6);
+      rasterCtx.setTransform(1, 0, 0, 1, 0, 0);
+      rasterCtx.clearRect(0, 0, RASTER_SIZE, RASTER_SIZE);
+      rasterCtx.setTransform(s, 0, 0, s, RASTER_SIZE / 2 - (minX + maxX) / 2 * s, RASTER_SIZE / 2 - (minY + maxY) / 2 * s);
+      rasterCtx.fill(toPath2D(contours));
+      const data = rasterCtx.getImageData(0, 0, RASTER_SIZE, RASTER_SIZE).data;
+      let hex = '';
+      for (let i = 3; i < data.length; i += 4) hex += Math.round(data[i] / 17).toString(16);
+      return hex;
+    }
+
+    function withTypicality(fonts) {
+      fonts[0].entries.forEach((_, s) => {
+        const present = fonts.filter(f => !f.entries[s].missing);
+        if (!present.length) return;
+        const pixels = present.map(f => f.entries[s].rasters.map(hex => [...hex].map(h => parseInt(h, 16) / 15)));
+        const mean = pixels[0].map((_, c) => pixels[0][c].map((_, k) => pixels.reduce((p, img) => p + img[c][k], 0) / pixels.length));
+        present.forEach((f, i) => {
+          f.features[s] = f.entries[s].raw.map((g, c) => Object.assign({}, g, {
+            typical: [Math.sqrt(pixels[i][c].reduce((p, v, k) => p + (v - mean[c][k]) ** 2, 0))],
+          }));
+        });
+      });
+    }
+
+    async function analyzeFile(info, sets) {
+      const [font, buffer] = parseFont(await (await info.data.blob()).arrayBuffer(), info.postScriptName);
+      const stems = cffStems(font, buffer);
+      const fdSelect = font.tables.cff && font.tables.cff.topDict._fdSelect;
+      const fullNames = font.names.fullName || {};
+      const nativeName = fullNames[Object.keys(fullNames).find(k => /^ja/.test(k))];
+      return sets.map(chars => {
+        if (chars.some(ch => !font.charToGlyphIndex(ch))) return { missing: true, nativeName };
+        const outlines = chars.map(ch => outlineFromPath(font.charToGlyph(ch).getPath(0, 0, 1)));
+        const raw = chars.map((ch, c) => {
+          const glyph = font.charToGlyph(ch);
+          const stem = stems ? stems[fdSelect ? fdSelect[glyph.index] : 0] || [NaN, NaN] : [NaN, NaN];
+          return measureGlyph(outlines[c], (glyph.advanceWidth || 0) / font.unitsPerEm, stem);
+        });
+        return { raw, rasters: outlines.map(rasterize), nativeName };
+      });
+    }
+
+    function standardize(raws) {
+      const first = raws.find(r => r);
+      if (!first) return raws.map(() => []);
+      const groups = Object.keys(WEIGHTS);
+      const labels = groups.flatMap(g => first.flatMap(c => c[g].map(() => g)));
+      const rows = raws.map(chars => chars && groups.flatMap(g => chars.flatMap(c => c[g])));
+      const present = rows.filter(r => r);
+      const counts = Object.fromEntries(groups.map(g => [g, labels.filter(l => l === g).length]));
+      const scale = labels.map((g, j) => {
+        const col = present.map(r => r[j]).filter(v => Number.isFinite(v));
+        const mean = col.reduce((p, v) => p + v, 0) / (col.length || 1);
+        const sd = Math.sqrt(col.reduce((p, v) => p + (v - mean) ** 2, 0) / (col.length || 1)) || 1;
+        return [mean, WEIGHTS[g] / sd / Math.sqrt(counts[g])];
+      });
+      return rows.map(r => r ? r.map((v, j) => Number.isFinite(v) ? (v - scale[j][0]) * scale[j][1] : 0) : labels.map(() => NaN));
+    }
+
+    let setRanges = [];
+
+    function maskedDistance(a, b) {
+      const FAR = 100;
+      const total = setRanges.length ? setRanges[setRanges.length - 1][1] : 0;
+      let sum = 0, n = 0;
+      setRanges.forEach(([start, end], s) => {
+        if (!a[total + s] || !b[total + s]) return;
+        for (let k = start; k < end; k++) sum += (a[k] - b[k]) ** 2;
+        n += end - start;
+      });
+      return n ? Math.sqrt(sum * total / n) : FAR;
+    }
+
+    const thumbWidth = f => f.thumb.width / f.thumb.height * thumbH;
+
+    function makeThumb(f, height = thumbH) {
+      const text = $('見本文字').value;
+      probeCtx.font = `${height * 1.4}px ${f.name}`;
+      const c = new OffscreenCanvas(Math.max(height * 4, Math.ceil(probeCtx.measureText(text).width + height * 0.4)), height * 2);
+      if (!f.face) return c;
+      const x = c.getContext('2d');
+      x.fillStyle = '#000';
+      x.font = probeCtx.font;
+      x.textAlign = 'center';
+      x.textBaseline = 'middle';
+      x.fillText(text, c.width / 2, height);
+      return c;
+    }
+
+    const probeCtx = new OffscreenCanvas(64, 64).getContext('2d', { willReadFrequently: true });
+
+    function covers(f, ch) {
+      if (!f.face) return true;
+      if (f.coverage[ch] !== undefined) return f.coverage[ch];
+      probeCtx.textAlign = 'center';
+      const [p, q] = PROBE_FALLBACKS.map(fallback => {
+        probeCtx.clearRect(0, 0, 64, 64);
+        probeCtx.font = `44px ${f.name}, "${fallback}"`;
+        probeCtx.fillText(ch, 32, 48);
+        return probeCtx.getImageData(0, 0, 64, 64).data;
+      });
+      return f.coverage[ch] = p.every((v, i) => v === q[i]);
+    }
+
+    function updateVisibility() {
+      const chars = [...$('見本文字').value].filter(ch => ch.trim());
+      fonts.forEach(f => { f.visible = chars.every(ch => covers(f, ch)); });
+      if (selected >= 0 && !fonts[selected].visible) selectFont(-1);
+      else selectFont(selected);
+    }
+
+    const status = text => { $('状態').textContent = text; };
+    const pause = () => new Promise(r => setTimeout(r, 0));
+
+    async function refresh(analyze) {
+      $('更新').disabled = true;
+      try {
+        const sets = FEATURE_SETS.map(s => [...s]);
+        const saved = await cacheStore('readonly', s => s.get('cache'));
+        const cache = saved && saved.version === CACHE_VERSION ? saved : { version: CACHE_VERSION, sets: {} };
+        const tables = FEATURE_SETS.map(k => cache.sets[k] = cache.sets[k] || { fonts: {} });
+        status(TEXT.loadingList);
+        const families = new Map();
+        for (const f of await window.queryLocalFonts()) {
+          if (!families.has(f.family) || /^(regular|normal|book|roman|標準|r|w3|l)$/i.test(f.style)) families.set(f.family, { postScriptName: f.postscriptName, fullName: f.fullName, data: f });
+        }
+        const targets = [...families.values()];
+        const entryOf = (s, f) => {
+          const e = tables[s].fonts[f.postScriptName];
+          return e && (e.missing || e.rasters) ? e : null;
+        };
+        const store = (f, entries) => entries.forEach((e, s) => { if (!entryOf(s, f)) tables[s].fonts[f.postScriptName] = e; });
+        let failed = 0;
+        if (analyze) {
+          const todo = targets.filter(f => sets.some((_, s) => !entryOf(s, f)));
+          for (let i = 0; i < todo.length; i++) {
+            try { store(todo[i], await analyzeFile(todo[i], sets)); }
+            catch (err) { store(todo[i], sets.map(() => ({ missing: true }))); failed++; console.warn(todo[i].fullName, err); }
+            if (i % FILE_BATCH === 0) { status(TEXT.fileProgress(i + 1, todo.length)); await pause(); }
+          }
+          await cacheStore('readwrite', s => s.put(cache, 'cache'));
+        }
+        const done = f => sets.every((_, s) => entryOf(s, f));
+        const ready = targets.filter(f => done(f) && sets.some((_, s) => !entryOf(s, f).missing));
+        const pending = targets.filter(f => !done(f)).length;
+        ready.forEach(f => { f.nativeFullName = (sets.map((_, s) => entryOf(s, f)).find(e => e.nativeName) || {}).nativeName; });
+        await buildMap(ready.map(f => ({ info: f, entries: sets.map((_, s) => entryOf(s, f)) })));
+        status(TEXT.summary(ready.length, pending, failed));
+      } catch (err) {
+        status(TEXT.error(err.message));
+      } finally {
+        $('更新').disabled = false;
+      }
+    }
+
+    let faceSeq = 0;
+
+    async function buildMap(items) {
+      const previous = new Map(fonts.map(f => [f.info.postScriptName, f]));
+      const kept = new Set(items.map(it => it.info.postScriptName));
+      fonts.forEach(f => { if (!kept.has(f.info.postScriptName) && f.face) document.fonts.delete(f.face); });
+      fonts.length = 0;
+      vectors.length = 0;
+      selected = -1;
+      for (const it of items) {
+        const old = previous.get(it.info.postScriptName);
+        if (old) { fonts.push(Object.assign(old, it)); continue; }
+        const name = 'f' + faceSeq++;
+        const f = Object.assign({ name, coverage: {}, x: Math.random() * 2 - 1, y: Math.random() * 2 - 1 }, it);
+        const local = src => new FontFace(name, `local("${src}")`).load();
+        f.face = await local(it.info.postScriptName).catch(() => local(it.info.fullName)).catch(() => null);
+        if (f.face) document.fonts.add(f.face);
+        f.thumb = makeThumb(f);
+        fonts.push(f);
+      }
+      updateVisibility();
+      if (fonts.length < 3) return;
+      fonts.forEach(f => { f.features = f.entries.map(() => null); });
+      withTypicality(fonts);
+      const perSet = items[0].entries.map((_, s) => standardize(fonts.map(f => f.features[s])));
+      let offset = 0;
+      setRanges = perSet.map(rows => {
+        const dim = rows.length ? rows[0].length : 0;
+        offset += dim;
+        return [offset - dim, offset];
+      });
+      fonts.forEach((_, i) => vectors.push([].concat(...perSet.map(rows => rows[i].map(v => Number.isNaN(v) ? 0 : v)), perSet.map(rows => Number.isNaN(rows[i][0]) ? 0 : 1))));
+      const run = ++umapRun;
+      const umap = new (window.UMAP.UMAP || window.UMAP)({ nComponents: 2, nNeighbors: Math.min(UMAP_NEIGHBORS, fonts.length - 1), minDist: UMAP_MIN_DIST, repulsionStrength: UMAP_REPULSION, distanceFn: maskedDistance });
+      const epochs = umap.initializeFit(vectors);
+      const tick = n => {
+        if (run !== umapRun) return;
+        for (let k = 0; k < STEPS_PER_FRAME && n < epochs; k++, n++) umap.step();
+        const emb = umap.getEmbedding();
+        const [minX, maxX] = bounds(emb.map(p => p[0])), [minY, maxY] = bounds(emb.map(p => p[1]));
+        const half = Math.max(maxX - minX, maxY - minY) / 2 || 1;
+        emb.forEach((p, i) => {
+          fonts[i].x = (p[0] - (minX + maxX) / 2) / half;
+          fonts[i].y = (p[1] - (minY + maxY) / 2) / half;
+        });
+        draw();
+        if (n < epochs) requestAnimationFrame(() => tick(n));
+      };
+      tick(0);
+    }
+
+    function toScreen(f) {
+      const r = Math.min(canvas.clientWidth, canvas.clientHeight) * 0.45 * view.scale;
+      return [canvas.clientWidth / 2 + view.ox + f.x * r, canvas.clientHeight / 2 + view.oy + f.y * r];
+    }
+
+    function draw() {
+      const dpr = devicePixelRatio, w = canvas.clientWidth, h = canvas.clientHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      placeDetail();
+      if (selected >= 0) {
+        const [cx, cy] = toScreen(fonts[selected]);
+        ctx.strokeStyle = '#aaa';
+        neighbors.forEach(n => {
+          const [nx, ny] = toScreen(fonts[n.i]);
+          ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(nx, ny); ctx.stroke();
+        });
+      }
+      if (hover >= 0) {
+        const [hx, hy] = toScreen(fonts[hover]), hw = thumbWidth(fonts[hover]);
+        ctx.strokeStyle = '#FFF';
+        ctx.strokeRect(hx - hw / 2, hy - thumbH / 2, hw, thumbH);
+      }
+      const near = new Set(neighbors.map(n => n.i));
+      fonts.forEach((f, i) => {
+        const [sx, sy] = toScreen(f), tw = thumbWidth(f);
+        if (!f.visible || sx < -tw || sy < -thumbH || sx > w + tw || sy > h + thumbH) return;
+        const dim = selected >= 0 && i !== selected && !near.has(i);
+        ctx.globalAlpha = dim ? 0.07 : 0.85;
+        ctx.drawImage(f.thumb, sx - tw / 2, sy - thumbH / 2, tw, thumbH);
+      });
+      ctx.globalAlpha = 1;
+    }
+
+    let detailIndex = -1;
+
+    function showDetail() {
+      const panel = $('詳細');
+      detailIndex = selected >= 0 ? selected : hover;
+      panel.style.display = detailIndex < 0 ? 'none' : 'block';
+      if (detailIndex < 0) return;
+      const f = fonts[detailIndex], image = makeThumb(f, DETAIL_H), out = $('詳細見本');
+      $('詳細名').textContent = f.info.nativeFullName || f.info.fullName;
+      out.width = image.width;
+      out.height = image.height;
+      out.style.width = image.width / 2 + 'px';
+      out.getContext('2d').drawImage(image, 0, 0);
+      placeDetail();
+    }
+
+    function placeDetail() {
+      const GAP = 6;
+      if (detailIndex < 0 || !fonts[detailIndex]) return;
+      const panel = $('詳細'), f = fonts[detailIndex], [sx, sy] = toScreen(f);
+      const x = Math.min(sx + thumbWidth(f) / 2 + GAP, innerWidth - panel.offsetWidth - GAP);
+      const y = Math.min(sy + thumbH / 2 + GAP, innerHeight - panel.offsetHeight - GAP);
+      panel.style.left = Math.max(GAP, x) + 'px';
+      panel.style.top = Math.max(GAP, y) + 'px';
+    }
+
+    function selectFont(i) {
+      selected = i;
+      neighbors = i < 0 || !vectors.length ? [] : vectors
+        .map((v, j) => ({ i: j, d: maskedDistance(v, vectors[i]) }))
+        .filter(n => n.i !== i && fonts[n.i].visible).sort((p, q) => p.d - q.d).slice(0, NEIGHBOR_COUNT);
+      draw();
+      showDetail();
+    }
+
+    function pick(mx, my) {
+      let best = -1, bestD = Infinity;
+      fonts.forEach((f, i) => {
+        if (!f.visible) return;
+        const [sx, sy] = toScreen(f);
+        if (Math.abs(sx - mx) > thumbWidth(f) / 2 || Math.abs(sy - my) > thumbH / 2) return;
+        const d = (sx - mx) ** 2 + (sy - my) ** 2;
+        if (d < bestD) { bestD = d; best = i; }
+      });
+      return best;
+    }
+
+    let drag = null;
+    const DRAG_THRESHOLD = 5;
+    canvas.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY, ox: view.ox, oy: view.oy, moved: false }; });
+    addEventListener('pointermove', e => {
+      if (drag) {
+        drag.moved = drag.moved || Math.hypot(e.clientX - drag.x, e.clientY - drag.y) > DRAG_THRESHOLD;
+        view.ox = drag.ox + e.clientX - drag.x;
+        view.oy = drag.oy + e.clientY - drag.y;
+        return draw();
+      }
+      const h = e.target === canvas ? pick(e.offsetX, e.offsetY) : -1;
+      if (h === hover) return;
+      hover = h;
+      draw();
+      showDetail();
+    });
+    addEventListener('pointerup', e => {
+      if (drag && !drag.moved && e.target === canvas) selectFont(hover);
+      drag = null;
+    });
+    canvas.addEventListener('dblclick', async () => {
+      if (hover < 0) return;
+      const name = fonts[hover].info.fullName;
+      await navigator.clipboard.writeText(name);
+      status(TEXT.copied(name));
+    });
+    canvas.addEventListener('wheel', e => {
+      e.preventDefault();
+      const k = Math.exp(-e.deltaY * 0.0015);
+      const cx = e.offsetX - canvas.clientWidth / 2, cy = e.offsetY - canvas.clientHeight / 2;
+      view.ox = cx - (cx - view.ox) * k;
+      view.oy = cy - (cy - view.oy) * k;
+      view.scale *= k;
+      draw();
+    }, { passive: false });
+    $('見本文字').addEventListener('change', () => {
+      fonts.forEach(f => { f.thumb = makeThumb(f); });
+      updateVisibility();
+    });
+    $('文字サイズ').addEventListener('input', () => {
+      thumbH = $('文字サイズ').value / 0.7;
+      draw();
+    });
+    $('文字サイズ').addEventListener('change', () => {
+      localStorage.setItem('samplePx', $('文字サイズ').value);
+      fonts.forEach(f => { f.thumb = makeThumb(f); });
+      draw();
+    });
+    $('更新').addEventListener('click', () => refresh(true));
+    addEventListener('resize', draw);
+    refresh(false);
+
+  </script>
+</body>
+
+</html>
