@@ -5,8 +5,16 @@
         <link>https://ideoaves.github.io/blog/</link>
         <description>Ideoavesのブログ</description>
         <language>ja</language>
-        <lastBuildDate>Tue, 15 Sep 2026 00:00:00 +0900</lastBuildDate>
+        <lastBuildDate>Wed, 28 Oct 2026 00:00:00 +0900</lastBuildDate>
         <atom:link href="https://ideoaves.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>Font Map</title>
+            <link>https://ideoaves.github.io/blog/2026-10-28.html</link>
+            <guid isPermaLink="true">https://ideoaves.github.io/blog/2026-10-28.html</guid>
+            <pubDate>Wed, 28 Oct 2026 00:00:00 +0900</pubDate>
+            <書いた人>
+            <description>フォントをグリフの類似度に合わせてプロットします。 リンク Font Map 更新ボタンを押すとPCにあるフォントを取得します。クローム系のブラウザじゃないと動かないと思います…。 アルゴリズム 欧文...</description>
+        </item>
         <item>
             <title>1枚絵MV史の試論</title>
             <link>https://ideoaves.github.io/blog/2026-09-15.html</link>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Font Map ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="フォントをグリフの類似度に合わせてプロッ...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ideoaves のブログ" href="/blog/rss.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Font Map">
+    <meta name="twitter:description" content="フォントをグリフの類似度に合わせてプロッ...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/blog_img/font_map.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+            <div class="横に狭い分類">
+                <h1>Font Map</h1>
+                <div class="作った人たち">hazuqu yimiru</div>
+                <div class="ブログ本文">
+                <p><img alt="" class="ブログの画像" src="blog_img/font_map.png">
+                フォントをグリフの類似度に合わせてプロットします。</p>
+                <h1 id="リンク">リンク</h1>
+                <p><a href="/Font_Map/">Font Map</a><br>
+                更新ボタンを押すとPCにあるフォントを取得します。クローム系のブラウザじゃないと動かないと思います…。</p>
+                <h1 id="アルゴリズム">アルゴリズム</h1>
+                <p>欧文 「AQRwsy」と和文「アあ令笙」をopentype.jsで描画します。フォントが持っている字を測って1字でも持っていれば地図に載ります。cmapによって大文字のみを持っているフォントや第2水準の漢字を持っているフォントなどで大分されます。</p>
+                <p>以下の9つの方法で特徴を値にします。</p>
+                <table><tbody><tr><td>typical（文字らしさ）</td><td>全フォントの平均の形との差</td></tr><tr><td>stem</td><td>StdHWとStdVWの比（CFF 形式のフォントのみ）</td></tr><tr><td>weight（太さ）</td><td>線幅の中央値</td></tr><tr><td>contrast（明朝らしさ）</td><td>線幅の80%点÷20%点、90%点÷中央値</td></tr><tr><td>corner（角）</td><td>角の数、角での曲がり角度の平均、曲がり角度</td></tr><tr><td>curve（曲線率）</td><td>輪郭のうち曲線の長さの割合</td></tr><tr><td>complexity（複雑さ）</td><td>区間の数とか短い区間の割合</td></tr><tr><td>direction（辺の向き）</td><td>8方向の辺の向き</td></tr><tr><td>proportion（寸法）</td><td>縦横比、ベースラインから上端・下端までの長さ</td></tr></tbody></table>
+                <p>そのフォントが持たない値は平均として扱います。</p>
+                <p>以上の値の重み付けにより、UMAPで2次元面に配置します。<br>
+                また単純なフォント同士の距離が見えにくくなるので、1フォントをクリックすると見えるようにしています。</p>
+                <h1 id="きっかけ">きっかけ</h1>
+                <p>ファイルのデータからUMAPで配置する方法を音楽におけるサンプル整理のツールで使っていました（<a href="https://www.xlnaudio.com/products/xo?srsltid=AYCX9vLOZiCJeGL6Z2QO_PynRnR_GSIvvR2mQZiX6KeHMe9XKy0WL3p9">XO</a>ライクなブラウザです）が、<a href="https://x.com/Taku_san_32/status/2114160577920881134">Taku氏の「Copera」</a>を見て同様の手法が視覚表現においても実用的な範疇で効果があることがわかり、試した次第です。</p>
+                <h1 id="実際に使うと">実際に使うと</h1>
+                <p>今まで「2DMV向けの細い明朝」として漠然と考えていたフォントが近い位置に置かれわかりやすくなった一方<br>
+                <img alt="" class="ブログの画像" src="blog_img/FontMap2.png">
+                「丸ゴシック」「角ゴシック」の区別のようなタグで簡易に行えていた区別がすこし分かりづらくなりました。<br>
+                <img alt="" class="ブログの画像" src="blog_img/FontMap3.png">
+                一長一短な感じがありますね。</p>
+                </div>
+                <div class="関連記事" data-記事="Font Map" hidden></div>
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+            </div>
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>

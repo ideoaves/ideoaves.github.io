@@ -12,8 +12,6 @@
   <meta name="twitter:description" content="Font Mapはグリフの類似度でプロットするサイトです。">
   <style>
     #操作盤 {
-      background-color: #1a1a1a;
-      color: #fff;
       padding: 12px;
       margin: 10px;
       width: 300px;
@@ -34,7 +32,7 @@
     #操作盤 button {
       background-color: #666666;
       color: #fff;
-      padding: 4px 12px;
+      padding: 3px 12px;
       margin-top: 10px;
       cursor: pointer;
     }
@@ -79,7 +77,7 @@
 <body>
   <div id="操作盤">
     <h1>Font Map</h1>
-    <p>グリフの類似度でプロットするサイトです。</p>
+    <p>グリフの類似度でプロットするサイトです。詳細は<a href="/blog/2026-10-28.html">こちら</a></p>
     プレビュー: <input type="text" id="見本文字">
     <input type="range" id="文字サイズ" min="20" max="50" step="1"><br>
     <button id="更新">更新</button>
@@ -94,7 +92,7 @@
   <script>
     const TEXT = {
       copied: name => `${name} をコピーしました`,
-      defaultSample: 'あア',
+      defaultSample: 'A',
       loadingList: 'フォント一覧を取得してます',
       fileProgress: (i, n) => `File ${i} / ${n}`,
       summary: (count, pending, failed) => `${count} Font${pending ? `（未解析 ${pending}）` : ''}${failed ? `／解析失敗 ${failed}` : ''}`,
@@ -117,7 +115,7 @@
     const FEATURE_SETS = ['AQRwsy', 'アあ令笙'];
     const DETAIL_H = 78;
 
-    const CACHE_VERSION = 3;
+    const CACHE_VERSION = 4;
 
     const $ = id => document.getElementById(id);
     const bounds = values => values.reduce(([lo, hi], v) => [Math.min(lo, v), Math.max(hi, v)], [Infinity, -Infinity]);
@@ -253,11 +251,11 @@
       return [pct(0.5), Math.log(pct(0.8) / pct(0.2)), pct(0.9) / pct(0.5)];
     }
 
-    function measureGlyph(contours, advance, stem) {
+    function measureGlyph(contours, stem) {
       const FLATTEN_STEPS = 8;
       const segs = [].concat(...contours);
-      const edges = [], dir = new Array(DIR_BINS).fill(0), cornerHist = [0, 0, 0, 0];
-      let area = 0, perimeter = 0, curveLen = 0, shortCount = 0, corners = 0, cornerSum = 0;
+      const edges = [], dir = new Array(DIR_BINS).fill(0), cornerHist = [0, 0, 0];
+      let perimeter = 0, curveLen = 0, shortCount = 0, corners = 0, cornerSum = 0;
       let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
       contours.forEach(contour => contour.forEach((s, k) => {
         const pts = s.curve ? Array.from({ length: FLATTEN_STEPS + 1 }, (_, j) => bezier(s.ctrl, j / FLATTEN_STEPS)) : s.ctrl;
@@ -267,7 +265,6 @@
           minX = Math.min(minX, x1); maxX = Math.max(maxX, x1); minY = Math.min(minY, y1); maxY = Math.max(maxY, y1);
           if (!l) continue;
           len += l;
-          area += x0 * y1 - x1 * y0;
           edges.push([x0, y0, x1, y1]);
           dir[Math.min(DIR_BINS - 1, ((Math.atan2(y1 - y0, x1 - x0) + Math.PI) % Math.PI) / Math.PI * DIR_BINS | 0)] += l;
         }
@@ -279,18 +276,18 @@
         if (turn <= CORNER_DEG) return;
         corners++;
         cornerSum += turn;
-        cornerHist[Math.min(3, ((turn - CORNER_DEG) / (180 - CORNER_DEG) * 4) | 0)]++;
+        cornerHist[Math.min(2, ((turn - CORNER_DEG) / (180 - CORNER_DEG) * 4) | 0)]++;
       }));
       const th = thickness(edges, perimeter);
       return {
         stem: [stem[0], stem[1], Math.log(stem[1] / stem[0])],
-        weight: [Math.abs(area) / perimeter, th[0]],
+        weight: [th[0]],
         contrast: [th[1], th[2]],
         corner: [corners, corners ? cornerSum / corners : 0, ...cornerHist.map(c => c / (corners || 1))],
-        curve: [curveLen / perimeter, segs.filter(s => s.curve).length / segs.length],
+        curve: [curveLen / perimeter],
         complexity: [contours.length, segs.length, shortCount / segs.length],
         direction: dir.map(d => d / perimeter),
-        proportion: [(maxX - minX) / (maxY - minY), advance, -minY, maxY],
+        proportion: [(maxX - minX) / (maxY - minY), -minY, maxY],
       };
     }
 
@@ -324,14 +321,16 @@
     }
 
     function withTypicality(fonts) {
-      fonts[0].entries.forEach((_, s) => {
-        const present = fonts.filter(f => !f.entries[s].missing);
-        if (!present.length) return;
-        const pixels = present.map(f => f.entries[s].rasters.map(hex => [...hex].map(h => parseInt(h, 16) / 15)));
-        const mean = pixels[0].map((_, c) => pixels[0][c].map((_, k) => pixels.reduce((p, img) => p + img[c][k], 0) / pixels.length));
-        present.forEach((f, i) => {
-          f.features[s] = f.entries[s].raw.map((g, c) => Object.assign({}, g, {
-            typical: [Math.sqrt(pixels[i][c].reduce((p, v, k) => p + (v - mean[c][k]) ** 2, 0))],
+      FEATURE_SETS.forEach((set, s) => {
+        const image = (f, c) => !f.entries[s].missing && f.entries[s].rasters[c] ? [...f.entries[s].rasters[c]].map(h => parseInt(h, 16) / 15) : null;
+        const mean = [...set].map((_, c) => {
+          const images = fonts.map(f => image(f, c)).filter(Boolean);
+          return images.length ? images[0].map((_, k) => images.reduce((p, img) => p + img[k], 0) / images.length) : null;
+        });
+        fonts.forEach(f => {
+          if (f.entries[s].missing) return;
+          f.features[s] = f.entries[s].raw.map((g, c) => g && Object.assign({}, g, {
+            typical: [Math.sqrt(image(f, c).reduce((p, v, k) => p + (v - mean[c][k]) ** 2, 0))],
           }));
         });
       });
@@ -344,42 +343,46 @@
       const fullNames = font.names.fullName || {};
       const nativeName = fullNames[Object.keys(fullNames).find(k => /^ja/.test(k))];
       return sets.map(chars => {
-        if (chars.some(ch => !font.charToGlyphIndex(ch))) return { missing: true, nativeName };
-        const outlines = chars.map(ch => outlineFromPath(font.charToGlyph(ch).getPath(0, 0, 1)));
+        const has = chars.map(ch => !!font.charToGlyphIndex(ch));
+        if (!has.some(Boolean)) return { missing: true, nativeName };
+        const outlines = chars.map((ch, c) => has[c] ? outlineFromPath(font.charToGlyph(ch).getPath(0, 0, 1)) : null);
         const raw = chars.map((ch, c) => {
+          if (!has[c]) return null;
           const glyph = font.charToGlyph(ch);
           const stem = stems ? stems[fdSelect ? fdSelect[glyph.index] : 0] || [NaN, NaN] : [NaN, NaN];
-          return measureGlyph(outlines[c], (glyph.advanceWidth || 0) / font.unitsPerEm, stem);
+          return measureGlyph(outlines[c], stem);
         });
-        return { raw, rasters: outlines.map(rasterize), nativeName };
+        return { raw, rasters: outlines.map(o => o && rasterize(o)), nativeName };
       });
     }
 
-    function standardize(raws) {
-      const first = raws.find(r => r);
-      if (!first) return raws.map(() => []);
+    function standardize(raws, charCount) {
       const groups = Object.keys(WEIGHTS);
-      const labels = groups.flatMap(g => first.flatMap(c => c[g].map(() => g)));
-      const rows = raws.map(chars => chars && groups.flatMap(g => chars.flatMap(c => c[g])));
-      const present = rows.filter(r => r);
+      const sample = raws.reduce((found, r) => found || (r && r.find(g => g)), null);
+      if (!sample) return raws.map(() => []);
+      const charLabels = groups.flatMap(g => sample[g].map(() => g));
+      const block = charLabels.length;
+      const labels = [].concat(...Array.from({ length: charCount }, () => charLabels));
+      const present = (r, j) => r && r[Math.floor(j / block)];
+      const rows = raws.map(r => [].concat(...Array.from({ length: charCount }, (_, c) => r && r[c] ? groups.flatMap(g => r[c][g]) : charLabels.map(() => NaN))));
       const counts = Object.fromEntries(groups.map(g => [g, labels.filter(l => l === g).length]));
       const scale = labels.map((g, j) => {
-        const col = present.map(r => r[j]).filter(v => Number.isFinite(v));
+        const col = rows.map(r => r[j]).filter(v => Number.isFinite(v));
         const mean = col.reduce((p, v) => p + v, 0) / (col.length || 1);
         const sd = Math.sqrt(col.reduce((p, v) => p + (v - mean) ** 2, 0) / (col.length || 1)) || 1;
         return [mean, WEIGHTS[g] / sd / Math.sqrt(counts[g])];
       });
-      return rows.map(r => r ? r.map((v, j) => Number.isFinite(v) ? (v - scale[j][0]) * scale[j][1] : 0) : labels.map(() => NaN));
+      return raws.map((r, i) => rows[i].map((v, j) => !present(r, j) ? NaN : Number.isFinite(v) ? (v - scale[j][0]) * scale[j][1] : 0));
     }
 
-    let setRanges = [];
+    let unitRanges = [];
 
     function maskedDistance(a, b) {
       const FAR = 100;
-      const total = setRanges.length ? setRanges[setRanges.length - 1][1] : 0;
+      const total = unitRanges.length ? unitRanges[unitRanges.length - 1][1] : 0;
       let sum = 0, n = 0;
-      setRanges.forEach(([start, end], s) => {
-        if (!a[total + s] || !b[total + s]) return;
+      unitRanges.forEach(([start, end], u) => {
+        if (!a[total + u] || !b[total + u]) return;
         for (let k = start; k < end; k++) sum += (a[k] - b[k]) ** 2;
         n += end - start;
       });
@@ -442,7 +445,7 @@
         const targets = [...families.values()];
         const entryOf = (s, f) => {
           const e = tables[s].fonts[f.postScriptName];
-          return e && (e.missing || e.rasters) ? e : null;
+          return e || null;
         };
         const store = (f, entries) => entries.forEach((e, s) => { if (!entryOf(s, f)) tables[s].fonts[f.postScriptName] = e; });
         let failed = 0;
@@ -492,14 +495,18 @@
       if (fonts.length < 3) return;
       fonts.forEach(f => { f.features = f.entries.map(() => null); });
       withTypicality(fonts);
-      const perSet = items[0].entries.map((_, s) => standardize(fonts.map(f => f.features[s])));
+      const charCounts = FEATURE_SETS.map(set => [...set].length);
+      const perSet = charCounts.map((n, s) => standardize(fonts.map(f => f.features[s]), n));
       let offset = 0;
-      setRanges = perSet.map(rows => {
-        const dim = rows.length ? rows[0].length : 0;
-        offset += dim;
-        return [offset - dim, offset];
+      unitRanges = [].concat(...perSet.map((rows, s) => Array.from({ length: charCounts[s] }, () => {
+        const block = rows.length ? rows[0].length / charCounts[s] : 0;
+        offset += block;
+        return [offset - block, offset];
+      })));
+      fonts.forEach((_, i) => {
+        const values = [].concat(...perSet.map(rows => rows[i]));
+        vectors.push(values.map(v => Number.isNaN(v) ? 0 : v).concat(unitRanges.map(([start, end]) => end > start && !Number.isNaN(values[start]) ? 1 : 0)));
       });
-      fonts.forEach((_, i) => vectors.push([].concat(...perSet.map(rows => rows[i].map(v => Number.isNaN(v) ? 0 : v)), perSet.map(rows => Number.isNaN(rows[i][0]) ? 0 : 1))));
       const run = ++umapRun;
       const umap = new (window.UMAP.UMAP || window.UMAP)({ nComponents: 2, nNeighbors: Math.min(UMAP_NEIGHBORS, fonts.length - 1), minDist: UMAP_MIN_DIST, repulsionStrength: UMAP_REPULSION, distanceFn: maskedDistance });
       const epochs = umap.initializeFit(vectors);

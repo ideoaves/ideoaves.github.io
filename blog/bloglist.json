@@ -462,5 +462,21 @@
             "x.com/fubuki_P_imas/status/2069360700506673476"
         ],
         "private": false
+    },
+    "2026-10-28.html": {
+        "filename": "2026-10-28.html",
+        "md": "Font Map.md",
+        "title": "Font Map",
+        "img": "blog_img/font_map.png",
+        "summary": "フォントをグリフの類似度に合わせてプロットします。 リンク Font Map 更新ボタンを押すとPCにあるフォントを取得します。クローム系のブラウザじゃないと動かないと思います…。 アルゴリズム 欧文...",
+        "date": "2026-10-28",
+        "author": "hazuqu yimiru",
+        "links": [],
+        "urls": [
+            "/Font_Map",
+            "xlnaudio.com/products/xo?srsltid=AYCX9vLOZiCJeGL6Z2QO_PynRnR_GSIvvR2mQZiX6KeHMe9XKy0WL3p9",
+            "x.com/Taku_san_32/status/2114160577920881134"
+        ],
+        "private": false
     }
 }
