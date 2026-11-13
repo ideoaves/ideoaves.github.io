@@ -40,8 +40,15 @@ export function processInline(text, topLevel = true) {
   if (at === -1) return text;
 
   const close = text[at + 1] === "[" ? text.indexOf("]]", at + 2) : -1;
+  // Obsidianの埋め込みも対応
   if (close !== -1) {
-    return text.slice(0, at) + articleLink(text.slice(at + 2, close)) + processInline(text.slice(close + 2), topLevel);
+    const embed = text[at - 1] === "!";
+    const inner = text.slice(at + 2, close);
+    return (
+      text.slice(0, embed ? at - 1 : at) +
+      (embed ? markdown(`i ${inner.split("|")[0]}`) : articleLink(inner)) +
+      processInline(text.slice(close + 2), topLevel)
+    );
   }
 
   let depth = 1;
@@ -342,7 +349,11 @@ export function txt2html(text, hasTitle = true) {
 
     if ((m = line.match(/^\|(\|?)(.*)$/))) {
       close("table");
-      tableBuf.push([m[1] === "|", m[2].split(/\t| {2,}/).map((c) => processInline(c.trim()))]);
+      // Obsidianの票も入れる。
+      const pipe = line.trimEnd().match(/^\|(.*)\|$/);
+      if (!pipe) tableBuf.push([m[1] === "|", m[2].split(/\t| {2,}/).map((c) => processInline(c.trim()))]);
+      else if (/^[\s|:]*-[\s|:-]*$/.test(pipe[1])) tableBuf.at(-1) && (tableBuf.at(-1)[0] = true);
+      else tableBuf.push([false, pipe[1].split("|").map((c) => processInline(c.trim()))]);
       continue;
     }
 

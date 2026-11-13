@@ -304,9 +304,21 @@ export function build() {
 
     writeText(JSON_PATH, JSON.stringify(list, null, 4) + "\n");
 
-    // hideの記事はHTMLは作り、gitには載せない
+    // hideの記事とそこでしか使わない画像はHTMLは作り、gitには載せない
     const MARK = "# hide記事";
-    const drafts = articles.filter((a) => a.hide).map((a) => `blog/${a.outputFilename}`);
+    const [hiddenImages, shownImages] = [true, false].map(
+        (hide) =>
+            new Set(
+                articles
+                    .filter((a) => a.hide === hide)
+                    .flatMap((a) => a.parsed.images.map((img) => img.src))
+                    .filter((src) => !isAbsoluteUrl(src)),
+            ),
+    );
+    const drafts = [
+        ...articles.filter((a) => a.hide).map((a) => `blog/${a.outputFilename}`),
+        ...[...hiddenImages].filter((src) => !shownImages.has(src)).map((src) => `blog/${src}`),
+    ];
     const kept = readText(GITIGNORE_PATH).split(MARK)[0].replace(/\s+$/, "");
     writeText(GITIGNORE_PATH, drafts.length ? `${kept}\n\n${MARK}\n${drafts.join("\n")}\n` : `${kept}\n`);
 

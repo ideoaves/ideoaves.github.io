@@ -26,6 +26,7 @@
         "urls": [
             "youtube.com/watch?v=3Vjw2ZhSXE0",
             "github.com/hazuqu/hazuqu.github.io/blob/main/tools/kuwahara.fs",
+            "github.com/hazuqu/AE-tools/blob/main/plugins/HZQ_Kuwahara.aex",
             "github.com/baku89/ISF4AE"
         ],
         "private": false
@@ -212,9 +213,9 @@
             "youtube.com/watch?v=uViZVI1ycns",
             "youtube.com/watch?v=wndHqz3n2GQ",
             "editor.p5js.org/IDEOAVES/sketches/dyT0WRDsF",
-            "github.com/hazuqu/hazuqu.github.io/blob/main/tools/ランダムフリーズ.jsx",
-            "github.com/hazuqu/hazuqu.github.io/blob/main/tools/制御自動追加.jsx",
-            "github.com/hazuqu/hazuqu.github.io/blob/main/tools/歌詞書き換え.jsx",
+            "github.com/hazuqu/AE-tools/blob/main/Scripts/zuq_ランダムフリーズ.jsx",
+            "github.com/hazuqu/AE-tools/blob/main/Scripts/zuq_制御自動追加.jsx",
+            "github.com/hazuqu/AE-tools/blob/main/Scripts/zuq_歌詞書き換え.jsx",
             "youtube.com/watch?v=fMw6qU-DCwQ",
             "youtube.com/watch?v=JiuTyDdtedo",
             "hazuqu.github.io/p5/6.html",
@@ -335,7 +336,7 @@
             "scrapbox.io/video-plugin-archive/%E6%98%A0%E5%83%8F%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%BE%E3%81%A8%E3%82%81",
             "scrapbox.io/lookdev/Lookdev_%2350%E3%80%8E%E3%82%A4%E3%83%B3%E3%83%87%E3%83%9A%E3%83%B3%E3%83%87%E3%83%B3%E3%83%88%E3%83%BB%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%8D%E4%B8%96%E7%95%8C%E3%80%81%E3%81%82%E3%81%A8AI%E3%82%84VR%E3%81%A8%E3%81%8B%E3%80%8F",
             "github.com/Aodaruma/aod-AE-plugin",
-            "hazuqu.github.io/more_works.html",
+            "github.com/hazuqu/AE-tools",
             "/Omni_Lifegame",
             "catagolue.hatsya.com/census/b5s123/C1",
             "conwaylife.com/wiki/Tutorials/Contributing_to_Catagolue",

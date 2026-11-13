@@ -284,6 +284,10 @@ table {
     padding: 10px;
 }
 
+.ブログ本文 table {
+    margin: 0 auto;
+}
+
 thead {
     text-align: left;
 }
