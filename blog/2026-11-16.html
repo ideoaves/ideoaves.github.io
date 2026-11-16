@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ホロGTAホロメンMAP　つくった！ ( 𝐼𝑑𝑒𝑜𝑎𝑣𝑒𝑠 )</title>
+    <meta name="description" content="思案とはづくでholoGTAホロメンMA...">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ideoaves のブログ" href="/blog/rss.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ホロGTAホロメンMAP　つくった！">
+    <meta name="twitter:description" content="思案とはづくでholoGTAホロメンMA...">
+    <meta name="twitter:image" content="https://ideoaves.github.io/blog/blog_img/GTA_thum.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="ロゴ"></div>
+        <div id="ヘッダー"></div>
+    </header>
+
+    <main>
+            <div class="横に狭い分類">
+                <h1>ホロGTAホロメンMAP　つくった！</h1>
+                <div class="作った人たち">sian hazuqu</div>
+                <div class="目次"><h1>目次</h1><a href="#作り方">作り方</a><br><a href="#メイキング">メイキング</a><br><a href="#一連の流れ" class="h2">一連の流れ</a><br><a href="#SIFTによる探索" class="h2">SIFTによる探索</a><br><a href="#データ" class="h2">データ</a><br><a href="#時間測定" class="h2">時間測定</a><br><a href="#動画" class="h2">動画</a><br></div>
+                <div class="ブログ本文">
+                <p><img alt="" class="ブログの画像" src="blog_img/GTA_thum.png">
+                思案とはづくで<a href="https://hologta-map.pages.dev/">holoGTAホロメンMAP</a>というウェブサイトを作ってみました。<br>
+                <a href="https://ide-an.github.io/nijigta-livers-map/">にじGTAライバーMAP</a>のホロGTAバージョンが見当たらなかったので作った次第です。大体はそのサイトにある方法で始めましたが、アルゴリズムは別のものになりました。</p>
+                <h1 id="作り方">作り方</h1>
+                <p>自環境以外でテストしていないので、一旦1本の動画を処理可能か試してください。大体1時間以内でおわります。<br>
+                <a href="https://github.com/ideoaves/GTA-Mapping">ideoavesGTA-Mapping</a>に詳しい方法が記載されています。<br>
+                基本的には自動化できていますが、微調整は必要なため、そのツール（edit.py）も一緒になっています。<br>
+                <img alt="" class="ブログの画像" src="blog_img/tesa.png">
+                <span class="コメント文字">手作業で道を揃える作業中。ただ進んでいるわけではなく時々事故したりしていて面白いです。</span><br>
+                山間部の直線はただ進んでいるわけではなく、時々事故したりしていて面白いです。<br>
+                よくあった修正は/hoten、カーショップから飛行場・家の外から中へのワープ、ヘリコプターでの搬送でした。これらは判定しようとすると他の通常の経路が消えてしまうため手作業が良いです。</p>
+                <h1 id="メイキング">メイキング</h1>
+                <h2 id="一連の流れ">一連の流れ</h2>
+                <p>まず基準を2秒とし、左下のMAPの状態を把握します。このときMAPの表示の有無とともに、車に乗っているか否かを同時に判定します（10m/s超過をとりあえず入れています）。徒歩ならば大きく動かないため10秒を基準にします。<br>
+                探索範囲は前回のポイントから600m四方と適当な速度*経過時間で、6点以上の特徴点があれば採用します。<br>
+                経過時間が1分を超えた場合は地図全体を走査します。<br>
+                最後にビジュアライズ時の処理として、前後10秒間の中央値の算出（同じ場所で回っているとトゲトゲの固まりができるなど、可視化に致命的な要素がある）、複数候補からの最近点の選択、一定距離内の停止時10秒間への間引き（とくに停車時に2秒ずつ同じ箇所に点を打ち続けてしまう問題への対処）をおこないます。これでできたjsonをhtml上で表示します。</p>
+                <h2 id="SIFTによる探索">SIFTによる探索</h2>
+                <p>特定方法を探り、かなり手頃な方法が見つかりました。</p>
+                <p>にじGTAライバーMAPの<a href="https://github.com/ide-an/nijigta-livers-map/blob/main/doc/technical_detail.md">技術的な話</a>をアイデアベースにしてEasyOCR、PP-OCR v6 smallを試していましたが、時間的なコストの問題で<a href="https://forum.cfx.re/t/release-postal-code-map-minimap-new-improved-v1-3/147458">Postal Code Map & Minimap - New & Improved - v1.3</a>を使ったSIFT（特徴点による探索）をおこないました。すると予想より大幅に時間・精度ともに改善がありました。<br>
+                とくに番地の少ない山間部の特定の問題が解消され、これにより特に山間部での追跡が容易になりました。<br>
+                <img alt="" class="ブログの画像" src="blog_img/ayame_v1_v2.png">
+                <span class="コメント文字">例：百鬼あやめの経路描画の比較。赤線がSIFT。<br>
+                山間部、中間部の採用ポイントが非常に増えている。都心部も精度が良い。</span></p>
+                <h2 id="データ">データ</h2>
+                <p>以下は3〜7日目（192本）の平均値です（最終版のデータのあるものを抽出しています）。</p>
+                <table><thead><tr><th>項目</th><th>平均</th></tr></thead><tbody><tr><td>動画の長さ</td><td>331分</td></tr><tr><td>時間</td><td>17分46秒（1枚0.21秒）</td></tr><tr><td>MAP画像</td><td>9941枚</td></tr><tr><td>照合合計</td><td>約5025枚（51%）</td></tr><tr><td>位置取得</td><td>3737枚（74%）</td></tr><tr><td>採用</td><td>2312点</td></tr></tbody></table>
+                <p>1本5-6時間の動画の処理におよそ20分かかっており、また位置取得のポイントも想定より高い値でした。<br>
+                また動画全体から取得できたのは以下の割合でした。平均して50%以上の取得があり、間は殆ど予想経路が直線であることを考えると、手作業での調整はほぼいらないでしょう。</p>
+                <table><thead><tr><th>場所</th><th>v1 OCR</th><th>v2 SIFT</th></tr></thead><tbody><tr><td>都心</td><td>72.06%</td><td>87.47%</td></tr><tr><td>その間（町・郊外の道）</td><td>34.76%</td><td>75.40%</td></tr><tr><td>山・郊外</td><td>0.11%</td><td>40.67%</td></tr><tr><td>全体</td><td>70.85%</td><td>86.45%</td></tr></tbody></table>
+                <h2 id="時間測定">時間測定</h2>
+                <p>動画の開始時刻が実際のサーバー内時間であることは遅延によってありえません。そこで、左上の時間表示をOCRして切り替わった瞬間を記録します。これは2秒ごとの撮影を基準にしているので誤差が2秒以内ですが、時間表示の上にロゴや配信枠装飾が隠れる場合があります。またOCRも完璧ではありません。<br>
+                そこでサーバー全体に流れる終了時刻のアナウンスも利用しています。これは画面中央上に表示され、かつ比較的大きいため被る心配がありませんが、サーバー終了前に参加している必要があります。この２種で時間差を特定しています。</p>
+                <h2 id="動画">動画</h2>
+                <p>今回利用した動画は279本で、合計約81時間で一通りの作業が終わりました。またダウンロードの処理を含むと、大体5日程度かかったでしょう。<br>
+                一覧は<a href="https://github.com/ideoaves/GTA-Mapping/blob/main/Video_credit.md">Video_credit.md</a>にあります。<br>
+                正直なところ、ここが一番大変でした。</p>
+                </div>
+                <div class="関連記事" data-記事="ホロGTAホロメンMAP　つくった！" hidden></div>
+                <div class="承認欲求">
+                    <div class="heart">♥<span class="乱数"></span></div>
+                    <div class="up">⤴<span class="乱数"></span></div>
+                </div>
+            </div>
+    </main>
+    <script src="/JS.js"></script>
+</body>
+
+</html>

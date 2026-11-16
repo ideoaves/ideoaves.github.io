@@ -479,5 +479,24 @@
             "x.com/Taku_san_32/status/2114160577920881134"
         ],
         "private": false
+    },
+    "2026-11-16.html": {
+        "filename": "2026-11-16.html",
+        "md": "ホロGTAホロメンMAP　つくった！.md",
+        "title": "ホロGTAホロメンMAP　つくった！",
+        "img": "blog_img/GTA_thum.png",
+        "summary": "思案とはづくでholoGTAホロメンMAPというウェブサイトを作ってみました。 にじGTAライバーMAPのホロGTAバージョンが見当たらなかったので作った次第です。大体はそのサイトにある方法で始めまし...",
+        "date": "2026-11-16",
+        "author": "sian hazuqu",
+        "links": [],
+        "urls": [
+            "hologta-map.pages.dev",
+            "ide-an.github.io/nijigta-livers-map",
+            "github.com/ideoaves/GTA-Mapping",
+            "github.com/ide-an/nijigta-livers-map/blob/main/doc/technical_detail.md",
+            "forum.cfx.re/t/release-postal-code-map-minimap-new-improved-v1-3/147458",
+            "github.com/ideoaves/GTA-Mapping/blob/main/Video_credit.md"
+        ],
+        "private": false
     }
 }
